@@ -1,0 +1,53 @@
+{
+  "name": "laadgids",
+  "version": "0.1.0",
+  "private": true,
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "esbuild",
+      "unrs-resolver",
+      "sharp"
+    ]
+  },
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "seed": "tsx scripts/seed.ts",
+    "import-specs": "tsx scripts/import-specs.ts",
+    "recalc-pages": "tsx scripts/recalc-pages.ts",
+    "audit-sources": "tsx scripts/audit-sources.ts",
+    "screenshot": "tsx scripts/screenshot.ts",
+    "import-open-ev-data": "tsx scripts/import-open-ev-data.ts",
+    "review-candidates": "tsx scripts/review-candidates.ts",
+    "fetch-open-ev-data": "tsx scripts/fetch-open-ev-data.ts",
+    "import-eea": "tsx scripts/import-eea.ts"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.58.0",
+    "next": "^16.3.4",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "resend": "^6.1.0",
+    "zod": "^4.1.0"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3.3.1",
+    "@types/node": "^24.0.0",
+    "@types/react": "^19.2.0",
+    "@types/react-dom": "^19.2.0",
+    "autoprefixer": "^10.4.21",
+    "eslint": "^9.36.0",
+    "eslint-config-next": "^16.3.4",
+    "playwright": "^1.55.0",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^3.4.17",
+    "tsx": "^4.20.0",
+    "typescript": "^5.9.0",
+    "vitest": "^3.2.0"
+  }
+}

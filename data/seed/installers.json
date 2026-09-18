@@ -1,0 +1,3 @@
+[
+  { "id": 1, "name": "TEST installateur (vervangen voor livegang)", "regions": ["9", "VLA"], "contact_email": "installer-test@example.com", "price_per_lead_cents": null, "active": true }
+]

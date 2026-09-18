@@ -1,0 +1,70 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* DESIGN.md §2: body 17/1.65 mobiel, 18/1.7 desktop; navy op warm off-white; geen gewicht boven 600. */
+@layer base {
+  html {
+    background-color: theme("colors.paper");
+    color: theme("colors.ink");
+    font-size: 17px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+  @media (min-width: 768px) {
+    html {
+      font-size: 18px;
+      line-height: 1.7;
+    }
+  }
+  body {
+    font-family: theme("fontFamily.sans");
+    min-height: 100vh;
+  }
+  h1 {
+    font-size: 30px;
+    line-height: 1.2;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+  h2 {
+    font-size: 22px;
+    line-height: 1.3;
+    font-weight: 600;
+  }
+  h3 {
+    font-size: 18px;
+    line-height: 1.4;
+    font-weight: 600;
+  }
+  @media (min-width: 768px) {
+    h1 {
+      font-size: 36px;
+    }
+    h2 {
+      font-size: 24px;
+    }
+  }
+  a {
+    color: theme("colors.ink");
+    text-decoration: underline;
+    text-decoration-color: theme("colors.line2");
+    text-underline-offset: 3px;
+  }
+  a:hover {
+    text-decoration-color: theme("colors.ink");
+  }
+  :focus-visible {
+    outline: 1px solid theme("colors.ink");
+    outline-offset: 2px;
+  }
+  strong {
+    font-weight: 600;
+  }
+}
+
+@layer utilities {
+  .tnum {
+    font-variant-numeric: tabular-nums;
+  }
+}

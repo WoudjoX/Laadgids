@@ -1,0 +1,93 @@
+[
+  {
+    "id": 1,
+    "url": "https://financien.belgium.be/nl",
+    "title": "FOD Financiën: VAA, aftrekbaarheid, 6 % btw",
+    "last_checked_at": "2026-09-01",
+    "check_interval_days": 365
+  },
+  {
+    "id": 2,
+    "url": "https://www.vreg.be/nl/capaciteitstarief",
+    "title": "VREG: capaciteitstarief",
+    "last_checked_at": "2026-09-01",
+    "check_interval_days": 365
+  },
+  {
+    "id": 3,
+    "url": "https://www.creg.be/nl/professionals/marktwerking-en-monitoring/boordtabel",
+    "title": "CREG boordtabel: elektriciteitsprijzen",
+    "last_checked_at": "2026-09-01",
+    "check_interval_days": 90
+  },
+  {
+    "id": 4,
+    "url": "https://www.creg.be/nl",
+    "title": "CREG-tarief terugbetaling thuisladen",
+    "last_checked_at": "2026-09-01",
+    "check_interval_days": 90
+  },
+  {
+    "id": 5,
+    "url": "https://www.fluvius.be/nl",
+    "title": "Fluvius: meldingsplicht laadpaal",
+    "last_checked_at": "2026-09-01",
+    "check_interval_days": 180
+  },
+  {
+    "id": 6,
+    "url": "https://www.ores.be/",
+    "title": "ORES: meldingsplicht laadpaal",
+    "last_checked_at": "2026-09-01",
+    "check_interval_days": 180
+  },
+  {
+    "id": 7,
+    "url": "https://www.resa.be/",
+    "title": "RESA: meldingsplicht laadpaal",
+    "last_checked_at": "2026-09-01",
+    "check_interval_days": 180
+  },
+  {
+    "id": 8,
+    "url": "https://www.sibelga.be/",
+    "title": "Sibelga: meldingsplicht laadpaal",
+    "last_checked_at": "2026-09-01",
+    "check_interval_days": 180
+  },
+  {
+    "id": 9,
+    "url": "https://www.belastingdienst.nl/wps/wcm/connect/nl/auto-en-vervoer/content/bijtelling-elektrische-auto",
+    "title": "Belastingdienst: bijtelling",
+    "last_checked_at": "2026-09-01",
+    "check_interval_days": 365
+  },
+  {
+    "id": 10,
+    "url": "https://www.rvo.nl/subsidies-financiering/isde",
+    "title": "RVO: ISDE laadpaal",
+    "last_checked_at": "2026-09-01",
+    "check_interval_days": 365
+  },
+  {
+    "id": 11,
+    "url": "https://www.rijksoverheid.nl/onderwerpen/energie-thuis/salderingsregeling",
+    "title": "Rijksoverheid: einde saldering",
+    "last_checked_at": "2026-09-01",
+    "check_interval_days": 180
+  },
+  {
+    "id": 12,
+    "url": "https://github.com/open-ev-data/open-ev-data-dataset",
+    "title": "open-ev-data-dataset: batterij, AC/DC-vermogen, fasen, WLTP-range, OEM-bronnen; alleen staging",
+    "last_checked_at": "2026-09-10",
+    "check_interval_days": 90
+  },
+  {
+    "id": 13,
+    "url": "https://www.eea.europa.eu/en/datahub",
+    "title": "EEA CO2-monitoring personenwagens: inschrijvingen per variant BE/NL, WLTP-CO2 en verbruik; alleen staging",
+    "last_checked_at": "2026-09-10",
+    "check_interval_days": 365
+  }
+]

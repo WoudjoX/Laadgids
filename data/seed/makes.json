@@ -1,0 +1,11 @@
+[
+  { "id": 1, "slug": "tesla", "name": "Tesla" },
+  { "id": 2, "slug": "volkswagen", "name": "Volkswagen" },
+  { "id": 3, "slug": "skoda", "name": "Škoda" },
+  { "id": 4, "slug": "hyundai", "name": "Hyundai" },
+  { "id": 5, "slug": "kia", "name": "Kia" },
+  { "id": 6, "slug": "renault", "name": "Renault" },
+  { "id": 7, "slug": "peugeot", "name": "Peugeot" },
+  { "id": 8, "slug": "fiat", "name": "Fiat" },
+  { "id": 9, "slug": "bmw", "name": "BMW" }
+]

@@ -1,0 +1,16 @@
+node_modules
+.next
+out
+.env
+.env.local
+.env*.local
+.local
+screenshots
+*.tsbuildinfo
+next-env.d.ts
+.vercel
+.DS_Store
+
+# Staging van open data (lokale modus)
+data/import/candidates/
+data/import/review/
