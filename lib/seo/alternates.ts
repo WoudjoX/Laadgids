@@ -16,9 +16,15 @@ export interface Alternates {
  * Publieke basis-URL. Volgorde: NEXT_PUBLIC_SITE_URL, Vercel-productiedomein, Vercel-previewdomein, localhost.
  * Lege strings tellen als niet gezet (Vercel geeft lege env-waarden door).
  */
+/** "laadgids.be" of "laadgids.be/" wordt "https://laadgids.be"; een volledige URL blijft zoals ze is. */
+function withScheme(u: string): string {
+  const full = /^https?:\/\//i.test(u) ? u : `https://${u}`;
+  return full.replace(/\/+$/, "");
+}
+
 export function siteUrl(): string {
   const explicit = process.env.NEXT_PUBLIC_SITE_URL?.trim();
-  if (explicit) return explicit.replace(/\/$/, "");
+  if (explicit) return withScheme(explicit);
   const prod = process.env.VERCEL_PROJECT_PRODUCTION_URL?.trim();
   if (prod) return `https://${prod}`;
   const preview = process.env.VERCEL_URL?.trim();

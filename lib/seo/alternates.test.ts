@@ -1,6 +1,6 @@
-import { describe, expect, it } from "vitest";
+import { afterEach, describe, expect, it } from "vitest";
 import type { PageRow } from "@/lib/db/types";
-import { alternatesFor, assertValidHreflangKeys } from "./alternates";
+import { alternatesFor, assertValidHreflangKeys, siteUrl } from "./alternates";
 
 const base = "https://laadgids.test";
 
@@ -56,5 +56,26 @@ describe("alternatesFor", () => {
   });
   it("assertValidHreflangKeys weigert kale taalcodes", () => {
     expect(() => assertValidHreflangKeys({ nl: "x" })).toThrow();
+  });
+});
+
+describe("siteUrl", () => {
+  const env = process.env;
+  afterEach(() => {
+    process.env = env;
+  });
+  it("voegt https toe als het schema ontbreekt en verwijdert de slash", () => {
+    process.env = { ...env, NEXT_PUBLIC_SITE_URL: "laadgids.be/" };
+    expect(siteUrl()).toBe("https://laadgids.be");
+  });
+  it("laat een volledige URL ongemoeid", () => {
+    process.env = { ...env, NEXT_PUBLIC_SITE_URL: "http://localhost:3000" };
+    expect(siteUrl()).toBe("http://localhost:3000");
+  });
+  it("valt terug op VERCEL_URL en daarna localhost", () => {
+    process.env = { ...env, NEXT_PUBLIC_SITE_URL: "", VERCEL_URL: "laadgids-abc.vercel.app" };
+    expect(siteUrl()).toBe("https://laadgids-abc.vercel.app");
+    process.env = { ...env, NEXT_PUBLIC_SITE_URL: "", VERCEL_URL: "" };
+    expect(siteUrl()).toBe("http://localhost:3000");
   });
 });
