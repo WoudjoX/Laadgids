@@ -134,6 +134,33 @@ export interface Copy {
     sources: { heading: string; checked: string };
   };
   rulesPages: Record<string, string>; // topic-slug → titel, voor related links
+  compare: {
+    sectionSlug: string; // "vergelijk"
+    title: string;
+    intro: string;
+    metaDescription: string;
+    pickA: string;
+    pickB: string;
+    submit: string;
+    same: string; // twee keer hetzelfde model gekozen
+    linkFromModel: string; // "Vergelijk met een ander model"
+    linkFromIndex: string; // "Twee modellen vergelijken"
+    colModel: string;
+    rows: {
+      acMax: string;
+      battery: string;
+      range: string;
+      recommended: string;
+      timeRecommended: string;
+      time74: string;
+      time11: string;
+      costFullCheapest: string;
+      costFullDay: string;
+      cost100Cheapest: string;
+      capacity11: string;
+    };
+    note: string;
+  };
 }
 
 export function connectionLabel(copy: Copy, row: Pick<ChargeTimeRow, "connection">): string {

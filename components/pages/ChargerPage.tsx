@@ -11,7 +11,8 @@ import { MetricCards } from "@/components/MetricCards";
 import { PeakBlock } from "@/components/PeakBlock";
 import { RelatedLinks } from "@/components/RelatedLinks";
 import { SourcesBlock } from "@/components/SourcesBlock";
-import { LOCALE_CONFIG } from "@/lib/copy";
+import Link from "next/link";
+import { LOCALE_CONFIG, comparePath } from "@/lib/copy";
 import type { Locale, PageRow } from "@/lib/db/types";
 import { PhaseDiagram } from "@/components/viz/PhaseDiagram";
 import { dateLong, durationCompact, kw } from "@/lib/format";
@@ -91,6 +92,9 @@ export function ChargerPage({ data, locale, page, related, canonical }: Props) {
           ]}
         />
       </div>
+      <p className="mt-3 text-[14px]">
+        <Link href={comparePath(locale, page.path.split("/").pop() ?? "")}>{copy.compare.linkFromModel} →</Link>
+      </p>
       {/* 6 */}
       <section className="mt-10">
         <h2>{c.table.heading(vars)}</h2>

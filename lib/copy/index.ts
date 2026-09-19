@@ -54,3 +54,13 @@ export function rulePath(locale: Locale, region: string, topic: string): string 
 /** Slug van de sectie laadkosten per locale (fase 2). */
 export const COST_SECTION: Record<Locale, string> = { "nl-BE": "laadkosten", "fr-BE": "cout-recharge", "nl-NL": "laadkosten" };
 export const RULES_SECTION: Record<Locale, string> = { "nl-BE": "regels", "fr-BE": "regles", "nl-NL": "regels" };
+
+/** Pad van de vergelijkingspagina, optioneel met model A voorgeselecteerd. */
+export function comparePath(locale: Locale, a?: string, b?: string): string {
+  const base = `/${LOCALE_CONFIG[locale].segment}/${getCopy(locale).compare.sectionSlug}`;
+  const q = new URLSearchParams();
+  if (a) q.set("a", a);
+  if (b) q.set("b", b);
+  const qs = q.toString();
+  return qs ? `${base}?${qs}` : base;
+}
