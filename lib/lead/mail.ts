@@ -10,13 +10,16 @@ interface Mail {
 async function send(mail: Mail): Promise<void> {
   const key = process.env.RESEND_API_KEY;
   const from = process.env.LEAD_FROM_EMAIL ?? "leads@laadgids.be";
+  // Het afzenderadres hoeft geen mailbox te zijn. Antwoorden gaan naar het adres van de eigenaar,
+  // zodat een reactie van een aanvrager nooit verloren gaat.
+  const replyTo = process.env.LEAD_NOTIFY_EMAIL?.trim() || undefined;
   if (!key) {
-    console.info("[lead-mail:dry-run]", mail.to, mail.subject);
+    console.info("[lead-mail:dry-run]", mail.to, mail.subject, replyTo ? `(reply-to ${replyTo})` : "");
     return;
   }
   const { Resend } = await import("resend");
   const resend = new Resend(key);
-  const res = await resend.emails.send({ from, to: mail.to, subject: mail.subject, text: mail.text });
+  const res = await resend.emails.send({ from, to: mail.to, subject: mail.subject, text: mail.text, replyTo });
   if (res.error) throw new Error(res.error.message);
 }
 
