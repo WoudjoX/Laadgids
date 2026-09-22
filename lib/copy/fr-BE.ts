@@ -21,6 +21,17 @@ export const frBE: Copy = {
     cardRecommended: "recommandé",
     cardAc: "AC max.",
     cardBattery: "batterie",
+    cardTime: "20 à 80 %",
+  },
+  home: {
+    h1: "Quelle borne pour votre voiture ?",
+    pickLabel: "Choisissez votre modèle",
+    pickButton: "Voir le conseil",
+    exampleLabel: "Voici à quoi ressemble une réponse",
+    exampleLink: (model) => `Conseil complet pour la ${model}`,
+    trust: (date) => `Calculé avec les tarifs et règles du ${date}. Chaque page cite ses sources et la date de vérification.`,
+    group: (kw) => `Charge à domicile jusqu'à ${kw}`,
+    allModels: "Tous les modèles",
   },
   connections: {
     socket_2300: "Prise domestique (monophasé 10 A)",

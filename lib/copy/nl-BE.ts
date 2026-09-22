@@ -21,6 +21,17 @@ export const nlBE: Copy = {
     cardRecommended: "aanbevolen",
     cardAc: "AC max.",
     cardBattery: "batterij",
+    cardTime: "20 naar 80 %",
+  },
+  home: {
+    h1: "Welke laadpaal past bij jouw auto?",
+    pickLabel: "Kies je model",
+    pickButton: "Toon advies",
+    exampleLabel: "Zo ziet een antwoord eruit",
+    exampleLink: (model) => `Volledig advies voor de ${model}`,
+    trust: (date) => `Berekend met tarieven en regels van ${date}. Elke pagina vermeldt haar bronnen en de datum van controle.`,
+    group: (kw) => `Laadt thuis tot ${kw}`,
+    allModels: "Alle modellen",
   },
   connections: {
     socket_2300: "Stopcontact (1-fasig 10 A)",

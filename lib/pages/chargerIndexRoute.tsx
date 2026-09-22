@@ -3,7 +3,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Breadcrumb } from "@/components/Breadcrumb";
-import { ModelCards } from "@/components/ModelCards";
+import { GroupedModelCards } from "@/components/ModelCards";
+import { ModelPicker } from "@/components/ModelPicker";
 import { Shell } from "@/components/Shell";
 import { LOCALES, LOCALE_CONFIG, comparePath, getCopy, localeFromSegment } from "@/lib/copy";
 import type { Locale } from "@/lib/db/types";
@@ -49,11 +50,14 @@ export async function renderChargerIndex(section: string, seg: string) {
         <Breadcrumb items={[{ label: copy.site.home, href: `/${LOCALE_CONFIG[locale].segment}` }, { label: copy.charger.breadcrumbSection }]} />
         <h1 className="mt-4 max-w-prose">{copy.charger.breadcrumbSection}</h1>
         <p className="mt-3 max-w-prose text-ink2">{copy.site.homeIntro}</p>
-        <p className="mt-3 text-[15px]">
+        <div className="mt-6">
+          <ModelPicker items={items} copy={copy} locale={locale} />
+        </div>
+        <p className="mt-4 text-[15px]">
           <Link href={comparePath(locale)}>{copy.compare.linkFromIndex} →</Link>
         </p>
         <div className="mt-8">
-          <ModelCards items={items} copy={copy} locale={locale} />
+          <GroupedModelCards items={items} copy={copy} locale={locale} />
         </div>
       </div>
     </Shell>

@@ -60,6 +60,17 @@ export interface Copy {
     cardRecommended: string; // "aanbevolen"
     cardAc: string; // "AC max."
     cardBattery: string; // "batterij"
+    cardTime: string; // "20 naar 80 %"
+  };
+  home: {
+    h1: string; // de belofte, geen categorielabel
+    pickLabel: string; // "Kies je model"
+    pickButton: string; // "Toon advies"
+    exampleLabel: string; // "Zo ziet een antwoord eruit"
+    exampleLink: (model: string) => string; // "Volledig advies voor {model}"
+    trust: (date: string) => string; // "Berekend met tarieven en regels van {date}. Elke pagina vermeldt haar bronnen."
+    group: (kw: string) => string; // "Laadt tot 11 kW"
+    allModels: string; // "Alle modellen"
   };
   connections: Record<ConnectionKey, string>;
   charger: {
