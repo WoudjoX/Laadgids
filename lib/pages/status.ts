@@ -16,7 +16,8 @@ export interface DecisionOptions {
 
 /**
  * index alleen als: completeness 1.0, model verkocht in het land van de locale,
- * en de berekening onderscheidend is (auto heeft echte AC-specs, geen importer-defaults).
+ * de berekening onderscheidend is (auto heeft echte AC-specs, geen importer-defaults),
+ * en Erwin de specs tegen de fabrikantenbron gelegd heeft (verified_at, definition of done punt 5).
  * Anders noindex (wel intern gelinkt). draft alleen als de berekening zelf onmogelijk is.
  */
 export function decidePageStatus(version: VersionRow, locale: Locale, template: Template, opts: DecisionOptions = {}): PageDecision {
@@ -31,6 +32,7 @@ export function decidePageStatus(version: VersionRow, locale: Locale, template: 
   if (!version.sold_in.includes(country)) reasons.push(`not sold in ${country}`);
   if (!isDistinctive(version)) reasons.push("all calc inputs at default values");
   if (opts.unverified) reasons.push("source not verified (TODO(verify))");
+  if (!version.verified_at) reasons.push("specs not verified against manufacturer source (versions.verified_at is null)");
 
   return { completeness_score: score, status: reasons.length === 0 ? "index" : "noindex", reasons };
 }

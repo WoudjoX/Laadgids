@@ -1,38 +1,158 @@
 [
   {
-    "id": 1, "country": "BE", "region": "VLA", "rule_type": "capacity_tariff", "valid_from": "2026-01-01", "valid_to": "2026-12-31",
-    "params": { "cents_per_kw_year": 5600, "min_kw": 2.5, "household_baseline_w": 3500 },
-    "source_url": "https://www.vreg.be/nl/capaciteitstarief", "source_checked_at": "2026-09-01",
-    "notes": "TODO(verify: Fluvius/VREG tarieven 2026). Placeholder: midden van de range 52 tot 60 EUR/kW/jaar uit CLAUDE.md 1. Exact tarief per netgebied invullen."
+    "id": 1,
+    "country": "BE",
+    "region": "VLA",
+    "rule_type": "capacity_tariff",
+    "valid_from": "2026-01-01",
+    "valid_to": "2026-12-31",
+    "params": {
+      "cents_per_kw_year": 5659,
+      "excl_vat_cents_per_kw_year": 5339,
+      "vat_pct": 6,
+      "is_regional_average": true,
+      "min_kw": 2.5,
+      "household_baseline_w": 3500
+    },
+    "source_url": "https://www.vlaamsenutsregulator.be/elektriciteit-en-aardgas/nettarieven/capaciteitstarief",
+    "source_checked_at": "2026-09-22",
+    "notes": "VREG: gemiddeld 53,39 EUR/kW/jaar excl. btw voor 2026; verschilt per netgebied (Fluvius West 57,10 excl.). Incl. 6 % btw = 56,59 (eigen berekening, zo gelabeld op de pagina). Minimum 2,5 kW."
   },
   {
-    "id": 2, "country": "BE", "region": null, "rule_type": "vat_reduced", "valid_from": "2024-09-01", "valid_to": null,
-    "params": { "rate_pct": 6, "home_min_age_years": 10, "conditions": ["woning ouder dan 10 jaar", "professionele installatie", "in of aan de woning"] },
-    "source_url": "https://financien.belgium.be/nl/particulieren/woning/verbouwen/btw-tarief-6-renovatie", "source_checked_at": "2026-09-01",
-    "notes": "TODO(verify: FOD Financien circulaire). Voorwaarden uit CLAUDE.md 1."
+    "id": 2,
+    "country": "BE",
+    "region": null,
+    "rule_type": "vat_reduced",
+    "valid_from": "2023-07-01",
+    "valid_to": null,
+    "params": {
+      "rate_pct": 6,
+      "home_min_age_years": 10,
+      "conditions": [
+        "woning ouder dan 10 jaar",
+        "professionele installatie",
+        "in of aan de woning"
+      ]
+    },
+    "source_url": "https://fin.belgium.be/nl/ondernemingen/btw/btw-plicht/tarieven-en-berekening/btw-tarieven",
+    "source_checked_at": "2026-09-22",
+    "notes": "Circulaire 2023/C/64 van 26/06/2023 en FAQ 2023/C/65: verlaagd tarief permanent sinds 01/04/2023, sinds 01/07/2023 op basis van niet-zakelijk gebruik. Plaatsing laadstation valt onder renovatie privewoning (KB nr. 20, rubriek XXXVIII): woning minstens 10 jaar, aannemer, in of aan de woning, garage, carport, oprit of terras."
   },
   {
-    "id": 3, "country": "NL", "region": null, "rule_type": "bijtelling", "valid_from": "2026-01-01", "valid_to": "2026-12-31",
-    "params": { "cap_cents": 3000000, "low_pct": 0.18, "high_pct": 0.22, "fixed_months": 60, "net_rates": [0.37, 0.495] },
-    "source_url": "https://www.belastingdienst.nl/wps/wcm/connect/nl/auto-en-vervoer/content/bijtelling-elektrische-auto", "source_checked_at": "2026-09-01",
+    "id": 3,
+    "country": "NL",
+    "region": null,
+    "rule_type": "bijtelling",
+    "valid_from": "2026-01-01",
+    "valid_to": "2026-12-31",
+    "params": {
+      "cap_cents": 3000000,
+      "low_pct": 0.18,
+      "high_pct": 0.22,
+      "fixed_months": 60,
+      "net_rates": [
+        0.37,
+        0.495
+      ]
+    },
+    "source_url": "https://www.belastingdienst.nl/wps/wcm/connect/nl/auto-en-vervoer/content/bijtelling-elektrische-auto",
+    "source_checked_at": "2026-09-01",
     "notes": "TODO(verify: Belastingdienst tabel 2026)."
   },
   {
-    "id": 4, "country": "NL", "region": null, "rule_type": "bijtelling", "valid_from": "2027-01-01", "valid_to": "2027-12-31",
-    "params": { "cap_cents": 3000000, "low_pct": 0.20, "high_pct": 0.22, "fixed_months": 60, "net_rates": [0.37, 0.495] },
-    "source_url": "https://www.belastingdienst.nl/wps/wcm/connect/nl/auto-en-vervoer/content/bijtelling-elektrische-auto", "source_checked_at": "2026-09-01",
+    "id": 4,
+    "country": "NL",
+    "region": null,
+    "rule_type": "bijtelling",
+    "valid_from": "2027-01-01",
+    "valid_to": "2027-12-31",
+    "params": {
+      "cap_cents": 3000000,
+      "low_pct": 0.2,
+      "high_pct": 0.22,
+      "fixed_months": 60,
+      "net_rates": [
+        0.37,
+        0.495
+      ]
+    },
+    "source_url": "https://www.belastingdienst.nl/wps/wcm/connect/nl/auto-en-vervoer/content/bijtelling-elektrische-auto",
+    "source_checked_at": "2026-09-01",
     "notes": "TODO(verify: Belastingdienst tabel 2027)."
   },
   {
-    "id": 5, "country": "NL", "region": null, "rule_type": "bijtelling", "valid_from": "2028-01-01", "valid_to": null,
-    "params": { "cap_cents": 3000000, "low_pct": 0.22, "high_pct": 0.22, "fixed_months": 60, "net_rates": [0.37, 0.495] },
-    "source_url": "https://www.belastingdienst.nl/wps/wcm/connect/nl/auto-en-vervoer/content/bijtelling-elektrische-auto", "source_checked_at": "2026-09-01",
+    "id": 5,
+    "country": "NL",
+    "region": null,
+    "rule_type": "bijtelling",
+    "valid_from": "2028-01-01",
+    "valid_to": null,
+    "params": {
+      "cap_cents": 3000000,
+      "low_pct": 0.22,
+      "high_pct": 0.22,
+      "fixed_months": 60,
+      "net_rates": [
+        0.37,
+        0.495
+      ]
+    },
+    "source_url": "https://www.belastingdienst.nl/wps/wcm/connect/nl/auto-en-vervoer/content/bijtelling-elektrische-auto",
+    "source_checked_at": "2026-09-01",
     "notes": "TODO(verify: Belastingdienst). Vanaf 2028 uniform 22 %."
   },
   {
-    "id": 6, "country": "NL", "region": null, "rule_type": "isde", "valid_from": "2026-01-01", "valid_to": "2026-12-31",
-    "params": { "max_cents": 20000, "requires_smart": true },
-    "source_url": "https://www.rvo.nl/subsidies-financiering/isde", "source_checked_at": "2026-09-01",
+    "id": 6,
+    "country": "NL",
+    "region": null,
+    "rule_type": "isde",
+    "valid_from": "2026-01-01",
+    "valid_to": "2026-12-31",
+    "params": {
+      "max_cents": 20000,
+      "requires_smart": true
+    },
+    "source_url": "https://www.rvo.nl/subsidies-financiering/isde",
+    "source_checked_at": "2026-09-01",
     "notes": "TODO(verify: RVO ISDE 2026 laadpaal)."
+  },
+  {
+    "id": 7,
+    "country": "BE",
+    "region": null,
+    "rule_type": "creg_tariff",
+    "valid_from": "2026-07-01",
+    "valid_to": "2026-09-30",
+    "params": {
+      "cents_per_kwh_by_region": {
+        "VLA": 32.22,
+        "BRU": 37.19,
+        "WAL": 37.83
+      },
+      "quarter": "2026-Q3"
+    },
+    "source_url": "https://www.creg.be/nl/consumenten/prijzen-en-tarieven/creg-tarief-voor-terugbetaling-thuisladen-bedrijfswagens",
+    "source_checked_at": "2026-09-22",
+    "notes": "Q3 2026. Bevestigd via CREG-webpagina; PDF-check door Erwin."
+  },
+  {
+    "id": 8,
+    "country": "BE",
+    "region": null,
+    "rule_type": "creg_tariff",
+    "valid_from": "2026-10-01",
+    "valid_to": "2026-12-31",
+    "params": {
+      "cents_per_kwh_by_region": {
+        "VLA": 32.25,
+        "BRU": 36.88,
+        "WAL": 37.79
+      },
+      "quarter": "2026-Q4",
+      "published_at": "2026-08-11"
+    },
+    "source_url": "https://www.creg.be/nl/consumenten/prijzen-en-tarieven/creg-tarief-voor-terugbetaling-thuisladen-bedrijfswagens",
+    "source_checked_at": "2026-09-22",
+    "notes": "Q4 2026, geldig vanaf 1 oktober. Gepubliceerd 11/08/2026. Bevestigd via CREG-webpagina; PDF-check door Erwin."
   }
 ]

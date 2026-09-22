@@ -49,7 +49,9 @@ export function compareVersions(va: VersionFull, vb: VersionFull, locale: Locale
   if (a.cost && b.cost) {
     rows.push(
       { label: r.costFullCheapest, a: euro(a.cost.cheapest.full_charge_cents, locale, { decimals: 2 }), b: euro(b.cost.cheapest.full_charge_cents, locale, { decimals: 2 }), better: pick(a.cost.cheapest.full_charge_cents, b.cost.cheapest.full_charge_cents, true) },
-      { label: r.costFullDay, a: euro(day(a)!.full_charge_cents, locale, { decimals: 2 }), b: euro(day(b)!.full_charge_cents, locale, { decimals: 2 }), better: pick(day(a)!.full_charge_cents, day(b)!.full_charge_cents, true) },
+      ...(a.cost.baseline.tariff_slug !== a.cost.cheapest.tariff_slug
+        ? [{ label: r.costFullDay, a: euro(day(a)!.full_charge_cents, locale, { decimals: 2 }), b: euro(day(b)!.full_charge_cents, locale, { decimals: 2 }), better: pick(day(a)!.full_charge_cents, day(b)!.full_charge_cents, true) }]
+        : []),
       { label: r.cost100Cheapest, a: euro(a.cost.cheapest.cents_per_100km, locale, { decimals: 2 }), b: euro(b.cost.cheapest.cents_per_100km, locale, { decimals: 2 }), better: pick(a.cost.cheapest.cents_per_100km, b.cost.cheapest.cents_per_100km, true) },
     );
   }

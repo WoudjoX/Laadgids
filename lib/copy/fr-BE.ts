@@ -93,7 +93,7 @@ export const frBE: Copy = {
       perYear: (v) => `Pour ${v.kmPerYear} km par an, avec 15 % de facteur réel sur la consommation WLTP et 10 % de pertes de charge.`,
       saving: (v) =>
         v.savingYear && v.cheapestLabel
-          ? `${v.cheapestFull} par charge complète avec ${v.cheapestLabel}. C'est ${v.savingYear} par an de moins que le tarif de jour.`
+          ? `${v.cheapestFull} par charge complète avec ${v.cheapestLabel}. C'est ${v.savingYear} par an de moins que le tarif fixe.`
           : "",
       cta: "Comparer les tarifs dynamiques",
       unavailable: "Aucun tarif vérifié pour cette région pour l'instant. Nous préférons ne rien afficher qu'un chiffre inventé.",
@@ -105,6 +105,10 @@ export const frBE: Copy = {
       with: "avec délestage",
       perYear: "par an en plus",
       scenario: (kw) => `Borne de ${kw}`,
+      tariffLine: (v) =>
+        v.capacityTariffExcl && v.capacityTariffIncl
+          ? `VREG : ${v.capacityIsAverage ? "en moyenne " : ""}${v.capacityTariffExcl} par kW et par an hors TVA, soit environ ${v.capacityTariffIncl} TVA ${v.capacityVatPct} comprise (notre conversion). Le tarif exact varie selon le gestionnaire de réseau.`
+          : "",
       verify: "Vérifiez le tarif de votre gestionnaire de réseau ; il change chaque année.",
       chartBaseline: "ménage",
       chartCharger: "borne",
@@ -185,7 +189,7 @@ export const frBE: Copy = {
       cost: "Coût de recharge par tarif",
       rules: "Règles dans votre région",
     },
-    sources: { heading: "Sources", checked: "vérifié le" },
+    sources: { heading: "Sources", checked: "vérifié le", specNotes: "Remarque sur les caractéristiques" },
   },
   rulesPages: {
     "tva-6": "TVA 6 % sur une borne",

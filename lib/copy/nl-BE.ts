@@ -96,7 +96,7 @@ export const nlBE: Copy = {
       perYear: (v) => `Bij ${v.kmPerYear} km per jaar, met 15 % realiteitsfactor op het WLTP-verbruik en 10 % laadverlies.`,
       saving: (v) =>
         v.savingYear && v.cheapestLabel
-          ? `${v.cheapestFull} per volle lading met ${v.cheapestLabel}. Dat is ${v.savingYear} per jaar minder dan het dagtarief.`
+          ? `${v.cheapestFull} per volle lading met ${v.cheapestLabel}. Dat is ${v.savingYear} per jaar minder dan het vaste tarief.`
           : "",
       cta: "Vergelijk dynamische tarieven",
       unavailable: "Er zijn nog geen geverifieerde tarieven voor dit gewest. We tonen liever niets dan een verzonnen getal.",
@@ -109,6 +109,10 @@ export const nlBE: Copy = {
       with: "met load balancing",
       perYear: "per jaar extra",
       scenario: (kw) => `${kw}-lader`,
+      tariffLine: (v) =>
+        v.capacityTariffExcl && v.capacityTariffIncl
+          ? `VREG: ${v.capacityIsAverage ? "gemiddeld " : ""}${v.capacityTariffExcl} per kW per jaar excl. btw, dat is ongeveer ${v.capacityTariffIncl} incl. ${v.capacityVatPct} btw (eigen omrekening). Het exacte tarief verschilt per netgebied.`
+          : "",
       verify: "Verifieer het tarief van je netbeheerder; het wijzigt jaarlijks.",
       chartBaseline: "huishouden",
       chartCharger: "lader",
@@ -195,7 +199,7 @@ export const nlBE: Copy = {
       cost: "Laadkosten per tarief",
       rules: "Regels in je gewest",
     },
-    sources: { heading: "Bronnen", checked: "gecontroleerd op" },
+    sources: { heading: "Bronnen", checked: "gecontroleerd op", specNotes: "Opmerking bij de specificaties" },
   },
   rulesPages: {
     "btw-6": "6 % btw op een laadpaal",

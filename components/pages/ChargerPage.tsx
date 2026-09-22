@@ -165,6 +165,12 @@ export function ChargerPage({ data, locale, page, related, canonical }: Props) {
       <div className="mt-10">
         <RelatedLinks links={related} copy={copy} />
       </div>
+      {vars.specNotes && (
+        <div className="mt-10 rounded-card border-hair border-line bg-card px-5 py-4">
+          <p className="text-[13px] font-semibold text-ink2">{c.sources.specNotes}</p>
+          <p className="mt-1 max-w-prose text-[14px] text-ink2">{vars.specNotes}</p>
+        </div>
+      )}
       {/* 13 */}
       <div className="mt-10">
         <SourcesBlock heading={c.sources.heading} checkedLabel={c.sources.checked} sources={sources} locale={locale} />

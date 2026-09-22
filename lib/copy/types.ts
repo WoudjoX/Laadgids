@@ -30,6 +30,12 @@ export interface ChargerPageVars {
   capacity74: CapacityScenario | null;
   capacityDelta: string | null; // "€ 616"
   capacityDeltaLb: string | null; // "€ 420"
+  /** Gepubliceerd tarief (excl. btw) en onze incl.-berekening, al geformatteerd; null als de regel ze niet opgeeft. */
+  capacityTariffExcl: string | null; // "€ 53,39"
+  capacityTariffIncl: string | null; // "€ 56,59"
+  capacityVatPct: string | null; // "6 %"
+  capacityIsAverage: boolean;
+  specNotes: string | null;
 }
 
 export interface FaqItem {
@@ -102,6 +108,8 @@ export interface Copy {
       perYear: string;
       scenario: (kw: string) => string;
       verify: string;
+      tariffLine: (v: ChargerPageVars) => string; // "VREG: gemiddeld € 53,39 excl. btw, ≈ € 56,59 incl. 6 % btw"
+      
       chartBaseline: string; // "huishouden"
       chartCharger: string; // "lader"
       chartMin: string; // "minimum 2,5 kW"
@@ -131,7 +139,7 @@ export interface Copy {
     companyCar: { heading: string; text: string; link: string };
     faq: { heading: string; items: (v: ChargerPageVars) => FaqItem[] };
     related: { heading: string; sisters: string; cost: string; rules: string };
-    sources: { heading: string; checked: string };
+    sources: { heading: string; checked: string; specNotes: string };
   };
   rulesPages: Record<string, string>; // topic-slug → titel, voor related links
   compare: {

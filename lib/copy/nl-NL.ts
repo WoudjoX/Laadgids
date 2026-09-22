@@ -101,6 +101,7 @@ export const nlNL: Copy = {
       with: "",
       perYear: "",
       scenario: (kw) => kw,
+      tariffLine: () => "",
       verify: "",
       chartBaseline: "",
       chartCharger: "",
@@ -177,7 +178,7 @@ export const nlNL: Copy = {
       cost: "Laadkosten per tarief",
       rules: "Regels en subsidies",
     },
-    sources: { heading: "Bronnen", checked: "gecontroleerd op" },
+    sources: { heading: "Bronnen", checked: "gecontroleerd op", specNotes: "Opmerking bij de specificaties" },
   },
   rulesPages: {
     isde: "ISDE-subsidie voor een laadpaal",

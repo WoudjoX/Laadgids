@@ -6,7 +6,13 @@ const int = z.number().int();
 
 /** 6.3 Capaciteitstarief (Vlaanderen). Kosten in eurocent per kW per jaar. */
 export const capacityTariffParams = z.object({
-  cents_per_kw_year: int.positive(),
+  /** Tarief zoals gebruikt in de berekening, inclusief btw, in eurocent per kW per jaar. */
+  cents_per_kw_year: z.number().positive(),
+  /** Gepubliceerd cijfer van de bron (VREG-gemiddelde, excl. btw); de incl.-versie is onze berekening en wordt zo getoond. */
+  excl_vat_cents_per_kw_year: z.number().positive().optional(),
+  vat_pct: z.number().nonnegative().optional(),
+  /** true als het een gewestgemiddelde is dat per netgebied verschilt. */
+  is_regional_average: z.boolean().optional(),
   min_kw: z.number().positive().default(2.5),
   household_baseline_w: int.positive().default(3500),
 });
@@ -63,11 +69,12 @@ export type IsdeParams = z.infer<typeof isdeParams>;
 /** CREG-tarief terugbetaling thuisladen bedrijfswagens. */
 export const cregTariffParams = z.object({
   cents_per_kwh_by_region: z.object({
-    VLA: int.optional(),
-    WAL: int.optional(),
-    BRU: int.optional(),
+    VLA: z.number().positive().optional(),
+    WAL: z.number().positive().optional(),
+    BRU: z.number().positive().optional(),
   }),
-  quarter: z.string(), // "2026-Q3"
+  quarter: z.string(), // "2026-Q4"
+  published_at: z.string().optional(), // ISO-datum van publicatie door de CREG
 });
 export type CregTariffParams = z.infer<typeof cregTariffParams>;
 

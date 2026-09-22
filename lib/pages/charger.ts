@@ -73,6 +73,11 @@ export function buildChargerPage(version: VersionFull, locale: Locale, rules: Ru
     capacity74: cap74,
     capacityDelta: capMain ? euro(capMain.delta_cents, locale, { decimals: 0 }) : null,
     capacityDeltaLb: capMain ? euro(capMain.delta_lb_cents, locale, { decimals: 0 }) : null,
+    capacityTariffExcl: capRule?.params.excl_vat_cents_per_kw_year ? euro(capRule.params.excl_vat_cents_per_kw_year, locale, { decimals: 2 }) : null,
+    capacityTariffIncl: capRule ? euro(capRule.params.cents_per_kw_year, locale, { decimals: 2 }) : null,
+    capacityVatPct: capRule?.params.vat_pct != null ? `${int(capRule.params.vat_pct, locale)} %` : null,
+    capacityIsAverage: Boolean(capRule?.params.is_regional_average),
+    specNotes: version.spec_notes ?? null,
   };
 
   const sources: SourceItem[] = [{ title: `${version.make.name} ${version.vehicle.model}: specificaties`, url: version.spec_source_url, checked: version.spec_source_date }];

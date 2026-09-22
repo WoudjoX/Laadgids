@@ -18,6 +18,7 @@ export function PeakBlock({ capacity, vars, copy, locale }: Props) {
     <section className="rounded-card bg-warnSoft px-5 py-5 text-warn">
       <h2 className="text-warn">{p.heading}</h2>
       <p className="mt-2 max-w-prose text-[15px]">{p.intro(vars)}</p>
+      {p.tariffLine(vars) && <p className="tnum mt-2 max-w-prose text-[14px]">{p.tariffLine(vars)}</p>}
       <div className="mt-5 space-y-6">
         {capacity.scenarios.map((s) => (
           <div key={s.charger_w}>

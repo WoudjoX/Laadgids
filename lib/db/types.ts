@@ -60,6 +60,10 @@ export interface VersionRow {
   sold_in: Country[];
   spec_source_url: string;
   spec_source_date: string; // ISO date
+  /** Datum waarop Erwin de specs tegen de fabrikantenbron gelegd heeft. null = nog niet: pagina blijft noindex. */
+  verified_at?: string | null;
+  /** Voetnoot op de pagina, bv. een bekende afwijking tussen fabrikantencijfer en praktijk. */
+  spec_notes?: string | null;
 }
 
 export interface RuleRow<P = unknown> {
@@ -81,6 +85,7 @@ export interface TariffRow {
   region: Region | null;
   slug: string;
   label: Record<string, string>;
+  /** Eurocent per kWh, all-in; mag decimalen hebben (numeric in de database). */
   price_cents_per_kwh: number;
   charging_loss_pct: number;
   source_url: string;
