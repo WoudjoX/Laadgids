@@ -1,6 +1,7 @@
 // Wachtrij doorsturen: leads met status 'new' matchen op de (nieuwe) installateurs en versturen.
 // Gebruik: pnpm forward-leads [--dry] [--max-age-days 42]
 // Leads ouder dan --max-age-days krijgen status 'expired' en worden niet meer doorgestuurd.
+import "@/lib/env";
 import { getRepo } from "@/lib/db";
 import { matchInstallers } from "@/lib/lead/match";
 import { notifyInstallers } from "@/lib/lead/mail";

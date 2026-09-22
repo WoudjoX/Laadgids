@@ -1,5 +1,6 @@
 // Seed data/seed/*.json naar Supabase (service role). Idempotent via upsert op de natuurlijke sleutel.
 // Gebruik: pnpm seed
+import "@/lib/env";
 import { promises as fs } from "node:fs";
 import path from "node:path";
 import { createClient } from "@supabase/supabase-js";

@@ -1,5 +1,6 @@
 // Herberekening (CLAUDE.md §8): completeness, status volgens 4.3, last_calculated_at, revalidate.
 // Gebruik: pnpm recalc-pages [--dry]
+import "@/lib/env";
 import { LOCALES, chargerPath, rulePath } from "@/lib/copy";
 import { RULES, ruleEntityId } from "@/lib/content/rules";
 import { getRepo, type PageUpsert } from "@/lib/db";

@@ -4,6 +4,7 @@
 //   consumption_wh_per_km,ac_max_w,ac_phases,dc_max_w,towing_kg,catalog_price_be_cents,catalog_price_nl_cents,
 //   co2_wltp_g_km,sold_in,spec_source_url,spec_source_date
 // Lege cellen blijven leeg (null). Niet raden; completeness regelt de rest.
+import "@/lib/env";
 import { promises as fs } from "node:fs";
 import { z } from "zod";
 import { getRepo } from "@/lib/db";

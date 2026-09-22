@@ -1,6 +1,7 @@
 // EEA CO2-monitoring → spec_candidates met inschrijvingen per variant voor BE en NL.
 // Gebruik: pnpm import-eea <bestand.csv> [--year 2025] [--min 5]
 // Download het jaarbestand via de EEA Datahub ("CO2 emissions from new passenger cars"). Het bestand is groot; dit script streamt.
+import "@/lib/env";
 import { createReadStream, promises as fs } from "node:fs";
 import path from "node:path";
 import readline from "node:readline";

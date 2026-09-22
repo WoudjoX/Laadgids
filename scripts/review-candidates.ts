@@ -1,6 +1,7 @@
 // Vergelijkt spec_candidates met versions en schrijft een reviewrapport plus een CSV in het formaat van import-specs.
 // Gebruik: pnpm review-candidates [--make tesla] [--out data/import/review]
 // De CSV bevat GEEN spec_source_url: die vul je in vanuit de prijslijst voor je pnpm import-specs draait.
+import "@/lib/env";
 import { promises as fs } from "node:fs";
 import path from "node:path";
 import { getRepo } from "@/lib/db";

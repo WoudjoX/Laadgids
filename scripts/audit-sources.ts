@@ -1,5 +1,6 @@
 // Bronaudit (CLAUDE.md §8): HEAD-request op alle sources.url; dode links rapporteren.
 // Pagina's die van een dode bron afhangen gaan na 30 dagen zonder fix op noindex (handmatig via recalc na fix).
+import "@/lib/env";
 import { getRepo } from "@/lib/db";
 
 async function head(url: string): Promise<number> {

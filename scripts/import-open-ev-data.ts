@@ -1,6 +1,7 @@
 // open-ev-data-dataset → spec_candidates. Gebruik: pnpm import-open-ev-data data/import/open-ev-data-v1.24.0.json
 // Bron: https://github.com/open-ev-data/open-ev-data-dataset (releases). Nooit rechtstreeks naar versions (CLAUDE.md §8).
 // Download van de laatste release: pnpm fetch-open-ev-data
+import "@/lib/env";
 import { promises as fs } from "node:fs";
 import path from "node:path";
 import { openEvDataFile, toCandidate, versionFromFilename } from "@/lib/specs/openEvData";
