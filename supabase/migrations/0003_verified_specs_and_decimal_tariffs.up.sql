@@ -30,6 +30,17 @@ update rules set
   notes = 'Circulaire 2023/C/64 van 26/06/2023 en FAQ 2023/C/65: verlaagd tarief permanent sinds 01/04/2023, sinds 01/07/2023 op basis van niet-zakelijk gebruik. Plaatsing laadstation valt onder renovatie privewoning (KB nr. 20, rubriek XXXVIII): woning minstens 10 jaar, aannemer, in of aan de woning, garage, carport, oprit of terras.'
 where country = 'BE' and rule_type = 'vat_reduced';
 
+-- 4b. Tellers gelijkzetten: de seed schreef rijen met vaste id's, waardoor de serial-sequences achterliepen (23505 bij insert).
+select setval(pg_get_serial_sequence('makes', 'id'), coalesce((select max(id) from makes), 0) + 1, false);
+select setval(pg_get_serial_sequence('vehicles', 'id'), coalesce((select max(id) from vehicles), 0) + 1, false);
+select setval(pg_get_serial_sequence('versions', 'id'), coalesce((select max(id) from versions), 0) + 1, false);
+select setval(pg_get_serial_sequence('rules', 'id'), coalesce((select max(id) from rules), 0) + 1, false);
+select setval(pg_get_serial_sequence('tariffs', 'id'), coalesce((select max(id) from tariffs), 0) + 1, false);
+select setval(pg_get_serial_sequence('pages', 'id'), coalesce((select max(id) from pages), 0) + 1, false);
+select setval(pg_get_serial_sequence('installers', 'id'), coalesce((select max(id) from installers), 0) + 1, false);
+select setval(pg_get_serial_sequence('sources', 'id'), coalesce((select max(id) from sources), 0) + 1, false);
+select setval(pg_get_serial_sequence('spec_candidates', 'id'), coalesce((select max(id) from spec_candidates), 0) + 1, false);
+
 -- 5. CREG-tarief terugbetaling thuisladen: Q3 2026 (geldt nu) en Q4 2026 (vanaf 1 oktober). Bron: creg.be, Q4 gepubliceerd 11/08/2026.
 insert into rules (country, region, rule_type, valid_from, valid_to, params, source_url, source_checked_at, notes)
 select 'BE', null, 'creg_tariff', '2026-07-01', '2026-09-30',
