@@ -8,7 +8,7 @@
   "battery_gross_wh": 60000,
   "battery_net_wh": 57500,
   "wltp_range_km": 513,
-  "consumption_wh_per_km": 132,
+  "consumption_wh_per_km": 138,
   "ac_max_w": 11000,
   "ac_phases": 3,
   "dc_max_w": 170000,
@@ -20,10 +20,10 @@
    "BE",
    "NL"
   ],
-  "spec_source_url": "https://www.tesla.com/nl_be/model3",
-  "spec_source_date": "2026-09-01",
+  "spec_source_url": "https://www.tesla.com/nl_be/support/power-consumption",
+  "spec_source_date": "2026-09-22",
   "verified_at": null,
-  "spec_notes": "Tesla publiceert geen batterijcapaciteit. Het cijfer hierboven is een schatting en verschilt per productiejaar; pagina blijft ongepubliceerd tot er een citeerbare bron is."
+  "spec_notes": "Tesla publiceert geen batterijcapaciteit en geen boordladervermogen. Tot ongeveer mei 2025 circa 57 kWh netto, daarna circa 60 kWh; het cijfer hierboven is een schatting. WLTP 13,8 kWh/100 km (Tesla). Pagina blijft ongepubliceerd tot er een citeerbare bron is."
  },
  {
   "id": 2,
@@ -31,10 +31,10 @@
   "slug": "volkswagen-id3-pro-2025",
   "trim": "Pro",
   "model_year": 2025,
-  "battery_gross_wh": 62000,
+  "battery_gross_wh": 63000,
   "battery_net_wh": 59000,
   "wltp_range_km": 434,
-  "consumption_wh_per_km": 152,
+  "consumption_wh_per_km": 156,
   "ac_max_w": 11000,
   "ac_phases": 3,
   "dc_max_w": null,
@@ -46,10 +46,10 @@
    "BE",
    "NL"
   ],
-  "spec_source_url": "https://www.volkswagen.be/nl/modellen/id3.html",
-  "spec_source_date": "2026-09-01",
-  "verified_at": null,
-  "spec_notes": null
+  "spec_source_url": "https://www.volkswagen.be/app/offers/nl/professional/id3-pro-business",
+  "spec_source_date": "2026-09-22",
+  "verified_at": "2026-09-22",
+  "spec_notes": "WLTP 14,6 tot 16,7 kWh/100 km; gerekend met het midden. Fasen bevestigd via de Nederlandse prijslijst. Volkswagen België toont intussen alleen nog de ID.3 Neo."
  },
  {
   "id": 3,
@@ -60,7 +60,7 @@
   "battery_gross_wh": 82000,
   "battery_net_wh": 77000,
   "wltp_range_km": 550,
-  "consumption_wh_per_km": 165,
+  "consumption_wh_per_km": 167,
   "ac_max_w": 11000,
   "ac_phases": 3,
   "dc_max_w": null,
@@ -72,10 +72,10 @@
    "BE",
    "NL"
   ],
-  "spec_source_url": "https://www.volkswagen.be/nl/modellen/id4.html",
-  "spec_source_date": "2026-09-01",
-  "verified_at": null,
-  "spec_notes": null
+  "spec_source_url": "https://www.volkswagen.be/nl/modellen/id4.html/__ui/technical-data.app",
+  "spec_source_date": "2026-09-22",
+  "verified_at": "2026-09-22",
+  "spec_notes": "WLTP 15,75 tot 17,62 kWh/100 km; gerekend met het midden. 11 kW AC is in Europa 3-fasig 16 A. De Belgische pagina toont mogelijk al modeljaar 2026."
  },
  {
   "id": 4,
@@ -98,10 +98,10 @@
    "BE",
    "NL"
   ],
-  "spec_source_url": "https://www.skoda.be/nl/modellen/enyaq",
-  "spec_source_date": "2026-09-01",
-  "verified_at": null,
-  "spec_notes": null
+  "spec_source_url": "https://cdn.skoda-storyboard.com/2025/05/Press_Kit_New_Skoda_Enyaq_492b58d1.pdf",
+  "spec_source_date": "2026-09-22",
+  "verified_at": "2026-09-22",
+  "spec_notes": "WLTP 15 tot 16 kWh/100 km (skoda.be); gerekend met het midden. 11 kW AC is in Europa 3-fasig 16 A."
  },
  {
   "id": 5,
@@ -109,11 +109,11 @@
   "slug": "hyundai-kona-electric-65-2025",
   "trim": "65 kWh",
   "model_year": 2025,
-  "battery_gross_wh": null,
+  "battery_gross_wh": 68500,
   "battery_net_wh": 65400,
   "wltp_range_km": 514,
-  "consumption_wh_per_km": 147,
-  "ac_max_w": 11000,
+  "consumption_wh_per_km": 156,
+  "ac_max_w": 10500,
   "ac_phases": 3,
   "dc_max_w": 102000,
   "towing_kg": 750,
@@ -124,10 +124,10 @@
    "BE",
    "NL"
   ],
-  "spec_source_url": "https://www.hyundai.com/be/nl/modellen/kona-electric",
-  "spec_source_date": "2026-09-01",
-  "verified_at": null,
-  "spec_notes": null
+  "spec_source_url": "https://www.hyundai.com/be/nl/modellen/kona-electric/performance.html",
+  "spec_source_date": "2026-09-22",
+  "verified_at": "2026-09-22",
+  "spec_notes": "Hyundai België geeft 10,5 kW AC (de Nederlandse prijslijst 11 kW); we rekenen met het Belgische cijfer, dat alleen 3-fasig kan. WLTP 14,7 tot 16,6 kWh/100 km uit de NL-prijslijst 01/2025; gerekend met het midden. Modeljaar 2026 heeft 64,8 kWh."
  },
  {
   "id": 6,
@@ -135,10 +135,10 @@
   "slug": "kia-ev3-81-2025",
   "trim": "81,4 kWh",
   "model_year": 2025,
-  "battery_gross_wh": null,
-  "battery_net_wh": 81400,
+  "battery_gross_wh": 81400,
+  "battery_net_wh": 78000,
   "wltp_range_km": 605,
-  "consumption_wh_per_km": 149,
+  "consumption_wh_per_km": 156,
   "ac_max_w": 11000,
   "ac_phases": 3,
   "dc_max_w": 128000,
@@ -150,10 +150,10 @@
    "BE",
    "NL"
   ],
-  "spec_source_url": "https://www.kia.com/be/nl/modellen/ev3/",
-  "spec_source_date": "2026-09-01",
+  "spec_source_url": "https://www.kia.com/be/nl/modellen/ev3/ontdekken/",
+  "spec_source_date": "2026-09-22",
   "verified_at": null,
-  "spec_notes": null
+  "spec_notes": "Kia publiceert 81,4 kWh bruto; de netto capaciteit van 78 kWh is niet door Kia bevestigd en de laadtijden zijn daarom een schatting. Pagina blijft ongepubliceerd tot er een fabrikantenbron is. 22 kW AC pas vanaf modeljaar 2027."
  },
  {
   "id": 7,
@@ -164,7 +164,7 @@
   "battery_gross_wh": null,
   "battery_net_wh": 52000,
   "wltp_range_km": 410,
-  "consumption_wh_per_km": 150,
+  "consumption_wh_per_km": 149,
   "ac_max_w": 11000,
   "ac_phases": 3,
   "dc_max_w": 100000,
@@ -176,10 +176,10 @@
    "BE",
    "NL"
   ],
-  "spec_source_url": "https://www.renault.be/nl/elektrische-wagens/renault-5-e-tech-electric.html",
-  "spec_source_date": "2026-09-01",
-  "verified_at": null,
-  "spec_notes": null
+  "spec_source_url": "https://nl.renault.be/elektrische-wagens/r5-e-tech-electric/versies-en-prijzen.html",
+  "spec_source_date": "2026-09-22",
+  "verified_at": "2026-09-22",
+  "spec_notes": "52 kWh en 11 kW bevestigd op renault.be; WLTP 14,9 kWh/100 km uit de Nederlandse prijslijst 06/2025. Bruto capaciteit publiceert Renault niet."
  },
  {
   "id": 8,
@@ -190,9 +190,9 @@
   "battery_gross_wh": 51000,
   "battery_net_wh": 48100,
   "wltp_range_km": 400,
-  "consumption_wh_per_km": 144,
-  "ac_max_w": 7400,
-  "ac_phases": 1,
+  "consumption_wh_per_km": 142,
+  "ac_max_w": 11000,
+  "ac_phases": 3,
   "dc_max_w": 100000,
   "towing_kg": null,
   "catalog_price_be_cents": null,
@@ -202,10 +202,10 @@
    "BE",
    "NL"
   ],
-  "spec_source_url": "https://www.media.stellantis.com/be-nl/peugeot/press/nieuwe-100-elektrische-peugeot-e-208",
+  "spec_source_url": "https://www.peugeot.be/content/dam/peugeot/belgium/nl/b2c/tools/prijslijst/october/208-2025_BENL.pdf",
   "spec_source_date": "2026-09-22",
-  "verified_at": null,
-  "spec_notes": "Peugeot communiceert 48,1 kWh netto (51 bruto). Metingen tonen dat veel e-208 156 pk sinds eind 2024 het grotere pack van 51 kWh netto (54 bruto) hebben zonder dat Peugeot dat vermeldt. Laadtijden hierboven gaan uit van het officiële cijfer."
+  "verified_at": "2026-09-22",
+  "spec_notes": "Belgische prijslijst 10/2025: 11 kW 3-fasige boordlader standaard, 48,1 kWh netto (51 bruto). Metingen tonen dat veel e-208 156 pk sinds eind 2024 het grotere pack van 51 kWh netto (54 bruto) hebben zonder dat Peugeot dat vermeldt; laadtijden gaan uit van het officiële cijfer. WLTP 14,0 tot 14,5 kWh/100 km; gerekend met het midden."
  },
  {
   "id": 9,
@@ -216,7 +216,7 @@
   "battery_gross_wh": 42000,
   "battery_net_wh": 37300,
   "wltp_range_km": 320,
-  "consumption_wh_per_km": 148,
+  "consumption_wh_per_km": 146,
   "ac_max_w": 11000,
   "ac_phases": 3,
   "dc_max_w": 85000,
@@ -228,10 +228,10 @@
    "BE",
    "NL"
   ],
-  "spec_source_url": "https://www.fiat.be/nl/500-elektrisch",
-  "spec_source_date": "2026-09-01",
-  "verified_at": null,
-  "spec_notes": null
+  "spec_source_url": "https://www.media.stellantis.com/uploads/nl/attachment//consumentenprijslijstfiat500emy2522oktober2024-671760646ee09.pdf",
+  "spec_source_date": "2026-09-22",
+  "verified_at": "2026-09-22",
+  "spec_notes": "Cijfers uit de Nederlandse prijslijst MY25 (oktober 2024); fiat.be geeft alleen een gemengd bereik voor 28,3 en 42 kWh. WLTP 14,4 tot 14,9 kWh/100 km; gerekend met het midden."
  },
  {
   "id": 10,
@@ -239,10 +239,10 @@
   "slug": "renault-zoe-r135-52-2023",
   "trim": "R135",
   "model_year": 2023,
-  "battery_gross_wh": 55000,
+  "battery_gross_wh": null,
   "battery_net_wh": 52000,
   "wltp_range_km": 395,
-  "consumption_wh_per_km": 172,
+  "consumption_wh_per_km": 177,
   "ac_max_w": 22000,
   "ac_phases": 3,
   "dc_max_w": 50000,
@@ -254,10 +254,10 @@
    "BE",
    "NL"
   ],
-  "spec_source_url": "https://www.renault.be/nl/elektrische-wagens/zoe.html",
-  "spec_source_date": "2023-06-01",
-  "verified_at": null,
-  "spec_notes": null
+  "spec_source_url": "https://cdn.group.renault.com/ren/nl/brochures-en-prijslijsten/prijzenarchief/zoe/zoe-prijslijst-01-2022.pdf",
+  "spec_source_date": "2026-09-22",
+  "verified_at": "2026-09-22",
+  "spec_notes": "Cijfers uit de Nederlandse prijslijst 01/2022; Renault België heeft geen Zoe-pagina meer online. Bruto capaciteit publiceert Renault niet."
  },
  {
   "id": 11,
@@ -268,7 +268,7 @@
   "battery_gross_wh": 66500,
   "battery_net_wh": 64700,
   "wltp_range_km": 475,
-  "consumption_wh_per_km": 165,
+  "consumption_wh_per_km": 163,
   "ac_max_w": 11000,
   "ac_phases": 3,
   "dc_max_w": 130000,
@@ -280,9 +280,9 @@
    "BE",
    "NL"
   ],
-  "spec_source_url": "https://www.bmw.be/nl/all-models/x-series/ix1/",
-  "spec_source_date": "2026-09-01",
-  "verified_at": null,
-  "spec_notes": null
+  "spec_source_url": "https://www.press.bmwgroup.com/netherlands/article/detail/T0435758NL/de-prijs-van-de-geheel-nieuwe-bmw-ix1-edrive20-is-bekend?language=nl",
+  "spec_source_date": "2026-09-22",
+  "verified_at": "2026-09-22",
+  "spec_notes": "WLTP 15,4 tot 17,2 kWh/100 km afhankelijk van uitrusting; gerekend met het midden. 11 kW AC is in Europa 3-fasig 16 A; 22 kW is een optie. Modeljaar 2026 heeft 65,2 kWh en 14,3 tot 16,1 kWh/100 km (bmw.be)."
  }
 ]
