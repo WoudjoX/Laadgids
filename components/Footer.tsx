@@ -17,7 +17,6 @@ export function Footer({ copy, locale }: Props) {
     <footer className="mt-16 border-t-hair border-line">
       <div className="mx-auto max-w-content px-4 py-10 text-[14px] text-ink2">
         <p className="mb-4 max-w-prose">{copy.site.tagline}</p>
-        <p className="mb-4">Erwin Martens, SaasSolutions BV.</p>
         <nav className="flex flex-wrap gap-x-6 gap-y-2">
           <Link href={`/${seg}/${pages.about.slug}`}>{copy.site.footerAbout}</Link>
           <Link href={`/${seg}/${pages.contact.slug}`}>{copy.site.footerContact}</Link>
