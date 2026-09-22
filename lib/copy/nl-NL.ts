@@ -131,10 +131,10 @@ export const nlNL: Copy = {
       companyCar: "Het is een leaseauto van de zaak",
       email: "E-mail",
       phone: "Telefoon (optioneel)",
-      consent: "Ik ga akkoord dat mijn gegevens naar maximaal drie installateurs gaan.",
+      consent: "Ik ga akkoord dat mijn gegevens naar maximaal drie erkende installateurs gaan, ook als dat pas later gebeurt (uiterlijk binnen vier weken).",
       submit: "Verstuur aanvraag",
       footnote: "Gratis, vrijblijvend, erkende installateurs",
-      success: "Je aanvraag is verstuurd. Je hoort binnen twee werkdagen van de installateurs.",
+      success: "Je aanvraag is ontvangen. Je krijgt meteen een bevestiging per e-mail; daarin staat wanneer een installateur contact opneemt.",
       errors: {
         postal: "Vul een Nederlandse postcode in (1234 AB).",
         email: "Vul een geldig e-mailadres in.",

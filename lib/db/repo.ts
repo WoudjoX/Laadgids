@@ -3,6 +3,7 @@ import type {
   Country,
   InstallerRow,
   LeadInsert,
+  LeadRow,
   Locale,
   PageRow,
   PageStatus,
@@ -37,6 +38,9 @@ export interface Repo {
 
   insertLead(lead: LeadInsert): Promise<number>;
   markLeadForwarded(leadId: number, installerIds: number[]): Promise<void>;
+  /** Leads die nog niet doorgestuurd zijn (status 'new'), oudste eerst. */
+  listPendingLeads(): Promise<LeadRow[]>;
+  updateLeadStatus(leadId: number, status: LeadRow["status"]): Promise<void>;
   listActiveInstallers(): Promise<InstallerRow[]>;
 
   listSources(): Promise<SourceRow[]>;

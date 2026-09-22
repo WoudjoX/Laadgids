@@ -5,7 +5,7 @@ import { headers } from "next/headers";
 import { getRepo } from "@/lib/db";
 import type { LeadInsert } from "@/lib/db/types";
 import { matchInstallers } from "@/lib/lead/match";
-import { confirmLead, notifyInstallers } from "@/lib/lead/mail";
+import { confirmLead, notifyInstallers, notifyOwner } from "@/lib/lead/mail";
 import { rateLimited } from "@/lib/lead/ratelimit";
 import { leadSchema, postalValid } from "@/lib/lead/schema";
 
@@ -90,6 +90,7 @@ export async function submitLead(_prev: LeadState, form: FormData): Promise<Lead
       );
     }
     await confirmLead(lead, installers);
+    await notifyOwner(lead, id, installers);
     return { ok: true };
   } catch (e) {
     console.error("[lead] failed", e);

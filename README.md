@@ -99,3 +99,21 @@ pnpm review-candidates
 ### Regelpagina's en statische pagina's
 
 Regelpagina's (template `rule`) bestaan alleen als er een entry staat in `lib/content/rules.ts`; de tekst is handgeschreven, met bronnen en datum. Over, contact en privacy staan in `lib/content/static.ts`.
+
+## Leads verzamelen zonder installateurs
+
+Een lead wordt altijd opgeslagen in `leads` (status `new`) met het tijdstip van toestemming. Daarna:
+
+- Is er een actieve installateur voor de postcode (`installers.regions`: postcodeprefix of gewest), dan gaat de lead meteen naar maximaal drie installateurs en krijgt status `forwarded`.
+- Is er geen installateur, dan blijft de lead op `new` staan. De aanvrager krijgt een bevestiging dat de aanvraag binnen vier weken doorgestuurd wordt. De toestemmingstekst dekt dat uitstel.
+- Elke lead gaat ook naar `LEAD_NOTIFY_EMAIL`, met de status erbij.
+
+Wachtrij doorsturen zodra er installateurs zijn:
+
+```powershell
+pnpm forward-leads --dry            # toont wie wat zou krijgen
+pnpm forward-leads                  # verstuurt en zet status forwarded
+pnpm forward-leads --max-age-days 42
+```
+
+Leads ouder dan `--max-age-days` (standaard 42) krijgen status `expired` en worden niet meer doorgestuurd. Zonder `RESEND_API_KEY` worden mails alleen gelogd. De testinstallateur in de seed staat op inactief; activeer nooit een installateur met een niet-bestaand e-mailadres, want een doorgestuurde lead komt niet terug in de wachtrij.

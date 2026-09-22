@@ -138,10 +138,10 @@ export const frBE: Copy = {
       companyCar: "C'est une voiture de société",
       email: "E-mail",
       phone: "Téléphone (facultatif)",
-      consent: "J'accepte que mes données soient transmises à trois installateurs au maximum.",
+      consent: "J'accepte que mes données soient transmises à trois installateurs agréés au maximum, même si cela se fait plus tard (au plus tard dans les quatre semaines).",
       submit: "Envoyer la demande",
       footnote: "Gratuit, sans engagement, installateurs agréés",
-      success: "Votre demande est envoyée. Les installateurs vous contactent sous deux jours ouvrables.",
+      success: "Votre demande est bien reçue. Vous recevez tout de suite une confirmation par e-mail qui précise quand un installateur vous contacte.",
       errors: {
         postal: "Indiquez un code postal belge à quatre chiffres.",
         email: "Indiquez une adresse e-mail valide.",

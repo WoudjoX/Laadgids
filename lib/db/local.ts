@@ -10,6 +10,7 @@ import type {
   Country,
   InstallerRow,
   LeadInsert,
+  LeadRow,
   MakeRow,
   PageRow,
   Region,
@@ -108,6 +109,26 @@ function full(s: Store, v: VersionRow): VersionFull {
   return { ...v, vehicle, make };
 }
 
+/** Leest .local/leads.jsonl: elke regel is een insert of een update op id; de laatste regel per id wint. */
+async function readLeads(): Promise<LeadRow[]> {
+  let raw = "";
+  try {
+    raw = await fs.readFile(path.join(LOCAL_DIR, "leads.jsonl"), "utf8");
+  } catch {
+    return [];
+  }
+  const byId = new Map<number, LeadRow>();
+  for (const line of raw.split("\n").filter(Boolean)) {
+    const rec = JSON.parse(line) as Partial<LeadRow> & { id: number };
+    const prev = byId.get(rec.id);
+    const defaults: Partial<LeadRow> = { created_at: new Date(rec.id).toISOString(), forwarded_to: [], status: "new" };
+    const merged = { ...defaults, ...prev, ...rec } as LeadRow;
+    if (rec.forwarded_to && rec.forwarded_to.length) merged.status = "forwarded";
+    byId.set(rec.id, merged);
+  }
+  return [...byId.values()].sort((a, b) => a.id - b.id);
+}
+
 export const localRepo: Repo = {
   async listVersions() {
     const s = await load();
@@ -166,6 +187,13 @@ export const localRepo: Repo = {
   async markLeadForwarded(leadId, installerIds) {
     await fs.mkdir(LOCAL_DIR, { recursive: true });
     await fs.appendFile(path.join(LOCAL_DIR, "leads.jsonl"), JSON.stringify({ id: leadId, forwarded_to: installerIds }) + "\n", "utf8");
+  },
+  async listPendingLeads() {
+    return (await readLeads()).filter((l) => l.status === "new");
+  },
+  async updateLeadStatus(leadId, status) {
+    await fs.mkdir(LOCAL_DIR, { recursive: true });
+    await fs.appendFile(path.join(LOCAL_DIR, "leads.jsonl"), JSON.stringify({ id: leadId, status }) + "\n", "utf8");
   },
   async listActiveInstallers() {
     return (await load()).installers.filter((i) => i.active);

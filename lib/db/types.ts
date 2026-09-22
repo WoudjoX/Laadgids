@@ -120,6 +120,13 @@ export interface LeadInsert {
   consent_at: string;
 }
 
+export interface LeadRow extends LeadInsert {
+  id: number;
+  created_at: string;
+  forwarded_to: number[];
+  status: "new" | "forwarded" | "expired" | "spam";
+}
+
 export interface InstallerRow {
   id: number;
   name: string;

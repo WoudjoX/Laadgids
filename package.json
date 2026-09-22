@@ -25,7 +25,8 @@
     "import-open-ev-data": "tsx scripts/import-open-ev-data.ts",
     "review-candidates": "tsx scripts/review-candidates.ts",
     "fetch-open-ev-data": "tsx scripts/fetch-open-ev-data.ts",
-    "import-eea": "tsx scripts/import-eea.ts"
+    "import-eea": "tsx scripts/import-eea.ts",
+    "forward-leads": "tsx scripts/forward-leads.ts"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.58.0",

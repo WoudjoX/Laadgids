@@ -1,7 +1,7 @@
 // Supabase-repo. Leest met de anon key (RLS), schrijft met de service role. Alleen server-side.
 import { createClient, type SupabaseClient } from "@supabase/supabase-js";
 import type { PageFilter, PageUpsert, Repo } from "./repo";
-import type { Country, InstallerRow, LeadInsert, PageRow, Region, RuleRow, SourceRow, TariffRow, VersionFull, VersionRow } from "./types";
+import type { Country, InstallerRow, LeadInsert, LeadRow, PageRow, Region, RuleRow, SourceRow, TariffRow, VersionFull, VersionRow } from "./types";
 
 function env(name: string): string {
   const v = process.env[name];
@@ -79,6 +79,12 @@ export const supabaseRepo: Repo = {
   },
   async markLeadForwarded(leadId, installerIds) {
     throwIf(await writeClient().from("leads").update({ forwarded_to: installerIds, status: "forwarded" }).eq("id", leadId));
+  },
+  async listPendingLeads() {
+    return throwIf<LeadRow[]>(await writeClient().from("leads").select("*").eq("status", "new").order("id"));
+  },
+  async updateLeadStatus(leadId, status) {
+    throwIf(await writeClient().from("leads").update({ status }).eq("id", leadId));
   },
   async listActiveInstallers() {
     return throwIf<InstallerRow[]>(await writeClient().from("installers").select("*").eq("active", true));
