@@ -45,10 +45,10 @@ export async function ruleMetadata(section: string, params: RuleParams): Promise
   assertValidHreflangKeys(alt.languages as Record<string, string>);
   return {
     title: `${r.rule.title} | ${getCopy(r.locale).site.name}`,
-    description: r.rule.intro,
+    description: r.rule.metaDescription,
     alternates: { canonical: alt.canonical, languages: alt.languages },
     robots: r.page.status === "index" ? { index: true, follow: true } : { index: false, follow: true },
-    openGraph: { title: r.rule.title, description: r.rule.intro, url: alt.canonical, locale: alt.ogLocale, alternateLocale: alt.ogAlternateLocales, type: "article" },
+    openGraph: { title: r.rule.title, description: r.rule.metaDescription, url: alt.canonical, locale: alt.ogLocale, alternateLocale: alt.ogAlternateLocales, type: "article" },
   };
 }
 

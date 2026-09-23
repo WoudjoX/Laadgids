@@ -213,12 +213,12 @@ export const nlBE: Copy = {
     sources: { heading: "Bronnen", checked: "gecontroleerd op", specNotes: "Opmerking bij de specificaties" },
   },
   rulesPages: {
-    "btw-6": "6 % btw op een laadpaal",
-    "melding-netbeheerder": "Laadpaal melden bij de netbeheerder",
-    "appartement-vme": "Laadpaal in een appartement (VME)",
-    capaciteitstarief: "Capaciteitstarief en thuisladen",
-    "creg-tarief": "CREG-tarief voor terugbetaling thuisladen",
-    "1f-vs-3f": "1-fasig of 3-fasig aansluiten",
+    "eenfasig-vs-driefasig-laden": "Eenfasig of driefasig laden?",
+    "capaciteitstarief-laadpaal": "Wat laden doet met je capaciteitstarief",
+    "creg-tarief-thuisladen": "CREG-tarief voor thuisladen",
+    "melding-netbeheerder-laadpaal": "Laadpaal melden bij de netbeheerder",
+    "btw-6-procent-laadpaal": "6% of 21% btw op je laadpaal?",
+    "laadpaal-appartement": "Laadpaal in je appartement: zo pak je het aan",
   },
   compare: {
     sectionSlug: "vergelijk",

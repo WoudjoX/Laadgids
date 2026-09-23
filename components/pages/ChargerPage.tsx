@@ -25,9 +25,10 @@ interface Props {
   page: PageRow;
   related: RelatedLink[];
   canonical: string;
+  cregPath: string | null;
 }
 
-export function ChargerPage({ data, locale, page, related, canonical }: Props) {
+export function ChargerPage({ data, locale, page, related, canonical, cregPath }: Props) {
   const { copy, vars, advice, cost, tariffs, sources } = data;
   const cfg = LOCALE_CONFIG[locale];
   const c = copy.charger;
@@ -38,7 +39,6 @@ export function ChargerPage({ data, locale, page, related, canonical }: Props) {
   const singleW = advice.table.find((r) => r.connection === "1f_32a_7400")!.effective_w;
   const threeW = advice.table.find((r) => r.connection === "3f_16a_11000")!.effective_w;
   const regionLabel = vars.region ? copy.site.regionLabel[vars.region] : copy.site.regionNone;
-  const cregPath = related.find((l) => l.kind === "rule" && /creg/.test(l.path))?.path ?? null;
   // Affiliate-/vergelijkingslink per locale uit env; zonder env naar de locale-home (nooit een dode link).
   const energyCta = process.env[`ENERGY_CTA_URL_${cfg.country}`] ?? `/${cfg.segment}`;
 

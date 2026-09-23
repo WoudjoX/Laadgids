@@ -49,12 +49,13 @@ export function relatedFor(version: VersionFull, all: VersionFull[], locale: Loc
   const costPath = `/${cfg.segment}/${COST_SECTION[locale]}/${version.slug}/vast-dag`;
   if (live.has(costPath)) out.push({ kind: "cost", path: costPath, label: fullName(version) });
 
-  const region = cfg.region?.toLowerCase() ?? cfg.country.toLowerCase();
+  // Regelpagina's staan op gewestniveau (vla/wal/bru) of op landniveau (be/nl); het gewest wint.
+  const regions = [cfg.region?.toLowerCase(), cfg.country.toLowerCase()].filter((x): x is string => Boolean(x));
   let rules = 0;
   for (const topic of opts.ruleTopics ?? []) {
     if (rules >= 2) break;
-    const p = `/${cfg.segment}/${RULES_SECTION[locale]}/${region}/${topic}`;
-    if (live.has(p)) {
+    const p = regions.map((rg) => `/${cfg.segment}/${RULES_SECTION[locale]}/${rg}/${topic}`).find((x) => live.has(x));
+    if (p) {
       out.push({ kind: "rule", path: p, label: topic });
       rules++;
     }

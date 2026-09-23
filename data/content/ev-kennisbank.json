@@ -1,0 +1,872 @@
+{
+  "meta": {
+    "versie": "2026-09-23",
+    "taal": "nl-BE",
+    "laatst_gecontroleerd": "2026-09-22",
+    "uitleg": "modellen = specs per EV; regels = regelpagina's (body in markdown); data = tabellen die elk kwartaal/jaar wijzigen. regel_links[].regel verwijst naar regels[].slug."
+  },
+  "modellen": [
+    {
+      "slug": "bmw-ix1-edrive20-2025",
+      "naam": "BMW iX1 eDrive20",
+      "modeljaar": 2025,
+      "batterij_netto_kwh": 64.7,
+      "batterij_bruto_kwh": 66.5,
+      "wltp_kwh_100km": {
+        "min": 15.4,
+        "max": 17.2
+      },
+      "ac_kw_standaard": 11.0,
+      "ac_kw_optie": 22.0,
+      "ac_fasen": 3,
+      "ac_kw_eenfasig": null,
+      "officieel_bevestigd": "ja (fasen deels)",
+      "bron_url": "https://www.press.bmwgroup.com/netherlands/article/detail/T0435758NL/de-prijs-van-de-geheel-nieuwe-bmw-ix1-edrive20-is-bekend?language=nl",
+      "opmerking": "bmw.be toont nu MY26: 65.2 kWh / 14.3-16.1 kWh/100km - https://www.bmw.be/nl/all-models/bmw-i/ix1/bmw-ix1-technische-gegevens.html",
+      "regel_links": [
+        {
+          "regel": "eenfasig-vs-driefasig-laden",
+          "reden": "Laadt tot 11 kW driefasig; op een 1x230V- of 3x230V-aansluiting haal je minder."
+        },
+        {
+          "regel": "capaciteitstarief-laadpaal",
+          "reden": "Laden aan 22 kW verhoogt je maandpiek."
+        },
+        {
+          "regel": "creg-tarief-thuisladen",
+          "reden": "Als bedrijfswagen: terugbetaling thuisladen tot het CREG-tarief."
+        },
+        {
+          "regel": "melding-netbeheerder-laadpaal",
+          "reden": "Een thuislaadpaal moet je melden bij je netbeheerder."
+        },
+        {
+          "regel": "btw-6-procent-laadpaal",
+          "reden": "Laadpaal aan 6% of 21% btw?"
+        },
+        {
+          "regel": "laadpaal-appartement",
+          "reden": "Laden in een appartementsgebouw."
+        }
+      ]
+    },
+    {
+      "slug": "fiat-500e-42-kwh-2025",
+      "naam": "Fiat 500e 42 kWh",
+      "modeljaar": 2025,
+      "batterij_netto_kwh": 37.3,
+      "batterij_bruto_kwh": 42.0,
+      "wltp_kwh_100km": {
+        "min": 14.4,
+        "max": 14.9
+      },
+      "ac_kw_standaard": 11.0,
+      "ac_kw_optie": null,
+      "ac_fasen": 3,
+      "ac_kw_eenfasig": null,
+      "officieel_bevestigd": "ja (NL-prijslijst)",
+      "bron_url": "https://www.media.stellantis.com/uploads/nl/attachment//consumentenprijslijstfiat500emy2522oktober2024-671760646ee09.pdf",
+      "opmerking": "fiat.be geeft enkel gemengde range 28.3-42 kWh - https://www.fiat.be/nl/modellen/fiat-500-elektrisch/technische-specificaties",
+      "regel_links": [
+        {
+          "regel": "eenfasig-vs-driefasig-laden",
+          "reden": "Laadt tot 11 kW driefasig; op een 1x230V- of 3x230V-aansluiting haal je minder."
+        },
+        {
+          "regel": "capaciteitstarief-laadpaal",
+          "reden": "Laden aan 11 kW verhoogt je maandpiek."
+        },
+        {
+          "regel": "creg-tarief-thuisladen",
+          "reden": "Als bedrijfswagen: terugbetaling thuisladen tot het CREG-tarief."
+        },
+        {
+          "regel": "melding-netbeheerder-laadpaal",
+          "reden": "Een thuislaadpaal moet je melden bij je netbeheerder."
+        },
+        {
+          "regel": "btw-6-procent-laadpaal",
+          "reden": "Laadpaal aan 6% of 21% btw?"
+        },
+        {
+          "regel": "laadpaal-appartement",
+          "reden": "Laden in een appartementsgebouw."
+        }
+      ]
+    },
+    {
+      "slug": "hyundai-kona-electric-65-kwh-2025",
+      "naam": "Hyundai Kona Electric 65 kWh",
+      "modeljaar": 2025,
+      "batterij_netto_kwh": 65.4,
+      "batterij_bruto_kwh": 68.5,
+      "wltp_kwh_100km": {
+        "min": 14.7,
+        "max": 16.6
+      },
+      "ac_kw_standaard": 10.5,
+      "ac_kw_optie": null,
+      "ac_fasen": 3,
+      "ac_kw_eenfasig": null,
+      "officieel_bevestigd": "deels",
+      "bron_url": "https://www.hyundai.com/be/nl/modellen/kona-electric/performance.html",
+      "opmerking": "BE zegt 10.5 kW, NL-prijslijst en ev-database 11 kW; BE-site toont nu MY26 (64.8 kWh); WLTP uit NL-prijslijst 01/2025",
+      "regel_links": [
+        {
+          "regel": "eenfasig-vs-driefasig-laden",
+          "reden": "Laadt tot 10,5 kW driefasig; op een 1x230V- of 3x230V-aansluiting haal je minder."
+        },
+        {
+          "regel": "capaciteitstarief-laadpaal",
+          "reden": "Laden aan 10,5 kW verhoogt je maandpiek."
+        },
+        {
+          "regel": "creg-tarief-thuisladen",
+          "reden": "Als bedrijfswagen: terugbetaling thuisladen tot het CREG-tarief."
+        },
+        {
+          "regel": "melding-netbeheerder-laadpaal",
+          "reden": "Een thuislaadpaal moet je melden bij je netbeheerder."
+        },
+        {
+          "regel": "btw-6-procent-laadpaal",
+          "reden": "Laadpaal aan 6% of 21% btw?"
+        },
+        {
+          "regel": "laadpaal-appartement",
+          "reden": "Laden in een appartementsgebouw."
+        }
+      ]
+    },
+    {
+      "slug": "kia-ev3-81-4-kwh-2025",
+      "naam": "Kia EV3 81,4 kWh",
+      "modeljaar": 2025,
+      "batterij_netto_kwh": 78.0,
+      "batterij_bruto_kwh": 81.4,
+      "wltp_kwh_100km": {
+        "min": 14.9,
+        "max": 16.2
+      },
+      "ac_kw_standaard": 11.0,
+      "ac_kw_optie": null,
+      "ac_fasen": 3,
+      "ac_kw_eenfasig": null,
+      "officieel_bevestigd": "deels",
+      "bron_url": "https://www.kia.com/be/nl/modellen/ev3/ontdekken/",
+      "opmerking": "81.4 = bruto; netto 78.0 enkel ev-database; 22 kW OBC pas vanaf MY2027; fasen enkel ev-database",
+      "regel_links": [
+        {
+          "regel": "eenfasig-vs-driefasig-laden",
+          "reden": "Laadt tot 11 kW driefasig; op een 1x230V- of 3x230V-aansluiting haal je minder."
+        },
+        {
+          "regel": "capaciteitstarief-laadpaal",
+          "reden": "Laden aan 11 kW verhoogt je maandpiek."
+        },
+        {
+          "regel": "creg-tarief-thuisladen",
+          "reden": "Als bedrijfswagen: terugbetaling thuisladen tot het CREG-tarief."
+        },
+        {
+          "regel": "melding-netbeheerder-laadpaal",
+          "reden": "Een thuislaadpaal moet je melden bij je netbeheerder."
+        },
+        {
+          "regel": "btw-6-procent-laadpaal",
+          "reden": "Laadpaal aan 6% of 21% btw?"
+        },
+        {
+          "regel": "laadpaal-appartement",
+          "reden": "Laden in een appartementsgebouw."
+        }
+      ]
+    },
+    {
+      "slug": "peugeot-e-208-51-kwh-2025",
+      "naam": "Peugeot e-208 51 kWh",
+      "modeljaar": 2025,
+      "batterij_netto_kwh": 48.1,
+      "batterij_bruto_kwh": 51.0,
+      "wltp_kwh_100km": {
+        "min": 14.0,
+        "max": 14.5
+      },
+      "ac_kw_standaard": 11.0,
+      "ac_kw_optie": null,
+      "ac_fasen": 3,
+      "ac_kw_eenfasig": null,
+      "officieel_bevestigd": "ja (BE-prijslijst)",
+      "bron_url": "https://www.peugeot.be/content/dam/peugeot/belgium/nl/b2c/tools/prijslijst/october/208-2025_BENL.pdf",
+      "opmerking": "volledig bevestigd via BE-prijslijst 10/2025",
+      "regel_links": [
+        {
+          "regel": "eenfasig-vs-driefasig-laden",
+          "reden": "Laadt tot 11 kW driefasig; op een 1x230V- of 3x230V-aansluiting haal je minder."
+        },
+        {
+          "regel": "capaciteitstarief-laadpaal",
+          "reden": "Laden aan 11 kW verhoogt je maandpiek."
+        },
+        {
+          "regel": "creg-tarief-thuisladen",
+          "reden": "Als bedrijfswagen: terugbetaling thuisladen tot het CREG-tarief."
+        },
+        {
+          "regel": "melding-netbeheerder-laadpaal",
+          "reden": "Een thuislaadpaal moet je melden bij je netbeheerder."
+        },
+        {
+          "regel": "btw-6-procent-laadpaal",
+          "reden": "Laadpaal aan 6% of 21% btw?"
+        },
+        {
+          "regel": "laadpaal-appartement",
+          "reden": "Laden in een appartementsgebouw."
+        }
+      ]
+    },
+    {
+      "slug": "renault-5-e-tech-52-kwh-2025",
+      "naam": "Renault 5 E-Tech 52 kWh",
+      "modeljaar": 2025,
+      "batterij_netto_kwh": 52.0,
+      "batterij_bruto_kwh": 55.0,
+      "wltp_kwh_100km": {
+        "min": 14.9,
+        "max": 14.9
+      },
+      "ac_kw_standaard": 11.0,
+      "ac_kw_optie": null,
+      "ac_fasen": 3,
+      "ac_kw_eenfasig": null,
+      "officieel_bevestigd": "ja (NL-prijslijst)",
+      "bron_url": "https://cdn.group.renault.com/ren/nl/brochures-en-prijslijsten/prijzenarchief/renault5/renault5-prijslijst-06-2025.pdf",
+      "opmerking": "BE-pagina bevestigt 52 kWh + 11 kW: https://nl.renault.be/elektrische-wagens/r5-e-tech-electric/versies-en-prijzen.html; bruto enkel ev-database",
+      "regel_links": [
+        {
+          "regel": "eenfasig-vs-driefasig-laden",
+          "reden": "Laadt tot 11 kW driefasig; op een 1x230V- of 3x230V-aansluiting haal je minder."
+        },
+        {
+          "regel": "capaciteitstarief-laadpaal",
+          "reden": "Laden aan 11 kW verhoogt je maandpiek."
+        },
+        {
+          "regel": "creg-tarief-thuisladen",
+          "reden": "Als bedrijfswagen: terugbetaling thuisladen tot het CREG-tarief."
+        },
+        {
+          "regel": "melding-netbeheerder-laadpaal",
+          "reden": "Een thuislaadpaal moet je melden bij je netbeheerder."
+        },
+        {
+          "regel": "btw-6-procent-laadpaal",
+          "reden": "Laadpaal aan 6% of 21% btw?"
+        },
+        {
+          "regel": "laadpaal-appartement",
+          "reden": "Laden in een appartementsgebouw."
+        }
+      ]
+    },
+    {
+      "slug": "renault-zoe-r135-2023",
+      "naam": "Renault Zoe R135",
+      "modeljaar": 2023,
+      "batterij_netto_kwh": 52.0,
+      "batterij_bruto_kwh": 54.7,
+      "wltp_kwh_100km": {
+        "min": 17.7,
+        "max": 17.7
+      },
+      "ac_kw_standaard": 22.0,
+      "ac_kw_optie": null,
+      "ac_fasen": 3,
+      "ac_kw_eenfasig": null,
+      "officieel_bevestigd": "ja (NL-prijslijst 01/2022)",
+      "bron_url": "https://cdn.group.renault.com/ren/nl/brochures-en-prijslijsten/prijzenarchief/zoe/zoe-prijslijst-01-2022.pdf",
+      "opmerking": "geen BE-bron meer online; bruto enkel ev-database",
+      "regel_links": [
+        {
+          "regel": "eenfasig-vs-driefasig-laden",
+          "reden": "Laadt tot 22 kW driefasig; op een 1x230V- of 3x230V-aansluiting haal je minder."
+        },
+        {
+          "regel": "capaciteitstarief-laadpaal",
+          "reden": "Laden aan 22 kW verhoogt je maandpiek."
+        },
+        {
+          "regel": "creg-tarief-thuisladen",
+          "reden": "Als bedrijfswagen: terugbetaling thuisladen tot het CREG-tarief."
+        },
+        {
+          "regel": "melding-netbeheerder-laadpaal",
+          "reden": "Een thuislaadpaal moet je melden bij je netbeheerder."
+        },
+        {
+          "regel": "btw-6-procent-laadpaal",
+          "reden": "Laadpaal aan 6% of 21% btw?"
+        },
+        {
+          "regel": "laadpaal-appartement",
+          "reden": "Laden in een appartementsgebouw."
+        }
+      ]
+    },
+    {
+      "slug": "skoda-enyaq-85-2025",
+      "naam": "Škoda Enyaq 85",
+      "modeljaar": 2025,
+      "batterij_netto_kwh": 77.0,
+      "batterij_bruto_kwh": 82.0,
+      "wltp_kwh_100km": {
+        "min": 15.0,
+        "max": 16.0
+      },
+      "ac_kw_standaard": 11.0,
+      "ac_kw_optie": null,
+      "ac_fasen": 3,
+      "ac_kw_eenfasig": null,
+      "officieel_bevestigd": "deels (fasen niet)",
+      "bron_url": "https://cdn.skoda-storyboard.com/2025/05/Press_Kit_New_Skoda_Enyaq_492b58d1.pdf",
+      "opmerking": "skoda.be: 15-16 kWh/100km (https://nl.skoda.be/models/enyaq/enyaq-corporate); BE-prijslijst https://nl.skoda.be/_doc/0128eaa0-e632-4b16-82bf-383d1c2baf2a niet leesbaar; fasen enkel ev-database",
+      "regel_links": [
+        {
+          "regel": "eenfasig-vs-driefasig-laden",
+          "reden": "Laadt tot 11 kW driefasig; op een 1x230V- of 3x230V-aansluiting haal je minder."
+        },
+        {
+          "regel": "capaciteitstarief-laadpaal",
+          "reden": "Laden aan 11 kW verhoogt je maandpiek."
+        },
+        {
+          "regel": "creg-tarief-thuisladen",
+          "reden": "Als bedrijfswagen: terugbetaling thuisladen tot het CREG-tarief."
+        },
+        {
+          "regel": "melding-netbeheerder-laadpaal",
+          "reden": "Een thuislaadpaal moet je melden bij je netbeheerder."
+        },
+        {
+          "regel": "btw-6-procent-laadpaal",
+          "reden": "Laadpaal aan 6% of 21% btw?"
+        },
+        {
+          "regel": "laadpaal-appartement",
+          "reden": "Laden in een appartementsgebouw."
+        }
+      ]
+    },
+    {
+      "slug": "tesla-model-3-rwd-2025",
+      "naam": "Tesla Model 3 RWD",
+      "modeljaar": 2025,
+      "batterij_netto_kwh": 60.0,
+      "batterij_bruto_kwh": 64.0,
+      "batterij_varianten": [
+        {
+          "netto_kwh": 57.0,
+          "bruto_kwh": 60.0,
+          "periode": "tot ~mei 2025"
+        },
+        {
+          "netto_kwh": 60.0,
+          "bruto_kwh": 64.0,
+          "periode": "vanaf ~mei 2025"
+        }
+      ],
+      "wltp_kwh_100km": {
+        "min": 13.8,
+        "max": 13.8
+      },
+      "ac_kw_standaard": 11.0,
+      "ac_kw_optie": null,
+      "ac_fasen": 3,
+      "ac_kw_eenfasig": null,
+      "officieel_bevestigd": "deels (enkel WLTP)",
+      "bron_url": "https://www.tesla.com/nl_be/support/power-consumption",
+      "opmerking": "Tesla publiceert geen kWh/OBC; 57/60 tot ~mei 2025, daarna 60/64 (ev-database); huidige Standard RWD = 12.2 kWh/100km",
+      "regel_links": [
+        {
+          "regel": "eenfasig-vs-driefasig-laden",
+          "reden": "Laadt tot 11 kW driefasig; op een 1x230V- of 3x230V-aansluiting haal je minder."
+        },
+        {
+          "regel": "capaciteitstarief-laadpaal",
+          "reden": "Laden aan 11 kW verhoogt je maandpiek."
+        },
+        {
+          "regel": "creg-tarief-thuisladen",
+          "reden": "Als bedrijfswagen: terugbetaling thuisladen tot het CREG-tarief."
+        },
+        {
+          "regel": "melding-netbeheerder-laadpaal",
+          "reden": "Een thuislaadpaal moet je melden bij je netbeheerder."
+        },
+        {
+          "regel": "btw-6-procent-laadpaal",
+          "reden": "Laadpaal aan 6% of 21% btw?"
+        },
+        {
+          "regel": "laadpaal-appartement",
+          "reden": "Laden in een appartementsgebouw."
+        }
+      ]
+    },
+    {
+      "slug": "volkswagen-id-3-pro-2025",
+      "naam": "Volkswagen ID.3 Pro",
+      "modeljaar": 2025,
+      "batterij_netto_kwh": 59.0,
+      "batterij_bruto_kwh": 63.0,
+      "wltp_kwh_100km": {
+        "min": 14.6,
+        "max": 16.7
+      },
+      "ac_kw_standaard": 11.0,
+      "ac_kw_optie": null,
+      "ac_fasen": 3,
+      "ac_kw_eenfasig": null,
+      "officieel_bevestigd": "ja (fasen via NL-prijslijst)",
+      "bron_url": "https://www.volkswagen.be/app/offers/nl/professional/id3-pro-business",
+      "opmerking": "NL-prijslijst: https://www.volkswagen.nl/idhub/content/dam/onehub_pkw/importers/nl/prijslijsten/ID3_prijslijst.pdf; vw.be toont nu enkel ID.3 Neo",
+      "regel_links": [
+        {
+          "regel": "eenfasig-vs-driefasig-laden",
+          "reden": "Laadt tot 11 kW driefasig; op een 1x230V- of 3x230V-aansluiting haal je minder."
+        },
+        {
+          "regel": "capaciteitstarief-laadpaal",
+          "reden": "Laden aan 11 kW verhoogt je maandpiek."
+        },
+        {
+          "regel": "creg-tarief-thuisladen",
+          "reden": "Als bedrijfswagen: terugbetaling thuisladen tot het CREG-tarief."
+        },
+        {
+          "regel": "melding-netbeheerder-laadpaal",
+          "reden": "Een thuislaadpaal moet je melden bij je netbeheerder."
+        },
+        {
+          "regel": "btw-6-procent-laadpaal",
+          "reden": "Laadpaal aan 6% of 21% btw?"
+        },
+        {
+          "regel": "laadpaal-appartement",
+          "reden": "Laden in een appartementsgebouw."
+        }
+      ]
+    },
+    {
+      "slug": "volkswagen-id-4-pro-2025",
+      "naam": "Volkswagen ID.4 Pro",
+      "modeljaar": 2025,
+      "batterij_netto_kwh": 77.0,
+      "batterij_bruto_kwh": 82.0,
+      "wltp_kwh_100km": {
+        "min": 15.75,
+        "max": 17.62
+      },
+      "ac_kw_standaard": 11.0,
+      "ac_kw_optie": null,
+      "ac_fasen": 3,
+      "ac_kw_eenfasig": null,
+      "officieel_bevestigd": "ja (fasen niet)",
+      "bron_url": "https://www.volkswagen.be/nl/modellen/id4.html/__ui/technical-data.app",
+      "opmerking": "huidige BE-pagina, mogelijk MY26-waarden; fasen enkel ev-database",
+      "regel_links": [
+        {
+          "regel": "eenfasig-vs-driefasig-laden",
+          "reden": "Laadt tot 11 kW driefasig; op een 1x230V- of 3x230V-aansluiting haal je minder."
+        },
+        {
+          "regel": "capaciteitstarief-laadpaal",
+          "reden": "Laden aan 11 kW verhoogt je maandpiek."
+        },
+        {
+          "regel": "creg-tarief-thuisladen",
+          "reden": "Als bedrijfswagen: terugbetaling thuisladen tot het CREG-tarief."
+        },
+        {
+          "regel": "melding-netbeheerder-laadpaal",
+          "reden": "Een thuislaadpaal moet je melden bij je netbeheerder."
+        },
+        {
+          "regel": "btw-6-procent-laadpaal",
+          "reden": "Laadpaal aan 6% of 21% btw?"
+        },
+        {
+          "regel": "laadpaal-appartement",
+          "reden": "Laden in een appartementsgebouw."
+        }
+      ]
+    }
+  ],
+  "regels": [
+    {
+      "slug": "btw-6-procent-laadpaal",
+      "titel": "6% btw op een laadpaal: wanneer wel en wanneer niet?",
+      "h1": "6% btw op je laadpaal thuis",
+      "meta_description": "Een laadpaal thuis aan 6% btw? Dat kan als je woning ouder is dan 10 jaar en een installateur levert en plaatst. Alle voorwaarden en uitzonderingen op een rij.",
+      "samenvatting": "6% btw geldt alleen als een installateur de laadpaal levert én plaatst in of aan een privéwoning van meer dan 10 jaar oud. Anders betaal je 21%.",
+      "linktekst": "6% of 21% btw op je laadpaal?",
+      "gewesten": [
+        "vlaanderen",
+        "brussel",
+        "wallonie"
+      ],
+      "gekoppelde_modelvelden": [],
+      "gerelateerd": [
+        "melding-netbeheerder-laadpaal",
+        "laadpaal-appartement"
+      ],
+      "laatst_gecontroleerd": "2026-09-22",
+      "herzien_voor": "2027-01-31",
+      "bronnen": [
+        {
+          "titel": "Circulaire 2021/C/113 over laadstations voor elektrische voertuigen (tekst via Fiscosearch)",
+          "url": "https://fiscosearch.be/collecties/circulaires/circulaire-2021-c-113-betreffende-de-installatie-van-laadstations-voor-elektrische-voertuigen-en-leveringen-en-diensten-met-betrekking-tot-die-laadstations"
+        },
+        {
+          "titel": "FOD Financiën – Verbouwen (6% btw voor renovatie)",
+          "url": "https://financien.belgium.be/nl/particulieren/woning/verbouwen/"
+        },
+        {
+          "titel": "Grant Thornton – Nieuwe circulaire kadert btw voor laadstations (08/03/2022)",
+          "url": "https://www.grantthornton.be/the-field/articles/Nieuwe-circulaire-kadert-toepassing-btw-voor-laadstations/"
+        }
+      ],
+      "body_md": "# 6% btw op je laadpaal thuis\n\nEen laadpaal aan huis valt onder het gewone **verlaagde btw-tarief voor renovatie van privéwoningen** (rubriek XXXVIII van tabel A bij KR nr. 20). Er bestaat geen apart btw-tarief voor laadpalen. De fiscus legde in **circulaire 2021/C/113** vast hoe die renovatieregel op laadstations van toepassing is.\n\n## De voorwaarden voor 6%\n\nJe krijgt 6% btw als **alle** voorwaarden hieronder vervuld zijn:\n\n- **De woning is meer dan 10 jaar oud.** Ze werd minstens 10 jaar vóór de eerste factuur voor het eerst in gebruik genomen.\n- **De woning is uitsluitend of hoofdzakelijk een privéwoning.**\n- **Een aannemer levert én plaatst de laadpaal.** Materiaal dat je zelf koopt, valt onder 21%, ook als een installateur het nadien plaatst.\n- **De factuur is gericht aan de eindgebruiker**, dus aan de eigenaar of huurder die de woning bewoont.\n- **De laadpaal staat in of aan de woning**, bijvoorbeeld aan de buitenmuur, in de garage of onder de carport van de woning.\n\n## Wanneer betaal je 21%?\n\n- **Nieuwbouw** of een woning die jonger is dan 10 jaar.\n- **Een laadpaal zonder plaatsing**, bijvoorbeeld online gekocht en zelf gemonteerd, of alleen geleverd.\n- **Een laadpaal bij een bedrijfspand** of op een (semi-)publieke parking.\n- **Een vrijstaande paal in de tuin of op de oprit.** Hierover zijn de bronnen het niet eens. Verschillende fiscalisten rekenen dit niet tot \"in of aan de woning\", dus reken hier op 21% tenzij je installateur schriftelijk bevestigt dat 6% kan.\n\n## Laadpaal van je werkgever\n\nPlaatst je werkgever een laadpaal bij je thuis, dan kan 6% gelden als de woning aan de voorwaarden voldoet. Is de klant een btw-plichtig bedrijf, dan past de installateur **btw-verlegging** toe. Hoeveel btw de werkgever mag aftrekken, hangt af van het beroepsgebruik. Voor de terugbetaling van de stroom, zie [CREG-tarief voor thuisladen](/regels/creg-tarief-thuisladen).\n\n## Wat recent veranderde (en wat niet)\n\n- De tijdelijke 6% van 2022–2023 voor zonnepanelen en warmtepompen **gold nooit voor laadpalen**.\n- De btw-maatregelen van de federale regering in 2025–2026 raken de renovatieregel voor woningen van meer dan 10 jaar **niet**. De regeling voor laadpalen is dus ongewijzigd.\n- De federale **belastingvermindering voor een thuislaadpaal** is afgelopen. Ze gold alleen voor betalingen tot en met 31 augustus 2024.\n\n## Tip\n\nVraag je installateur om één offerte en factuur voor levering én plaatsing, met vermelding van de ouderdom van de woning. Controleer ook of je [laadpaal gemeld is bij de netbeheerder](/regels/melding-netbeheerder-laadpaal).\n\n*Deze pagina geeft algemene informatie en is geen fiscaal advies. Laatst gecontroleerd op 22 september 2026.*"
+    },
+    {
+      "slug": "capaciteitstarief-laadpaal",
+      "titel": "Capaciteitstarief en je laadpaal: wat kost een piek van 11 kW?",
+      "h1": "Het capaciteitstarief en elektrisch laden",
+      "meta_description": "In Vlaanderen betaal je sinds 2023 voor je hoogste kwartierpiek. Wat laden aan 11 kW kost, de tarieven per Fluvius-netgebied in 2026 en hoe slim laden je piek laag houdt.",
+      "samenvatting": "In Vlaanderen betaal je netkosten op je gemiddelde maandpiek (minimum 2,5 kW), in 2026 ongeveer €52–61 per kW per jaar incl. btw. Laden aan 11 kW zonder slim laden kan je jaarlijks enkele honderden euro extra kosten.",
+      "linktekst": "Wat laden doet met je capaciteitstarief",
+      "gewesten": [
+        "vlaanderen",
+        "brussel",
+        "wallonie"
+      ],
+      "gekoppelde_modelvelden": [
+        "ac_kw_standaard",
+        "ac_kw_optie",
+        "ac_fasen"
+      ],
+      "gerelateerd": [
+        "eenfasig-vs-driefasig-laden",
+        "creg-tarief-thuisladen",
+        "melding-netbeheerder-laadpaal"
+      ],
+      "laatst_gecontroleerd": "2026-09-22",
+      "herzien_voor": "2027-01-15",
+      "bronnen": [
+        {
+          "titel": "Vlaamse Nutsregulator – Capaciteitstarief (bijgewerkt 11/06/2026)",
+          "url": "https://www.vlaamsenutsregulator.be/elektriciteit-en-aardgas/nettarieven/capaciteitstarief"
+        },
+        {
+          "titel": "Vlaamse Nutsregulator – Hoeveel bedragen de distributienettarieven?",
+          "url": "https://www.vlaamsenutsregulator.be/elektriciteit-en-aardgas/nettarieven/hoeveel-bedragen-de-distributienettarieven"
+        },
+        {
+          "titel": "Vlaamse Nutsregulator – Tarieflijst Fluvius West 2026 (elektriciteit)",
+          "url": "https://assets.vlaamsenutsregulator.be/2025-11/FW%20-%202026%20-%20ELEK.pdf?VersionId=qqbQm1gDRlAOz7vWkdOLPGESKq4ASvxw"
+        },
+        {
+          "titel": "Fluvius – Capaciteitstarief: hoe wordt het aangerekend?",
+          "url": "https://www.fluvius.be/nl/factuur-en-tarieven/capaciteitstarief/gezinnen-en-kleine-ondernemingen/aangerekend"
+        },
+        {
+          "titel": "CWaPE – Tarifs de distribution 2026 (persbericht 03/11/2025)",
+          "url": "https://www.cwape.be/sites/default/files/cwape-documents/2025.11.03-Tarifs%20distribution%202026_CP.pdf"
+        },
+        {
+          "titel": "Sibelga – Capacity rate",
+          "url": "https://www.sibelga.be/en/connections-meters/rates/net-usage-rates/capacity-rate"
+        }
+      ],
+      "body_md": "# Het capaciteitstarief en elektrisch laden\n\nSinds 1 januari 2023 betaal je in Vlaanderen een deel van je netkosten op basis van het **vermogen dat je tegelijk afneemt**, en niet alleen op basis van je verbruik in kWh. Een laadpaal is vaak het toestel dat je piek bepaalt.\n\n## Zo werkt het (Vlaanderen)\n\n- **Kwartierpiek:** je digitale meter meet elk kwartier je gemiddelde afgenomen vermogen in kW.\n- **Maandpiek:** de hoogste kwartierpiek van de maand.\n- **Jaargemiddelde:** je betaalt op het gemiddelde van je maandpieken over de laatste 12 maanden.\n- **Minimum 2,5 kW:** ook met een lagere piek betaal je voor 2,5 kW.\n- **Analoge meter:** je betaalt een vast bedrag dat overeenkomt met 2,5 kW, plus een hoger tarief per kWh.\n\n## Tarieven 2026 per Fluvius-netgebied\n\nDit is het tarief voor de gemiddelde maandpiek bij een residentiële aansluiting op laagspanning.\n\n| Netgebied | €/kW/jaar excl. btw | €/kW/jaar incl. 6% btw |\n|---|---|---|\n| Antwerpen | 49,40 | 52,37 |\n| Halle-Vilvoorde | 56,04 | 59,41 |\n| Imewo | 54,20 | 57,45 |\n| Kempen | 56,21 | 59,58 |\n| Limburg | 49,05 | 51,99 |\n| Midden-Vlaanderen | 50,12 | 53,13 |\n| West | 57,10 | 60,53 |\n| Zenne-Dijle | 56,12 | 59,49 |\n\nBron: tarieflijsten 2026 van de Vlaamse Nutsregulator. Bedrijven betalen 21% btw.\n\n## Rekenvoorbeeld: laden aan 11 kW\n\nEen gezin zonder elektrische auto heeft typisch een maandpiek rond 4 kW. Laad je elke maand minstens één kwartier aan **11 kW**, terwijl je huis ook nog 1 à 1,5 kW verbruikt, dan stijgt je maandpiek naar ongeveer **12,5 kW**.\n\n- Extra piek: ongeveer **8,5 kW**\n- Extra kost: 8,5 kW × €52–61 = ongeveer **€440–515 per jaar** incl. btw\n\nLaad je hetzelfde aan **3,7 kW** of beperk je je totale verbruik met slim laden tot 4 à 5 kW, dan blijft de meerkost dicht bij nul. Je auto laadt dan wel trager, maar 's nachts heb je meestal tijd genoeg.\n\nEén uitschieter weegt beperkt: een enkele maand met een piek van 11 kW kost je over het hele jaar ongeveer €35–45 extra, omdat er over 12 maanden gemiddeld wordt.\n\n## Wat je auto ermee te maken heeft\n\nHet maximale AC-laadvermogen van je auto (op de modelpagina: *AC-laden*) bepaalt hoe hoog je piek **kan** worden. Een auto met 11 kW driefasig trekt op een 3N400V-aansluiting 11 kW. Een auto met 22 kW (zoals de Renault Zoe) kan nog veel hoger pieken. Stel daarom een laadstroom of laadvermogen in via je laadpaal of de app van je auto. Zie ook [eenfasig versus driefasig laden](/regels/eenfasig-vs-driefasig-laden).\n\n## Brussel en Wallonië\n\n- **Brussel:** er is geen tarief op je gemeten piek. Je betaalt een vaste capaciteitscomponent die afhangt van de grootte van je aansluiting (hoofdzekering). Een tariefstructuur met tijdsblokken wordt gefaseerd ingevoerd, volledig tegen 2028.\n- **Wallonië:** er is geen capaciteitstarief voor gezinnen. Sinds 1 januari 2026 gelden goedkopere uren van **11 tot 17 uur en van 22 tot 7 uur**. Laad je auto bij voorkeur in die uren.\n\n*Tarieven wijzigen jaarlijks op 1 januari. Deze pagina geeft algemene informatie. Laatst gecontroleerd op 22 september 2026.*"
+    },
+    {
+      "slug": "creg-tarief-thuisladen",
+      "titel": "CREG-tarief 2026: terugbetaling van thuisladen met je bedrijfswagen",
+      "h1": "Het CREG-tarief voor thuisladen van een bedrijfswagen",
+      "meta_description": "Laad je je elektrische bedrijfswagen thuis? Je werkgever mag terugbetalen tot het CREG-tarief per kWh. De tarieven van Q3 en Q4 2026 per gewest, de voorwaarden en de fiscale regels.",
+      "samenvatting": "Werkgevers mogen thuisladen van een bedrijfswagen belastingvrij terugbetalen tot het CREG-tarief van dat kwartaal. In Q3 2026 is dat €0,3222/kWh in Vlaanderen, €0,3719 in Brussel en €0,3783 in Wallonië.",
+      "linktekst": "CREG-tarief voor thuisladen",
+      "gewesten": [
+        "vlaanderen",
+        "brussel",
+        "wallonie"
+      ],
+      "gekoppelde_modelvelden": [
+        "batterij_netto_kwh",
+        "wltp_kwh_100km"
+      ],
+      "gerelateerd": [
+        "capaciteitstarief-laadpaal",
+        "btw-6-procent-laadpaal",
+        "melding-netbeheerder-laadpaal"
+      ],
+      "laatst_gecontroleerd": "2026-09-22",
+      "herzien_voor": "2026-12-15",
+      "bronnen": [
+        {
+          "titel": "CREG – Tarief voor terugbetaling thuisladen bedrijfswagens",
+          "url": "https://www.creg.be/nl/consumenten/prijzen-en-tarieven/creg-tarief-voor-terugbetaling-thuisladen-bedrijfswagens"
+        },
+        {
+          "titel": "Fleet.be – CREG-tarieven Q3 2026",
+          "url": "https://www.fleet.be/bedrijfswagens-dit-zijn-de-creg-tarieven-voor-de-terugbetaling-van-elektrisch-laden-in-q3-2026/"
+        },
+        {
+          "titel": "Fleet.be – CREG-tarieven Q4 2026 (11/08/2026)",
+          "url": "https://www.fleet.be/bedrijfswagens-dit-zijn-de-creg-tarieven-voor-de-terugbetaling-van-thuisladen-in-q4-2026/"
+        },
+        {
+          "titel": "Attentia – Vergoeding laadkosten thuis, derde kwartaal 2026",
+          "url": "https://www.attentia.be/nl/nieuws/vergoeding-laadkosten-thuis-derde-kwartaal-2026"
+        },
+        {
+          "titel": "Securex – Thuis opladen: forfaitaire terugbetaling wordt permanent (03/07/2025)",
+          "url": "https://www.securex.be/nl/lex4you/werkgever/nieuws/thuis-opladen-forfaitaire-terugbetaling-wordt-permanent"
+        },
+        {
+          "titel": "LWB – CREG publiceert tarieven derde kwartaal 2026 (16/07/2026)",
+          "url": "https://www.lwb-info.be/nieuws/terugbetaling-kosten-elektrisch-thuisladen-creg-publiceert-tarieven-derde-kwartaal-2026-400/"
+        }
+      ],
+      "body_md": "# Het CREG-tarief voor thuisladen van een bedrijfswagen\n\nLaad je een elektrische bedrijfswagen thuis op, dan betaal jij de stroom. Je werkgever mag je die kosten terugbetalen zonder dat je er belastingen op betaalt. Hij kan de **werkelijke kostprijs** vergoeden of een **forfait per kWh**. Dat forfait mag niet hoger liggen dan het tarief dat de federale energieregulator **CREG** elk kwartaal publiceert.\n\n## CREG-tarieven 2026 (maximum per kWh)\n\n| Kwartaal | Vlaanderen | Brussel | Wallonië |\n|---|---|---|---|\n| Q1 2026 | €0,3132 | €0,3426 | €0,3523 |\n| Q2 2026 | €0,3191 | €0,3555 | €0,3636 |\n| **Q3 2026** | **€0,3222** | **€0,3719** | **€0,3783** |\n| Q4 2026 | €0,3225 | €0,3688 | €0,3779 |\n\nQ4 2026 staat hier zoals gerapporteerd door Fleet.be (augustus 2026). Controleer het op de website van de CREG.\n\n## Hoe werkt het?\n\n- **Het tarief is een maximum.** Je werkgever mag minder terugbetalen of de werkelijke kosten vergoeden.\n- **Per gewest of één nationaal tarief.** Je werkgever kiest het tarief van het gewest waar jij woont, of één tarief voor iedereen. Dat nationale tarief mag niet hoger zijn dan het laagste gewestelijke tarief (Vlaanderen).\n- **De keuze staat in de car policy** en geldt voor het hele kalenderjaar.\n- **Rechtsgrond:** fiscale circulaires. Circulaire 2024/C/77 voerde het systeem in vanaf 1 januari 2025 en circulaire 2025/C/38 maakte het permanent. Voor elk kwartaal volgt een nieuwe circulaire met de tarieven.\n\n## Voorwaarden voor een belastingvrije terugbetaling\n\n- De laadpaal registreert het verbruik van de bedrijfswagen en geeft het door aan de werkgever. Dat kan rechtstreeks of via de laadpaaloperator of leasemaatschappij.\n- De meting is nauwkeurig: maximaal 2% afwijking, of klasse B.\n- Er wordt alleen terugbetaald wat de bedrijfswagen thuis laadde, niet je gezinsverbruik.\n\n**Let op:** de RSZ aanvaardt het forfait volgens sociale secretariaten voorlopig **tot eind 2026**. Een beslissing voor 2027 was bij de laatste controle nog niet gepubliceerd.\n\n## Waarop is het CREG-tarief gebaseerd?\n\nHet CREG-tarief is een gemiddelde all-in prijs (energie, netkosten, heffingen en btw) voor een gezin met een digitale meter en een elektrische auto. Het gaat uit van een verbruik van 8.000 kWh per jaar en een gemiddelde maandpiek van 7,36 kW. Dat laatste is belangrijk: laad je aan 11 kW zonder slim laden, dan kan jouw [capaciteitstarief](/regels/capaciteitstarief-laadpaal) hoger uitvallen dan waarmee het CREG-tarief rekent.\n\n## Rekenvoorbeeld\n\nEen auto die volgens WLTP 15 kWh/100 km verbruikt en thuis 10.000 km per jaar laadt, verbruikt ongeveer 1.500 kWh. Reken daar laadverliezen van zo'n 10% bij en je komt op ongeveer 1.650 kWh.\n\n- Tegen €0,3222/kWh (Vlaanderen, Q3 2026) is dat ongeveer **€530 per jaar** terugbetaling.\n\nHet WLTP-verbruik van je model vind je op de modelpagina.\n\n*Deze pagina geeft algemene informatie en is geen fiscaal of sociaal advies. De tarieven wijzigen elk kwartaal. Laatst gecontroleerd op 22 september 2026.*"
+    },
+    {
+      "slug": "eenfasig-vs-driefasig-laden",
+      "titel": "Eenfasig of driefasig laden: hoeveel kW haalt je auto thuis echt?",
+      "h1": "Eenfasig versus driefasig laden in België",
+      "meta_description": "11 kW laden lukt alleen op een driefasige 3N400V-aansluiting. Wat je auto haalt op 1x230V, 3x230V en 3N400V, wat een omschakeling bij Fluvius kost en waarom België een speciaal geval is.",
+      "samenvatting": "Een auto met een driefasige 11 kW-lader haalt die 11 kW alleen op een 3N400V-aansluiting. Op een eenfasige of een oudere 3x230V-aansluiting laadt hij eenfasig aan 3,7 of 7,4 kW, afhankelijk van wat de auto op één fase aankan.",
+      "linktekst": "Eenfasig of driefasig laden?",
+      "gewesten": [
+        "vlaanderen",
+        "brussel",
+        "wallonie"
+      ],
+      "gekoppelde_modelvelden": [
+        "ac_kw_standaard",
+        "ac_kw_optie",
+        "ac_fasen"
+      ],
+      "gerelateerd": [
+        "capaciteitstarief-laadpaal",
+        "melding-netbeheerder-laadpaal",
+        "laadpaal-appartement"
+      ],
+      "laatst_gecontroleerd": "2026-09-22",
+      "herzien_voor": "2027-01-31",
+      "bronnen": [
+        {
+          "titel": "Fluvius – Veelgestelde vragen over elektrische laadpalen",
+          "url": "https://www.fluvius.be/nl/veelgestelde-vragen/veelgestelde-vragen-over-elektrische-laadpalen"
+        },
+        {
+          "titel": "Fluvius – Standaardaansluiting",
+          "url": "https://www.fluvius.be/nl/aansluitingen/standaardaansluiting"
+        },
+        {
+          "titel": "Fluvius – Aanpassing aansluiting bij plaatsen laadpaal (02/12/2024)",
+          "url": "https://www.fluvius.be/nl/blog/elektrisch-rijden/aanpassing-aansluiting-plaatsen-laadpaal"
+        },
+        {
+          "titel": "Fluvius – Aansluittarieven elektriciteit 2026 (klantvragen)",
+          "url": "https://www.fluvius.be/sites/fluvius/files/2020-12/aansluittarieven-elektriciteit-fluvius.pdf"
+        },
+        {
+          "titel": "Sibelga – Technische voorschriften laadinfrastructuur (SIB23 CCLB 120 v02, 28/10/2024)",
+          "url": "https://www.sibelga.be/asset/file/e10a9658-4e23-11ee-9d39-005056970ffd"
+        },
+        {
+          "titel": "ORES – FAQ mobilité durable",
+          "url": "https://www.ores.be/faq/mobilite-durable"
+        }
+      ],
+      "body_md": "# Eenfasig versus driefasig laden in België\n\nOp de modelpagina's staat bij *AC-laden* het maximale vermogen van de ingebouwde lader van de auto, bijvoorbeeld \"11 kW, driefasig\". Of je dat thuis ook haalt, hangt af van je **aansluiting**. In België speelt daarbij een eigenaardigheid mee: het 3x230V-net.\n\n## Drie soorten aansluitingen\n\n- **Eenfasig 230V:** één fase en een nulgeleider. Dit is typisch in oudere woningen en appartementen, bijvoorbeeld 40 A = 9,2 kVA.\n- **Driefasig 3x230V (zonder nulgeleider):** een ouder nettype dat nog in delen van België voorkomt. Het is driefasig, maar zonder de nulgeleider die de meeste autoladers nodig hebben.\n- **Driefasig 3N400V (met nulgeleider):** de standaard die Fluvius al jaren plaatst, bijvoorbeeld 25 A = 17,3 kVA. Dit is de enige aansluiting waarop een auto driefasig kan laden.\n\nJe installateur of netbeheerder kan zeggen welk type je hebt. Vaak staat het ook op je meter.\n\n## Wat haalt je auto?\n\n| Aansluiting | Laadvermogen van een auto met een driefasige 11 kW-lader |\n|---|---|\n| 3N400V | **11 kW** (driefasig 16 A) |\n| 3x230V zonder nulgeleider | **3,7 kW** (16 A) of **7,4 kW** (32 A), eenfasig tussen twee fasen. 11 kW alleen met een scheidingstransformator. |\n| Eenfasig 230V | **3,7 kW** (16 A) of **7,4 kW** (32 A), als je aansluiting en auto dat toelaten |\n\nOf je auto op één fase 3,7 of 7,4 kW haalt, hangt af van de lader in de auto. Sommige auto's nemen per fase maximaal 16 A (3,7 kW), andere 32 A (7,4 kW). Dat staat niet altijd in de brochure; kijk op de modelpagina of vraag het na bij de dealer.\n\nFluvius rekent met ongeveer **15 km bereik per uur** aan 3,7 kW en ongeveer **50 km per uur** aan 11 kW. Voor 400 km bereik is dat ongeveer 27 uur tegenover 8 uur.\n\n**Renault Zoe:** de Zoe kan tot 22 kW laden, maar alleen op 3N400V met 32 A per fase. Volgens Fluvius kunnen laders van onder meer de Zoe slecht werken op een oud 3x230V-net.\n\n## Regels voor evenwicht tussen de fasen\n\n- **Brussel (Sibelga):**\n  - Op een 3N400V-aansluiting mag eenfasig laden maximaal 3,7 kW zijn; 7,4 kW eenfasig is daar verboden.\n  - 22 kW is alleen toegestaan met een energiebeheersysteem dat het onevenwicht tussen de fasen onder 5 kVA houdt.\n  - Lastbeheer is verplicht als het laadvermogen gelijk is aan of hoger is dan je aansluitvermogen.\n- **Vlaanderen (Fluvius):** voor zonnepanelen, batterijen en bidirectioneel laden geldt samen maximaal 5 kVA op een eenfasige aansluiting en 25 kVA op een driefasige aansluiting.\n- **Wallonië (ORES):** boven 7,4 kW heb je doorgaans een 3N400V-aansluiting nodig.\n\n## Overschakelen naar 3N400V (Fluvius, tarieven 2026)\n\n| Aanpassing | Prijs incl. btw |\n|---|---|\n| Van eenfasig naar 17,3 kVA 400V, met vervanging van de meter | €326,51 |\n| Van 17,3 naar 22,2 kVA (400V) | €486,37 |\n| Van 17,3 naar 27,7 kVA (400V) | €968,79 |\n| 400V op aanvraag, van 12,7 naar 22,2 kVA, als er eerst een nieuw 400V-straatnet moet komen | €1.821,01 |\n\nDe eerste drie prijzen gelden als je aansluiting en het straatnet al in orde zijn. Werken in je eigen woning en graafwerken op je terrein komen er nog bij.\n\n## Moet je wel 11 kW laden?\n\nVoor de meeste gezinnen niet. Wie 's nachts laadt, heeft aan 3,7 tot 7,4 kW vaak genoeg. Een hoger laadvermogen verhoogt ook je [capaciteitstarief](/regels/capaciteitstarief-laadpaal). Driefasig laden aan een lagere stroom (bijvoorbeeld 3 x 8 A ≈ 5,5 kW) verdeelt de belasting beter over de fasen dan eenfasig laden aan hetzelfde vermogen.\n\nVergeet niet je laadpaal te [melden bij de netbeheerder](/regels/melding-netbeheerder-laadpaal).\n\n*Deze pagina geeft algemene informatie. Laat je installatie altijd beoordelen door een erkend elektricien. Laatst gecontroleerd op 22 september 2026.*"
+    },
+    {
+      "slug": "laadpaal-appartement",
+      "titel": "Laadpaal in een appartement: je rechten tegenover de VME",
+      "h1": "Een laadpaal plaatsen in een appartementsgebouw",
+      "meta_description": "Mag je als mede-eigenaar een laadpaal plaatsen in de gemeenschappelijke parking? Ja, via art. 3.82 BW. De procedure, termijnen, bezwaren van de VME en wat huurders kunnen doen.",
+      "samenvatting": "Als mede-eigenaar mag je op eigen kosten een laadpaal laten plaatsen via de gemeenschappelijke delen (art. 3.82 §2 BW). Je verwittigt de syndicus 2 maanden vooraf per aangetekende brief; de VME kan alleen bezwaar maken met een wettige reden.",
+      "linktekst": "Laadpaal in je appartement: zo pak je het aan",
+      "gewesten": [
+        "vlaanderen",
+        "brussel",
+        "wallonie"
+      ],
+      "gekoppelde_modelvelden": [
+        "ac_kw_standaard",
+        "ac_fasen"
+      ],
+      "gerelateerd": [
+        "melding-netbeheerder-laadpaal",
+        "eenfasig-vs-driefasig-laden",
+        "btw-6-procent-laadpaal"
+      ],
+      "laatst_gecontroleerd": "2026-09-22",
+      "herzien_voor": "2027-03-31",
+      "bronnen": [
+        {
+          "titel": "Wet van 4 februari 2020 – Boek 3 Goederen van het Burgerlijk Wetboek (art. 3.82)",
+          "url": "https://etaamb.openjustice.be/nl/wet-van-04-februari-2020_n2020020347.html"
+        },
+        {
+          "titel": "Bricks Advocaten – Laadpaal in een appartementsgebouw (16/12/2024)",
+          "url": "https://bricksadvocaten.be/blog/laadpaal-in-een-appartementsgebouw-ondergrondse-parking"
+        },
+        {
+          "titel": "Dewaele – Laadpalen in appartementsgebouwen (03/05/2024)",
+          "url": "https://www.dewaele.com/nl/advies/laadpalen-in-appartementsgebouwen"
+        },
+        {
+          "titel": "Brandweerzone Rand – Elektrische voertuigen en laadpalen in parkeergarages",
+          "url": "https://www.brandweerzonerand.be/wettelijke-brandpreventie/regelgevingen/elektrische-voertuigen-en-laadpalen-in-parkeergarages"
+        },
+        {
+          "titel": "Minaraad – Advies decreet omzetting EPBD (27/08/2026)",
+          "url": "https://www.minaraad.be/themas/klimaat/decreet-omzetting-epbd"
+        }
+      ],
+      "body_md": "# Een laadpaal plaatsen in een appartementsgebouw\n\nIn een appartementsgebouw loopt de kabel naar je parkeerplaats bijna altijd door gemeenschappelijke delen. Daarvoor heb je in principe de vereniging van mede-eigenaars (VME) nodig. De wet geeft je als eigenaar wel een stevig recht om zelf aan de slag te gaan.\n\n## Je recht als mede-eigenaar: art. 3.82 §2 BW\n\nElke mede-eigenaar mag **op eigen kosten** kabels, leidingen en bijhorende uitrusting door de gemeenschappelijke delen laten aanleggen. Dat recht staat in **artikel 3.82 §2 van het Burgerlijk Wetboek** en bestaat al sinds 2019 (vroeger art. 577-2 §10). Voorwaarde is dat het gaat om een optimalisatie van de infrastructuur voor onder meer energie. Een laadpaal valt daaronder.\n\n- **Jij betaalt alles.** De andere eigenaars en de VME mogen er niets aan betalen.\n- **De installatie blijft van jou.**\n- Sluiten andere eigenaars later aan op jouw kabel, dan betalen zij een deel van jouw kosten terug.\n\n## De procedure\n\n1. **Verwittig de syndicus per aangetekende brief**, minstens **2 maanden vóór de start van de werken**. Beschrijf de werken en leg uit waarom ze een optimalisatie zijn. Is er geen syndicus, dan schrijf je alle mede-eigenaars aan.\n2. **De VME kan binnen 2 maanden bezwaar maken**, ook per aangetekende brief. Dat mag alleen met een **wettig belang**:\n   - er bestaat al gelijkaardige infrastructuur;\n   - de werken schaden het uitzicht, het gebruik van de gemeenschappelijke delen, de hygiëne of de veiligheid ernstig;\n   - er is geen echte optimalisatie of de werken kosten de anderen iets.\n3. **De VME kan ook beslissen de werken zelf collectief uit te voeren.** Die werken moeten dan volgens juristen binnen 6 maanden starten.\n4. **Geen of een ongegrond bezwaar?** Dan mag je de werken laten uitvoeren. Een algemene verwijzing naar brandgevaar volstaat volgens advocaten niet als bezwaar.\n\n## Collectief laden\n\nVeel gebouwen kiezen voor een gezamenlijke laadinstallatie met **lastbeheer**, die het beschikbare vermogen over alle laadpalen verdeelt. Zo'n installatie in de gemeenschappelijke delen vraagt volgens de meeste bronnen een **2/3-meerderheid** op de algemene vergadering. Voor de afrekening zijn er drie gangbare opties:\n\n- een eigen kring op je eigen meter (je betaalt alles zelf);\n- de gemeenschappelijke meter met een tussenmeter per laadpaal, waarbij de syndicus afrekent;\n- een collectieve installatie van de VME met een instapvergoeding.\n\n## Huurders\n\nHuurders hebben **geen wettelijk laadrecht** in het appartementsrecht. Je hebt de toestemming van je verhuurder nodig. Die kan niet verplicht worden een laadpaal te plaatsen, maar mag ook niet zonder goede reden weigeren.\n\n## Brandveiligheid in (ondergrondse) parkings\n\nEr bestaat nog **geen bindende federale regel specifiek voor laadpalen in gesloten parkings**. Een koninklijk besluit is in voorbereiding. Brandweerzones hanteren in de praktijk de **\"Regel van Goed Vakmanschap\" van Fireforum** (2023). Veelgevraagde maatregelen zijn een centrale noodstop, branddetectie en een risicoanalyse. Informeer ook je brandverzekeraar.\n\n## Verplichtingen voor gebouwen\n\n- **Vlaanderen:** bij nieuwbouw met minstens 2 parkeerplaatsen en bij ingrijpende renovatie met minstens 10 parkeerplaatsen moet elke plaats voorbekabeld of van kabelgoten voorzien zijn. De Vlaamse omzetting van de nieuwe Europese gebouwenrichtlijn (EPBD) is nog in voorbereiding.\n- **Brussel:** sinds 1 januari 2025 kan een bewoner met een elektrische auto de houder van de milieuvergunning van de parking vragen om een laadpunt op eigen kosten.\n- Elk laadpunt moet [gemeld worden bij de netbeheerder](/regels/melding-netbeheerder-laadpaal).\n\n## Welk laadvermogen?\n\nIn een gebouw met veel laadpalen wordt het vermogen per plaats vaak beperkt door lastbeheer. Een auto die 11 kW driefasig kan laden, laadt op een eenfasige plaats veel trager. Zie [eenfasig versus driefasig laden](/regels/eenfasig-vs-driefasig-laden).\n\n*Deze pagina geeft algemene informatie en is geen juridisch advies. Raadpleeg bij een conflict met de VME je syndicus of een advocaat. Laatst gecontroleerd op 22 september 2026.*"
+    },
+    {
+      "slug": "melding-netbeheerder-laadpaal",
+      "titel": "Laadpaal melden bij Fluvius, Sibelga of ORES: verplicht?",
+      "h1": "Je laadpaal melden bij de netbeheerder",
+      "meta_description": "In Vlaanderen, Brussel en Wallonië moet je een thuislaadpaal melden bij de netbeheerder. Wie meldt, hoe, wat het kost en wat de keuring ermee te maken heeft.",
+      "samenvatting": "In alle drie de gewesten moet je een thuislaadpaal melden bij de netbeheerder (Fluvius, Sibelga, ORES/RESA). Melden is gratis. Een nieuw laadcircuit moet daarnaast gekeurd worden.",
+      "linktekst": "Laadpaal melden bij de netbeheerder",
+      "gewesten": [
+        "vlaanderen",
+        "brussel",
+        "wallonie"
+      ],
+      "gekoppelde_modelvelden": [
+        "ac_kw_standaard",
+        "ac_kw_optie"
+      ],
+      "gerelateerd": [
+        "eenfasig-vs-driefasig-laden",
+        "capaciteitstarief-laadpaal",
+        "btw-6-procent-laadpaal"
+      ],
+      "laatst_gecontroleerd": "2026-09-22",
+      "herzien_voor": "2027-03-31",
+      "bronnen": [
+        {
+          "titel": "Fluvius – Laadpaal melden",
+          "url": "https://www.fluvius.be/nl/elektrisch-rijden/wat-doet-fluvius/laadpaal-melden"
+        },
+        {
+          "titel": "Fluvius – Veelgestelde vragen over elektrische laadpalen",
+          "url": "https://www.fluvius.be/nl/veelgestelde-vragen/veelgestelde-vragen-over-elektrische-laadpalen"
+        },
+        {
+          "titel": "VRT NWS – Tienduizenden Vlamingen riskeren boete voor thuislaadpaal (26/02/2026)",
+          "url": "https://www.vrt.be/vrtnws/nl/2026/02/26/tienduizenden-vlamingen-riskeren-boete-voor-thuislaadpaal/"
+        },
+        {
+          "titel": "Sibelga – Declaration of a charging station",
+          "url": "https://www.sibelga.be/en/connections-meters/electric-charging/declaration-of-a-charging-station"
+        },
+        {
+          "titel": "ORES – Déclarer une borne",
+          "url": "https://www.ores.be/particulier/declarer-borne"
+        },
+        {
+          "titel": "ORES – FAQ mobilité durable",
+          "url": "https://www.ores.be/faq/mobilite-durable"
+        }
+      ],
+      "body_md": "# Je laadpaal melden bij de netbeheerder\n\nEen laadpaal kan in één klap meer vermogen vragen dan de rest van je woning samen. Netbeheerders willen daarom weten waar laadpalen staan, zodat ze het net tijdig kunnen versterken. In **alle drie de gewesten** is melden verplicht.\n\n## Vlaanderen (Fluvius)\n\n- **Verplicht sinds juni 2021** voor een private laadpaal van **5 kVA of meer** op het laagspanningsnet. Dit geldt ook voor bidirectionele laadpalen.\n- **Jij meldt, niet je installateur.** Dat geldt ook voor een laadpaal die je werkgever bij je thuis plaatst.\n- **Melden doe je online via Mijn Fluvius.** Je hebt je EAN-code en de gegevens van de laadpaal nodig.\n- **Melden is gratis.** Er geldt geen publieke deadline, maar meld je laadpaal zodra hij geplaatst is.\n- **Niet gemeld?** Fluvius kan een administratieve kost van €117,68 per laadpaal aanrekenen. Volgens de pers had Fluvius die in het voorjaar van 2026 nog niet aangerekend en koos het voorlopig voor sensibilisering.\n- **Grenzen aan je aansluiting:** op een eenfasige aansluiting mag de som van zonnepanelen, thuisbatterij en bidirectioneel laden maximaal 5 kVA zijn. Op een driefasige aansluiting is dat 25 kVA. Daarboven is een netstudie nodig.\n\n## Brussel (Sibelga)\n\n- **Verplicht** op basis van de Brusselse elektriciteitsordonnantie (art. 16). Sibelga vraagt om elk laadpunt te melden.\n- **Meld binnen 30 dagen** na de installatie via de website van Sibelga.\n- Sibelga legt technische regels op voor het laadvermogen. Standaard is dat 3,7 kW eenfasig. 7,4 of 11 kW mag alleen in bepaalde configuraties en 22 kW enkel met lastbeheer. Zie [eenfasig versus driefasig laden](/regels/eenfasig-vs-driefasig-laden).\n\n## Wallonië (ORES, RESA en andere)\n\n- **Verplicht** op basis van het Waalse elektriciteitsdecreet (art. 54). Dat geldt voor nieuwe laadpalen en ook voor laadpalen die al eerder geplaatst werden.\n- **Melden is gratis.** ORES vraagt je EAN-code, het serienummer en het vermogen van de laadpaal.\n- ORES raadt 3,7, 7,4 of 11 kW aan. Boven 7,4 kW heb je doorgaans een **3N400V-aansluiting** nodig.\n\n## Keuring: een aparte verplichting\n\nMelden is iets anders dan keuren. Een nieuwe kring voor een laadpaal geldt als een **belangrijke wijziging** van je elektrische installatie. Een erkend keuringsorganisme moet ze volgens het AREI keuren **voordat je ze in gebruik neemt**. Bewaar het keuringsverslag, want je verzekeraar kan erom vragen.\n\n## Stappenplan\n\n1. Laat je installateur nagaan of je aansluiting volstaat (eenfasig/driefasig, 230V/400V, zekeringwaarde).\n2. Laat de laadpaal plaatsen en de kring keuren.\n3. Meld de laadpaal bij je netbeheerder.\n4. Stel slim laden in om je [capaciteitstarief](/regels/capaciteitstarief-laadpaal) laag te houden.\n\n*Deze pagina geeft algemene informatie. Procedures en formulieren kunnen wijzigen; kijk altijd de website van je netbeheerder na. Laatst gecontroleerd op 22 september 2026.*"
+    }
+  ],
+  "data": {
+    "creg_tarieven_eur_kwh": [
+      {
+        "kwartaal": "2026-Q1",
+        "vlaanderen": 0.3132,
+        "brussel": 0.3426,
+        "wallonie": 0.3523,
+        "bevestigd": true
+      },
+      {
+        "kwartaal": "2026-Q2",
+        "vlaanderen": 0.3191,
+        "brussel": 0.3555,
+        "wallonie": 0.3636,
+        "bevestigd": true
+      },
+      {
+        "kwartaal": "2026-Q3",
+        "vlaanderen": 0.3222,
+        "brussel": 0.3719,
+        "wallonie": 0.3783,
+        "bevestigd": true
+      },
+      {
+        "kwartaal": "2026-Q4",
+        "vlaanderen": 0.3225,
+        "brussel": 0.3688,
+        "wallonie": 0.3779,
+        "bevestigd": false,
+        "opmerking": "enkel Fleet.be (11/08/2026); nakijken op creg.be"
+      }
+    ],
+    "capaciteitstarief_2026_eur_kw_jaar": [
+      {
+        "netgebied": "Antwerpen",
+        "excl_btw": 49.4,
+        "incl_6pct_btw": 52.36
+      },
+      {
+        "netgebied": "Halle-Vilvoorde",
+        "excl_btw": 56.04,
+        "incl_6pct_btw": 59.4
+      },
+      {
+        "netgebied": "Imewo",
+        "excl_btw": 54.2,
+        "incl_6pct_btw": 57.45
+      },
+      {
+        "netgebied": "Kempen",
+        "excl_btw": 56.21,
+        "incl_6pct_btw": 59.58
+      },
+      {
+        "netgebied": "Limburg",
+        "excl_btw": 49.05,
+        "incl_6pct_btw": 51.99
+      },
+      {
+        "netgebied": "Midden-Vlaanderen",
+        "excl_btw": 50.12,
+        "incl_6pct_btw": 53.13
+      },
+      {
+        "netgebied": "West",
+        "excl_btw": 57.1,
+        "incl_6pct_btw": 60.53
+      },
+      {
+        "netgebied": "Zenne-Dijle",
+        "excl_btw": 56.12,
+        "incl_6pct_btw": 59.49
+      }
+    ],
+    "capaciteitstarief_minimum_kw": 2.5
+  }
+}

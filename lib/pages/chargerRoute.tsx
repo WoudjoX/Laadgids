@@ -86,9 +86,11 @@ export async function renderCharger(section: string, params: ChargerParams) {
   const data = buildChargerPage(r.version, r.locale, rules, tariffs, today());
   const related = relatedFor(r.version, all, r.locale, allPages, { ruleTopics: Object.keys(data.copy.rulesPages) });
   const alt = alternatesFor(r.page, r.pages);
+  // Bedrijfswagenblok: rechtstreeks naar de CREG-regelpagina als die in deze locale bestaat, los van de 'verder lezen'-selectie.
+  const cregPath = allPages.find((p) => p.template === "rule" && p.status !== "draft" && /creg/.test(p.path))?.path ?? null;
   return (
     <Shell copy={data.copy} locale={r.locale} alternates={alt.languages}>
-      <ChargerPage data={data} locale={r.locale} page={r.page} related={related} canonical={alt.canonical} />
+      <ChargerPage data={data} locale={r.locale} page={r.page} related={related} canonical={alt.canonical} cregPath={cregPath} />
     </Shell>
   );
 }
