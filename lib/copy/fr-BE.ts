@@ -32,6 +32,24 @@ export const frBE: Copy = {
     trust: (date) => `Calculé avec les tarifs et règles du ${date}. Chaque page cite ses sources et la date de vérification.`,
     group: (kw) => `Charge à domicile jusqu'à ${kw}`,
     allModels: "Tous les modèles",
+    pickPlaceholder: "Tapez la marque ou le modèle, p. ex. ID.4",
+    pickHelp: "Commencez à taper et choisissez dans la liste.",
+    noMatch: (q) => `Aucun modèle trouvé pour « ${q} ». Choisissez ci-dessous ou tapez une autre marque.`,
+    makesHeading: "Marques",
+    allMakes: "Toutes les marques",
+  },
+  makeHub: {
+    sectionSlug: "marque",
+    breadcrumb: "Marques",
+    h1: (make) => `Borne de recharge pour une ${make}`,
+    metaTitle: (make, n) => `Borne pour ${make} : ${n} ${n === 1 ? "modèle calculé" : "modèles calculés"} | Laadgids`,
+    metaDescription: (make, n, powers) => `Quelle borne pour une ${make} ? ${n} ${n === 1 ? "version" : "versions"} avec temps de charge par raccordement, coût et puissance recommandée (${powers}).`,
+    intro: (v) =>
+      `${v.count === 1 ? "Une version" : `${v.count} versions`} de ${v.make}, avec une puissance de charge AC jusqu'à ${v.powers}.` +
+      (v.singlePhaseCount > 0 ? ` ${v.singlePhaseCount === 1 ? "L'une d'elles charge" : `${v.singlePhaseCount} d'entre elles chargent`} en monophasé ; une borne triphasée n'y apporte aucun gain de temps.` : " Toutes les versions chargent en triphasé.") +
+      ` De 20 à 80 %, comptez entre ${v.minTime} et ${v.maxTime} sur le raccordement recommandé.`,
+    modelsHeading: (make) => `Modèles ${make}`,
+    otherMakes: "Autres marques",
   },
   connections: {
     socket_2300: "Prise domestique (monophasé 10 A)",

@@ -92,3 +92,16 @@ export function GroupedModelCards({ items, copy, locale }: { items: ModelCardIte
     </div>
   );
 }
+
+/** Groepen per merk, alfabetisch op merknaam; binnen een merk op model en uitvoering. */
+export function groupByMake(items: ModelCardItem[]): { make: ModelCardItem["v"]["make"]; items: ModelCardItem[] }[] {
+  const map = new Map<number, { make: ModelCardItem["v"]["make"]; items: ModelCardItem[] }>();
+  for (const it of items) {
+    const g = map.get(it.v.make.id) ?? { make: it.v.make, items: [] };
+    g.items.push(it);
+    map.set(it.v.make.id, g);
+  }
+  return [...map.values()]
+    .map((g) => ({ ...g, items: [...g.items].sort((a, b) => `${a.v.vehicle.model} ${a.v.trim}`.localeCompare(`${b.v.vehicle.model} ${b.v.trim}`)) }))
+    .sort((a, b) => a.make.name.localeCompare(b.make.name));
+}

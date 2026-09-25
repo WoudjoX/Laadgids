@@ -29,6 +29,24 @@ export const nlNL: Copy = {
     trust: (date) => `Berekend met tarieven en regels van ${date}. Elke pagina vermeldt haar bronnen en de datum van controle.`,
     group: (kw) => `Laadt thuis tot ${kw}`,
     allModels: "Alle modellen",
+    pickPlaceholder: "Typ merk of model, bv. ID.4",
+    pickHelp: "Begin te typen en kies uit de lijst.",
+    noMatch: (q) => `Geen model gevonden voor "${q}". Kies hieronder of typ een ander merk.`,
+    makesHeading: "Merken",
+    allMakes: "Alle merken",
+  },
+  makeHub: {
+    sectionSlug: "merk",
+    breadcrumb: "Merken",
+    h1: (make) => `Laadpaal voor een ${make}`,
+    metaTitle: (make, n) => `Laadpaal voor ${make}: ${n} ${n === 1 ? "model" : "modellen"} berekend | Laadgids`,
+    metaDescription: (make, n, powers) => `Welke laadpaal past bij een ${make}? ${n} ${n === 1 ? "uitvoering" : "uitvoeringen"} met laadtijd per aansluiting, kosten en aanbevolen vermogen (${powers}).`,
+    intro: (v) =>
+      `${v.count === 1 ? "Eén uitvoering" : `${v.count} uitvoeringen`} van ${v.make}, met AC-laadvermogen tot ${v.powers}.` +
+      (v.singlePhaseCount > 0 ? ` ${v.singlePhaseCount === 1 ? "Eén ervan laadt" : `${v.singlePhaseCount} ervan laden`} 1-fase; een 3-fase laadpaal geeft daar geen tijdwinst.` : " Alle uitvoeringen laden 3-fase.") +
+      ` Van 20 naar 80 % duurt tussen ${v.minTime} en ${v.maxTime} op de aanbevolen aansluiting.`,
+    modelsHeading: (make) => `Modellen van ${make}`,
+    otherMakes: "Andere merken",
   },
   connections: {
     socket_2300: "Stopcontact (1-fase 10 A)",

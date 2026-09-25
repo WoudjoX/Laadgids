@@ -2,7 +2,7 @@
 // Alleen voor ontwikkeling zonder Supabase. Leads gaan naar .local/leads.jsonl.
 import { promises as fs } from "node:fs";
 import path from "node:path";
-import { LOCALES, LOCALE_CONFIG, chargerPath, costPath, rulePath } from "@/lib/copy";
+import { LOCALES, LOCALE_CONFIG, chargerPath, costPath, makePath, rulePath } from "@/lib/copy";
 import { RULES, ruleEntityId } from "@/lib/content/rules";
 import { decidePageStatus } from "@/lib/pages/status";
 import type { PageFilter, PageUpsert, Repo } from "./repo";
@@ -13,6 +13,7 @@ import type {
   LeadRow,
   MakeRow,
   PageRow,
+  PageStatus,
   Region,
   RuleRow,
   SourceRow,
@@ -55,7 +56,7 @@ async function load(): Promise<Store> {
         readJson<InstallerRow[]>("installers"),
         readJson<SourceRow[]>("sources"),
       ]);
-      const pages = derivePages(versions, tariffs);
+      const pages = derivePages(versions, tariffs, vehicles, makes);
       return { makes, vehicles, versions, rules, tariffs, installers, sources, pages };
     })();
   }
@@ -63,7 +64,7 @@ async function load(): Promise<Store> {
 }
 
 /** Zelfde beslissing als scripts/recalc-pages.ts, maar in het geheugen. */
-function derivePages(versions: VersionRow[], tariffs: TariffRow[]): PageRow[] {
+function derivePages(versions: VersionRow[], tariffs: TariffRow[], vehiclesRef: VehicleRow[], makesRef: MakeRow[]): PageRow[] {
   const now = new Date().toISOString();
   const pages: PageRow[] = [];
   let id = 1;
@@ -114,6 +115,22 @@ function derivePages(versions: VersionRow[], tariffs: TariffRow[]): PageRow[] {
       }
     }
   }
+  // make_hub: één pagina per merk en locale; index zodra minstens één modelpagina van dat merk op index staat.
+  for (const locale of LOCALES) {
+    const byMake = new Map<number, PageStatus>();
+    for (const v of versions) {
+      const veh = vehiclesRef.find((x) => x.id === v.vehicle_id);
+      if (!veh) continue;
+      const st = pages.find((p) => p.template === "charger_for_model" && p.locale === locale && p.entity_id === v.id)?.status ?? "draft";
+      const prev = byMake.get(veh.make_id) ?? "draft";
+      byMake.set(veh.make_id, st === "index" || prev === "index" ? "index" : st === "noindex" || prev === "noindex" ? "noindex" : "draft");
+    }
+    for (const [makeId, status] of byMake) {
+      const mk = makesRef.find((m) => m.id === makeId);
+      if (!mk) continue;
+      pages.push({ id: id++, locale, template: "make_hub", entity_id: makeId, secondary_id: null, path: makePath(locale, mk.slug), status, completeness_score: 1, last_calculated_at: now, last_published_at: status === "index" ? now : null });
+    }
+  }
   return pages;
 }
 
@@ -162,7 +179,7 @@ export const localRepo: Repo = {
       if (i >= 0) s.versions[i] = { ...r, id: s.versions[i]!.id };
       else s.versions.push({ ...r, id: Math.max(0, ...s.versions.map((x) => x.id)) + 1 });
     }
-    s.pages = derivePages(s.versions, s.tariffs);
+    s.pages = derivePages(s.versions, s.tariffs, s.vehicles, s.makes);
     return rows.length;
   },
   async listRules() {

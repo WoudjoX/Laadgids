@@ -1,7 +1,7 @@
 // Herberekening (CLAUDE.md §8): completeness, status volgens 4.3, last_calculated_at, revalidate.
 // Gebruik: pnpm recalc-pages [--dry]
 import "@/lib/env";
-import { LOCALES, LOCALE_CONFIG, chargerPath, costPath, rulePath } from "@/lib/copy";
+import { LOCALES, LOCALE_CONFIG, chargerPath, costPath, makePath, rulePath } from "@/lib/copy";
 import { RULES, ruleEntityId } from "@/lib/content/rules";
 import { getRepo, type PageUpsert } from "@/lib/db";
 import { decidePageStatus } from "@/lib/pages/status";
@@ -61,6 +61,22 @@ async function main() {
           last_published_at: dc.status === "index" ? (cprev?.last_published_at ?? now) : (cprev?.last_published_at ?? null),
         });
       }
+    }
+  }
+  // make_hub: één pagina per merk en locale; index zodra een modelpagina van dat merk op index staat.
+  for (const locale of LOCALES) {
+    const byMake = new Map<number, { make: (typeof versions)[number]["make"]; status: "index" | "noindex" }>();
+    for (const v of versions) {
+      const st = rows.find((p) => p.template === "charger_for_model" && p.locale === locale && p.entity_id === v.id)?.status;
+      if (!st || st === "draft") continue;
+      const prev = byMake.get(v.make.id);
+      byMake.set(v.make.id, { make: v.make, status: st === "index" || prev?.status === "index" ? "index" : "noindex" });
+    }
+    for (const { make, status } of byMake.values()) {
+      const path = makePath(locale, make.slug);
+      const prev = existing.find((p) => p.path === path);
+      counts[status]++;
+      rows.push({ locale, template: "make_hub", entity_id: make.id, secondary_id: null, path, status, completeness_score: 1, last_calculated_at: now, last_published_at: status === "index" ? (prev?.last_published_at ?? now) : (prev?.last_published_at ?? null) });
     }
   }
   for (const r of RULES) {

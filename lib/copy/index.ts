@@ -4,7 +4,7 @@ import { nlBE } from "./nl-BE";
 import { nlNL } from "./nl-NL";
 import type { Copy } from "./types";
 
-export type { Copy, ChargerPageVars, CostPageVars, FaqItem } from "./types";
+export type { Copy, ChargerPageVars, CostPageVars, MakeHubVars, FaqItem } from "./types";
 
 export const LOCALES: readonly Locale[] = ["nl-BE", "fr-BE", "nl-NL"];
 
@@ -49,6 +49,11 @@ export function chargerPath(locale: Locale, versionSlug: string): string {
 /** Pad van een laadkosten-pagina: /nl-be/laadkosten/{versie}/{tarief}. */
 export function costPath(locale: Locale, versionSlug: string, tariffSlug: string): string {
   return `/${LOCALE_CONFIG[locale].segment}/${COST_SECTION[locale]}/${versionSlug}/${tariffSlug}`;
+}
+
+/** Pad van een merkpagina: /nl-be/merk/tesla. */
+export function makePath(locale: Locale, makeSlug: string): string {
+  return `/${LOCALE_CONFIG[locale].segment}/${getCopy(locale).makeHub.sectionSlug}/${makeSlug}`;
 }
 
 /** Pad van een regelpagina: /nl-be/regels/vla/btw-6. */

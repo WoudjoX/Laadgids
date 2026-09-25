@@ -13,7 +13,8 @@ export type Template =
   | "bijtelling"
   | "rule"
   | "used_battery"
-  | "installer_city";
+  | "installer_city"
+  | "make_hub";
 
 export type RuleType =
   | "vaa"

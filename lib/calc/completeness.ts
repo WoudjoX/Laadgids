@@ -18,6 +18,7 @@ export const REQUIRED_FIELDS: Record<Template, (keyof VersionRow)[]> = {
   used_battery: ["trim", "model_year", "battery_gross_wh", "battery_net_wh", "spec_source_url", "spec_source_date"],
   rule: [],
   installer_city: [],
+  make_hub: [],
 };
 
 function present(v: unknown): boolean {

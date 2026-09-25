@@ -5,7 +5,7 @@ import { LOCALES, LOCALE_CONFIG } from "@/lib/copy";
 import { getRepo } from "@/lib/db";
 
 const SEGMENTS = new Set(LOCALES.map((l) => LOCALE_CONFIG[l].segment));
-const PSEO_SECTIONS = new Set(["laadpaal-voor", "borne-pour", "laadkosten", "cout-recharge", "vaa", "atn", "bijtelling", "tweedehands"]);
+const PSEO_SECTIONS = new Set(["laadpaal-voor", "borne-pour", "laadkosten", "cout-recharge", "vaa", "atn", "bijtelling", "tweedehands", "merk", "marque"]);
 
 export async function proxy(req: NextRequest) {
   const { pathname } = req.nextUrl;

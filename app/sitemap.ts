@@ -5,7 +5,7 @@ import { loadPages } from "@/lib/db/cached";
 import type { Locale, Template } from "@/lib/db/types";
 import { siteUrl } from "@/lib/seo/alternates";
 
-const TEMPLATES: Template[] = ["charger_for_model", "charging_cost", "vaa", "bijtelling", "rule", "used_battery", "installer_city"];
+const TEMPLATES: Template[] = ["charger_for_model", "charging_cost", "vaa", "bijtelling", "rule", "used_battery", "installer_city", "make_hub"];
 const MAX = 5000;
 
 export interface SitemapId {

@@ -13,6 +13,6 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   return chargerIndexMetadata(SECTION, (await params).locale);
 }
 
-export default async function Page({ params }: { params: Promise<{ locale: string }> }) {
-  return renderChargerIndex(SECTION, (await params).locale);
+export default async function Page({ params, searchParams }: { params: Promise<{ locale: string }>; searchParams: Promise<{ q?: string }> }) {
+  return renderChargerIndex(SECTION, (await params).locale, (await searchParams).q);
 }

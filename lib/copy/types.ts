@@ -62,6 +62,16 @@ export interface CostPageVars {
   recommendedKw: string; // voor de intro van het leadformulier
 }
 
+/** Variabelen voor de merkpagina, uit de data afgeleid. */
+export interface MakeHubVars {
+  make: string;
+  count: number;
+  powers: string; // "7,4 en 11 kW"
+  singlePhaseCount: number;
+  minTime: string; // "2 u 15 min"
+  maxTime: string; // "5 u 10 min"
+}
+
 export interface FaqItem {
   q: string;
   a: string;
@@ -95,6 +105,21 @@ export interface Copy {
     trust: (date: string) => string; // "Berekend met tarieven en regels van {date}. Elke pagina vermeldt haar bronnen."
     group: (kw: string) => string; // "Laadt tot 11 kW"
     allModels: string; // "Alle modellen"
+    pickPlaceholder: string; // "Typ merk of model, bv. ID.4"
+    pickHelp: string; // "Begin te typen en kies uit de lijst."
+    noMatch: (q: string) => string; // "Geen model gevonden voor '{q}'. Kies hieronder."
+    makesHeading: string; // "Merken"
+    allMakes: string; // "Alle merken"
+  };
+  makeHub: {
+    sectionSlug: string; // "merk" / "marque"
+    breadcrumb: string; // "Merken"
+    h1: (make: string) => string; // "Laadpaal voor een Tesla"
+    metaTitle: (make: string, n: number) => string;
+    metaDescription: (make: string, n: number, powers: string) => string;
+    intro: (v: MakeHubVars) => string; // sjabloonzin uit de data
+    modelsHeading: (make: string) => string; // "Modellen van Tesla"
+    otherMakes: string; // "Andere merken"
   };
   connections: Record<ConnectionKey, string>;
   charger: {
