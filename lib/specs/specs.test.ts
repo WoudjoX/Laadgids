@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import type { VersionFull } from "@/lib/db/types";
-import { bestMatch, diffCandidate, matchKey, norm, variantScore } from "./normalize";
+import { bestMatch, diffCandidate, eeaModelMatches, matchKey, norm, variantScore } from "./normalize";
 import { toCandidate, versionFromFilename } from "./openEvData";
 
 const tesla: VersionFull = {
@@ -120,5 +120,25 @@ describe("bestMatch / diffCandidate", () => {
     expect(d.find((x) => x.field === "ac_phases")?.conflict).toBe(true);
     expect(d.find((x) => x.field === "ac_max_w")?.conflict).toBe(false);
     expect(d.find((x) => x.field === "consumption_wh_per_km")?.rel).toBeNull();
+  });
+});
+
+describe("eeaModelMatches", () => {
+  it("koppelt EEA-handelsnamen met merk en uitvoering erin", () => {
+    expect(eeaModelMatches("BMW", "iX1", "Bmw", "Ix1 Edrive20")).toBe(true);
+    expect(eeaModelMatches("Volkswagen", "ID.4", "Volkswagen, Vw", "Vw Id.4 Pro 210kw")).toBe(true);
+    expect(eeaModelMatches("Toyota", "bZ4X", "Toyota", "Toyota Bz4x")).toBe(true);
+    expect(eeaModelMatches("Kia", "EV3", "Kia", "Ev3")).toBe(true);
+    expect(eeaModelMatches("Citroën", "ë-C3", "Citroen", "E-C3")).toBe(true);
+    expect(eeaModelMatches("Fiat", "500e", "Fiat", "500")).toBe(true);
+  });
+  it("koppelt niet over merken of verwante modellen heen", () => {
+    expect(eeaModelMatches("BMW", "iX1", "Bmw", "Ix2 Edrive20")).toBe(false);
+    expect(eeaModelMatches("BMW", "iX", "Bmw", "Ix1 Edrive20")).toBe(false);
+    expect(eeaModelMatches("BMW", "iX", "Bmw", "Ix Xdrive40")).toBe(true);
+    expect(eeaModelMatches("Hyundai", "Kona Electric", "Hyundai", "Kona")).toBe(true);
+    expect(eeaModelMatches("Tesla", "Model S", "Tesla", "Model 3")).toBe(false);
+    expect(eeaModelMatches("Tesla", "Model 3", "Tesla", "Model Y")).toBe(false);
+    expect(eeaModelMatches("Kia", "EV3", "Hyundai", "Ev3")).toBe(false);
   });
 });

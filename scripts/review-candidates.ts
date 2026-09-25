@@ -5,7 +5,7 @@ import "@/lib/env";
 import { promises as fs } from "node:fs";
 import path from "node:path";
 import { getRepo } from "@/lib/db";
-import { bestMatch, diffCandidate, modelKey } from "@/lib/specs/normalize";
+import { bestMatch, diffCandidate, eeaModelMatches, modelKey } from "@/lib/specs/normalize";
 import { loadCandidates } from "@/lib/specs/store";
 import type { SpecCandidate } from "@/lib/specs/types";
 
@@ -38,16 +38,25 @@ async function main() {
   if (candidates.length === 0) throw new Error("no candidates found; run pnpm import-open-ev-data first");
 
   // EEA-inschrijvingen per merk+model, als prioriteit voor de spec-kandidaten van andere bronnen.
-  const registrations = new Map<string, { be: number; nl: number }>();
-  for (const c of candidates.filter((x) => x.source_kind === "eea")) {
+  // De EEA schrijft merk en uitvoering in de modelnaam ("Bmw Ix1 Edrive20"); eeaModelMatches vangt dat op.
+  const eeaAggs = candidates.filter((x) => x.source_kind === "eea");
+  const hasEea = eeaAggs.length > 0;
+  const regCache = new Map<string, { be: number; nl: number }>();
+  const regs = (c: SpecCandidate) => {
     const k = modelKey(c.make_name, c.model_name);
-    const r = registrations.get(k) ?? { be: 0, nl: 0 };
-    r.be += c.registrations_be ?? 0;
-    r.nl += c.registrations_nl ?? 0;
-    registrations.set(k, r);
-  }
-  const hasEea = registrations.size > 0;
-  const regs = (c: SpecCandidate) => registrations.get(modelKey(c.make_name, c.model_name)) ?? { be: 0, nl: 0 };
+    let r = regCache.get(k);
+    if (!r) {
+      r = { be: 0, nl: 0 };
+      for (const e of eeaAggs) {
+        if (eeaModelMatches(c.make_name, c.model_name, e.make_name, e.model_name)) {
+          r.be += e.registrations_be ?? 0;
+          r.nl += e.registrations_nl ?? 0;
+        }
+      }
+      regCache.set(k, r);
+    }
+    return r;
+  };
   candidates = candidates.filter((c) => c.source_kind !== "eea");
   candidates.sort((a, b) => (hasEea ? regs(b).be + regs(b).nl - (regs(a).be + regs(a).nl) : 0) || a.match_key.localeCompare(b.match_key));
 

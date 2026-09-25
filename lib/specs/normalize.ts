@@ -87,3 +87,47 @@ export function bestMatch(c: SpecCandidate, versions: VersionFull[]): Match | nu
   }
   return best && best.score >= 0.3 ? best : null;
 }
+
+/** Merknamen zoals de EEA ze schrijft, naast de fabrikantennaam. Kleine letters, genormaliseerd. */
+const MAKE_ALIASES: Record<string, string[]> = {
+  volkswagen: ["vw", "volkswagen vw"],
+  "mercedes benz": ["mercedes"],
+  citroen: ["citroën"],
+  skoda: ["škoda"],
+  "bmw i": ["bmw"],
+  cupra: ["seat cupra"],
+  "ds": ["ds automobiles"],
+  polestar: ["polestar"],
+};
+
+function makeTokens(make: string): Set<string> {
+  const base = norm(make);
+  const out = new Set(base.split(" ").filter(Boolean));
+  for (const [k, aliases] of Object.entries(MAKE_ALIASES)) {
+    if (k === base || aliases.includes(base)) for (const a of [k, ...aliases]) a.split(" ").forEach((t) => out.add(t));
+  }
+  return out;
+}
+
+/**
+ * Koppelt een fabrikantenmodel ("BMW", "iX1") aan een EEA-handelsnaam ("Bmw", "Ix1 Edrive20" of "Volkswagen, Vw Id.4 Pro 210kw").
+ * De EEA plakt merk, model en uitvoering in één veld; we halen de merktokens weg en eisen dat de modelnaam
+ * het begin vormt van wat overblijft (zonder spaties vergeleken, zodat "id 4" en "id4" gelijk zijn).
+ */
+export function eeaModelMatches(candMake: string, candModel: string, eeaMake: string, eeaModel: string): boolean {
+  const cm = makeTokens(candMake);
+  const em = makeTokens(eeaMake);
+  if (![...cm].some((t) => em.has(t))) return false;
+  const strip = (s: string) => norm(s).split(" ").filter((t) => t && !cm.has(t) && !em.has(t));
+  const ct = strip(candModel);
+  const et = strip(eeaModel);
+  if (!ct.length || !et.length) return false;
+  const n = Math.min(ct.length, et.length);
+  const prefixEqual = ct.slice(0, n).every((t, i) => t === et[i]);
+  // "id 4" in "id 4 pro 210kw": de modelnaam is het begin van de EEA-naam, token voor token.
+  if (prefixEqual && ct.length <= et.length) return true;
+  // "kona" tegenover "kona electric": de EEA-naam is korter maar volledig gelijk aan het begin.
+  if (prefixEqual && et.length < ct.length) return et.some((t) => t.length >= 3);
+  // "500" tegenover "500e": één token, hoogstens één teken verschil.
+  return ct.length === 1 && et.length === 1 && et[0]!.length >= 3 && ct[0]!.startsWith(et[0]!) && ct[0]!.length - et[0]!.length <= 1;
+}
