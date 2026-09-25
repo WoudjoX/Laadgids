@@ -20,7 +20,7 @@ async function main() {
     { table: "vehicles", file: "vehicles", onConflict: "slug" },
     { table: "versions", file: "versions", onConflict: "slug" },
     { table: "rules", file: "rules", onConflict: "id" },
-    { table: "tariffs", file: "tariffs", onConflict: "country,region,slug" },
+    { table: "tariffs", file: "tariffs", onConflict: "id" }, // region kan null zijn, dan grijpt de natuurlijke sleutel niet
     { table: "installers", file: "installers", onConflict: "id" },
     { table: "sources", file: "sources", onConflict: "url" },
   ];
