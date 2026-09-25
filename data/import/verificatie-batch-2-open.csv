@@ -1,9 +1,9 @@
 model;batterij_netto_kwh;batterij_bruto_kwh;wltp_kwh_100km;ac_kw_standaard;ac_kw_optie;ac_fasen;officieel_bevestigd;bron_url;opmerking
-volvo-ex30-single-motor-extended-range-2025;64.0;69.0;16.7;11.0;;3;nee;https://www.volvocars.com/be/v/cars/ex30/;in te vullen door Erwin
-volvo-ex40-single-motor-extended-range-2025;79.0;82.0;16.0;11.0;;3;nee;https://www.volvocars.com/be/v/cars/ex40/;in te vullen door Erwin
-dacia-spring-electric-65-2025;26.8;26.8;14.6;7.0;;1;nee;https://www.dacia.be/;in te vullen door Erwin
-polestar-2-long-range-single-motor-2025;79.0;82.0;14.8;11.0;;3;nee;https://www.polestar.com/be-nl/polestar-2/specifications/;in te vullen door Erwin
-citroen-e-c3-44-kwh-2025;44.0;;14.7;7.4;;1;nee;https://www.citroen.be/nl/;in te vullen door Erwin
-cupra-tavascan-endurance-2025;77.0;82.0;15.5;11.0;;3;nee;https://www.cupra.com/en/cars/tavascan/tavascan-endurance;in te vullen door Erwin
-bmw-ix3-50-xdrive-2026;108.7;;15.2;11.0;;3;nee;https://www.bmw.be/nl/all-models/bmw-i/ix3/bmw-ix3-technische-gegevens.html;in te vullen door Erwin
-ford-mustang-mach-e-extended-range-rwd-2025;91.0;98.8;16.0;11.0;;3;nee;https://www.ford.be/nl/;in te vullen door Erwin
+volvo-ex30-single-motor-extended-range-2025;64.0;69.0;16.7;11.0;;3;ja;https://www.volvocars.com/images/cs/v3/assets/blt84e01a6904dbd2e8/bltdc4437137eec679e/681332dd924f57737f7a3d4b/EX30_Model_Year_25.5.pdf;"bevestigd door Erwin op 25/09/2026; cijfers verwerkt"
+volvo-ex40-single-motor-extended-range-2025;79.0;82.0;16.0;11.0;;3;ja;https://www.volvocars.com/images/cs/v3/assets/blt84e01a6904dbd2e8/blt8e29e4c783d3ecc5/681332dd3fb32f44da715297/EX40_Model_Year_25.5.pdf;"bevestigd door Erwin op 25/09/2026; cijfers verwerkt"
+dacia-spring-electric-65-2025;26.8;26.8;14.6;7.0;;1;ja;https://cdn.group.renault.com/dac/nl/brochures-en-prijslijsten/prijslijst/archief/prijslijst-spring-januari-25.pdf;"bevestigd door Erwin op 25/09/2026; cijfers verwerkt"
+polestar-2-long-range-single-motor-2025;79.0;82.0;14.8;11.0;;3;ja;https://www.polestar.com/nl/polestar-2/specifications/;"bevestigd door Erwin op 25/09/2026; cijfers verwerkt"
+citroen-e-c3-44-kwh-2025;44.0;;14.7;7.4;;1;ja;https://www.citroen.be/content/dam/citroen/belgium/b2c/brochure/202509/Tarif_CC21_C3_AM30_20250908_BE-FR.pdf;"bevestigd door Erwin op 25/09/2026; cijfers verwerkt"
+cupra-tavascan-endurance-2025;77.0;82.0;15.5;11.0;;3;ja;https://www.seat-cupra-mediacenter.es/content/dam/seat-media-center/models-all-brands/cupra-models/cupra-tavascan/technical-data/Ficha%20t%C3%A9cnica%20CUPRA%20Tavascan.pdf;"bevestigd door Erwin op 25/09/2026; cijfers verwerkt"
+bmw-ix3-50-xdrive-2026;108.7;;15.2;11.0;;3;ja;https://www.bmw.be/nl/all-models/x-series/ix3/bmw-ix3-technische-gegevens.html;"bevestigd door Erwin op 25/09/2026; cijfers verwerkt"
+ford-mustang-mach-e-extended-range-rwd-2025;91.0;98.8;16.0;11.0;;3;ja;https://weupreviewimagesprd.blob.core.windows.net/nl12/siteassets/prijslijst-ford-mustang-mach-e-2025-4-16.pdf;"bevestigd door Erwin op 25/09/2026; cijfers verwerkt"

@@ -296,7 +296,7 @@
   "ac_max_w": 11000,
   "ac_phases": 3,
   "dc_max_w": 153000,
-  "spec_source_url": "https://www.volvocars.com/be/v/cars/ex30/",
+  "spec_source_url": "https://www.volvocars.com/images/cs/v3/assets/blt84e01a6904dbd2e8/bltdc4437137eec679e/681332dd924f57737f7a3d4b/EX30_Model_Year_25.5.pdf",
   "spec_notes": "Cijfers uit de officiële Volvo-prijslijst van oktober 2024 (Volvo haalde de pagina's van modeljaar 2025 offline): 69 kWh bruto, 65 kWh bruikbaar, WLTP 17,0 kWh/100 km. 22 kW AC is een optie.",
   "id": 12,
   "vehicle_id": 12,
@@ -309,7 +309,7 @@
   "catalog_price_be_cents": null,
   "catalog_price_nl_cents": null,
   "towing_kg": null,
-  "verified_at": null
+  "verified_at": "2026-09-25"
  },
  {
   "slug": "volvo-ex40-single-motor-extended-range-2025",
@@ -322,8 +322,8 @@
   "ac_max_w": 11000,
   "ac_phases": 3,
   "dc_max_w": 200000,
-  "spec_source_url": "https://www.volvocars.com/be/v/cars/ex40/",
-  "spec_notes": "82 kWh bruto, 79 kWh bruikbaar volgens de Volvo-prijslijst van oktober 2024; WLTP-verbruik van de huidige Belgische pagina. Het AC-vermogen van 11 kW is afgeleid uit de opgegeven laadtijd; Volvo noemt het niet als kW.",
+  "spec_source_url": "https://www.volvocars.com/images/cs/v3/assets/blt84e01a6904dbd2e8/blt8e29e4c783d3ecc5/681332dd3fb32f44da715297/EX40_Model_Year_25.5.pdf",
+  "spec_notes": "82 kWh bruto, 79 kWh bruikbaar volgens de Volvo-prijslijst van oktober 2024; WLTP-verbruik van de huidige Belgische pagina. Het AC-vermogen van 11 kW is afgeleid uit de opgegeven laadtijd; Volvo noemt het niet als kW. Batterijwaarden uit de Volvo-prijslijst MY2025.5; WLTP-verbruik van de huidige Belgische pagina (volvocars.com/nl-be/cars/ex40-electric/specifications/).",
   "id": 13,
   "vehicle_id": 13,
   "co2_wltp_g_km": 0,
@@ -335,7 +335,7 @@
   "catalog_price_be_cents": null,
   "catalog_price_nl_cents": null,
   "towing_kg": null,
-  "verified_at": null
+  "verified_at": "2026-09-25"
  },
  {
   "slug": "dacia-spring-electric-65-2025",
@@ -348,7 +348,7 @@
   "ac_max_w": 7000,
   "ac_phases": 1,
   "dc_max_w": 30000,
-  "spec_source_url": "https://www.dacia.be/",
+  "spec_source_url": "https://cdn.group.renault.com/dac/nl/brochures-en-prijslijsten/prijslijst/archief/prijslijst-spring-januari-25.pdf",
   "spec_notes": "Dacia publiceert één batterijwaarde van 26,8 kWh zonder onderscheid bruto/netto; we rekenen met dat cijfer, de bruikbare capaciteit ligt vermoedelijk lager. Boordlader 7 kW eenfasig; 30 kW DC is een optie. WLTP 13,2 kWh/100 km.",
   "id": 14,
   "vehicle_id": 14,
@@ -361,7 +361,7 @@
   "catalog_price_be_cents": null,
   "catalog_price_nl_cents": null,
   "towing_kg": null,
-  "verified_at": null
+  "verified_at": "2026-09-25"
  },
  {
   "slug": "polestar-2-long-range-single-motor-2025",
@@ -374,7 +374,7 @@
   "ac_max_w": 11000,
   "ac_phases": 3,
   "dc_max_w": 205000,
-  "spec_source_url": "https://www.polestar.com/be-nl/polestar-2/specifications/",
+  "spec_source_url": "https://www.polestar.com/nl/polestar-2/specifications/",
   "spec_notes": "Polestar publiceert één batterijwaarde van 82 kWh zonder onderscheid bruto/netto; we rekenen met dat cijfer, de bruikbare capaciteit ligt vermoedelijk rond 79 kWh. WLTP 14,8 tot 15,8 kWh/100 km afhankelijk van velgen en uitvoering; gerekend met het midden.",
   "id": 15,
   "vehicle_id": 15,
@@ -387,7 +387,7 @@
   "catalog_price_be_cents": null,
   "catalog_price_nl_cents": null,
   "towing_kg": null,
-  "verified_at": null
+  "verified_at": "2026-09-25"
  },
  {
   "slug": "citroen-e-c3-44-kwh-2025",
@@ -400,7 +400,7 @@
   "ac_max_w": 7400,
   "ac_phases": 1,
   "dc_max_w": 100000,
-  "spec_source_url": "https://www.citroen.be/nl/",
+  "spec_source_url": "https://www.citroen.be/content/dam/citroen/belgium/b2c/brochure/202509/Tarif_CC21_C3_AM30_20250908_BE-FR.pdf",
   "spec_notes": "Citroën publiceert één batterijwaarde van 44 kWh zonder onderscheid bruto/netto; we rekenen met dat cijfer. Standaard eenfasige 7,4 kW-boordlader; 11 kW driefasig is een optie (€ 400). WLTP 16,5 tot 17,1 kWh/100 km; gerekend met het midden.",
   "id": 16,
   "vehicle_id": 16,
@@ -413,7 +413,7 @@
   "catalog_price_be_cents": null,
   "catalog_price_nl_cents": null,
   "towing_kg": null,
-  "verified_at": null
+  "verified_at": "2026-09-25"
  },
  {
   "slug": "cupra-tavascan-endurance-2025",
@@ -426,7 +426,7 @@
   "ac_max_w": 11000,
   "ac_phases": 3,
   "dc_max_w": 135000,
-  "spec_source_url": "https://www.cupra.com/en/cars/tavascan/tavascan-endurance",
+  "spec_source_url": "https://www.seat-cupra-mediacenter.es/content/dam/seat-media-center/models-all-brands/cupra-models/cupra-tavascan/technical-data/Ficha%20t%C3%A9cnica%20CUPRA%20Tavascan.pdf",
   "spec_notes": "82 kWh bruto, 77 kWh netto. WLTP 15,2 tot 16,0 kWh/100 km afhankelijk van velgen en uitvoering; gerekend met het midden. 0 tot 100 % in 8 u aan 11 kW.",
   "id": 17,
   "vehicle_id": 17,
@@ -439,7 +439,7 @@
   "catalog_price_be_cents": null,
   "catalog_price_nl_cents": null,
   "towing_kg": null,
-  "verified_at": null
+  "verified_at": "2026-09-25"
  },
  {
   "slug": "bmw-ix3-50-xdrive-2026",
@@ -452,8 +452,8 @@
   "ac_max_w": 11000,
   "ac_phases": 3,
   "dc_max_w": 400000,
-  "spec_source_url": "https://www.bmw.be/nl/all-models/bmw-i/ix3/bmw-ix3-technische-gegevens.html",
-  "spec_notes": "Nieuwe iX3 (Neue Klasse): BMW publiceert alleen de netto capaciteit van 108,7 kWh. WLTP 15,1 tot 18,1 kWh/100 km afhankelijk van uitvoering; gerekend met het midden. 22 kW AC is een optie. De Belgische inschrijvingen van 2025 betreffen nog de vorige generatie.",
+  "spec_source_url": "https://www.bmw.be/nl/all-models/x-series/ix3/bmw-ix3-technische-gegevens.html",
+  "spec_notes": "Nieuwe iX3 (Neue Klasse): BMW publiceert alleen de netto capaciteit van 108,7 kWh. WLTP 15,1 tot 18,1 kWh/100 km afhankelijk van uitvoering; gerekend met het midden. 22 kW AC is een optie. De Belgische inschrijvingen van 2025 betreffen nog de vorige generatie. De optie van 22 kW AC staat niet op de Belgische pagina, wel op bmw.nl (technische data iX3).",
   "id": 18,
   "vehicle_id": 18,
   "co2_wltp_g_km": 0,
@@ -465,7 +465,7 @@
   "catalog_price_be_cents": null,
   "catalog_price_nl_cents": null,
   "towing_kg": null,
-  "verified_at": null
+  "verified_at": "2026-09-25"
  },
  {
   "slug": "ford-mustang-mach-e-extended-range-rwd-2025",
@@ -478,7 +478,7 @@
   "ac_max_w": 11000,
   "ac_phases": 3,
   "dc_max_w": 150000,
-  "spec_source_url": "https://www.ford.be/nl/",
+  "spec_source_url": "https://weupreviewimagesprd.blob.core.windows.net/nl12/siteassets/prijslijst-ford-mustang-mach-e-2025-4-16.pdf",
   "spec_notes": "99 kWh bruto, 88 kWh bruikbaar volgens Ford; WLTP 17,7 kWh/100 km. Het AC-vermogen van 11 kW is afgeleid uit de opgegeven laadtijd; Ford noemt het niet als kW.",
   "id": 19,
   "vehicle_id": 19,
@@ -491,6 +491,6 @@
   "catalog_price_be_cents": null,
   "catalog_price_nl_cents": null,
   "towing_kg": null,
-  "verified_at": null
+  "verified_at": "2026-09-25"
  }
 ]
