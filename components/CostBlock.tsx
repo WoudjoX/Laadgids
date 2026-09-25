@@ -10,7 +10,7 @@ interface Props {
   vars: ChargerPageVars;
   copy: Copy;
   locale: Locale;
-  ctaHref: string;
+  ctaHref: string | null;
 }
 
 /** Kaart met één regel per tarief plus kostenbalk; goedkoopste in accent (DESIGN.md §3). */
@@ -50,12 +50,14 @@ export function CostBlock({ comparison, tariffs, vars, copy, locale, ctaHref }: 
       </div>
       {saving && <p className="mt-3 max-w-prose text-[14px] text-ink2">{saving}</p>}
       <p className="mt-1 max-w-prose text-[13px] text-ink3">{c.perYear(vars)}</p>
+      {ctaHref && (
       <a
         href={ctaHref}
         {...eventAttrs("energy_cta_click", "mt-4 inline-block rounded-btn border border-ink px-4 py-2 text-[15px] font-semibold text-ink no-underline hover:bg-card")}
       >
         {c.cta} →
       </a>
+      )}
     </div>
   );
 }

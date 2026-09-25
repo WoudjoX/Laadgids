@@ -39,8 +39,8 @@ export function ChargerPage({ data, locale, page, related, canonical, cregPath }
   const singleW = advice.table.find((r) => r.connection === "1f_32a_7400")!.effective_w;
   const threeW = advice.table.find((r) => r.connection === "3f_16a_11000")!.effective_w;
   const regionLabel = vars.region ? copy.site.regionLabel[vars.region] : copy.site.regionNone;
-  // Affiliate-/vergelijkingslink per locale uit env; zonder env naar de locale-home (nooit een dode link).
-  const energyCta = process.env[`ENERGY_CTA_URL_${cfg.country}`] ?? `/${cfg.segment}`;
+  // Affiliate-/vergelijkingslink per land uit env. Zonder link geen knop: een knop die nergens heen gaat is erger dan geen knop.
+  const energyCta = process.env[`ENERGY_CTA_URL_${cfg.country}`]?.trim() || null;
 
   const crumbs = [
     { label: copy.site.home, href: `/${cfg.segment}` },
