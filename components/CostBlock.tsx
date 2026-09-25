@@ -53,6 +53,8 @@ export function CostBlock({ comparison, tariffs, vars, copy, locale, ctaHref }: 
       {ctaHref && (
       <a
         href={ctaHref}
+        rel="sponsored noopener"
+        target="_blank"
         {...eventAttrs("energy_cta_click", "mt-4 inline-block rounded-btn border border-ink px-4 py-2 text-[15px] font-semibold text-ink no-underline hover:bg-card")}
       >
         {c.cta} →
