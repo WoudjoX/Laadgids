@@ -36,6 +36,7 @@ export interface ChargerPageVars {
   capacityVatPct: string | null; // "6 %"
   capacityIsAverage: boolean;
   specNotes: string | null;
+  batteryEstimated: boolean;
 }
 
 /** Variabelen voor de laadkosten-pagina, al geformatteerd. */
@@ -104,7 +105,8 @@ export interface Copy {
     metaDescription: (v: ChargerPageVars) => string;
     shortAnswerLabel: string;
     shortAnswer: (v: ChargerPageVars) => string; // 2 tot 4 zinnen
-    metrics: { acMax: string; battery: string; time: (v: ChargerPageVars) => string };
+    metrics: { acMax: string; battery: string; batteryEstimated: string; time: (v: ChargerPageVars) => string };
+    estimateNote: (v: ChargerPageVars) => string; // zichtbare regel onder de cijfers als de batterij een schatting is
     table: {
       heading: (v: ChargerPageVars) => string;
       colConnection: string;

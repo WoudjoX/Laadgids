@@ -78,6 +78,7 @@ export function buildChargerPage(version: VersionFull, locale: Locale, rules: Ru
     capacityVatPct: capRule?.params.vat_pct != null ? `${int(capRule.params.vat_pct, locale)} %` : null,
     capacityIsAverage: Boolean(capRule?.params.is_regional_average),
     specNotes: version.spec_notes ?? null,
+    batteryEstimated: Boolean(version.battery_estimated),
   };
 
   const sources: SourceItem[] = [{ title: `${version.make.name} ${version.vehicle.model}: specificaties`, url: version.spec_source_url, checked: version.spec_source_date }];

@@ -59,8 +59,10 @@ export const nlNL: Copy = {
     metrics: {
       acMax: "Max. AC-vermogen",
       battery: "Accu (netto)",
+      batteryEstimated: "Accu (schatting)",
       time: (v) => `${v.fromPct} naar ${v.toPct} % op ${v.recommendedKw}`,
     },
+    estimateNote: (v) => `De netto accucapaciteit van ${v.batteryNet} is een schatting: ${v.make} publiceert geen officieel cijfer. Laadtijden en kosten per lading kunnen enkele procenten afwijken.`,
     table: {
       heading: (v) => `Laadtijd per aansluiting (${v.fromPct} naar ${v.toPct} %)`,
       colConnection: "Aansluiting",

@@ -23,7 +23,8 @@
   "spec_source_url": "https://www.tesla.com/nl_be/support/power-consumption",
   "spec_source_date": "2026-09-22",
   "verified_at": null,
-  "spec_notes": "Tesla publiceert geen batterijcapaciteit en geen boordladervermogen. Tot ongeveer mei 2025 circa 57 kWh netto, daarna circa 60 kWh; het cijfer hierboven is een schatting. WLTP 13,8 kWh/100 km (Tesla). Pagina blijft ongepubliceerd tot er een citeerbare bron is."
+  "spec_notes": "Tesla publiceert geen batterijcapaciteit en geen boordladervermogen. Tot ongeveer mei 2025 circa 57 kWh netto, daarna circa 60 kWh; het cijfer hierboven is een schatting. WLTP 13,8 kWh/100 km (Tesla). Pagina blijft ongepubliceerd tot er een citeerbare bron is.",
+  "battery_estimated": true
  },
  {
   "id": 2,
@@ -49,7 +50,8 @@
   "spec_source_url": "https://www.volkswagen.be/app/offers/nl/professional/id3-pro-business",
   "spec_source_date": "2026-09-22",
   "verified_at": "2026-09-22",
-  "spec_notes": "WLTP 14,6 tot 16,7 kWh/100 km; gerekend met het midden. Fasen bevestigd via de Nederlandse prijslijst. Volkswagen België toont intussen alleen nog de ID.3 Neo."
+  "spec_notes": "WLTP 14,6 tot 16,7 kWh/100 km; gerekend met het midden. Fasen bevestigd via de Nederlandse prijslijst. Volkswagen België toont intussen alleen nog de ID.3 Neo.",
+  "battery_estimated": false
  },
  {
   "id": 3,
@@ -75,7 +77,8 @@
   "spec_source_url": "https://www.volkswagen.be/nl/modellen/id4.html/__ui/technical-data.app",
   "spec_source_date": "2026-09-22",
   "verified_at": "2026-09-22",
-  "spec_notes": "WLTP 15,75 tot 17,62 kWh/100 km; gerekend met het midden. 11 kW AC is in Europa 3-fasig 16 A. De Belgische pagina toont mogelijk al modeljaar 2026."
+  "spec_notes": "WLTP 15,75 tot 17,62 kWh/100 km; gerekend met het midden. 11 kW AC is in Europa 3-fasig 16 A. De Belgische pagina toont mogelijk al modeljaar 2026.",
+  "battery_estimated": false
  },
  {
   "id": 4,
@@ -101,7 +104,8 @@
   "spec_source_url": "https://cdn.skoda-storyboard.com/2025/05/Press_Kit_New_Skoda_Enyaq_492b58d1.pdf",
   "spec_source_date": "2026-09-22",
   "verified_at": "2026-09-22",
-  "spec_notes": "WLTP 15 tot 16 kWh/100 km (skoda.be); gerekend met het midden. 11 kW AC is in Europa 3-fasig 16 A."
+  "spec_notes": "WLTP 15 tot 16 kWh/100 km (skoda.be); gerekend met het midden. 11 kW AC is in Europa 3-fasig 16 A.",
+  "battery_estimated": false
  },
  {
   "id": 5,
@@ -127,7 +131,8 @@
   "spec_source_url": "https://www.hyundai.com/be/nl/modellen/kona-electric/performance.html",
   "spec_source_date": "2026-09-22",
   "verified_at": "2026-09-22",
-  "spec_notes": "Hyundai België geeft 10,5 kW AC (de Nederlandse prijslijst 11 kW); we rekenen met het Belgische cijfer, dat alleen 3-fasig kan. WLTP 14,7 tot 16,6 kWh/100 km uit de NL-prijslijst 01/2025; gerekend met het midden. Modeljaar 2026 heeft 64,8 kWh."
+  "spec_notes": "Hyundai België geeft 10,5 kW AC (de Nederlandse prijslijst 11 kW); we rekenen met het Belgische cijfer, dat alleen 3-fasig kan. WLTP 14,7 tot 16,6 kWh/100 km uit de NL-prijslijst 01/2025; gerekend met het midden. Modeljaar 2026 heeft 64,8 kWh.",
+  "battery_estimated": false
  },
  {
   "id": 6,
@@ -153,7 +158,8 @@
   "spec_source_url": "https://www.kia.com/be/nl/modellen/ev3/ontdekken/",
   "spec_source_date": "2026-09-22",
   "verified_at": null,
-  "spec_notes": "Kia publiceert 81,4 kWh bruto; de netto capaciteit van 78 kWh is niet door Kia bevestigd en de laadtijden zijn daarom een schatting. Pagina blijft ongepubliceerd tot er een fabrikantenbron is. 22 kW AC pas vanaf modeljaar 2027."
+  "spec_notes": "Kia publiceert 81,4 kWh bruto; de netto capaciteit van 78 kWh is niet door Kia bevestigd en de laadtijden zijn daarom een schatting. Pagina blijft ongepubliceerd tot er een fabrikantenbron is. 22 kW AC pas vanaf modeljaar 2027.",
+  "battery_estimated": true
  },
  {
   "id": 7,
@@ -179,7 +185,8 @@
   "spec_source_url": "https://nl.renault.be/elektrische-wagens/r5-e-tech-electric/versies-en-prijzen.html",
   "spec_source_date": "2026-09-22",
   "verified_at": "2026-09-22",
-  "spec_notes": "52 kWh en 11 kW bevestigd op renault.be; WLTP 14,9 kWh/100 km uit de Nederlandse prijslijst 06/2025. Bruto capaciteit publiceert Renault niet."
+  "spec_notes": "52 kWh en 11 kW bevestigd op renault.be; WLTP 14,9 kWh/100 km uit de Nederlandse prijslijst 06/2025. Bruto capaciteit publiceert Renault niet.",
+  "battery_estimated": false
  },
  {
   "id": 8,
@@ -205,7 +212,8 @@
   "spec_source_url": "https://www.peugeot.be/content/dam/peugeot/belgium/nl/b2c/tools/prijslijst/october/208-2025_BENL.pdf",
   "spec_source_date": "2026-09-22",
   "verified_at": "2026-09-22",
-  "spec_notes": "Belgische prijslijst 10/2025: 11 kW 3-fasige boordlader standaard, 48,1 kWh netto (51 bruto). Metingen tonen dat veel e-208 156 pk sinds eind 2024 het grotere pack van 51 kWh netto (54 bruto) hebben zonder dat Peugeot dat vermeldt; laadtijden gaan uit van het officiële cijfer. WLTP 14,0 tot 14,5 kWh/100 km; gerekend met het midden."
+  "spec_notes": "Belgische prijslijst 10/2025: 11 kW 3-fasige boordlader standaard, 48,1 kWh netto (51 bruto). Metingen tonen dat veel e-208 156 pk sinds eind 2024 het grotere pack van 51 kWh netto (54 bruto) hebben zonder dat Peugeot dat vermeldt; laadtijden gaan uit van het officiële cijfer. WLTP 14,0 tot 14,5 kWh/100 km; gerekend met het midden.",
+  "battery_estimated": false
  },
  {
   "id": 9,
@@ -231,7 +239,8 @@
   "spec_source_url": "https://www.media.stellantis.com/uploads/nl/attachment//consumentenprijslijstfiat500emy2522oktober2024-671760646ee09.pdf",
   "spec_source_date": "2026-09-22",
   "verified_at": "2026-09-22",
-  "spec_notes": "Cijfers uit de Nederlandse prijslijst MY25 (oktober 2024); fiat.be geeft alleen een gemengd bereik voor 28,3 en 42 kWh. WLTP 14,4 tot 14,9 kWh/100 km; gerekend met het midden."
+  "spec_notes": "Cijfers uit de Nederlandse prijslijst MY25 (oktober 2024); fiat.be geeft alleen een gemengd bereik voor 28,3 en 42 kWh. WLTP 14,4 tot 14,9 kWh/100 km; gerekend met het midden.",
+  "battery_estimated": false
  },
  {
   "id": 10,
@@ -257,7 +266,8 @@
   "spec_source_url": "https://cdn.group.renault.com/ren/nl/brochures-en-prijslijsten/prijzenarchief/zoe/zoe-prijslijst-01-2022.pdf",
   "spec_source_date": "2026-09-22",
   "verified_at": "2026-09-22",
-  "spec_notes": "Cijfers uit de Nederlandse prijslijst 01/2022; Renault België heeft geen Zoe-pagina meer online. Bruto capaciteit publiceert Renault niet."
+  "spec_notes": "Cijfers uit de Nederlandse prijslijst 01/2022; Renault België heeft geen Zoe-pagina meer online. Bruto capaciteit publiceert Renault niet.",
+  "battery_estimated": false
  },
  {
   "id": 11,
@@ -283,7 +293,8 @@
   "spec_source_url": "https://www.press.bmwgroup.com/netherlands/article/detail/T0435758NL/de-prijs-van-de-geheel-nieuwe-bmw-ix1-edrive20-is-bekend?language=nl",
   "spec_source_date": "2026-09-22",
   "verified_at": "2026-09-22",
-  "spec_notes": "WLTP 15,4 tot 17,2 kWh/100 km afhankelijk van uitrusting; gerekend met het midden. 11 kW AC is in Europa 3-fasig 16 A; 22 kW is een optie. Modeljaar 2026 heeft 65,2 kWh en 14,3 tot 16,1 kWh/100 km (bmw.be)."
+  "spec_notes": "WLTP 15,4 tot 17,2 kWh/100 km afhankelijk van uitrusting; gerekend met het midden. 11 kW AC is in Europa 3-fasig 16 A; 22 kW is een optie. Modeljaar 2026 heeft 65,2 kWh en 14,3 tot 16,1 kWh/100 km (bmw.be).",
+  "battery_estimated": false
  },
  {
   "slug": "volvo-ex30-single-motor-extended-range-2025",
@@ -309,7 +320,8 @@
   "catalog_price_be_cents": null,
   "catalog_price_nl_cents": null,
   "towing_kg": null,
-  "verified_at": "2026-09-25"
+  "verified_at": "2026-09-25",
+  "battery_estimated": false
  },
  {
   "slug": "volvo-ex40-single-motor-extended-range-2025",
@@ -335,7 +347,8 @@
   "catalog_price_be_cents": null,
   "catalog_price_nl_cents": null,
   "towing_kg": null,
-  "verified_at": "2026-09-25"
+  "verified_at": "2026-09-25",
+  "battery_estimated": false
  },
  {
   "slug": "dacia-spring-electric-65-2025",
@@ -361,7 +374,8 @@
   "catalog_price_be_cents": null,
   "catalog_price_nl_cents": null,
   "towing_kg": null,
-  "verified_at": "2026-09-25"
+  "verified_at": "2026-09-25",
+  "battery_estimated": false
  },
  {
   "slug": "polestar-2-long-range-single-motor-2025",
@@ -387,7 +401,8 @@
   "catalog_price_be_cents": null,
   "catalog_price_nl_cents": null,
   "towing_kg": null,
-  "verified_at": "2026-09-25"
+  "verified_at": "2026-09-25",
+  "battery_estimated": false
  },
  {
   "slug": "citroen-e-c3-44-kwh-2025",
@@ -413,7 +428,8 @@
   "catalog_price_be_cents": null,
   "catalog_price_nl_cents": null,
   "towing_kg": null,
-  "verified_at": "2026-09-25"
+  "verified_at": "2026-09-25",
+  "battery_estimated": false
  },
  {
   "slug": "cupra-tavascan-endurance-2025",
@@ -439,7 +455,8 @@
   "catalog_price_be_cents": null,
   "catalog_price_nl_cents": null,
   "towing_kg": null,
-  "verified_at": "2026-09-25"
+  "verified_at": "2026-09-25",
+  "battery_estimated": false
  },
  {
   "slug": "bmw-ix3-50-xdrive-2026",
@@ -465,7 +482,8 @@
   "catalog_price_be_cents": null,
   "catalog_price_nl_cents": null,
   "towing_kg": null,
-  "verified_at": "2026-09-25"
+  "verified_at": "2026-09-25",
+  "battery_estimated": false
  },
  {
   "slug": "ford-mustang-mach-e-extended-range-rwd-2025",
@@ -491,6 +509,7 @@
   "catalog_price_be_cents": null,
   "catalog_price_nl_cents": null,
   "towing_kg": null,
-  "verified_at": "2026-09-25"
+  "verified_at": "2026-09-25",
+  "battery_estimated": false
  }
 ]

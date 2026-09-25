@@ -9,7 +9,8 @@ interface Mail {
 
 async function send(mail: Mail): Promise<void> {
   const key = process.env.RESEND_API_KEY;
-  const from = process.env.LEAD_FROM_EMAIL ?? "leads@laadgids.be";
+  const fromAddress = process.env.LEAD_FROM_EMAIL?.trim() || "leads@laadgids.be";
+  const from = fromAddress.includes("<") ? fromAddress : `Laadgids <${fromAddress}>`;
   // Het afzenderadres hoeft geen mailbox te zijn. Antwoorden gaan naar het adres van de eigenaar,
   // zodat een reactie van een aanvrager nooit verloren gaat.
   const replyTo = process.env.LEAD_NOTIFY_EMAIL?.trim() || undefined;
@@ -42,16 +43,56 @@ export async function notifyInstallers(lead: LeadInsert, leadId: number, install
   await Promise.all(installers.map((i) => send({ to: i.contact_email, subject: `Lead #${leadId}: laadpaal ${lead.postal_code}`, text: body })));
 }
 
+/** Samenvatting van wat de aanvrager invulde, in zijn taal. */
+function requestSummary(lead: LeadInsert, fr: boolean): string {
+  const conn = lead.connection_type === "1F" ? (fr ? "monophasé" : "1-fasig") : lead.connection_type === "3F" ? (fr ? "triphasé" : "3-fasig") : fr ? "inconnu" : "onbekend";
+  const amp = lead.ampere ? ` ${lead.ampere} A` : "";
+  const power = lead.desired_power_w ? `${(lead.desired_power_w / 1000).toString().replace(".", ",")} kW` : fr ? "à déterminer" : "nog te bepalen";
+  const yesNo = (v: boolean | null) => (v === null ? (fr ? "non précisé" : "niet opgegeven") : v ? (fr ? "oui" : "ja") : fr ? "non" : "nee");
+  return fr
+    ? [`Code postal : ${lead.postal_code}`, `Raccordement actuel : ${conn}${amp}`, `Puissance souhaitée : ${power}`, `Habitation de plus de 10 ans : ${yesNo(lead.home_older_than_10y)}`, `Voiture de société : ${yesNo(lead.company_car)}`, `Téléphone : ${lead.phone ?? "-"}`].join("\n")
+    : [`Postcode: ${lead.postal_code}`, `Huidige aansluiting: ${conn}${amp}`, `Gewenst vermogen: ${power}`, `Woning ouder dan 10 jaar: ${yesNo(lead.home_older_than_10y)}`, `Bedrijfswagen: ${yesNo(lead.company_car)}`, `Telefoon: ${lead.phone ?? "-"}`].join("\n");
+}
+
 export async function confirmLead(lead: LeadInsert, installers: InstallerRow[]): Promise<void> {
   const fr = lead.locale === "fr-BE";
   const queued = installers.length === 0;
-  const text = fr
+  const status = fr
     ? queued
-      ? "Votre demande est bien reçue. Nous cherchons un installateur agréé dans votre région et lui transmettons votre demande dès que possible, au plus tard dans les quatre semaines. Vous ne devez rien faire."
-      : `Votre demande est bien reçue. ${installers.length} installateur(s) vous contactent sous deux jours ouvrables.`
+      ? "Nous cherchons un installateur agréé dans votre région et lui transmettons votre demande dès que possible, au plus tard dans les quatre semaines. Vous ne devez rien faire."
+      : `${installers.length} installateur(s) agréé(s) de votre région ont reçu votre demande et vous contactent sous deux jours ouvrables.`
     : queued
-      ? "Je aanvraag is ontvangen. We zoeken een erkende installateur in je regio en sturen je aanvraag door zodra die er is, uiterlijk binnen vier weken. Je hoeft niets te doen."
-      : `Je aanvraag is ontvangen. ${installers.length} installateur(s) nemen binnen twee werkdagen contact op.`;
+      ? "We zoeken een erkende installateur in je regio en sturen je aanvraag door zodra die er is, uiterlijk binnen vier weken. Je hoeft niets te doen."
+      : `${installers.length} erkende installateur(s) uit je regio hebben je aanvraag ontvangen en nemen binnen twee werkdagen contact op.`;
+  const text = fr
+    ? [
+        "Bonjour,",
+        "",
+        "Votre demande de devis pour une borne de recharge à domicile est bien reçue. Voici ce que vous avez indiqué :",
+        "",
+        requestSummary(lead, true),
+        "",
+        status,
+        "",
+        "Une correction ou une question ? Répondez simplement à cet e-mail.",
+        "",
+        "Laadgids",
+        "laadgids.be",
+      ].join("\n")
+    : [
+        "Dag,",
+        "",
+        "Je offerteaanvraag voor een laadpaal thuis is ontvangen. Dit is wat je invulde:",
+        "",
+        requestSummary(lead, false),
+        "",
+        status,
+        "",
+        "Klopt er iets niet of heb je een vraag? Antwoord gewoon op deze e-mail.",
+        "",
+        "Laadgids",
+        "laadgids.be",
+      ].join("\n");
   await send({ to: lead.email, subject: fr ? "Votre demande de devis borne" : "Je offerteaanvraag laadpaal", text });
 }
 

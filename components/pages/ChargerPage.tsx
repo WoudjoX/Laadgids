@@ -87,11 +87,12 @@ export function ChargerPage({ data, locale, page, related, canonical, cregPath }
         <MetricCards
           items={[
             { label: c.metrics.acMax, value: vars.acMax.replace(" kW", ""), unit: "kW" },
-            { label: c.metrics.battery, value: vars.batteryNet.replace(" kWh", ""), unit: "kWh" },
+            { label: vars.batteryEstimated ? c.metrics.batteryEstimated : c.metrics.battery, value: vars.batteryNet.replace(" kWh", ""), unit: "kWh" },
             { label: c.metrics.time(vars), ...recTime },
           ]}
         />
       </div>
+      {vars.batteryEstimated && <p className="mt-3 max-w-prose rounded-card bg-warnSoft px-4 py-3 text-[14px] text-warn">{c.estimateNote(vars)}</p>}
       <p className="mt-3 text-[14px]">
         <Link href={comparePath(locale, page.path.split("/").pop() ?? "")}>{copy.compare.linkFromModel} →</Link>
       </p>

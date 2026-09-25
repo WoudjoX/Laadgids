@@ -64,6 +64,8 @@ export interface VersionRow {
   verified_at?: string | null;
   /** Voetnoot op de pagina, bv. een bekende afwijking tussen fabrikantencijfer en praktijk. */
   spec_notes?: string | null;
+  /** true als de netto batterijcapaciteit een schatting is omdat de fabrikant ze niet publiceert; de pagina toont dat zichtbaar. */
+  battery_estimated?: boolean | null;
 }
 
 export interface RuleRow<P = unknown> {

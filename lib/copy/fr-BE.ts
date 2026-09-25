@@ -62,8 +62,10 @@ export const frBE: Copy = {
     metrics: {
       acMax: "Puissance AC max.",
       battery: "Batterie (nette)",
+      batteryEstimated: "Batterie (estimation)",
       time: (v) => `${v.fromPct} à ${v.toPct} % sur ${v.recommendedKw}`,
     },
+    estimateNote: (v) => `La capacité nette de ${v.batteryNet} est une estimation : ${v.make} ne publie pas de chiffre officiel. Les temps de charge et le coût par charge peuvent différer de quelques pour cent.`,
     table: {
       heading: (v) => `Temps de charge par raccordement (${v.fromPct} à ${v.toPct} %)`,
       colConnection: "Raccordement",

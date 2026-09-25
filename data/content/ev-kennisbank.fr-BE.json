@@ -16,16 +16,32 @@
       "meta_description": "Une borne de recharge à domicile à 6 % de TVA ? C'est possible si votre habitation a plus de 10 ans et qu'un installateur la fournit et la place. Toutes les conditions et exceptions.",
       "samenvatting": "Le taux de 6 % s'applique uniquement si un entrepreneur fournit et place la borne dans ou contre une habitation privée de plus de 10 ans. Sinon, vous payez 21 %.",
       "linktekst": "6 % ou 21 % de TVA sur votre borne ?",
-      "gewesten": ["vlaanderen", "brussel", "wallonie"],
-      "gerelateerd": ["declaration-gestionnaire-reseau-borne", "borne-appartement"],
+      "gewesten": [
+        "vlaanderen",
+        "brussel",
+        "wallonie"
+      ],
+      "gerelateerd": [
+        "declaration-gestionnaire-reseau-borne",
+        "borne-appartement"
+      ],
       "laatst_gecontroleerd": "2026-09-22",
       "herzien_voor": "2027-01-31",
       "bronnen": [
-        { "titel": "Circulaire 2021/C/113 relative aux bornes de recharge pour véhicules électriques (texte via Fiscosearch)", "url": "https://fiscosearch.be/collecties/circulaires/circulaire-2021-c-113-betreffende-de-installatie-van-laadstations-voor-elektrische-voertuigen-en-leveringen-en-diensten-met-betrekking-tot-die-laadstations" },
-        { "titel": "SPF Finances – Rénover (TVA 6 % pour la rénovation)", "url": "https://finances.belgium.be/fr/particuliers/habitation/renover" },
-        { "titel": "Grant Thornton – Nieuwe circulaire kadert btw voor laadstations (08/03/2022)", "url": "https://www.grantthornton.be/the-field/articles/Nieuwe-circulaire-kadert-toepassing-btw-voor-laadstations/" }
+        {
+          "titel": "Circulaire 2021/C/113 relative aux bornes de recharge pour véhicules électriques (texte via Fiscosearch)",
+          "url": "https://fiscosearch.be/collecties/circulaires/circulaire-2021-c-113-betreffende-de-installatie-van-laadstations-voor-elektrische-voertuigen-en-leveringen-en-diensten-met-betrekking-tot-die-laadstations"
+        },
+        {
+          "titel": "SPF Finances – Rénover (TVA 6 % pour la rénovation)",
+          "url": "https://finances.belgium.be/fr/particuliers/habitation/renover"
+        },
+        {
+          "titel": "Grant Thornton – Nieuwe circulaire kadert btw voor laadstations (08/03/2022)",
+          "url": "https://www.grantthornton.be/the-field/articles/Nieuwe-circulaire-kadert-toepassing-btw-voor-laadstations/"
+        }
       ],
-      "body_md": "# 6 % de TVA sur votre borne de recharge à domicile\n\nUne borne de recharge à domicile relève du **taux réduit ordinaire pour la rénovation d'habitations privées** (rubrique XXXVIII du tableau A de l'AR n° 20). Il n'existe pas de taux de TVA propre aux bornes. Le fisc a précisé dans la **circulaire 2021/C/113** comment cette règle de rénovation s'applique aux bornes de recharge.\n\n## Les conditions pour 6 %\n\nVous bénéficiez de 6 % de TVA si **toutes** les conditions ci-dessous sont remplies :\n\n- **L'habitation a plus de 10 ans.** Elle a été occupée pour la première fois au moins 10 ans avant la première facture.\n- **L'habitation est exclusivement ou principalement une habitation privée.**\n- **Un entrepreneur fournit et place la borne.** Du matériel que vous achetez vous-même est à 21 %, même si un installateur le place ensuite.\n- **La facture est adressée à l'utilisateur final**, c'est-à-dire au propriétaire ou au locataire qui occupe l'habitation.\n- **La borne se trouve dans ou contre l'habitation**, par exemple sur le mur extérieur, dans le garage ou sous le carport de l'habitation.\n\n## Quand payez-vous 21 % ?\n\n- **Construction neuve** ou habitation de moins de 10 ans.\n- **Une borne sans placement**, par exemple achetée en ligne et montée vous-même, ou seulement livrée.\n- **Une borne dans un bâtiment professionnel** ou sur un parking (semi-)public.\n- **Une borne sur pied dans le jardin ou l'allée.** Les sources ne sont pas d'accord sur ce point. Plusieurs fiscalistes ne considèrent pas cela comme « dans ou contre l'habitation » ; comptez donc 21 %, sauf si votre installateur confirme par écrit que 6 % est possible.\n\n## Borne placée par votre employeur\n\nSi votre employeur place une borne chez vous, le taux de 6 % peut s'appliquer si l'habitation remplit les conditions. Si le client est une entreprise assujettie à la TVA, l'installateur applique l'**autoliquidation**. La part de TVA que l'employeur peut déduire dépend de l'usage professionnel. Pour le remboursement de l'électricité, voyez [le tarif CREG pour la recharge à domicile](/regles/tarif-creg-recharge-domicile).\n\n## Ce qui a changé récemment (et ce qui n'a pas changé)\n\n- Le taux temporaire de 6 % de 2022-2023 pour les panneaux solaires et les pompes à chaleur **n'a jamais concerné les bornes**.\n- Les mesures TVA du gouvernement fédéral en 2025-2026 **ne touchent pas** la règle de rénovation pour les habitations de plus de 10 ans. Le régime des bornes est donc inchangé.\n- La **réduction d'impôt fédérale pour une borne à domicile** est terminée. Elle valait uniquement pour les paiements jusqu'au 31 août 2024 inclus.\n\n## Conseil\n\nDemandez à votre installateur un seul devis et une seule facture pour la fourniture et le placement, avec mention de l'âge de l'habitation. Vérifiez aussi que votre [borne est déclarée au gestionnaire de réseau](/regles/declaration-gestionnaire-reseau-borne).\n\n*Cette page donne une information générale et ne constitue pas un conseil fiscal. Dernière vérification le 22 septembre 2026.*"
+      "body_md": "# 6 % de TVA sur votre borne de recharge à domicile\n\nUne borne de recharge à domicile relève du **taux réduit ordinaire pour la rénovation d'habitations privées** (rubrique XXXVIII du tableau A de l'AR n° 20). Il n'existe pas de taux de TVA propre aux bornes. Le fisc a précisé dans la **circulaire 2021/C/113** comment cette règle de rénovation s'applique aux bornes de recharge. Le taux réduit lui-même est permanent depuis le 1er avril 2023 (circulaire 2023/C/64 et FAQ 2023/C/65) ; cela n'a rien changé aux conditions pour les bornes.\n\n## Les conditions pour 6 %\n\nVous bénéficiez de 6 % de TVA si **toutes** les conditions ci-dessous sont remplies :\n\n- **L'habitation a plus de 10 ans.** Elle a été occupée pour la première fois au moins 10 ans avant la première facture.\n- **L'habitation est exclusivement ou principalement une habitation privée.**\n- **Un entrepreneur fournit et place la borne.** Du matériel que vous achetez vous-même est à 21 %, même si un installateur le place ensuite.\n- **La facture est adressée à l'utilisateur final**, c'est-à-dire au propriétaire ou au locataire qui occupe l'habitation.\n- **La borne se trouve dans ou contre l'habitation**, par exemple sur le mur extérieur, dans le garage ou sous le carport de l'habitation.\n\n## Quand payez-vous 21 % ?\n\n- **Construction neuve** ou habitation de moins de 10 ans.\n- **Une borne sans placement**, par exemple achetée en ligne et montée vous-même, ou seulement livrée.\n- **Une borne dans un bâtiment professionnel** ou sur un parking (semi-)public.\n- **Une borne sur pied dans le jardin ou l'allée.** Les sources ne sont pas d'accord sur ce point. Plusieurs fiscalistes ne considèrent pas cela comme « dans ou contre l'habitation » ; comptez donc 21 %, sauf si votre installateur confirme par écrit que 6 % est possible.\n\n## Borne placée par votre employeur\n\nSi votre employeur place une borne chez vous, le taux de 6 % peut s'appliquer si l'habitation remplit les conditions. Si le client est une entreprise assujettie à la TVA, l'installateur applique l'**autoliquidation**. La part de TVA que l'employeur peut déduire dépend de l'usage professionnel. Pour le remboursement de l'électricité, voyez [le tarif CREG pour la recharge à domicile](/regles/tarif-creg-recharge-domicile).\n\n## Ce qui a changé récemment (et ce qui n'a pas changé)\n\n- Le taux temporaire de 6 % de 2022-2023 pour les panneaux solaires et les pompes à chaleur **n'a jamais concerné les bornes**.\n- Les mesures TVA du gouvernement fédéral en 2025-2026 **ne touchent pas** la règle de rénovation pour les habitations de plus de 10 ans. Le régime des bornes est donc inchangé.\n- La **réduction d'impôt fédérale pour une borne à domicile** est terminée. Elle valait uniquement pour les paiements jusqu'au 31 août 2024 inclus.\n\n## Conseil\n\nDemandez à votre installateur un seul devis et une seule facture pour la fourniture et le placement, avec mention de l'âge de l'habitation. Vérifiez aussi que votre [borne est déclarée au gestionnaire de réseau](/regles/declaration-gestionnaire-reseau-borne).\n\n*Cette page donne une information générale et ne constitue pas un conseil fiscal. Dernière vérification le 22 septembre 2026.*"
     },
     {
       "slug": "tarif-capacitaire-borne",
@@ -35,19 +51,45 @@
       "meta_description": "En Flandre, vous payez depuis 2023 pour votre pointe quart-horaire la plus élevée. Ce que coûte une recharge à 11 kW, les tarifs 2026 par zone Fluvius et comment la recharge intelligente maintient votre pointe basse.",
       "samenvatting": "En Flandre, vous payez des frais de réseau sur votre pointe mensuelle moyenne (minimum 2,5 kW), soit en 2026 environ 52 à 61 € par kW et par an TVA comprise. Recharger à 11 kW sans recharge intelligente peut vous coûter plusieurs centaines d'euros par an en plus.",
       "linktekst": "Ce que la recharge fait à votre tarif capacitaire",
-      "gewesten": ["vlaanderen", "brussel", "wallonie"],
-      "gerelateerd": ["monophase-vs-triphase", "tarif-creg-recharge-domicile", "declaration-gestionnaire-reseau-borne"],
+      "gewesten": [
+        "vlaanderen",
+        "brussel",
+        "wallonie"
+      ],
+      "gerelateerd": [
+        "monophase-vs-triphase",
+        "tarif-creg-recharge-domicile",
+        "declaration-gestionnaire-reseau-borne"
+      ],
       "laatst_gecontroleerd": "2026-09-22",
       "herzien_voor": "2027-01-15",
       "bronnen": [
-        { "titel": "Vlaamse Nutsregulator – Capaciteitstarief (mis à jour le 11/06/2026)", "url": "https://www.vlaamsenutsregulator.be/elektriciteit-en-aardgas/nettarieven/capaciteitstarief" },
-        { "titel": "Vlaamse Nutsregulator – Hoeveel bedragen de distributienettarieven?", "url": "https://www.vlaamsenutsregulator.be/elektriciteit-en-aardgas/nettarieven/hoeveel-bedragen-de-distributienettarieven" },
-        { "titel": "Vlaamse Nutsregulator – Liste tarifaire Fluvius West 2026 (électricité)", "url": "https://assets.vlaamsenutsregulator.be/2025-11/FW%20-%202026%20-%20ELEK.pdf?VersionId=qqbQm1gDRlAOz7vWkdOLPGESKq4ASvxw" },
-        { "titel": "Fluvius – Capaciteitstarief: hoe wordt het aangerekend?", "url": "https://www.fluvius.be/nl/factuur-en-tarieven/capaciteitstarief/gezinnen-en-kleine-ondernemingen/aangerekend" },
-        { "titel": "CWaPE – Tarifs de distribution 2026 (communiqué du 03/11/2025)", "url": "https://www.cwape.be/sites/default/files/cwape-documents/2025.11.03-Tarifs%20distribution%202026_CP.pdf" },
-        { "titel": "Sibelga – Tarif capacitaire", "url": "https://www.sibelga.be/fr/raccordements-compteurs/tarifs/tarifs-utilisation-reseau/tarif-capacitaire" }
+        {
+          "titel": "Vlaamse Nutsregulator – Capaciteitstarief (mis à jour le 11/06/2026)",
+          "url": "https://www.vlaamsenutsregulator.be/elektriciteit-en-aardgas/nettarieven/capaciteitstarief"
+        },
+        {
+          "titel": "Vlaamse Nutsregulator – Hoeveel bedragen de distributienettarieven?",
+          "url": "https://www.vlaamsenutsregulator.be/elektriciteit-en-aardgas/nettarieven/hoeveel-bedragen-de-distributienettarieven"
+        },
+        {
+          "titel": "Vlaamse Nutsregulator – Liste tarifaire Fluvius West 2026 (électricité)",
+          "url": "https://assets.vlaamsenutsregulator.be/2025-11/FW%20-%202026%20-%20ELEK.pdf?VersionId=qqbQm1gDRlAOz7vWkdOLPGESKq4ASvxw"
+        },
+        {
+          "titel": "Fluvius – Capaciteitstarief: hoe wordt het aangerekend?",
+          "url": "https://www.fluvius.be/nl/factuur-en-tarieven/capaciteitstarief/gezinnen-en-kleine-ondernemingen/aangerekend"
+        },
+        {
+          "titel": "CWaPE – Tarifs de distribution 2026 (communiqué du 03/11/2025)",
+          "url": "https://www.cwape.be/sites/default/files/cwape-documents/2025.11.03-Tarifs%20distribution%202026_CP.pdf"
+        },
+        {
+          "titel": "Sibelga – Tarif capacitaire",
+          "url": "https://www.sibelga.be/fr/raccordements-compteurs/tarifs/tarifs-utilisation-reseau/tarif-capacitaire"
+        }
       ],
-      "body_md": "# Le tarif capacitaire et la recharge électrique\n\nDepuis le 1er janvier 2023, en Flandre, une partie de vos frais de réseau se calcule sur la **puissance que vous prélevez en même temps**, et plus seulement sur votre consommation en kWh. Une borne de recharge est souvent l'appareil qui détermine votre pointe.\n\n## Comment ça marche (Flandre)\n\n- **Pointe quart-horaire :** votre compteur numérique mesure chaque quart d'heure votre puissance moyenne prélevée, en kW.\n- **Pointe mensuelle :** la pointe quart-horaire la plus élevée du mois.\n- **Moyenne annuelle :** vous payez sur la moyenne de vos pointes mensuelles des 12 derniers mois.\n- **Minimum 2,5 kW :** même avec une pointe plus basse, vous payez pour 2,5 kW.\n- **Compteur analogique :** vous payez un montant fixe correspondant à 2,5 kW, plus un tarif par kWh plus élevé.\n\n## Tarifs 2026 par zone de réseau Fluvius\n\nIl s'agit du tarif sur la pointe mensuelle moyenne pour un raccordement résidentiel en basse tension.\n\n| Zone de réseau | €/kW/an hors TVA | €/kW/an TVA 6 % comprise |\n|---|---|---|\n| Antwerpen | 49,40 | 52,37 |\n| Halle-Vilvoorde | 56,04 | 59,41 |\n| Imewo | 54,20 | 57,45 |\n| Kempen | 56,21 | 59,58 |\n| Limburg | 49,05 | 51,99 |\n| Midden-Vlaanderen | 50,12 | 53,13 |\n| West | 57,10 | 60,53 |\n| Zenne-Dijle | 56,12 | 59,49 |\n\nSource : listes tarifaires 2026 du régulateur flamand (Vlaamse Nutsregulator). Les entreprises paient 21 % de TVA.\n\n## Exemple de calcul : recharger à 11 kW\n\nUn ménage sans voiture électrique a typiquement une pointe mensuelle d'environ 4 kW. Si vous rechargez chaque mois au moins un quart d'heure à **11 kW**, pendant que votre maison consomme encore 1 à 1,5 kW, votre pointe mensuelle monte à environ **12,5 kW**.\n\n- Pointe supplémentaire : environ **8,5 kW**\n- Coût supplémentaire : 8,5 kW × 52 à 61 € = environ **440 à 515 € par an** TVA comprise\n\nSi vous rechargez la même quantité à **3,7 kW**, ou si vous limitez votre consommation totale à 4 ou 5 kW grâce à la recharge intelligente, le surcoût reste proche de zéro. Votre voiture charge plus lentement, mais la nuit vous avez généralement le temps.\n\nUn seul pic pèse peu : un mois isolé avec une pointe de 11 kW vous coûte environ 35 à 45 € de plus sur l'année, parce que la moyenne se calcule sur 12 mois.\n\n## Le rôle de votre voiture\n\nLa puissance de charge AC maximale de votre voiture (sur la page du modèle : *charge AC*) détermine à quel point votre pointe **peut** monter. Une voiture à 11 kW triphasé tire 11 kW sur un raccordement 3N400V. Une voiture à 22 kW (comme la Renault Zoe) peut monter bien plus haut. Réglez donc un courant ou une puissance de charge via votre borne ou l'application de votre voiture. Voyez aussi [monophasé ou triphasé](/regles/monophase-vs-triphase).\n\n## Bruxelles et Wallonie\n\n- **Bruxelles :** il n'y a pas de tarif sur votre pointe mesurée. Vous payez une composante capacitaire fixe qui dépend de la taille de votre raccordement (fusible principal). Une structure tarifaire par plages horaires est introduite progressivement, complète pour 2028.\n- **Wallonie :** il n'y a pas de tarif capacitaire pour les ménages. Depuis le 1er janvier 2026, les heures moins chères vont de **11 h à 17 h et de 22 h à 7 h**. Rechargez de préférence pendant ces heures.\n\n*Les tarifs changent chaque année au 1er janvier. Cette page donne une information générale. Dernière vérification le 22 septembre 2026.*"
+      "body_md": "# Le tarif capacitaire et la recharge électrique\n\nDepuis le 1er janvier 2023, en Flandre, une partie de vos frais de réseau se calcule sur la **puissance que vous prélevez en même temps**, et plus seulement sur votre consommation en kWh. Une borne de recharge est souvent l'appareil qui détermine votre pointe.\n\n## Comment ça marche (Flandre)\n\n- **Pointe quart-horaire :** votre compteur numérique mesure chaque quart d'heure votre puissance moyenne prélevée, en kW.\n- **Pointe mensuelle :** la pointe quart-horaire la plus élevée du mois.\n- **Moyenne annuelle :** vous payez sur la moyenne de vos pointes mensuelles des 12 derniers mois.\n- **Minimum 2,5 kW :** même avec une pointe plus basse, vous payez pour 2,5 kW.\n- **Compteur analogique :** vous payez un montant fixe correspondant à 2,5 kW, plus un tarif par kWh plus élevé.\n\n## Tarifs 2026 par zone de réseau Fluvius\n\nIl s'agit du tarif sur la pointe mensuelle moyenne pour un raccordement résidentiel en basse tension.\n\n| Zone de réseau | €/kW/an hors TVA | €/kW/an TVA 6 % comprise |\n|---|---|---|\n| Antwerpen | 49,40 | 52,37 |\n| Halle-Vilvoorde | 56,04 | 59,41 |\n| Imewo | 54,20 | 57,45 |\n| Kempen | 56,21 | 59,58 |\n| Limburg | 49,05 | 51,99 |\n| Midden-Vlaanderen | 50,12 | 53,13 |\n| West | 57,10 | 60,53 |\n| Zenne-Dijle | 56,12 | 59,49 |\n\nSource : listes tarifaires 2026 du régulateur flamand (Vlaamse Nutsregulator). La moyenne flamande est, selon le régulateur, de 53,39 € par kW et par an hors TVA, soit environ 56,59 € TVA 6 % comprise ; c'est avec cette moyenne que calculent les pages modèles. Les entreprises paient 21 % de TVA.\n\n## Exemple de calcul : recharger à 11 kW\n\nUn ménage sans voiture électrique a typiquement une pointe mensuelle d'environ 4 kW. Si vous rechargez chaque mois au moins un quart d'heure à **11 kW**, pendant que votre maison consomme encore 1 à 1,5 kW, votre pointe mensuelle monte à environ **12,5 kW**.\n\n- Pointe supplémentaire : environ **8,5 kW**\n- Coût supplémentaire : 8,5 kW × 52 à 61 € = environ **440 à 515 € par an** TVA comprise\n\nSi vous rechargez la même quantité à **3,7 kW**, ou si vous limitez votre consommation totale à 4 ou 5 kW grâce à la recharge intelligente, le surcoût reste proche de zéro. Votre voiture charge plus lentement, mais la nuit vous avez généralement le temps.\n\nUn seul pic pèse peu : un mois isolé avec une pointe de 11 kW vous coûte environ 35 à 45 € de plus sur l'année, parce que la moyenne se calcule sur 12 mois.\n\n## Le rôle de votre voiture\n\nLa puissance de charge AC maximale de votre voiture (sur la page du modèle : *charge AC*) détermine à quel point votre pointe **peut** monter. Une voiture à 11 kW triphasé tire 11 kW sur un raccordement 3N400V. Une voiture à 22 kW (comme la Renault Zoe) peut monter bien plus haut. Réglez donc un courant ou une puissance de charge via votre borne ou l'application de votre voiture. Voyez aussi [monophasé ou triphasé](/regles/monophase-vs-triphase).\n\n## Bruxelles et Wallonie\n\n- **Bruxelles :** il n'y a pas de tarif sur votre pointe mesurée. Vous payez une composante capacitaire fixe qui dépend de la taille de votre raccordement (fusible principal). Une structure tarifaire par plages horaires est introduite progressivement, complète pour 2028.\n- **Wallonie :** il n'y a pas de tarif capacitaire pour les ménages. Depuis le 1er janvier 2026, les heures moins chères vont de **11 h à 17 h et de 22 h à 7 h**. Rechargez de préférence pendant ces heures.\n\n*Les tarifs changent chaque année au 1er janvier. Cette page donne une information générale. Dernière vérification le 22 septembre 2026.*"
     },
     {
       "slug": "tarif-creg-recharge-domicile",
@@ -57,19 +99,45 @@
       "meta_description": "Vous rechargez votre voiture de société électrique à domicile ? Votre employeur peut rembourser jusqu'au tarif CREG par kWh. Les tarifs Q3 et Q4 2026 par région, les conditions et les règles fiscales.",
       "samenvatting": "Les employeurs peuvent rembourser la recharge à domicile d'une voiture de société sans impôt, jusqu'au tarif CREG du trimestre. Au Q3 2026, c'est 0,3222 €/kWh en Flandre, 0,3719 € à Bruxelles et 0,3783 € en Wallonie.",
       "linktekst": "Tarif CREG pour la recharge à domicile",
-      "gewesten": ["vlaanderen", "brussel", "wallonie"],
-      "gerelateerd": ["tarif-capacitaire-borne", "tva-6-pourcent-borne", "declaration-gestionnaire-reseau-borne"],
+      "gewesten": [
+        "vlaanderen",
+        "brussel",
+        "wallonie"
+      ],
+      "gerelateerd": [
+        "tarif-capacitaire-borne",
+        "tva-6-pourcent-borne",
+        "declaration-gestionnaire-reseau-borne"
+      ],
       "laatst_gecontroleerd": "2026-09-22",
       "herzien_voor": "2026-12-15",
       "bronnen": [
-        { "titel": "CREG – Tarif pour le remboursement de la recharge à domicile des voitures de société", "url": "https://www.creg.be/fr/consommateurs/prix-et-tarifs/tarif-creg-pour-le-remboursement-de-la-recharge-domicile-des-voitures-de-societe" },
-        { "titel": "Fleet.be – CREG-tarieven Q3 2026", "url": "https://www.fleet.be/bedrijfswagens-dit-zijn-de-creg-tarieven-voor-de-terugbetaling-van-elektrisch-laden-in-q3-2026/" },
-        { "titel": "Fleet.be – CREG-tarieven Q4 2026 (11/08/2026)", "url": "https://www.fleet.be/bedrijfswagens-dit-zijn-de-creg-tarieven-voor-de-terugbetaling-van-thuisladen-in-q4-2026/" },
-        { "titel": "Attentia – Vergoeding laadkosten thuis, derde kwartaal 2026", "url": "https://www.attentia.be/nl/nieuws/vergoeding-laadkosten-thuis-derde-kwartaal-2026" },
-        { "titel": "Securex – Thuis opladen: forfaitaire terugbetaling wordt permanent (03/07/2025)", "url": "https://www.securex.be/nl/lex4you/werkgever/nieuws/thuis-opladen-forfaitaire-terugbetaling-wordt-permanent" },
-        { "titel": "LWB – CREG publiceert tarieven derde kwartaal 2026 (16/07/2026)", "url": "https://www.lwb-info.be/nieuws/terugbetaling-kosten-elektrisch-thuisladen-creg-publiceert-tarieven-derde-kwartaal-2026-400/" }
+        {
+          "titel": "CREG – Tarif pour le remboursement de la recharge à domicile des voitures de société",
+          "url": "https://www.creg.be/fr/consommateurs/prix-et-tarifs/tarif-creg-pour-le-remboursement-de-la-recharge-domicile-des-voitures-de-societe"
+        },
+        {
+          "titel": "Fleet.be – CREG-tarieven Q3 2026",
+          "url": "https://www.fleet.be/bedrijfswagens-dit-zijn-de-creg-tarieven-voor-de-terugbetaling-van-elektrisch-laden-in-q3-2026/"
+        },
+        {
+          "titel": "Fleet.be – CREG-tarieven Q4 2026 (11/08/2026)",
+          "url": "https://www.fleet.be/bedrijfswagens-dit-zijn-de-creg-tarieven-voor-de-terugbetaling-van-thuisladen-in-q4-2026/"
+        },
+        {
+          "titel": "Attentia – Vergoeding laadkosten thuis, derde kwartaal 2026",
+          "url": "https://www.attentia.be/nl/nieuws/vergoeding-laadkosten-thuis-derde-kwartaal-2026"
+        },
+        {
+          "titel": "Securex – Thuis opladen: forfaitaire terugbetaling wordt permanent (03/07/2025)",
+          "url": "https://www.securex.be/nl/lex4you/werkgever/nieuws/thuis-opladen-forfaitaire-terugbetaling-wordt-permanent"
+        },
+        {
+          "titel": "LWB – CREG publiceert tarieven derde kwartaal 2026 (16/07/2026)",
+          "url": "https://www.lwb-info.be/nieuws/terugbetaling-kosten-elektrisch-thuisladen-creg-publiceert-tarieven-derde-kwartaal-2026-400/"
+        }
       ],
-      "body_md": "# Le tarif CREG pour la recharge à domicile d'une voiture de société\n\nSi vous rechargez une voiture de société électrique à domicile, c'est vous qui payez l'électricité. Votre employeur peut vous rembourser ces frais sans que vous soyez imposé dessus. Il peut rembourser le **coût réel** ou un **forfait par kWh**. Ce forfait ne peut pas dépasser le tarif que le régulateur fédéral de l'énergie, la **CREG**, publie chaque trimestre.\n\n## Tarifs CREG 2026 (maximum par kWh)\n\n| Trimestre | Flandre | Bruxelles | Wallonie |\n|---|---|---|---|\n| Q1 2026 | 0,3132 € | 0,3426 € | 0,3523 € |\n| Q2 2026 | 0,3191 € | 0,3555 € | 0,3636 € |\n| **Q3 2026** | **0,3222 €** | **0,3719 €** | **0,3783 €** |\n| Q4 2026 | 0,3225 € | 0,3688 € | 0,3779 € |\n\nLe Q4 2026 figure ici tel que rapporté par Fleet.be (août 2026). Vérifiez-le sur le site de la CREG.\n\n## Comment ça marche ?\n\n- **Le tarif est un maximum.** Votre employeur peut rembourser moins, ou rembourser les frais réels.\n- **Par région ou un seul tarif national.** Votre employeur choisit le tarif de la région où vous habitez, ou un seul tarif pour tout le monde. Ce tarif national ne peut pas dépasser le tarif régional le plus bas (Flandre).\n- **Le choix figure dans la car policy** et vaut pour toute l'année civile.\n- **Base légale :** des circulaires fiscales. La circulaire 2024/C/77 a introduit le système au 1er janvier 2025 et la circulaire 2025/C/38 l'a rendu permanent. Une nouvelle circulaire avec les tarifs suit chaque trimestre.\n\n## Conditions pour un remboursement exonéré d'impôt\n\n- La borne enregistre la consommation de la voiture de société et la transmet à l'employeur. Directement, ou via l'opérateur de la borne ou la société de leasing.\n- La mesure est précise : 2 % d'écart maximum, ou classe B.\n- Seule la recharge de la voiture de société à domicile est remboursée, pas la consommation du ménage.\n\n**Attention :** selon les secrétariats sociaux, l'ONSS accepte le forfait provisoirement **jusqu'à fin 2026**. Lors de la dernière vérification, aucune décision pour 2027 n'avait encore été publiée.\n\n## Sur quoi se base le tarif CREG ?\n\nLe tarif CREG est un prix moyen tout compris (énergie, frais de réseau, prélèvements et TVA) pour un ménage avec un compteur numérique et une voiture électrique. Il part d'une consommation de 8 000 kWh par an et d'une pointe mensuelle moyenne de 7,36 kW. Ce dernier point compte : si vous rechargez à 11 kW sans recharge intelligente, votre [tarif capacitaire](/regles/tarif-capacitaire-borne) peut dépasser ce que le tarif CREG suppose.\n\n## Exemple de calcul\n\nUne voiture qui consomme 15 kWh/100 km selon WLTP et recharge 10 000 km par an à domicile consomme environ 1 500 kWh. Ajoutez environ 10 % de pertes de charge et vous arrivez à environ 1 650 kWh.\n\n- À 0,3222 €/kWh (Flandre, Q3 2026), cela fait environ **530 € par an** de remboursement.\n\nVous trouvez la consommation WLTP de votre modèle sur la page du modèle.\n\n*Cette page donne une information générale et ne constitue pas un conseil fiscal ou social. Les tarifs changent chaque trimestre. Dernière vérification le 22 septembre 2026.*"
+      "body_md": "# Le tarif CREG pour la recharge à domicile d'une voiture de société\n\nSi vous rechargez une voiture de société électrique à domicile, c'est vous qui payez l'électricité. Votre employeur peut vous rembourser ces frais sans que vous soyez imposé dessus. Il peut rembourser le **coût réel** ou un **forfait par kWh**. Ce forfait ne peut pas dépasser le tarif que le régulateur fédéral de l'énergie, la **CREG**, publie chaque trimestre.\n\n## Tarifs CREG 2026 (maximum par kWh)\n\n| Trimestre | Flandre | Bruxelles | Wallonie |\n|---|---|---|---|\n| Q1 2026 | 0,3132 € | 0,3426 € | 0,3523 € |\n| Q2 2026 | 0,3191 € | 0,3555 € | 0,3636 € |\n| **Q3 2026** | **0,3222 €** | **0,3719 €** | **0,3783 €** |\n| Q4 2026 | 0,3225 € | 0,3688 € | 0,3779 € |\n\nLes tarifs du Q4 2026 ont été publiés par la CREG le 11 août 2026 et s'appliquent du 1er octobre au 31 décembre.\n\n## Comment ça marche ?\n\n- **Le tarif est un maximum.** Votre employeur peut rembourser moins, ou rembourser les frais réels.\n- **Par région ou un seul tarif national.** Votre employeur choisit le tarif de la région où vous habitez, ou un seul tarif pour tout le monde. Ce tarif national ne peut pas dépasser le tarif régional le plus bas (Flandre).\n- **Le choix figure dans la car policy** et vaut pour toute l'année civile.\n- **Base légale :** des circulaires fiscales. La circulaire 2024/C/77 a introduit le système au 1er janvier 2025 et la circulaire 2025/C/38 l'a rendu permanent. Une nouvelle circulaire avec les tarifs suit chaque trimestre.\n\n## Conditions pour un remboursement exonéré d'impôt\n\n- La borne enregistre la consommation de la voiture de société et la transmet à l'employeur. Directement, ou via l'opérateur de la borne ou la société de leasing.\n- La mesure est précise : 2 % d'écart maximum, ou classe B.\n- Seule la recharge de la voiture de société à domicile est remboursée, pas la consommation du ménage.\n\n**Attention :** selon les secrétariats sociaux, l'ONSS accepte le forfait provisoirement **jusqu'à fin 2026**. Lors de la dernière vérification, aucune décision pour 2027 n'avait encore été publiée.\n\n## Sur quoi se base le tarif CREG ?\n\nLe tarif CREG est un prix moyen tout compris (énergie, frais de réseau, prélèvements et TVA) pour un ménage avec un compteur numérique et une voiture électrique. Il part d'une consommation de 8 000 kWh par an et d'une pointe mensuelle moyenne de 7,36 kW. Ce dernier point compte : si vous rechargez à 11 kW sans recharge intelligente, votre [tarif capacitaire](/regles/tarif-capacitaire-borne) peut dépasser ce que le tarif CREG suppose.\n\n## Exemple de calcul\n\nUne voiture qui consomme 15 kWh/100 km selon WLTP et recharge 10 000 km par an à domicile consomme environ 1 500 kWh. Ajoutez environ 10 % de pertes de charge et vous arrivez à environ 1 650 kWh.\n\n- À 0,3222 €/kWh (Flandre, Q3 2026), cela fait environ **530 € par an** de remboursement.\n\nVous trouvez la consommation WLTP de votre modèle sur la page du modèle.\n\n*Cette page donne une information générale et ne constitue pas un conseil fiscal ou social. Les tarifs changent chaque trimestre. Dernière vérification le 22 septembre 2026.*"
     },
     {
       "slug": "monophase-vs-triphase",
@@ -79,17 +147,43 @@
       "meta_description": "Recharger à 11 kW n'est possible que sur un raccordement triphasé 3N400V. Ce que votre voiture atteint en 1x230V, 3x230V et 3N400V, ce que coûte un passage chez Fluvius et pourquoi la Belgique est un cas particulier.",
       "samenvatting": "Une voiture avec un chargeur triphasé de 11 kW n'atteint ces 11 kW que sur un raccordement 3N400V. Sur un raccordement monophasé ou un ancien 3x230V, elle charge en monophasé à 3,7 ou 7,4 kW, selon ce que la voiture accepte sur une phase.",
       "linktekst": "Monophasé ou triphasé ?",
-      "gewesten": ["vlaanderen", "brussel", "wallonie"],
-      "gerelateerd": ["tarif-capacitaire-borne", "declaration-gestionnaire-reseau-borne", "borne-appartement"],
+      "gewesten": [
+        "vlaanderen",
+        "brussel",
+        "wallonie"
+      ],
+      "gerelateerd": [
+        "tarif-capacitaire-borne",
+        "declaration-gestionnaire-reseau-borne",
+        "borne-appartement"
+      ],
       "laatst_gecontroleerd": "2026-09-22",
       "herzien_voor": "2027-01-31",
       "bronnen": [
-        { "titel": "Fluvius – Veelgestelde vragen over elektrische laadpalen", "url": "https://www.fluvius.be/nl/veelgestelde-vragen/veelgestelde-vragen-over-elektrische-laadpalen" },
-        { "titel": "Fluvius – Standaardaansluiting", "url": "https://www.fluvius.be/nl/aansluitingen/standaardaansluiting" },
-        { "titel": "Fluvius – Aanpassing aansluiting bij plaatsen laadpaal (02/12/2024)", "url": "https://www.fluvius.be/nl/blog/elektrisch-rijden/aanpassing-aansluiting-plaatsen-laadpaal" },
-        { "titel": "Fluvius – Aansluittarieven elektriciteit 2026", "url": "https://www.fluvius.be/sites/fluvius/files/2020-12/aansluittarieven-elektriciteit-fluvius.pdf" },
-        { "titel": "Sibelga – Prescriptions techniques pour les infrastructures de recharge (SIB23 CCLB 120 v02, 28/10/2024)", "url": "https://www.sibelga.be/asset/file/e10a9658-4e23-11ee-9d39-005056970ffd" },
-        { "titel": "ORES – FAQ mobilité durable", "url": "https://www.ores.be/faq/mobilite-durable" }
+        {
+          "titel": "Fluvius – Veelgestelde vragen over elektrische laadpalen",
+          "url": "https://www.fluvius.be/nl/veelgestelde-vragen/veelgestelde-vragen-over-elektrische-laadpalen"
+        },
+        {
+          "titel": "Fluvius – Standaardaansluiting",
+          "url": "https://www.fluvius.be/nl/aansluitingen/standaardaansluiting"
+        },
+        {
+          "titel": "Fluvius – Aanpassing aansluiting bij plaatsen laadpaal (02/12/2024)",
+          "url": "https://www.fluvius.be/nl/blog/elektrisch-rijden/aanpassing-aansluiting-plaatsen-laadpaal"
+        },
+        {
+          "titel": "Fluvius – Aansluittarieven elektriciteit 2026",
+          "url": "https://www.fluvius.be/sites/fluvius/files/2020-12/aansluittarieven-elektriciteit-fluvius.pdf"
+        },
+        {
+          "titel": "Sibelga – Prescriptions techniques pour les infrastructures de recharge (SIB23 CCLB 120 v02, 28/10/2024)",
+          "url": "https://www.sibelga.be/asset/file/e10a9658-4e23-11ee-9d39-005056970ffd"
+        },
+        {
+          "titel": "ORES – FAQ mobilité durable",
+          "url": "https://www.ores.be/faq/mobilite-durable"
+        }
       ],
       "body_md": "# Recharge monophasée ou triphasée en Belgique\n\nSur les pages des modèles, *charge AC* indique la puissance maximale du chargeur embarqué de la voiture, par exemple « 11 kW, triphasé ». Que vous l'atteigniez à domicile dépend de votre **raccordement**. En Belgique, une particularité entre en jeu : le réseau 3x230V.\n\n## Trois types de raccordement\n\n- **Monophasé 230V :** une phase et un neutre. Typique des habitations plus anciennes et des appartements, par exemple 40 A = 9,2 kVA.\n- **Triphasé 3x230V (sans neutre) :** un ancien type de réseau encore présent dans certaines parties de la Belgique. Il est triphasé, mais sans le neutre dont la plupart des chargeurs de voiture ont besoin.\n- **Triphasé 3N400V (avec neutre) :** le standard que Fluvius place depuis des années, par exemple 25 A = 17,3 kVA. C'est le seul raccordement sur lequel une voiture peut charger en triphasé.\n\nVotre installateur ou votre gestionnaire de réseau peut vous dire quel type vous avez. C'est souvent indiqué sur votre compteur.\n\n## Que tire votre voiture ?\n\n| Raccordement | Puissance de charge d'une voiture avec un chargeur triphasé de 11 kW |\n|---|---|\n| 3N400V | **11 kW** (triphasé 16 A) |\n| 3x230V sans neutre | **3,7 kW** (16 A) ou **7,4 kW** (32 A), en monophasé entre deux phases. 11 kW uniquement avec un transformateur d'isolement. |\n| Monophasé 230V | **3,7 kW** (16 A) ou **7,4 kW** (32 A), si votre raccordement et votre voiture le permettent |\n\nQue votre voiture atteigne 3,7 ou 7,4 kW sur une phase dépend du chargeur embarqué. Certaines voitures acceptent au maximum 16 A par phase (3,7 kW), d'autres 32 A (7,4 kW). Ce n'est pas toujours dans la brochure ; regardez la page du modèle ou demandez au concessionnaire.\n\nFluvius compte environ **15 km d'autonomie par heure** à 3,7 kW et environ **50 km par heure** à 11 kW. Pour 400 km d'autonomie, cela fait environ 27 heures contre 8 heures.\n\n**Renault Zoe :** la Zoe peut charger jusqu'à 22 kW, mais uniquement en 3N400V avec 32 A par phase. Selon Fluvius, les chargeurs de la Zoe, entre autres, peuvent mal fonctionner sur un ancien réseau 3x230V.\n\n## Règles d'équilibre entre les phases\n\n- **Bruxelles (Sibelga) :**\n  - Sur un raccordement 3N400V, la charge monophasée est limitée à 3,7 kW ; 7,4 kW en monophasé y est interdit.\n  - 22 kW n'est autorisé qu'avec un système de gestion de l'énergie qui maintient le déséquilibre entre phases sous 5 kVA.\n  - La gestion de charge est obligatoire si la puissance de charge est égale ou supérieure à la puissance de votre raccordement.\n- **Flandre (Fluvius) :** pour les panneaux solaires, batteries et recharge bidirectionnelle, le total est limité à 5 kVA sur un raccordement monophasé et 25 kVA sur un raccordement triphasé.\n- **Wallonie (ORES) :** au-delà de 7,4 kW, il vous faut généralement un raccordement 3N400V.\n\n## Passer au 3N400V (Fluvius, tarifs 2026)\n\n| Adaptation | Prix TVA comprise |\n|---|---|\n| De monophasé à 17,3 kVA 400V, avec remplacement du compteur | 326,51 € |\n| De 17,3 à 22,2 kVA (400V) | 486,37 € |\n| De 17,3 à 27,7 kVA (400V) | 968,79 € |\n| 400V sur demande, de 12,7 à 22,2 kVA, s'il faut d'abord un nouveau réseau de rue en 400V | 1 821,01 € |\n\nLes trois premiers prix valent si votre raccordement et le réseau de rue sont déjà en ordre. Les travaux dans votre habitation et les terrassements sur votre terrain s'y ajoutent.\n\n## Faut-il vraiment charger à 11 kW ?\n\nPour la plupart des ménages, non. Qui recharge la nuit se contente souvent de 3,7 à 7,4 kW. Une puissance plus élevée augmente aussi votre [tarif capacitaire](/regles/tarif-capacitaire-borne). Charger en triphasé à un courant plus faible (par exemple 3 x 8 A ≈ 5,5 kW) répartit mieux la charge entre les phases qu'une charge monophasée à la même puissance.\n\nN'oubliez pas de [déclarer votre borne au gestionnaire de réseau](/regles/declaration-gestionnaire-reseau-borne).\n\n*Cette page donne une information générale. Faites toujours évaluer votre installation par un électricien agréé. Dernière vérification le 22 septembre 2026.*"
     },
@@ -101,16 +195,39 @@
       "meta_description": "Pouvez-vous, comme copropriétaire, placer une borne dans le parking commun ? Oui, via l'art. 3.82 du Code civil. La procédure, les délais, les objections de l'ACP et ce que les locataires peuvent faire.",
       "samenvatting": "Comme copropriétaire, vous pouvez faire placer une borne à vos frais en passant par les parties communes (art. 3.82 §2 du Code civil). Vous prévenez le syndic 2 mois à l'avance par lettre recommandée ; l'ACP ne peut s'y opposer que pour un motif légitime.",
       "linktekst": "Borne en appartement : comment s'y prendre",
-      "gewesten": ["vlaanderen", "brussel", "wallonie"],
-      "gerelateerd": ["declaration-gestionnaire-reseau-borne", "monophase-vs-triphase", "tva-6-pourcent-borne"],
+      "gewesten": [
+        "vlaanderen",
+        "brussel",
+        "wallonie"
+      ],
+      "gerelateerd": [
+        "declaration-gestionnaire-reseau-borne",
+        "monophase-vs-triphase",
+        "tva-6-pourcent-borne"
+      ],
       "laatst_gecontroleerd": "2026-09-22",
       "herzien_voor": "2027-03-31",
       "bronnen": [
-        { "titel": "Loi du 4 février 2020 – Livre 3 Les biens du Code civil (art. 3.82)", "url": "https://etaamb.openjustice.be/fr/loi-du-04-fevrier-2020_n2020020347.html" },
-        { "titel": "Bricks Advocaten – Laadpaal in een appartementsgebouw (16/12/2024)", "url": "https://bricksadvocaten.be/blog/laadpaal-in-een-appartementsgebouw-ondergrondse-parking" },
-        { "titel": "Dewaele – Laadpalen in appartementsgebouwen (03/05/2024)", "url": "https://www.dewaele.com/nl/advies/laadpalen-in-appartementsgebouwen" },
-        { "titel": "Brandweerzone Rand – Elektrische voertuigen en laadpalen in parkeergarages", "url": "https://www.brandweerzonerand.be/wettelijke-brandpreventie/regelgevingen/elektrische-voertuigen-en-laadpalen-in-parkeergarages" },
-        { "titel": "Minaraad – Advies decreet omzetting EPBD (27/08/2026)", "url": "https://www.minaraad.be/themas/klimaat/decreet-omzetting-epbd" }
+        {
+          "titel": "Loi du 4 février 2020 – Livre 3 Les biens du Code civil (art. 3.82)",
+          "url": "https://etaamb.openjustice.be/fr/loi-du-04-fevrier-2020_n2020020347.html"
+        },
+        {
+          "titel": "Bricks Advocaten – Laadpaal in een appartementsgebouw (16/12/2024)",
+          "url": "https://bricksadvocaten.be/blog/laadpaal-in-een-appartementsgebouw-ondergrondse-parking"
+        },
+        {
+          "titel": "Dewaele – Laadpalen in appartementsgebouwen (03/05/2024)",
+          "url": "https://www.dewaele.com/nl/advies/laadpalen-in-appartementsgebouwen"
+        },
+        {
+          "titel": "Brandweerzone Rand – Elektrische voertuigen en laadpalen in parkeergarages",
+          "url": "https://www.brandweerzonerand.be/wettelijke-brandpreventie/regelgevingen/elektrische-voertuigen-en-laadpalen-in-parkeergarages"
+        },
+        {
+          "titel": "Minaraad – Advies decreet omzetting EPBD (27/08/2026)",
+          "url": "https://www.minaraad.be/themas/klimaat/decreet-omzetting-epbd"
+        }
       ],
       "body_md": "# Placer une borne de recharge dans un immeuble à appartements\n\nDans un immeuble à appartements, le câble vers votre emplacement de parking passe presque toujours par les parties communes. En principe, il vous faut donc l'association des copropriétaires (ACP). La loi vous donne toutefois, comme propriétaire, un droit solide d'agir vous-même.\n\n## Votre droit comme copropriétaire : art. 3.82 §2 du Code civil\n\nChaque copropriétaire peut faire poser **à ses frais** des câbles, conduites et équipements associés dans les parties communes. Ce droit figure à l'**article 3.82 §2 du Code civil** et existe depuis 2019 (anciennement art. 577-2 §10). La condition est qu'il s'agisse d'une optimisation de l'infrastructure, notamment pour l'énergie. Une borne de recharge en fait partie.\n\n- **Vous payez tout.** Les autres propriétaires et l'ACP n'ont rien à payer.\n- **L'installation reste la vôtre.**\n- Si d'autres propriétaires se raccordent plus tard à votre câble, ils vous remboursent une partie de vos frais.\n\n## La procédure\n\n1. **Prévenez le syndic par lettre recommandée**, au moins **2 mois avant le début des travaux**. Décrivez les travaux et expliquez en quoi ils constituent une optimisation. S'il n'y a pas de syndic, écrivez à tous les copropriétaires.\n2. **L'ACP peut s'opposer dans les 2 mois**, également par lettre recommandée. Uniquement pour un **intérêt légitime** :\n   - une infrastructure similaire existe déjà ;\n   - les travaux nuisent gravement à l'aspect, à l'usage des parties communes, à l'hygiène ou à la sécurité ;\n   - il n'y a pas de réelle optimisation, ou les travaux coûtent quelque chose aux autres.\n3. **L'ACP peut aussi décider d'exécuter elle-même les travaux collectivement.** Selon les juristes, ces travaux doivent alors commencer dans les 6 mois.\n4. **Pas d'objection, ou une objection non fondée ?** Vous pouvez alors faire exécuter les travaux. Selon les avocats, une référence générale au risque d'incendie ne suffit pas comme objection.\n\n## Recharge collective\n\nBeaucoup d'immeubles optent pour une installation de recharge commune avec **gestion de charge**, qui répartit la puissance disponible entre toutes les bornes. Selon la plupart des sources, une telle installation dans les parties communes requiert une **majorité des 2/3** à l'assemblée générale. Pour le décompte, trois options sont courantes :\n\n- un circuit propre sur votre propre compteur (vous payez tout vous-même) ;\n- le compteur commun avec un sous-compteur par borne, le syndic faisant le décompte ;\n- une installation collective de l'ACP avec un droit d'entrée.\n\n## Locataires\n\nLes locataires n'ont **pas de droit légal à la recharge** dans le droit de la copropriété. Il vous faut l'accord de votre bailleur. Celui-ci ne peut pas être obligé de placer une borne, mais ne peut pas non plus refuser sans motif valable.\n\n## Sécurité incendie dans les parkings (souterrains)\n\nIl n'existe pas encore de **règle fédérale contraignante spécifique aux bornes dans les parkings fermés**. Un arrêté royal est en préparation. En pratique, les zones de secours appliquent la **« Règle de bonne pratique » de Fireforum** (2023). Les mesures souvent demandées sont un arrêt d'urgence central, une détection incendie et une analyse de risques. Informez aussi votre assureur incendie.\n\n## Obligations pour les bâtiments\n\n- **Flandre :** pour une construction neuve avec au moins 2 emplacements et pour une rénovation lourde avec au moins 10 emplacements, chaque emplacement doit être précâblé ou pourvu de gaines. La transposition flamande de la nouvelle directive européenne sur les bâtiments (EPBD) est encore en préparation.\n- **Bruxelles :** depuis le 1er janvier 2025, un habitant avec une voiture électrique peut demander au titulaire du permis d'environnement du parking un point de recharge à ses propres frais.\n- Chaque point de recharge doit être [déclaré au gestionnaire de réseau](/regles/declaration-gestionnaire-reseau-borne).\n\n## Quelle puissance de charge ?\n\nDans un immeuble avec beaucoup de bornes, la puissance par emplacement est souvent limitée par la gestion de charge. Une voiture capable de charger à 11 kW en triphasé charge bien plus lentement sur un emplacement monophasé. Voyez [monophasé ou triphasé](/regles/monophase-vs-triphase).\n\n*Cette page donne une information générale et ne constitue pas un conseil juridique. En cas de conflit avec l'ACP, consultez votre syndic ou un avocat. Dernière vérification le 22 septembre 2026.*"
     },
@@ -122,17 +239,43 @@
       "meta_description": "En Flandre, à Bruxelles et en Wallonie, vous devez déclarer une borne de recharge à domicile au gestionnaire de réseau. Qui déclare, comment, ce que ça coûte et le lien avec le contrôle de l'installation.",
       "samenvatting": "Dans les trois régions, vous devez déclarer une borne à domicile au gestionnaire de réseau (Fluvius, Sibelga, ORES/RESA). La déclaration est gratuite. Un nouveau circuit de recharge doit en plus être contrôlé.",
       "linktekst": "Déclarer sa borne au gestionnaire de réseau",
-      "gewesten": ["vlaanderen", "brussel", "wallonie"],
-      "gerelateerd": ["monophase-vs-triphase", "tarif-capacitaire-borne", "tva-6-pourcent-borne"],
+      "gewesten": [
+        "vlaanderen",
+        "brussel",
+        "wallonie"
+      ],
+      "gerelateerd": [
+        "monophase-vs-triphase",
+        "tarif-capacitaire-borne",
+        "tva-6-pourcent-borne"
+      ],
       "laatst_gecontroleerd": "2026-09-22",
       "herzien_voor": "2027-03-31",
       "bronnen": [
-        { "titel": "Fluvius – Laadpaal melden", "url": "https://www.fluvius.be/nl/elektrisch-rijden/wat-doet-fluvius/laadpaal-melden" },
-        { "titel": "Fluvius – Veelgestelde vragen over elektrische laadpalen", "url": "https://www.fluvius.be/nl/veelgestelde-vragen/veelgestelde-vragen-over-elektrische-laadpalen" },
-        { "titel": "VRT NWS – Tienduizenden Vlamingen riskeren boete voor thuislaadpaal (26/02/2026)", "url": "https://www.vrt.be/vrtnws/nl/2026/02/26/tienduizenden-vlamingen-riskeren-boete-voor-thuislaadpaal/" },
-        { "titel": "Sibelga – Déclaration d'une borne de recharge", "url": "https://www.sibelga.be/fr/raccordements-compteurs/recharge-electrique/declaration-d-une-borne-de-recharge" },
-        { "titel": "ORES – Déclarer une borne", "url": "https://www.ores.be/particulier/declarer-borne" },
-        { "titel": "ORES – FAQ mobilité durable", "url": "https://www.ores.be/faq/mobilite-durable" }
+        {
+          "titel": "Fluvius – Laadpaal melden",
+          "url": "https://www.fluvius.be/nl/elektrisch-rijden/wat-doet-fluvius/laadpaal-melden"
+        },
+        {
+          "titel": "Fluvius – Veelgestelde vragen over elektrische laadpalen",
+          "url": "https://www.fluvius.be/nl/veelgestelde-vragen/veelgestelde-vragen-over-elektrische-laadpalen"
+        },
+        {
+          "titel": "VRT NWS – Tienduizenden Vlamingen riskeren boete voor thuislaadpaal (26/02/2026)",
+          "url": "https://www.vrt.be/vrtnws/nl/2026/02/26/tienduizenden-vlamingen-riskeren-boete-voor-thuislaadpaal/"
+        },
+        {
+          "titel": "Sibelga – Déclaration d'une borne de recharge",
+          "url": "https://www.sibelga.be/fr/raccordements-compteurs/recharge-electrique/declaration-d-une-borne-de-recharge"
+        },
+        {
+          "titel": "ORES – Déclarer une borne",
+          "url": "https://www.ores.be/particulier/declarer-borne"
+        },
+        {
+          "titel": "ORES – FAQ mobilité durable",
+          "url": "https://www.ores.be/faq/mobilite-durable"
+        }
       ],
       "body_md": "# Déclarer votre borne au gestionnaire de réseau\n\nUne borne peut d'un coup demander plus de puissance que tout le reste de votre habitation. Les gestionnaires de réseau veulent donc savoir où se trouvent les bornes, pour renforcer le réseau à temps. Dans **les trois régions**, la déclaration est obligatoire.\n\n## Flandre (Fluvius)\n\n- **Obligatoire depuis juin 2021** pour une borne privée de **5 kVA ou plus** sur le réseau basse tension. Cela vaut aussi pour les bornes bidirectionnelles.\n- **C'est vous qui déclarez, pas votre installateur.** Cela vaut aussi pour une borne que votre employeur place chez vous.\n- **La déclaration se fait en ligne via Mijn Fluvius.** Il vous faut votre code EAN et les données de la borne.\n- **La déclaration est gratuite.** Il n'y a pas de délai public, mais déclarez votre borne dès qu'elle est placée.\n- **Pas déclarée ?** Fluvius peut facturer des frais administratifs de 117,68 € par borne. Selon la presse, Fluvius ne les avait pas encore facturés au printemps 2026 et privilégiait provisoirement la sensibilisation.\n- **Limites de votre raccordement :** sur un raccordement monophasé, la somme des panneaux solaires, de la batterie domestique et de la recharge bidirectionnelle est limitée à 5 kVA. Sur un raccordement triphasé, c'est 25 kVA. Au-delà, une étude de réseau est nécessaire.\n\n## Bruxelles (Sibelga)\n\n- **Obligatoire** sur la base de l'ordonnance bruxelloise électricité (art. 16). Sibelga demande de déclarer chaque point de recharge.\n- **Déclarez dans les 30 jours** après l'installation via le site de Sibelga.\n- Sibelga impose des règles techniques sur la puissance de charge. Le standard est 3,7 kW en monophasé. 7,4 ou 11 kW n'est permis que dans certaines configurations et 22 kW uniquement avec gestion de charge. Voyez [monophasé ou triphasé](/regles/monophase-vs-triphase).\n\n## Wallonie (ORES, RESA et autres)\n\n- **Obligatoire** sur la base du décret wallon électricité (art. 54). Cela vaut pour les nouvelles bornes et aussi pour les bornes placées auparavant.\n- **La déclaration est gratuite.** ORES demande votre code EAN, le numéro de série et la puissance de la borne.\n- ORES recommande 3,7, 7,4 ou 11 kW. Au-delà de 7,4 kW, il vous faut généralement un **raccordement 3N400V**.\n\n## Le contrôle : une obligation distincte\n\nDéclarer n'est pas contrôler. Un nouveau circuit pour une borne compte comme une **modification importante** de votre installation électrique. Un organisme de contrôle agréé doit la contrôler selon le RGIE **avant la mise en service**. Conservez le rapport de contrôle, votre assureur peut le demander.\n\n## Étapes\n\n1. Faites vérifier par votre installateur si votre raccordement suffit (monophasé/triphasé, 230V/400V, calibre du fusible).\n2. Faites placer la borne et contrôler le circuit.\n3. Déclarez la borne à votre gestionnaire de réseau.\n4. Réglez la recharge intelligente pour maintenir votre [tarif capacitaire](/regles/tarif-capacitaire-borne) bas.\n\n*Cette page donne une information générale. Les procédures et formulaires peuvent changer ; consultez toujours le site de votre gestionnaire de réseau. Dernière vérification le 22 septembre 2026.*"
     }
