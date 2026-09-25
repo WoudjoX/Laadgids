@@ -1,12 +1,11 @@
 import type { MetadataRoute } from "next";
-import { generateSitemaps } from "./sitemap";
 import { siteUrl } from "@/lib/seo/alternates";
 
+// Eén sitemap-index (app/sitemap-index.xml/route.ts); Google negeert changefreq en priority, dus die staan niet in de deelbestanden.
 export default async function robots(): Promise<MetadataRoute.Robots> {
   const base = siteUrl();
-  const ids = await generateSitemaps();
   return {
     rules: [{ userAgent: "*", allow: "/", disallow: ["/api/", "/design-lab"] }],
-    sitemap: ids.map((s) => `${base}/sitemap/${s.id}.xml`),
+    sitemap: `${base}/sitemap-index.xml`,
   };
 }

@@ -33,6 +33,5 @@ export default async function sitemap({ id }: { id: Promise<string> | string }):
   return pages.slice(chunk * MAX, (chunk + 1) * MAX).map((p) => ({
     url: base + p.path,
     lastModified: p.last_calculated_at ? new Date(p.last_calculated_at) : undefined,
-    changeFrequency: "monthly",
   }));
 }
