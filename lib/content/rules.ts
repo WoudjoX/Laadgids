@@ -30,6 +30,7 @@ export interface RuleContent {
 interface KbRule {
   slug: string;
   nl_slug?: string; // bij vertalingen: slug van de Nederlandse tegenhanger
+  vertaling_gecontroleerd?: boolean; // per pagina; overschrijft meta.vertaling_gecontroleerd
   titel: string;
   h1: string;
   meta_description: string;
@@ -74,8 +75,8 @@ function fromKb(r: KbRule, locale: Locale, reviewed: boolean): RuleContent {
 
 function load(kb: Kb): RuleContent[] {
   const locale = kb.meta.taal as Locale;
-  const reviewed = kb.meta.vertaling_gecontroleerd ?? true;
-  return kb.regels.map((r) => fromKb(r, locale, reviewed));
+  const reviewedDefault = kb.meta.vertaling_gecontroleerd ?? true;
+  return kb.regels.map((r) => fromKb(r, locale, r.vertaling_gecontroleerd ?? reviewedDefault));
 }
 
 export const RULES: RuleContent[] = [...load(kennisbankNl as Kb), ...load(kennisbankFr as Kb)];
