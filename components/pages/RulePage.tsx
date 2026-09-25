@@ -27,7 +27,7 @@ export function RulePage({ rule, copy, locale, canonical, modelLinks }: Props) {
   ];
   // Interne links in de kennisbank zijn geschreven als "/regels/<slug>"; vertaal naar het echte pad.
   const resolveHref = (h: string) => {
-    const m = /^\/regels\/([a-z0-9-]+)$/.exec(h);
+    const m = /^\/(?:regels|regles)\/([a-z0-9-]+)$/.exec(h);
     return m ? rulePath(locale, rule.region, m[1]!) : h;
   };
   const related = rule.related.map((t) => ({ path: rulePath(locale, rule.region, t), label: ruleLinkText(locale, t) })).filter((r) => r.label);

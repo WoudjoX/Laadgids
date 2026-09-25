@@ -203,12 +203,12 @@ export const frBE: Copy = {
     sources: { heading: "Sources", checked: "vérifié le", specNotes: "Remarque sur les caractéristiques" },
   },
   rulesPages: {
-    "tva-6": "TVA 6 % sur une borne",
-    "declaration-gestionnaire-reseau": "Déclarer sa borne au gestionnaire de réseau",
-    "appartement-copropriete": "Borne en copropriété",
-    "tarif-capacitaire": "Tarif capacitaire et recharge à domicile",
-    "tarif-creg": "Tarif CREG pour le remboursement de la recharge",
-    "mono-vs-triphase": "Monophasé ou triphasé",
+    "monophase-vs-triphase": "Monophasé ou triphasé ?",
+    "tarif-capacitaire-borne": "Ce que la recharge fait à votre tarif capacitaire",
+    "tarif-creg-recharge-domicile": "Tarif CREG pour la recharge à domicile",
+    "declaration-gestionnaire-reseau-borne": "Déclarer sa borne au gestionnaire de réseau",
+    "tva-6-pourcent-borne": "6 % ou 21 % de TVA sur votre borne ?",
+    "borne-appartement": "Borne en appartement : comment s'y prendre",
   },
   compare: {
     sectionSlug: "comparer",

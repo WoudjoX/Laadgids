@@ -1,7 +1,8 @@
 // Regelpagina's (CLAUDE.md 4.1, template 'rule'): handgeschreven hubs met bronnen en datum. Geen berekening.
 // Bron van de tekst: data/content/ev-kennisbank.json (geschreven door Erwin). Dit bestand vertaalt die naar de registry.
 // Het JSON-bestand is nl-BE en behandelt de drie gewesten in één tekst; de pagina staat daarom op landniveau ("be").
-import kennisbank from "@/data/content/ev-kennisbank.json";
+import kennisbankNl from "@/data/content/ev-kennisbank.json";
+import kennisbankFr from "@/data/content/ev-kennisbank.fr-BE.json";
 import type { Locale } from "@/lib/db/types";
 
 export type RegionSlug = "be" | "vla" | "wal" | "bru" | "nl";
@@ -22,10 +23,13 @@ export interface RuleContent {
   sources: { title: string; url: string; checked: string }[];
   /** Tegenhangers in andere locales delen dezelfde entity_key, zodat hreflang ze kan koppelen. */
   entity_key: string; // "be:btw-6-procent-laadpaal"
+  /** false zolang een vertaling niet door Erwin nagelezen is: pagina bestaat, maar staat op noindex. */
+  reviewed: boolean;
 }
 
 interface KbRule {
   slug: string;
+  nl_slug?: string; // bij vertalingen: slug van de Nederlandse tegenhanger
   titel: string;
   h1: string;
   meta_description: string;
@@ -43,7 +47,12 @@ function stripLeadingH1(md: string): string {
   return md.replace(/^\s*#\s[^\n]*\n+/, "");
 }
 
-function fromKb(r: KbRule, locale: Locale): RuleContent {
+interface Kb {
+  meta: { taal: string; vertaling_gecontroleerd?: boolean };
+  regels: KbRule[];
+}
+
+function fromKb(r: KbRule, locale: Locale, reviewed: boolean): RuleContent {
   return {
     locale,
     region: "be",
@@ -58,13 +67,18 @@ function fromKb(r: KbRule, locale: Locale): RuleContent {
     bodyMd: stripLeadingH1(r.body_md),
     related: r.gerelateerd,
     sources: r.bronnen.map((b) => ({ title: b.titel, url: b.url, checked: r.laatst_gecontroleerd })),
-    entity_key: `be:${r.slug}`,
+    entity_key: `be:${r.nl_slug ?? r.slug}`,
+    reviewed,
   };
 }
 
-const kbLocale = (kennisbank as { meta: { taal: string } }).meta.taal as Locale;
+function load(kb: Kb): RuleContent[] {
+  const locale = kb.meta.taal as Locale;
+  const reviewed = kb.meta.vertaling_gecontroleerd ?? true;
+  return kb.regels.map((r) => fromKb(r, locale, reviewed));
+}
 
-export const RULES: RuleContent[] = (kennisbank as { regels: KbRule[] }).regels.map((r) => fromKb(r, kbLocale));
+export const RULES: RuleContent[] = [...load(kennisbankNl as Kb), ...load(kennisbankFr as Kb)];
 
 export function ruleContent(locale: Locale, region: string, topic: string): RuleContent | null {
   return RULES.find((r) => r.locale === locale && r.region === region && r.topic === topic) ?? null;

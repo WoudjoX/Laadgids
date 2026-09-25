@@ -75,7 +75,7 @@ function derivePages(versions: VersionRow[]): PageRow[] {
       entity_id: ruleEntityId(r.entity_key),
       secondary_id: null,
       path: rulePath(r.locale, r.region, r.topic),
-      status: "index",
+      status: r.reviewed ? "index" : "noindex",
       completeness_score: 1,
       last_calculated_at: now,
       last_published_at: now,

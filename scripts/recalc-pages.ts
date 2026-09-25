@@ -46,14 +46,15 @@ async function main() {
   for (const r of RULES) {
     const path = rulePath(r.locale, r.region, r.topic);
     const prev = existing.find((p) => p.path === path);
-    counts.index++;
+    counts[r.reviewed ? "index" : "noindex"]++;
+    if (!r.reviewed) console.log(`noindex ${path}  (translation not reviewed)`);
     rows.push({
       locale: r.locale,
       template: "rule",
       entity_id: ruleEntityId(r.entity_key),
       secondary_id: null,
       path,
-      status: "index",
+      status: r.reviewed ? "index" : "noindex",
       completeness_score: 1,
       last_calculated_at: now,
       last_published_at: prev?.last_published_at ?? now,
