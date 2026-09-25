@@ -71,7 +71,8 @@ async function main() {
       const res = await fetch(`${site}/api/revalidate`, {
         method: "POST",
         headers: { "content-type": "application/json", authorization: `Bearer ${secret}` },
-        body: JSON.stringify({ tags: ["pages", "versions", "rules:BE", "rules:NL", "tariffs:BE", "tariffs:NL"] }),
+        // Ook de tag per versie, anders blijft de modelpagina zelf tot 24 uur op de oude specs staan.
+      body: JSON.stringify({ tags: ["pages", "versions", "rules:BE", "rules:NL", "tariffs:BE", "tariffs:NL", ...versions.map((v) => `version:${v.slug}`)] }),
       });
       console.log("revalidate:", res.status);
     } catch {
