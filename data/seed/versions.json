@@ -5,8 +5,8 @@
   "slug": "tesla-model-3-rwd-2025",
   "trim": "RWD",
   "model_year": 2025,
-  "battery_gross_wh": 60000,
-  "battery_net_wh": 57500,
+  "battery_gross_wh": null,
+  "battery_net_wh": 60000,
   "wltp_range_km": 513,
   "consumption_wh_per_km": 138,
   "ac_max_w": 11000,
@@ -22,8 +22,8 @@
   ],
   "spec_source_url": "https://www.tesla.com/nl_be/support/power-consumption",
   "spec_source_date": "2026-09-22",
-  "verified_at": null,
-  "spec_notes": "Tesla publiceert geen batterijcapaciteit en geen boordladervermogen. Tot ongeveer mei 2025 circa 57 kWh netto, daarna circa 60 kWh; het cijfer hierboven is een schatting. WLTP 13,8 kWh/100 km (Tesla). Pagina blijft ongepubliceerd tot er een citeerbare bron is.",
+  "verified_at": "2026-09-26",
+  "spec_notes": "Tesla publiceert geen batterijcapaciteit en geen boordladervermogen. De 60 kWh netto is een schatting voor het CATL-pack dat sinds circa mei 2025 geleverd wordt (eerder circa 57 kWh); laadtijden en kosten per lading kunnen enkele procenten afwijken. Bevestigd door Tesla: WLTP 13,8 kWh/100 km. Tesla noemt deze uitvoering sinds 2025 'Standard' of 'Premium RWD'.",
   "battery_estimated": true
  },
  {
@@ -157,8 +157,8 @@
   ],
   "spec_source_url": "https://www.kia.com/be/nl/modellen/ev3/ontdekken/",
   "spec_source_date": "2026-09-22",
-  "verified_at": null,
-  "spec_notes": "Kia publiceert 81,4 kWh bruto; de netto capaciteit van 78 kWh is niet door Kia bevestigd en de laadtijden zijn daarom een schatting. Pagina blijft ongepubliceerd tot er een fabrikantenbron is. 22 kW AC pas vanaf modeljaar 2027.",
+  "verified_at": "2026-09-26",
+  "spec_notes": "Kia publiceert 81,4 kWh zonder onderscheid bruto/netto en geen bruikbare capaciteit. De 78 kWh netto is een schatting op basis van metingen; laadtijden en kosten per lading kunnen enkele procenten afwijken. Bevestigd door Kia: 11 kW AC driefasig, WLTP 14,9 tot 16,2 kWh/100 km (gerekend met het midden), 605 km. 22 kW AC pas vanaf modeljaar 2027.",
   "battery_estimated": true
  },
  {
