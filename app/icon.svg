@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <!-- Laadgids-beeldmerk: ink-vlak met een L in paper en één accent-stip (DESIGN.md: één accent, geen bliksem of stekker) -->
+  <rect width="64" height="64" rx="12" fill="#14213D"/>
+  <rect x="18" y="14" width="9" height="36" rx="1.5" fill="#FAF9F6"/>
+  <rect x="18" y="41" width="26" height="9" rx="1.5" fill="#FAF9F6"/>
+  <circle cx="44" cy="20" r="5" fill="#C2410C"/>
+</svg>
