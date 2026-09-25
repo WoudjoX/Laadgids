@@ -220,6 +220,32 @@ export const nlBE: Copy = {
     "btw-6-procent-laadpaal": "6% of 21% btw op je laadpaal?",
     "laadpaal-appartement": "Laadpaal in je appartement: zo pak je het aan",
   },
+  cost: {
+    sectionSlug: "laadkosten",
+    breadcrumbSection: "Laadkosten per model",
+    h1: (v) => `Wat kost thuisladen voor een ${v.make} ${v.model} ${v.trim}?`,
+    metaTitle: (v) => `Laadkosten ${v.make} ${v.model} ${v.trim}: ${v.per100km} per 100 km | Laadgids`,
+    metaDescription: (v) => `Thuisladen van een ${v.make} ${v.model} ${v.trim} kost ${v.per100km} per 100 km en ${v.perFull} per volle lading met ${v.tariffLabel} (${v.pricePerKwh} per kWh). Per jaar en per kilometer, met bronnen.`,
+    shortAnswer: (v) => `${v.per100km} per 100 km, ${v.perFull} per volle lading en ${v.perYear} per jaar bij ${v.kmPerYear} km. Gerekend met ${v.tariffLabel} van ${v.pricePerKwh} per kWh, ${v.lossPct} laadverlies en ${v.realWorldPct} bovenop het WLTP-verbruik van ${v.consumptionWltp}.`,
+    metrics: { per100km: "Per 100 km", perFull: "Per volle lading", perYear: (v) => `Per jaar (${v.kmPerYear} km)` },
+    kmTable: { heading: "Jaarkost per kilometrage", colKm: "Km per jaar", colYear: "Per jaar", colMonth: "Per maand" },
+    factors: {
+      heading: "Waar de kost van afhangt",
+      items: (v) => [
+        `Het WLTP-verbruik van ${v.consumptionWltp} is de fabrieksopgave. In de praktijk ligt het verbruik hoger door temperatuur, snelheid en bandenspanning; daarom rekenen we ${v.realWorldPct} extra.`,
+        `Bij thuisladen gaat ${v.lossPct} verloren in de lader en de batterij. Je betaalt dus meer kWh aan de meter dan er in de batterij komt.`,
+        `De prijs per kWh is ${v.pricePerKwh}, all-in met netkosten, heffingen en btw. Met een dynamisch contract en slim laden 's nachts kan dat lager uitvallen; met een oud vast contract hoger.`,
+        `De batterij van ${v.batteryNet} bepaalt de kost per volle lading, niet de kost per kilometer.`,
+      ],
+    },
+    otherTariffs: { heading: "Zelfde auto, ander tarief", colTariff: "Tarief", colPer100: "Per 100 km", colYear: "Per jaar" },
+    faq: (v) => [
+      { q: `Wat kost een volle lading van de ${v.model} thuis?`, a: `${v.perFull} met ${v.tariffLabel} van ${v.pricePerKwh} per kWh, inclusief ${v.lossPct} laadverlies. Dat is voor de volledige batterij van ${v.batteryNet}; van 20 naar 80 % laad je zelden meer dan zestig procent daarvan.` },
+      { q: `Hoeveel kost 100 km rijden met de ${v.model}?`, a: `${v.per100km} aan stroom bij thuisladen. Een vergelijkbare benzinewagen zit bij de huidige brandstofprijzen ruim boven het dubbele.` },
+      { q: "Is dit ook wat ik betaal aan een publieke laadpaal?", a: "Nee. Publieke AC-laadpalen rekenen doorgaans 40 tot 60 cent per kWh en snelladers 60 tot 80 cent. Deze pagina gaat over thuisladen op je eigen meter." },
+    ],
+    backToCharger: (v) => `Welke laadpaal voor de ${v.make} ${v.model}?`,
+  },
   compare: {
     sectionSlug: "vergelijk",
     title: "Vergelijk twee modellen",

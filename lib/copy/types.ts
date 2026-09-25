@@ -38,6 +38,29 @@ export interface ChargerPageVars {
   specNotes: string | null;
 }
 
+/** Variabelen voor de laadkosten-pagina, al geformatteerd. */
+export interface CostPageVars {
+  locale: Locale;
+  make: string;
+  model: string;
+  trim: string;
+  fullName: string;
+  region: Region | null;
+  tariffLabel: string; // "vast tarief, all-in"
+  pricePerKwh: string; // "32,25 cent"
+  batteryNet: string;
+  consumptionWltp: string; // "14,6 kWh/100 km"
+  per100km: string; // "€ 5,93"
+  perFull: string; // "€ 17,24"
+  perYear: string; // "€ 712"
+  kmPerYear: string; // "12.000"
+  realWorldPct: string; // "15 %"
+  lossPct: string; // "10 %"
+  otherTariffs: { label: string; per100km: string; perYear: string; path: string }[];
+  chargerPath: string;
+  recommendedKw: string; // voor de intro van het leadformulier
+}
+
 export interface FaqItem {
   q: string;
   a: string;
@@ -153,6 +176,20 @@ export interface Copy {
     sources: { heading: string; checked: string; specNotes: string };
   };
   rulesPages: Record<string, string>; // topic-slug → titel, voor related links
+  cost: {
+    sectionSlug: string; // "laadkosten"
+    breadcrumbSection: string; // "Laadkosten per model"
+    h1: (v: CostPageVars) => string;
+    metaTitle: (v: CostPageVars) => string;
+    metaDescription: (v: CostPageVars) => string;
+    shortAnswer: (v: CostPageVars) => string;
+    metrics: { per100km: string; perFull: string; perYear: (v: CostPageVars) => string };
+    kmTable: { heading: string; colKm: string; colYear: string; colMonth: string };
+    factors: { heading: string; items: (v: CostPageVars) => string[] };
+    otherTariffs: { heading: string; colTariff: string; colPer100: string; colYear: string };
+    faq: (v: CostPageVars) => FaqItem[];
+    backToCharger: (v: CostPageVars) => string; // "Welke laadpaal voor de {model}?"
+  };
   compare: {
     sectionSlug: string; // "vergelijk"
     title: string;

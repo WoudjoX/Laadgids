@@ -2,7 +2,7 @@
 // Alleen voor ontwikkeling zonder Supabase. Leads gaan naar .local/leads.jsonl.
 import { promises as fs } from "node:fs";
 import path from "node:path";
-import { LOCALES, chargerPath, rulePath } from "@/lib/copy";
+import { LOCALES, LOCALE_CONFIG, chargerPath, costPath, rulePath } from "@/lib/copy";
 import { RULES, ruleEntityId } from "@/lib/content/rules";
 import { decidePageStatus } from "@/lib/pages/status";
 import type { PageFilter, PageUpsert, Repo } from "./repo";
@@ -55,7 +55,7 @@ async function load(): Promise<Store> {
         readJson<InstallerRow[]>("installers"),
         readJson<SourceRow[]>("sources"),
       ]);
-      const pages = derivePages(versions);
+      const pages = derivePages(versions, tariffs);
       return { makes, vehicles, versions, rules, tariffs, installers, sources, pages };
     })();
   }
@@ -63,7 +63,7 @@ async function load(): Promise<Store> {
 }
 
 /** Zelfde beslissing als scripts/recalc-pages.ts, maar in het geheugen. */
-function derivePages(versions: VersionRow[]): PageRow[] {
+function derivePages(versions: VersionRow[], tariffs: TariffRow[]): PageRow[] {
   const now = new Date().toISOString();
   const pages: PageRow[] = [];
   let id = 1;
@@ -96,6 +96,22 @@ function derivePages(versions: VersionRow[]): PageRow[] {
         last_calculated_at: now,
         last_published_at: d.status === "index" ? now : null,
       });
+      const cfg = LOCALE_CONFIG[locale];
+      for (const t of tariffs.filter((x) => x.country === cfg.country && (x.region === null || x.region === cfg.region))) {
+        const dc = decidePageStatus(v, locale, "charging_cost");
+        pages.push({
+          id: id++,
+          locale,
+          template: "charging_cost",
+          entity_id: v.id,
+          secondary_id: t.id,
+          path: costPath(locale, v.slug, t.slug),
+          status: dc.status,
+          completeness_score: dc.completeness_score,
+          last_calculated_at: now,
+          last_published_at: dc.status === "index" ? now : null,
+        });
+      }
     }
   }
   return pages;
@@ -146,7 +162,7 @@ export const localRepo: Repo = {
       if (i >= 0) s.versions[i] = { ...r, id: s.versions[i]!.id };
       else s.versions.push({ ...r, id: Math.max(0, ...s.versions.map((x) => x.id)) + 1 });
     }
-    s.pages = derivePages(s.versions);
+    s.pages = derivePages(s.versions, s.tariffs);
     return rows.length;
   },
   async listRules() {

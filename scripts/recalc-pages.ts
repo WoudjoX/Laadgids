@@ -1,7 +1,7 @@
 // Herberekening (CLAUDE.md §8): completeness, status volgens 4.3, last_calculated_at, revalidate.
 // Gebruik: pnpm recalc-pages [--dry]
 import "@/lib/env";
-import { LOCALES, chargerPath, rulePath } from "@/lib/copy";
+import { LOCALES, LOCALE_CONFIG, chargerPath, costPath, rulePath } from "@/lib/copy";
 import { RULES, ruleEntityId } from "@/lib/content/rules";
 import { getRepo, type PageUpsert } from "@/lib/db";
 import { decidePageStatus } from "@/lib/pages/status";
@@ -41,6 +41,26 @@ async function main() {
         last_published_at: d.status === "index" ? (prev?.last_published_at ?? now) : (prev?.last_published_at ?? null),
       });
       if (d.status !== "index") console.log(`${d.status.padEnd(7)} ${path}  (${d.reasons.join("; ")})`);
+      // charging_cost: één pagina per tarief van het land (en gewest) van de locale.
+      const cfg = LOCALE_CONFIG[locale];
+      const tariffs = (country === "BE" ? tariffsBE : tariffsNL).filter((t) => t.region === null || t.region === cfg.region);
+      for (const t of tariffs) {
+        const dc = decidePageStatus(v, locale, "charging_cost", { unverified: unverified(country) });
+        const cpath = costPath(locale, v.slug, t.slug);
+        const cprev = existing.find((p) => p.path === cpath);
+        counts[dc.status]++;
+        rows.push({
+          locale,
+          template: "charging_cost",
+          entity_id: v.id,
+          secondary_id: t.id,
+          path: cpath,
+          status: dc.status,
+          completeness_score: dc.completeness_score,
+          last_calculated_at: now,
+          last_published_at: dc.status === "index" ? (cprev?.last_published_at ?? now) : (cprev?.last_published_at ?? null),
+        });
+      }
     }
   }
   for (const r of RULES) {

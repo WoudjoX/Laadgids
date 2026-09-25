@@ -46,8 +46,10 @@ export function relatedFor(version: VersionFull, all: VersionFull[], locale: Loc
     }
   }
 
-  const costPath = `/${cfg.segment}/${COST_SECTION[locale]}/${version.slug}/vast-dag`;
-  if (live.has(costPath)) out.push({ kind: "cost", path: costPath, label: fullName(version) });
+  // Laadkosten-tegenhanger: de eerste levende kostenpagina van dit model (baseline-tarief eerst).
+  const costPrefix = `/${cfg.segment}/${COST_SECTION[locale]}/${version.slug}/`;
+  const costLive = [...live].filter((p) => p.startsWith(costPrefix)).sort((a, b) => (a.endsWith("/vast-dag") ? -1 : b.endsWith("/vast-dag") ? 1 : a.localeCompare(b)));
+  if (costLive[0]) out.push({ kind: "cost", path: costLive[0], label: fullName(version) });
 
   // Regelpagina's staan op gewestniveau (vla/wal/bru) of op landniveau (be/nl); het gewest wint.
   const regions = [cfg.region?.toLowerCase(), cfg.country.toLowerCase()].filter((x): x is string => Boolean(x));

@@ -210,6 +210,32 @@ export const frBE: Copy = {
     "tva-6-pourcent-borne": "6 % ou 21 % de TVA sur votre borne ?",
     "borne-appartement": "Borne en appartement : comment s'y prendre",
   },
+  cost: {
+    sectionSlug: "cout-recharge",
+    breadcrumbSection: "Coût de recharge par modèle",
+    h1: (v) => `Combien coûte la recharge à domicile d'une ${v.make} ${v.model} ${v.trim} ?`,
+    metaTitle: (v) => `Coût de recharge ${v.make} ${v.model} ${v.trim} : ${v.per100km} par 100 km | Laadgids`,
+    metaDescription: (v) => `Recharger une ${v.make} ${v.model} ${v.trim} à domicile coûte ${v.per100km} par 100 km et ${v.perFull} par charge complète avec le ${v.tariffLabel} (${v.pricePerKwh} par kWh). Par an et par kilomètre, sources comprises.`,
+    shortAnswer: (v) => `${v.per100km} par 100 km, ${v.perFull} par charge complète et ${v.perYear} par an pour ${v.kmPerYear} km. Calculé avec le ${v.tariffLabel} à ${v.pricePerKwh} par kWh, ${v.lossPct} de pertes de charge et ${v.realWorldPct} en plus de la consommation WLTP de ${v.consumptionWltp}.`,
+    metrics: { per100km: "Par 100 km", perFull: "Par charge complète", perYear: (v) => `Par an (${v.kmPerYear} km)` },
+    kmTable: { heading: "Coût annuel selon le kilométrage", colKm: "Km par an", colYear: "Par an", colMonth: "Par mois" },
+    factors: {
+      heading: "De quoi dépend le coût",
+      items: (v) => [
+        `La consommation WLTP de ${v.consumptionWltp} est la valeur d'homologation. En pratique, elle est plus élevée à cause de la température, de la vitesse et de la pression des pneus ; nous ajoutons donc ${v.realWorldPct}.`,
+        `À domicile, ${v.lossPct} se perdent dans le chargeur et la batterie. Vous payez donc plus de kWh au compteur qu'il n'en entre dans la batterie.`,
+        `Le prix par kWh est de ${v.pricePerKwh}, tout compris avec les frais de réseau, les prélèvements et la TVA. Avec un contrat dynamique et une recharge intelligente la nuit, il peut être plus bas ; avec un ancien contrat fixe, plus haut.`,
+        `La batterie de ${v.batteryNet} détermine le coût par charge complète, pas le coût par kilomètre.`,
+      ],
+    },
+    otherTariffs: { heading: "Même voiture, autre tarif", colTariff: "Tarif", colPer100: "Par 100 km", colYear: "Par an" },
+    faq: (v) => [
+      { q: `Combien coûte une charge complète de la ${v.model} à domicile ?`, a: `${v.perFull} avec le ${v.tariffLabel} à ${v.pricePerKwh} par kWh, pertes de charge de ${v.lossPct} comprises. C'est pour la batterie complète de ${v.batteryNet} ; de 20 à 80 %, vous rechargez rarement plus de soixante pour cent de cela.` },
+      { q: `Combien coûtent 100 km avec la ${v.model} ?`, a: `${v.per100km} d'électricité en rechargeant à domicile. Une voiture essence comparable se situe largement au-dessus du double aux prix actuels du carburant.` },
+      { q: "Est-ce aussi ce que je paie à une borne publique ?", a: "Non. Les bornes AC publiques facturent généralement 40 à 60 centimes par kWh et les chargeurs rapides 60 à 80 centimes. Cette page concerne la recharge à domicile sur votre propre compteur." },
+    ],
+    backToCharger: (v) => `Quelle borne pour la ${v.make} ${v.model} ?`,
+  },
   compare: {
     sectionSlug: "comparer",
     title: "Comparer deux modèles",
