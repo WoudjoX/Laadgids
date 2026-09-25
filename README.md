@@ -90,11 +90,11 @@ pnpm review-candidates --make tesla                                # of zonder f
 ### EEA-inschrijvingen als prioriteit
 
 ```powershell
-pnpm import-eea data/import/eea-cars-2025.csv --year 2025 --min 5
+pnpm fetch-eea --min 5                 # via de EEA Discodata SQL-endpoint, geen download nodig
 pnpm review-candidates
 ```
 
-`import-eea` streamt het jaarbestand van de EEA Datahub ("CO2 emissions from new passenger cars"), houdt alleen BE en NL en elektrische of hybride aandrijvingen over, en telt inschrijvingen per variant. `review-candidates` gebruikt die tellingen om `new-versions.csv` op volume te sorteren en vult de kolommen `registrations_be` en `registrations_nl`. Kolomnamen wijken per jaargang af; pas ze zo nodig aan in `lib/specs/eea.ts`.
+`fetch-eea` laat de EEA-server zelf tellen per variant voor BE en NL (tabelnaam met `--table`, standaard `co2cars_2025Pv31`; de naam staat op de Datahub-pagina onder "SQL Rest Endpoint"). Het oudere `import-eea` leest hetzelfde uit een gedownload CSV-jaarbestand. `review-candidates` gebruikt die tellingen om `new-versions.csv` op volume te sorteren en vult de kolommen `registrations_be` en `registrations_nl`. Kolomnamen wijken per jaargang af; pas ze zo nodig aan in `lib/specs/eea.ts`.
 
 ### Regelpagina's en statische pagina's
 
