@@ -1,0 +1,13 @@
+model;batterij_netto_kwh;batterij_bruto_kwh;wltp_kwh_100km;ac_kw_standaard;ac_kw_optie;ac_fasen;officieel_bevestigd;bron_url;opmerking
+tesla-model-3-long-range-awd-2025;;;14.0;11.0;;3;nee;https://www.tesla.com/nl_be/model3;in te vullen door Erwin; batterij is een schatting, alleen invullen als de fabrikant een cijfer geeft
+tesla-model-y-long-range-awd-2025;;;14.5;11.0;;3;nee;https://www.tesla.com/nl_be/modely;in te vullen door Erwin; batterij is een schatting, alleen invullen als de fabrikant een cijfer geeft
+volkswagen-id4-gtx-2025;77.0;82.0;16.8;11.0;;3;nee;https://www.volkswagen.be/nl/modellen/id4.html/__ui/technical-data.app;in te vullen door Erwin
+volkswagen-id3-pro-s-2025;77.0;82.0;15.5;11.0;;3;nee;https://www.volkswagen.be/nl/modellen/id3.html;in te vullen door Erwin
+skoda-enyaq-60-2025;59.0;63.0;15.6;11.0;;3;nee;https://cdn.skoda-storyboard.com/2025/05/Press_Kit_New_Skoda_Enyaq_492b58d1.pdf;in te vullen door Erwin
+skoda-elroq-60-2025;59.0;63.0;15.5;11.0;;3;nee;https://nl.skoda.be/models/elroq;in te vullen door Erwin
+hyundai-kona-electric-48-2025;48.4;;14.6;10.5;;3;nee;https://www.hyundai.com/be/nl/modellen/kona-electric/performance.html;in te vullen door Erwin
+kia-ev3-58-2025;;58.3;14.9;11.0;;3;nee;https://www.kia.com/be/nl/modellen/ev3/ontdekken/;in te vullen door Erwin; batterij is een schatting, alleen invullen als de fabrikant een cijfer geeft
+volvo-ex30-single-motor-2025;49.0;51.0;16.7;11.0;;3;nee;https://www.volvocars.com/images/cs/v3/assets/blt84e01a6904dbd2e8/bltdc4437137eec679e/681332dd924f57737f7a3d4b/EX30_Model_Year_25.5.pdf;in te vullen door Erwin
+volvo-ex30-twin-motor-performance-2025;64.0;69.0;17.5;11.0;22.0;3;nee;https://www.volvocars.com/images/cs/v3/assets/blt84e01a6904dbd2e8/bltdc4437137eec679e/681332dd924f57737f7a3d4b/EX30_Model_Year_25.5.pdf;in te vullen door Erwin
+volvo-ex90-twin-motor-2025;107.0;111.0;20.5;11.0;;3;nee;https://www.volvocars.com/be-nl/cars/ex90/specifications/;in te vullen door Erwin
+volvo-ec40-single-motor-extended-range-2025;79.0;82.0;16.5;11.0;22.0;3;nee;https://www.volvocars.com/be-nl/cars/ec40/specifications/;in te vullen door Erwin
