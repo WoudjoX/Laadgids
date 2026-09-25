@@ -73,5 +73,15 @@
   "id": 15,
   "slug": "ford",
   "name": "Ford"
+ },
+ {
+  "id": 16,
+  "slug": "mercedes-benz",
+  "name": "Mercedes-Benz"
+ },
+ {
+  "id": 17,
+  "slug": "byd",
+  "name": "BYD"
  }
 ]

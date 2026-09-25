@@ -169,5 +169,77 @@
   "generation": null,
   "powertrain": "bev",
   "segment": "d-suv"
+ },
+ {
+  "id": 20,
+  "make_id": 1,
+  "slug": "tesla-model-y",
+  "model": "Model Y",
+  "generation": "Juniper (2025 facelift)",
+  "powertrain": "bev",
+  "segment": "d-suv"
+ },
+ {
+  "id": 21,
+  "make_id": 16,
+  "slug": "mercedes-benz-eqb",
+  "model": "EQB",
+  "generation": "2024 facelift",
+  "powertrain": "bev",
+  "segment": "c-suv"
+ },
+ {
+  "id": 22,
+  "make_id": 9,
+  "slug": "bmw-i4",
+  "model": "i4",
+  "generation": "G26 LCI",
+  "powertrain": "bev",
+  "segment": "d-sedan"
+ },
+ {
+  "id": 23,
+  "make_id": 2,
+  "slug": "volkswagen-id7",
+  "model": "ID.7",
+  "generation": null,
+  "powertrain": "bev",
+  "segment": "d-sedan"
+ },
+ {
+  "id": 24,
+  "make_id": 3,
+  "slug": "skoda-elroq",
+  "model": "Elroq",
+  "generation": null,
+  "powertrain": "bev",
+  "segment": "c-suv"
+ },
+ {
+  "id": 25,
+  "make_id": 9,
+  "slug": "bmw-ix2",
+  "model": "iX2",
+  "generation": "U10",
+  "powertrain": "bev",
+  "segment": "c-suv"
+ },
+ {
+  "id": 26,
+  "make_id": 16,
+  "slug": "mercedes-benz-eqa",
+  "model": "EQA",
+  "generation": "2024 facelift",
+  "powertrain": "bev",
+  "segment": "c-suv"
+ },
+ {
+  "id": 27,
+  "make_id": 17,
+  "slug": "byd-seal",
+  "model": "Seal",
+  "generation": null,
+  "powertrain": "bev",
+  "segment": "d-sedan"
  }
 ]

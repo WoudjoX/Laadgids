@@ -1,0 +1,9 @@
+model;batterij_netto_kwh;batterij_bruto_kwh;wltp_kwh_100km;ac_kw_standaard;ac_kw_optie;ac_fasen;officieel_bevestigd;bron_url;opmerking
+tesla-model-y-long-range-rwd-2025;75.0;;14.6;11.0;;3;nee;https://www.tesla.com/nl_be/modely;in te vullen door Erwin
+mercedes-benz-eqb-250-plus-2025;70.5;;16.3;11.0;;3;nee;https://www.mercedes-benz.be/nl/passengercars/models/suv/eqb/;in te vullen door Erwin
+bmw-i4-edrive40-2025;81.3;84.3;17.6;11.0;;3;nee;https://www.bmw.be/nl/all-models/bmw-i/i4/bmw-i4-technische-gegevens.html;in te vullen door Erwin
+volkswagen-id7-pro-2025;77.0;82.0;15.2;11.0;;3;nee;https://www.volkswagen.be/nl/modellen/id7.html;in te vullen door Erwin
+skoda-elroq-85-2025;77.0;82.0;16.0;11.0;;3;nee;https://nl.skoda.be/models/elroq;in te vullen door Erwin
+bmw-ix2-edrive20-2025;64.7;66.5;16.3;11.0;;3;nee;https://www.bmw.be/nl/all-models/bmw-i/ix2/bmw-ix2-technische-gegevens.html;in te vullen door Erwin
+mercedes-benz-eqa-250-plus-2025;70.5;;16.2;11.0;;3;nee;https://www.mercedes-benz.be/nl/passengercars/models/suv/eqa/;in te vullen door Erwin
+byd-seal-design-2025;82.56;82.56;15.5;11.0;;3;nee;https://www.byd.com/be-nl/car/seal;in te vullen door Erwin
