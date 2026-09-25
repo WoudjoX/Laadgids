@@ -1,11 +1,77 @@
 [
-  { "id": 1, "slug": "tesla", "name": "Tesla" },
-  { "id": 2, "slug": "volkswagen", "name": "Volkswagen" },
-  { "id": 3, "slug": "skoda", "name": "Škoda" },
-  { "id": 4, "slug": "hyundai", "name": "Hyundai" },
-  { "id": 5, "slug": "kia", "name": "Kia" },
-  { "id": 6, "slug": "renault", "name": "Renault" },
-  { "id": 7, "slug": "peugeot", "name": "Peugeot" },
-  { "id": 8, "slug": "fiat", "name": "Fiat" },
-  { "id": 9, "slug": "bmw", "name": "BMW" }
+ {
+  "id": 1,
+  "slug": "tesla",
+  "name": "Tesla"
+ },
+ {
+  "id": 2,
+  "slug": "volkswagen",
+  "name": "Volkswagen"
+ },
+ {
+  "id": 3,
+  "slug": "skoda",
+  "name": "Škoda"
+ },
+ {
+  "id": 4,
+  "slug": "hyundai",
+  "name": "Hyundai"
+ },
+ {
+  "id": 5,
+  "slug": "kia",
+  "name": "Kia"
+ },
+ {
+  "id": 6,
+  "slug": "renault",
+  "name": "Renault"
+ },
+ {
+  "id": 7,
+  "slug": "peugeot",
+  "name": "Peugeot"
+ },
+ {
+  "id": 8,
+  "slug": "fiat",
+  "name": "Fiat"
+ },
+ {
+  "id": 9,
+  "slug": "bmw",
+  "name": "BMW"
+ },
+ {
+  "id": 10,
+  "slug": "volvo",
+  "name": "Volvo"
+ },
+ {
+  "id": 11,
+  "slug": "dacia",
+  "name": "Dacia"
+ },
+ {
+  "id": 12,
+  "slug": "polestar",
+  "name": "Polestar"
+ },
+ {
+  "id": 13,
+  "slug": "citroen",
+  "name": "Citroën"
+ },
+ {
+  "id": 14,
+  "slug": "cupra",
+  "name": "CUPRA"
+ },
+ {
+  "id": 15,
+  "slug": "ford",
+  "name": "Ford"
+ }
 ]

@@ -1,0 +1,9 @@
+model;batterij_netto_kwh;batterij_bruto_kwh;wltp_kwh_100km;ac_kw_standaard;ac_kw_optie;ac_fasen;officieel_bevestigd;bron_url;opmerking
+volvo-ex30-single-motor-extended-range-2025;64.0;69.0;16.7;11.0;;3;nee;https://www.volvocars.com/be/v/cars/ex30/;in te vullen door Erwin
+volvo-ex40-single-motor-extended-range-2025;79.0;82.0;16.0;11.0;;3;nee;https://www.volvocars.com/be/v/cars/ex40/;in te vullen door Erwin
+dacia-spring-electric-65-2025;26.8;26.8;14.6;7.0;;1;nee;https://www.dacia.be/;in te vullen door Erwin
+polestar-2-long-range-single-motor-2025;79.0;82.0;14.8;11.0;;3;nee;https://www.polestar.com/be-nl/polestar-2/specifications/;in te vullen door Erwin
+citroen-e-c3-44-kwh-2025;44.0;;14.7;7.4;;1;nee;https://www.citroen.be/nl/;in te vullen door Erwin
+cupra-tavascan-endurance-2025;77.0;82.0;15.5;11.0;;3;nee;https://www.cupra.com/en/cars/tavascan/tavascan-endurance;in te vullen door Erwin
+bmw-ix3-50-xdrive-2026;108.7;;15.2;11.0;;3;nee;https://www.bmw.be/nl/all-models/bmw-i/ix3/bmw-ix3-technische-gegevens.html;in te vullen door Erwin
+ford-mustang-mach-e-extended-range-rwd-2025;91.0;98.8;16.0;11.0;;3;nee;https://www.ford.be/nl/;in te vullen door Erwin

@@ -1,13 +1,173 @@
 [
-  { "id": 1, "make_id": 1, "slug": "tesla-model-3", "model": "Model 3", "generation": "Highland", "powertrain": "bev", "segment": "d-sedan" },
-  { "id": 2, "make_id": 2, "slug": "volkswagen-id3", "model": "ID.3", "generation": "2024 facelift", "powertrain": "bev", "segment": "c-hatch" },
-  { "id": 3, "make_id": 2, "slug": "volkswagen-id4", "model": "ID.4", "generation": "2024 facelift", "powertrain": "bev", "segment": "d-suv" },
-  { "id": 4, "make_id": 3, "slug": "skoda-enyaq", "model": "Enyaq", "generation": "2025 facelift", "powertrain": "bev", "segment": "d-suv" },
-  { "id": 5, "make_id": 4, "slug": "hyundai-kona-electric", "model": "Kona Electric", "generation": "SX2", "powertrain": "bev", "segment": "c-suv" },
-  { "id": 6, "make_id": 5, "slug": "kia-ev3", "model": "EV3", "generation": null, "powertrain": "bev", "segment": "c-suv" },
-  { "id": 7, "make_id": 6, "slug": "renault-5-e-tech", "model": "5 E-Tech", "generation": null, "powertrain": "bev", "segment": "b-hatch" },
-  { "id": 8, "make_id": 7, "slug": "peugeot-e-208", "model": "e-208", "generation": "2023 facelift", "powertrain": "bev", "segment": "b-hatch" },
-  { "id": 9, "make_id": 8, "slug": "fiat-500e", "model": "500e", "generation": null, "powertrain": "bev", "segment": "a-hatch" },
-  { "id": 10, "make_id": 6, "slug": "renault-zoe", "model": "Zoe", "generation": "ZE50", "powertrain": "bev", "segment": "b-hatch" },
-  { "id": 11, "make_id": 9, "slug": "bmw-ix1", "model": "iX1", "generation": "U11", "powertrain": "bev", "segment": "c-suv" }
+ {
+  "id": 1,
+  "make_id": 1,
+  "slug": "tesla-model-3",
+  "model": "Model 3",
+  "generation": "Highland",
+  "powertrain": "bev",
+  "segment": "d-sedan"
+ },
+ {
+  "id": 2,
+  "make_id": 2,
+  "slug": "volkswagen-id3",
+  "model": "ID.3",
+  "generation": "2024 facelift",
+  "powertrain": "bev",
+  "segment": "c-hatch"
+ },
+ {
+  "id": 3,
+  "make_id": 2,
+  "slug": "volkswagen-id4",
+  "model": "ID.4",
+  "generation": "2024 facelift",
+  "powertrain": "bev",
+  "segment": "d-suv"
+ },
+ {
+  "id": 4,
+  "make_id": 3,
+  "slug": "skoda-enyaq",
+  "model": "Enyaq",
+  "generation": "2025 facelift",
+  "powertrain": "bev",
+  "segment": "d-suv"
+ },
+ {
+  "id": 5,
+  "make_id": 4,
+  "slug": "hyundai-kona-electric",
+  "model": "Kona Electric",
+  "generation": "SX2",
+  "powertrain": "bev",
+  "segment": "c-suv"
+ },
+ {
+  "id": 6,
+  "make_id": 5,
+  "slug": "kia-ev3",
+  "model": "EV3",
+  "generation": null,
+  "powertrain": "bev",
+  "segment": "c-suv"
+ },
+ {
+  "id": 7,
+  "make_id": 6,
+  "slug": "renault-5-e-tech",
+  "model": "5 E-Tech",
+  "generation": null,
+  "powertrain": "bev",
+  "segment": "b-hatch"
+ },
+ {
+  "id": 8,
+  "make_id": 7,
+  "slug": "peugeot-e-208",
+  "model": "e-208",
+  "generation": "2023 facelift",
+  "powertrain": "bev",
+  "segment": "b-hatch"
+ },
+ {
+  "id": 9,
+  "make_id": 8,
+  "slug": "fiat-500e",
+  "model": "500e",
+  "generation": null,
+  "powertrain": "bev",
+  "segment": "a-hatch"
+ },
+ {
+  "id": 10,
+  "make_id": 6,
+  "slug": "renault-zoe",
+  "model": "Zoe",
+  "generation": "ZE50",
+  "powertrain": "bev",
+  "segment": "b-hatch"
+ },
+ {
+  "id": 11,
+  "make_id": 9,
+  "slug": "bmw-ix1",
+  "model": "iX1",
+  "generation": "U11",
+  "powertrain": "bev",
+  "segment": "c-suv"
+ },
+ {
+  "id": 12,
+  "make_id": 10,
+  "slug": "volvo-ex30",
+  "model": "EX30",
+  "generation": null,
+  "powertrain": "bev",
+  "segment": "b-suv"
+ },
+ {
+  "id": 13,
+  "make_id": 10,
+  "slug": "volvo-ex40",
+  "model": "EX40",
+  "generation": null,
+  "powertrain": "bev",
+  "segment": "c-suv"
+ },
+ {
+  "id": 14,
+  "make_id": 11,
+  "slug": "dacia-spring",
+  "model": "Spring",
+  "generation": "2024 facelift",
+  "powertrain": "bev",
+  "segment": "a-hatch"
+ },
+ {
+  "id": 15,
+  "make_id": 12,
+  "slug": "polestar-2",
+  "model": "2",
+  "generation": "2024 facelift",
+  "powertrain": "bev",
+  "segment": "d-sedan"
+ },
+ {
+  "id": 16,
+  "make_id": 13,
+  "slug": "citroen-e-c3",
+  "model": "ë-C3",
+  "generation": null,
+  "powertrain": "bev",
+  "segment": "b-hatch"
+ },
+ {
+  "id": 17,
+  "make_id": 14,
+  "slug": "cupra-tavascan",
+  "model": "Tavascan",
+  "generation": null,
+  "powertrain": "bev",
+  "segment": "d-suv"
+ },
+ {
+  "id": 18,
+  "make_id": 9,
+  "slug": "bmw-ix3",
+  "model": "iX3",
+  "generation": "NA5 (Neue Klasse)",
+  "powertrain": "bev",
+  "segment": "d-suv"
+ },
+ {
+  "id": 19,
+  "make_id": 15,
+  "slug": "ford-mustang-mach-e",
+  "model": "Mustang Mach-E",
+  "generation": null,
+  "powertrain": "bev",
+  "segment": "d-suv"
+ }
 ]
