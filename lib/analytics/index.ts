@@ -11,15 +11,16 @@ export interface AnalyticsConfig {
 }
 
 export function analyticsConfig(env: NodeJS.ProcessEnv = process.env): AnalyticsConfig | null {
-  const plausibleDomain = env.NEXT_PUBLIC_PLAUSIBLE_DOMAIN;
+  // Lege waarden tellen als niet gezet: Vercel geeft een variabele zonder waarde door als lege string.
+  const plausibleDomain = env.NEXT_PUBLIC_PLAUSIBLE_DOMAIN?.trim();
   if (plausibleDomain) {
-    const host = (env.NEXT_PUBLIC_PLAUSIBLE_HOST ?? "https://plausible.io").replace(/\/$/, "");
+    const host = (env.NEXT_PUBLIC_PLAUSIBLE_HOST?.trim() || "https://plausible.io").replace(/\/$/, "");
     // tagged-events: events via class="plausible-event-name=..." zonder eigen JS.
     return { provider: "plausible", scriptSrc: `${host}/js/script.tagged-events.js`, attrs: { "data-domain": plausibleDomain } };
   }
-  const umamiId = env.NEXT_PUBLIC_UMAMI_WEBSITE_ID;
+  const umamiId = env.NEXT_PUBLIC_UMAMI_WEBSITE_ID?.trim();
   if (umamiId) {
-    const host = (env.NEXT_PUBLIC_UMAMI_HOST ?? "https://cloud.umami.is").replace(/\/$/, "");
+    const host = (env.NEXT_PUBLIC_UMAMI_HOST?.trim() || "https://cloud.umami.is").replace(/\/$/, "");
     return { provider: "umami", scriptSrc: `${host}/script.js`, attrs: { "data-website-id": umamiId } };
   }
   return null;
