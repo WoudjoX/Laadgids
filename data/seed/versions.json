@@ -957,7 +957,7 @@
     "dc_max_w": null,
     "battery_estimated": false,
     "spec_source_url": "https://azure-eu-assets.contentstack.com/v3/assets/blt84e01a6904dbd2e8/bltdc4437137eec679e/681332dd924f57737f7a3d4b/EX30_Model_Year_25.5.pdf",
-    "spec_notes": "Nog niet geverifieerd; pagina staat op noindex tot Erwin bevestigt. Prijslijst van Volvo Car Ireland, modeljaar 2025, oktober 2024 (pagina 9): 51 kWh nominaal, 49 kWh bruikbaar, WLTP 17,1 kWh/100 km, tot 337 km. Driefasige boordlader van 11 kW standaard (pagina 4).",
+    "spec_notes": "Cijfers uit de officiële prijslijst van Volvo Car Ireland, modeljaar 2025, oktober 2024 (pagina 9): 51 kWh nominaal, 49 kWh bruikbaar, WLTP 17,1 kWh/100 km, tot 337 km. Driefasig laden op 16 A (11 kW) staat in dezelfde tabel; de boordlader van 11 kW is standaard. De prijslijst van modeljaar 2026 geeft dezelfde cijfers.",
     "id": 36,
     "vehicle_id": 12,
     "co2_wltp_g_km": 0,
@@ -969,7 +969,7 @@
     "catalog_price_be_cents": null,
     "catalog_price_nl_cents": null,
     "towing_kg": null,
-    "verified_at": null
+    "verified_at": "2026-10-02"
   },
   {
     "slug": "volvo-ex30-twin-motor-performance-2025",
@@ -984,7 +984,7 @@
     "dc_max_w": null,
     "battery_estimated": false,
     "spec_source_url": "https://azure-eu-assets.contentstack.com/v3/assets/blt84e01a6904dbd2e8/bltdc4437137eec679e/681332dd924f57737f7a3d4b/EX30_Model_Year_25.5.pdf",
-    "spec_notes": "Nog niet geverifieerd; pagina staat op noindex tot Erwin bevestigt. Prijslijst van Volvo Car Ireland, modeljaar 2025, oktober 2024 (pagina 9): 69 kWh nominaal, 65 kWh bruikbaar, WLTP 17,5 kWh/100 km, tot 450 km. Driefasige boordlader van 11 kW standaard, 22 kW op het hoogste uitrustingsniveau (pagina 4 en 5).",
+    "spec_notes": "Cijfers uit de officiële prijslijst van Volvo Car Ireland, modeljaar 2025, oktober 2024 (pagina 9): 69 kWh nominaal, 65 kWh bruikbaar, WLTP 17,5 kWh/100 km, tot 450 km. Driefasige boordlader van 11 kW standaard, 22 kW op het hoogste uitrustingsniveau. De prijslijst van modeljaar 2026 geeft dezelfde cijfers.",
     "id": 37,
     "vehicle_id": 12,
     "co2_wltp_g_km": 0,
@@ -996,7 +996,7 @@
     "catalog_price_be_cents": null,
     "catalog_price_nl_cents": null,
     "towing_kg": null,
-    "verified_at": null
+    "verified_at": "2026-10-02"
   },
   {
     "slug": "volvo-ex90-twin-motor-2025",
