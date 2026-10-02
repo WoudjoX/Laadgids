@@ -21,6 +21,12 @@ export const REQUIRED_FIELDS: Record<Template, (keyof VersionRow)[]> = {
   make_hub: [],
 };
 
+/** Een veld telt ook als ingevuld wanneer het alternatief ingevuld is: zonder bruikbare capaciteit volstaat de nominale. */
+const ALTERNATIVES: Partial<Record<Template, Partial<Record<keyof VersionRow, keyof VersionRow>>>> = {
+  charger_for_model: { battery_net_wh: "battery_gross_wh" },
+  charging_cost: { battery_net_wh: "battery_gross_wh" },
+};
+
 function present(v: unknown): boolean {
   if (v === null || v === undefined) return false;
   if (typeof v === "string") return v.trim().length > 0;
@@ -32,6 +38,7 @@ function present(v: unknown): boolean {
 export function completeness(version: Partial<VersionRow>, template: Template): number {
   const req = REQUIRED_FIELDS[template];
   if (req.length === 0) return 1;
-  const filled = req.filter((k) => present(version[k])).length;
+  const alt = ALTERNATIVES[template] ?? {};
+  const filled = req.filter((k) => present(version[k]) || (alt[k] !== undefined && present(version[alt[k]!]))).length;
   return filled / req.length;
 }

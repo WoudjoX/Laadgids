@@ -2,6 +2,7 @@ import { describe, expect, it } from "vitest";
 import {
   CONNECTIONS,
   advice,
+  batteryForCalc,
   bijtellingNL,
   capacityCostCents,
   capacityImpact,
@@ -239,5 +240,43 @@ describe("completeness", () => {
   });
   it("templates zonder vereisten geven 1", () => {
     expect(completeness({}, "rule")).toBe(1);
+  });
+});
+
+describe("batteryForCalc: bruikbare capaciteit, anders nominaal", () => {
+  const nominalOnly: VersionInput = { battery_net_wh: null, battery_gross_wh: 106_000, consumption_wh_per_km: 194, ac_max_w: 11000, ac_phases: 3 };
+  it("neemt de bruikbare capaciteit als die er is", () => {
+    expect(batteryForCalc({ battery_net_wh: 77_000, battery_gross_wh: 82_000 })).toEqual({ wh: 77_000, basis: "net" });
+    expect(batteryForCalc(car11)).toEqual({ wh: 77_000, basis: "net" });
+  });
+  it("valt terug op de nominale capaciteit en markeert dat", () => {
+    expect(batteryForCalc(nominalOnly)).toEqual({ wh: 106_000, basis: "nominal" });
+  });
+  it("geeft null als geen van beide bekend is (randgeval ontbrekende velden)", () => {
+    expect(batteryForCalc({ battery_net_wh: null, battery_gross_wh: null })).toBeNull();
+    expect(batteryForCalc({ battery_net_wh: 0 })).toBeNull();
+    expect(() => chargeTime({ battery_net_wh: null, consumption_wh_per_km: 150, ac_max_w: 11000, ac_phases: 3 }, connection("3f_16a_11000"))).toThrow();
+  });
+  it("laadtijd rekent met de nominale waarde en meldt de basis", () => {
+    const r = chargeTime(nominalOnly, connection("3f_16a_11000"));
+    expect(r.battery_basis).toBe("nominal");
+    expect(r.energy_needed_wh).toBeCloseTo((106_000 * 0.6) / 0.9, 3);
+    expect(chargeTime(car11, connection("3f_16a_11000")).battery_basis).toBe("net");
+  });
+  it("kost per volle lading ontbreekt bij nominaal; per 100 km en per jaar lopen via het verbruik", () => {
+    const t = { slug: "vast-dag", price_cents_per_kwh: 32.25, charging_loss_pct: 10 };
+    const nominal = chargingCost(nominalOnly, t);
+    expect(nominal.full_charge_cents).toBeNull();
+    const withNet = chargingCost({ ...nominalOnly, battery_net_wh: 101_000 }, t);
+    expect(withNet.full_charge_cents).toBeCloseTo((101 / 0.9) * 32.25, 3);
+    expect(nominal.cents_per_100km).toBe(withNet.cents_per_100km);
+    expect(nominal.cents_per_year).toBe(withNet.cents_per_year);
+  });
+  it("completeness: nominaal volstaat voor laadpaal en laadkosten, niet voor tweedehands", () => {
+    const v = { trim: "Twin Motor", model_year: 2026, battery_net_wh: null, battery_gross_wh: 106_000, consumption_wh_per_km: 194, ac_max_w: 11000, ac_phases: 3 as const, spec_source_url: "https://example.com", spec_source_date: "2026-10-02" };
+    expect(completeness(v, "charger_for_model")).toBe(1);
+    expect(completeness(v, "charging_cost")).toBe(1);
+    expect(completeness(v, "used_battery")).toBeLessThan(1);
+    expect(completeness({ ...v, battery_gross_wh: null }, "charger_for_model")).toBeLessThan(1);
   });
 });

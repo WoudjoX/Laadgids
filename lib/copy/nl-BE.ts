@@ -85,8 +85,10 @@ export const nlBE: Copy = {
       acMax: "Max. AC-vermogen",
       battery: "Batterij (netto)",
       batteryEstimated: "Batterij (schatting)",
+      batteryNominal: "Batterij (nominaal)",
       time: (v) => `${v.fromPct} naar ${v.toPct} % op ${v.recommendedKw}`,
     },
+    nominalNote: (v) => `${v.make} publiceert voor dit model alleen de nominale capaciteit van ${v.batteryNet}. De bruikbare capaciteit ligt enkele procenten lager, dus de laadtijden op deze pagina zijn een bovengrens. De kosten per 100 km en per jaar rekenen met het verbruik en hangen daar niet van af.`,
     estimateNote: (v) => `De netto batterijcapaciteit van ${v.batteryNet} is een schatting: ${v.make} publiceert geen officieel cijfer. Laadtijden en kosten per lading kunnen enkele procenten afwijken.`,
     table: {
       heading: (v) => `Laadtijd per aansluiting (${v.fromPct} naar ${v.toPct} %)`,
@@ -95,7 +97,7 @@ export const nlBE: Copy = {
       colTime: "Laadtijd",
       recommended: "aanbevolen",
       noGain: "geen winst",
-      note: (v) => `Gerekend met ${v.batteryNet} netto batterij en 10 % laadverlies. Werkelijke tijden hangen af van temperatuur en laadcurve.`,
+      note: (v) => `Gerekend met ${v.batteryNet} ${v.batteryNominal ? "nominale batterijcapaciteit" : "netto batterij"} en 10 % laadverlies. Werkelijke tijden hangen af van temperatuur en laadcurve.`,
     },
     diagram: {
       title: "Hoe de stroom loopt",
@@ -210,7 +212,7 @@ export const nlBE: Copy = {
         }
         items.push({
           q: `Hoelang duurt een nacht laden voor de ${v.model}?`,
-          a: `Van ${v.fromPct} naar ${v.toPct} % duurt ${v.recommendedTime} op ${v.recommendedKw}. Een volle batterij van ${v.batteryNet} inclusief laadverlies is ongeveer ${v.cheapestFull ?? "—"} met het goedkoopste tarief.`,
+          a: `Van ${v.fromPct} naar ${v.toPct} % duurt ${v.recommendedTime} op ${v.recommendedKw}.` + (v.batteryNominal || !v.cheapestFull ? "" : ` Een volle batterij van ${v.batteryNet} inclusief laadverlies is ongeveer ${v.cheapestFull} met het goedkoopste tarief.`),
         });
         if (v.region === "VLA" && v.capacityDelta && v.capacityDeltaLb) {
           items.push({
@@ -246,8 +248,8 @@ export const nlBE: Copy = {
     breadcrumbSection: "Laadkosten per model",
     h1: (v) => `Wat kost thuisladen voor een ${v.make} ${v.model} ${v.trim}?`,
     metaTitle: (v) => `Laadkosten ${v.make} ${v.model} ${v.trim}: ${v.per100km} per 100 km | Laadgids`,
-    metaDescription: (v) => `Thuisladen van een ${v.make} ${v.model} ${v.trim} kost ${v.per100km} per 100 km en ${v.perFull} per volle lading met ${v.tariffLabel} (${v.pricePerKwh} per kWh).`,
-    shortAnswer: (v) => `${v.per100km} per 100 km, ${v.perFull} per volle lading en ${v.perYear} per jaar bij ${v.kmPerYear} km. Gerekend met ${v.tariffLabel} van ${v.pricePerKwh} per kWh, ${v.lossPct} laadverlies en ${v.realWorldPct} bovenop het WLTP-verbruik van ${v.consumptionWltp}.`,
+    metaDescription: (v) => `Thuisladen van een ${v.make} ${v.model} ${v.trim} kost ${v.per100km} per 100 km${v.perFull ? ` en ${v.perFull} per volle lading` : ""} met ${v.tariffLabel} (${v.pricePerKwh} per kWh).`,
+    shortAnswer: (v) => `${v.per100km} per 100 km${v.perFull ? `, ${v.perFull} per volle lading` : ""} en ${v.perYear} per jaar bij ${v.kmPerYear} km. Gerekend met ${v.tariffLabel} van ${v.pricePerKwh} per kWh, ${v.lossPct} laadverlies en ${v.realWorldPct} bovenop het WLTP-verbruik van ${v.consumptionWltp}.`,
     metrics: { per100km: "Per 100 km", perFull: "Per volle lading", perYear: (v) => `Per jaar (${v.kmPerYear} km)` },
     kmTable: { heading: "Jaarkost per kilometrage", colKm: "Km per jaar", colYear: "Per jaar", colMonth: "Per maand" },
     factors: {
@@ -256,12 +258,14 @@ export const nlBE: Copy = {
         `Het WLTP-verbruik van ${v.consumptionWltp} is de fabrieksopgave. In de praktijk ligt het verbruik hoger door temperatuur, snelheid en bandenspanning; daarom rekenen we ${v.realWorldPct} extra.`,
         `Bij thuisladen gaat ${v.lossPct} verloren in de lader en de batterij. Je betaalt dus meer kWh aan de meter dan er in de batterij komt.`,
         `De prijs per kWh is ${v.pricePerKwh}, all-in met netkosten, heffingen en btw. Met een dynamisch contract en slim laden 's nachts kan dat lager uitvallen; met een oud vast contract hoger.`,
-        `De batterij van ${v.batteryNet} bepaalt de kost per volle lading, niet de kost per kilometer.`,
+        v.batteryNominal
+          ? `${v.make} publiceert voor dit model alleen de nominale capaciteit van ${v.batteryNet}. Daarom tonen we geen kost per volle lading; de kost per kilometer hangt daar niet van af.`
+          : `De batterij van ${v.batteryNet} bepaalt de kost per volle lading, niet de kost per kilometer.`,
       ],
     },
     otherTariffs: { heading: "Zelfde auto, ander tarief", colTariff: "Tarief", colPer100: "Per 100 km", colYear: "Per jaar" },
     faq: (v) => [
-      { q: `Wat kost een volle lading van de ${v.model} thuis?`, a: `${v.perFull} met ${v.tariffLabel} van ${v.pricePerKwh} per kWh, inclusief ${v.lossPct} laadverlies. Dat is voor de volledige batterij van ${v.batteryNet}; van 20 naar 80 % laad je zelden meer dan zestig procent daarvan.` },
+      ...(v.perFull ? [{ q: `Wat kost een volle lading van de ${v.model} thuis?`, a: `${v.perFull} met ${v.tariffLabel} van ${v.pricePerKwh} per kWh, inclusief ${v.lossPct} laadverlies. Dat is voor de volledige batterij van ${v.batteryNet}; van 20 naar 80 % laad je zelden meer dan zestig procent daarvan.`  }] : []),
       { q: `Hoeveel kost 100 km rijden met de ${v.model}?`, a: `${v.per100km} aan stroom bij thuisladen. Een vergelijkbare benzinewagen zit bij de huidige brandstofprijzen ruim boven het dubbele.` },
       { q: "Is dit ook wat ik betaal aan een publieke laadpaal?", a: "Nee. Publieke AC-laadpalen rekenen doorgaans 40 tot 60 cent per kWh en snelladers 60 tot 80 cent. Deze pagina gaat over thuisladen op je eigen meter." },
     ],

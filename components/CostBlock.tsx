@@ -21,23 +21,28 @@ export function CostBlock({ comparison, tariffs, vars, copy, locale, ctaHref }: 
     return <p className="max-w-prose text-[15px] text-ink2">{c.unavailable}</p>;
   }
   const saving = c.saving(vars);
-  const max = Math.max(...comparison.rows.map((r) => r.full_charge_cents));
+  // Balk op de kost per 100 km: die bestaat altijd, ook als de kost per volle lading ontbreekt (alleen nominale capaciteit bekend).
+  const max = Math.max(...comparison.rows.map((r) => r.cents_per_100km));
   return (
     <div>
       <div className="rounded-card border-hair border-line bg-card px-5 py-2">
         {comparison.rows.map((r) => {
           const t = tariffs.find((x) => x.slug === r.tariff_slug);
           const cheapest = r.tariff_slug === comparison.cheapest.tariff_slug;
-          const pct = Math.round((r.full_charge_cents / max) * 100);
+          const pct = Math.round((r.cents_per_100km / max) * 100);
           return (
             <div key={r.tariff_slug} className={`border-b-hair border-line py-3 last:border-b-0 ${cheapest ? "font-semibold text-accent" : "text-ink"}`}>
               <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
                 <span className="text-[15px]">{t?.label[lang] ?? r.tariff_slug}</span>
                 <span className="tnum whitespace-nowrap text-[15px]">
-                  {euro(r.full_charge_cents, locale, { decimals: 2 })} <span className="font-normal text-ink2">{c.perFull}</span>
-                  <span className="mx-2 font-normal text-ink3" aria-hidden="true">
-                    ·
-                  </span>
+                  {r.full_charge_cents != null && (
+                    <>
+                      {euro(r.full_charge_cents, locale, { decimals: 2 })} <span className="font-normal text-ink2">{c.perFull}</span>
+                      <span className="mx-2 font-normal text-ink3" aria-hidden="true">
+                        ·
+                      </span>
+                    </>
+                  )}
                   {euroPer100Km(r.cents_per_100km, locale)} <span className="font-normal text-ink2">{c.perKm}</span>
                 </span>
               </div>

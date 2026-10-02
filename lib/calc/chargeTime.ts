@@ -1,3 +1,4 @@
+import { batteryForCalc, type BatteryBasis } from "./battery";
 import {
   CONNECTIONS,
   DEFAULT_CHARGING_LOSS,
@@ -22,6 +23,8 @@ export interface ChargeTimeResult {
   seconds: number; // niet afgerond
   from_pct: number;
   to_pct: number;
+  /** "nominal": gerekend met de nominale capaciteit omdat de bruikbare niet gepubliceerd is; de tijd is dan een bovengrens. */
+  battery_basis: BatteryBasis;
 }
 
 /** Effectief laadvermogen van een auto aan een aansluiting (CLAUDE.md 6.1). */
@@ -37,11 +40,12 @@ export function chargeTime(version: VersionInput, conn: Connection, opts: Charge
   const loss = opts.charging_loss ?? DEFAULT_CHARGING_LOSS;
   if (to_pct <= from_pct) throw new Error("to_pct must be greater than from_pct");
   if (loss < 0 || loss >= 1) throw new Error("charging_loss must be in [0,1)");
-  if (!(version.battery_net_wh > 0) || !(version.ac_max_w > 0)) throw new Error("battery_net_wh and ac_max_w must be positive");
+  const battery = batteryForCalc(version);
+  if (!battery || !(version.ac_max_w > 0)) throw new Error("battery capacity (net or nominal) and ac_max_w must be positive");
   const effective_w = effectivePower(version, conn);
-  const energy_needed_wh = (version.battery_net_wh * (to_pct - from_pct)) / 100 / (1 - loss);
+  const energy_needed_wh = (battery.wh * (to_pct - from_pct)) / 100 / (1 - loss);
   const seconds = (energy_needed_wh / effective_w) * 3600;
-  return { connection: conn.key, phases: conn.phases, max_w: conn.max_w, effective_w, energy_needed_wh, seconds, from_pct, to_pct };
+  return { connection: conn.key, phases: conn.phases, max_w: conn.max_w, effective_w, energy_needed_wh, seconds, from_pct, to_pct, battery_basis: battery.basis };
 }
 
 export interface ChargeTimeRow extends ChargeTimeResult {

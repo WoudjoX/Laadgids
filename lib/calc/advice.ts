@@ -1,3 +1,4 @@
+import { batteryForCalc } from "./battery";
 import type { Region } from "@/lib/db/types";
 import type { CapacityTariffParams } from "@/lib/rules/schemas";
 import { capacityImpact, type CapacityImpactResult } from "./capacityImpact";
@@ -55,7 +56,8 @@ export function advice(version: VersionInput, ctx: AdviceContext): AdviceResult 
   }
 
   // 4. Kleine batterij: 7,4 kW volstaat meestal voor een nacht.
-  if (version.battery_net_wh < SMALL_BATTERY_WH) reasons.push("small_battery_74_enough");
+  const battery = batteryForCalc(version);
+  if (battery && battery.wh < SMALL_BATTERY_WH) reasons.push("small_battery_74_enough");
 
   if (rec.seconds <= OVERNIGHT_SECONDS) reasons.push("full_overnight_on_recommended");
   if (table.some((r) => r.no_gain && r.max_w > rec.max_w)) warnings.push("no_gain_above_recommended");

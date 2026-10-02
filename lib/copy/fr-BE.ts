@@ -82,8 +82,10 @@ export const frBE: Copy = {
       acMax: "Puissance AC max.",
       battery: "Batterie (nette)",
       batteryEstimated: "Batterie (estimation)",
+      batteryNominal: "Batterie (nominale)",
       time: (v) => `${v.fromPct} à ${v.toPct} % sur ${v.recommendedKw}`,
     },
+    nominalNote: (v) => `${v.make} ne publie pour ce modèle que la capacité nominale de ${v.batteryNet}. La capacité utilisable est inférieure de quelques pour cent ; les temps de charge sur cette page sont donc un maximum. Le coût par 100 km et par an se calcule avec la consommation et n'en dépend pas.`,
     estimateNote: (v) => `La capacité nette de ${v.batteryNet} est une estimation : ${v.make} ne publie pas de chiffre officiel. Les temps de charge et le coût par charge peuvent différer de quelques pour cent.`,
     table: {
       heading: (v) => `Temps de charge par raccordement (${v.fromPct} à ${v.toPct} %)`,
@@ -92,7 +94,7 @@ export const frBE: Copy = {
       colTime: "Temps de charge",
       recommended: "recommandé",
       noGain: "aucun gain",
-      note: (v) => `Calculé avec ${v.batteryNet} de batterie nette et 10 % de pertes de charge. Les temps réels dépendent de la température et de la courbe de charge.`,
+      note: (v) => `Calculé avec ${v.batteryNet} de ${v.batteryNominal ? "capacité nominale" : "batterie nette"} et 10 % de pertes de charge. Les temps réels dépendent de la température et de la courbe de charge.`,
     },
     diagram: {
       title: "Comment passe le courant",
@@ -206,7 +208,7 @@ export const frBE: Copy = {
         }
         items.push({
           q: `Combien de temps dure une nuit de charge pour la ${v.model} ?`,
-          a: `De ${v.fromPct} à ${v.toPct} %, comptez ${v.recommendedTime} sur ${v.recommendedKw}. Une batterie complète de ${v.batteryNet}, pertes comprises, coûte environ ${v.cheapestFull ?? "—"} au tarif le plus bas.`,
+          a: `De ${v.fromPct} à ${v.toPct} %, comptez ${v.recommendedTime} sur ${v.recommendedKw}.` + (v.batteryNominal || !v.cheapestFull ? "" : ` Une batterie complète de ${v.batteryNet}, pertes comprises, coûte environ ${v.cheapestFull} au tarif le plus bas.`),
         });
         items.push({
           q: "Dois-je déclarer ma borne au gestionnaire de réseau ?",
@@ -236,8 +238,8 @@ export const frBE: Copy = {
     breadcrumbSection: "Coût de recharge par modèle",
     h1: (v) => `Combien coûte la recharge à domicile d'une ${v.make} ${v.model} ${v.trim} ?`,
     metaTitle: (v) => `Coût de recharge ${v.make} ${v.model} ${v.trim} : ${v.per100km} par 100 km | Laadgids`,
-    metaDescription: (v) => `Recharger une ${v.make} ${v.model} ${v.trim} à domicile coûte ${v.per100km} par 100 km et ${v.perFull} par charge complète avec le ${v.tariffLabel} (${v.pricePerKwh} par kWh).`,
-    shortAnswer: (v) => `${v.per100km} par 100 km, ${v.perFull} par charge complète et ${v.perYear} par an pour ${v.kmPerYear} km. Calculé avec le ${v.tariffLabel} à ${v.pricePerKwh} par kWh, ${v.lossPct} de pertes de charge et ${v.realWorldPct} en plus de la consommation WLTP de ${v.consumptionWltp}.`,
+    metaDescription: (v) => `Recharger une ${v.make} ${v.model} ${v.trim} à domicile coûte ${v.per100km} par 100 km${v.perFull ? ` et ${v.perFull} par charge complète` : ""} avec le ${v.tariffLabel} (${v.pricePerKwh} par kWh).`,
+    shortAnswer: (v) => `${v.per100km} par 100 km${v.perFull ? `, ${v.perFull} par charge complète` : ""} et ${v.perYear} par an pour ${v.kmPerYear} km. Calculé avec le ${v.tariffLabel} à ${v.pricePerKwh} par kWh, ${v.lossPct} de pertes de charge et ${v.realWorldPct} en plus de la consommation WLTP de ${v.consumptionWltp}.`,
     metrics: { per100km: "Par 100 km", perFull: "Par charge complète", perYear: (v) => `Par an (${v.kmPerYear} km)` },
     kmTable: { heading: "Coût annuel selon le kilométrage", colKm: "Km par an", colYear: "Par an", colMonth: "Par mois" },
     factors: {
@@ -246,12 +248,14 @@ export const frBE: Copy = {
         `La consommation WLTP de ${v.consumptionWltp} est la valeur d'homologation. En pratique, elle est plus élevée à cause de la température, de la vitesse et de la pression des pneus ; nous ajoutons donc ${v.realWorldPct}.`,
         `À domicile, ${v.lossPct} se perdent dans le chargeur et la batterie. Vous payez donc plus de kWh au compteur qu'il n'en entre dans la batterie.`,
         `Le prix par kWh est de ${v.pricePerKwh}, tout compris avec les frais de réseau, les prélèvements et la TVA. Avec un contrat dynamique et une recharge intelligente la nuit, il peut être plus bas ; avec un ancien contrat fixe, plus haut.`,
-        `La batterie de ${v.batteryNet} détermine le coût par charge complète, pas le coût par kilomètre.`,
+        v.batteryNominal
+          ? `${v.make} ne publie pour ce modèle que la capacité nominale de ${v.batteryNet}. Nous n'affichons donc pas de coût par charge complète ; le coût par kilomètre n'en dépend pas.`
+          : `La batterie de ${v.batteryNet} détermine le coût par charge complète, pas le coût par kilomètre.`,
       ],
     },
     otherTariffs: { heading: "Même voiture, autre tarif", colTariff: "Tarif", colPer100: "Par 100 km", colYear: "Par an" },
     faq: (v) => [
-      { q: `Combien coûte une charge complète de la ${v.model} à domicile ?`, a: `${v.perFull} avec le ${v.tariffLabel} à ${v.pricePerKwh} par kWh, pertes de charge de ${v.lossPct} comprises. C'est pour la batterie complète de ${v.batteryNet} ; de 20 à 80 %, vous rechargez rarement plus de soixante pour cent de cela.` },
+      ...(v.perFull ? [{ q: `Combien coûte une charge complète de la ${v.model} à domicile ?`, a: `${v.perFull} avec le ${v.tariffLabel} à ${v.pricePerKwh} par kWh, pertes de charge de ${v.lossPct} comprises. C'est pour la batterie complète de ${v.batteryNet} ; de 20 à 80 %, vous rechargez rarement plus de soixante pour cent de cela.` }] : []),
       { q: `Combien coûtent 100 km avec la ${v.model} ?`, a: `${v.per100km} d'électricité en rechargeant à domicile. Une voiture essence comparable se situe largement au-dessus du double aux prix actuels du carburant.` },
       { q: "Est-ce aussi ce que je paie à une borne publique ?", a: "Non. Les bornes AC publiques facturent généralement 40 à 60 centimes par kWh et les chargeurs rapides 60 à 80 centimes. Cette page concerne la recharge à domicile sur votre propre compteur." },
     ],

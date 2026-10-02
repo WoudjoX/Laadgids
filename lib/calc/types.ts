@@ -5,7 +5,7 @@ export type VersionInput = Pick<
   VersionRow,
   "battery_net_wh" | "consumption_wh_per_km" | "ac_max_w" | "ac_phases"
 > &
-  Partial<Pick<VersionRow, "catalog_price_be_cents" | "catalog_price_nl_cents" | "co2_wltp_g_km">>;
+  Partial<Pick<VersionRow, "battery_gross_wh" | "catalog_price_be_cents" | "catalog_price_nl_cents" | "co2_wltp_g_km">>;
 
 export type ConnectionKey =
   | "socket_2300"

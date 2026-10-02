@@ -47,7 +47,7 @@ export function CostPage({ data, locale, page, canonical, energyCta }: Props) {
         <AnswerBox label={copy.charger.shortAnswerLabel} text={c.shortAnswer(vars)} />
       </div>
       <div className="mt-6">
-        <MetricCards items={[{ label: c.metrics.per100km, value: vars.per100km }, { label: c.metrics.perFull, value: vars.perFull }, { label: c.metrics.perYear(vars), value: vars.perYear }]} />
+        <MetricCards items={[{ label: c.metrics.per100km, value: vars.per100km }, ...(vars.perFull ? [{ label: c.metrics.perFull, value: vars.perFull }] : []), { label: c.metrics.perYear(vars), value: vars.perYear }]} />
       </div>
       <p className="mt-3 text-[14px]">
         <Link href={vars.chargerPath}>{c.backToCharger(vars)} →</Link>

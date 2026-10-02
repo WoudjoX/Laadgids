@@ -49,7 +49,7 @@ export async function modelOgImage(section: string, seg: string, slug: string): 
         </div>
         <div style={{ display: "flex", gap: 20 }}>
           <Metric label={copy.charger.metrics.acMax} value={v.acMax} />
-          <Metric label={copy.charger.metrics.battery} value={v.batteryNet} />
+          <Metric label={v.batteryNominal ? copy.charger.metrics.batteryNominal : copy.charger.metrics.battery} value={v.batteryNet} />
           <Metric label={copy.charger.metrics.time(v)} value={v.recommendedTime} />
         </div>
         <div style={{ display: "flex", justifyContent: "space-between", fontSize: 26 }}>

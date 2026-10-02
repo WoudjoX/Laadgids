@@ -1,4 +1,5 @@
 // Vergelijking van twee versies: dezelfde assemblage als de P1-pagina, naast elkaar gezet. Geen eigen berekening.
+import { batteryForCalc } from "@/lib/calc/battery";
 import type { Copy } from "@/lib/copy";
 import type { Locale, RuleRow, TariffRow, VersionFull } from "@/lib/db/types";
 import { duration, euro, kw, kwh } from "@/lib/format";
@@ -32,9 +33,18 @@ export function compareVersions(va: VersionFull, vb: VersionFull, locale: Locale
   const day = (d: ChargerPageData) => d.cost?.baseline ?? null;
   const cap11 = (d: ChargerPageData) => d.advice.capacity?.scenarios.find((s) => s.charger_w === 11000) ?? null;
 
+  // Nominale capaciteit krijgt het label erbij, zodat ze niet met een bruikbare capaciteit verward wordt.
+  const bat = (v: VersionFull) => {
+    const b = batteryForCalc(v);
+    // Het label is "Batterij (nominaal)"; in de vergelijking volstaat het woord tussen haakjes.
+    const tag = copy.charger.metrics.batteryNominal.match(/\(([^)]+)\)/)?.[1] ?? copy.charger.metrics.batteryNominal;
+    return b ? (b.basis === "nominal" ? `${kwh(b.wh, locale)} (${tag})` : kwh(b.wh, locale)) : "–";
+  };
+  const full = (c: number | null) => (c != null ? euro(c, locale, { decimals: 2 }) : "–");
+
   const rows: CompareRow[] = [
     { label: r.acMax, a: kw(va.ac_max_w, locale), b: kw(vb.ac_max_w, locale), better: pick(va.ac_max_w, vb.ac_max_w, false) },
-    { label: r.battery, a: kwh(va.battery_net_wh, locale), b: kwh(vb.battery_net_wh, locale), better: pick(va.battery_net_wh, vb.battery_net_wh, false) },
+    { label: r.battery, a: bat(va), b: bat(vb), better: pick(batteryForCalc(va)?.wh ?? null, batteryForCalc(vb)?.wh ?? null, false) },
     {
       label: r.range,
       a: va.wltp_range_km ? `${va.wltp_range_km} km` : "–",
@@ -48,9 +58,9 @@ export function compareVersions(va: VersionFull, vb: VersionFull, locale: Locale
   ];
   if (a.cost && b.cost) {
     rows.push(
-      { label: r.costFullCheapest, a: euro(a.cost.cheapest.full_charge_cents, locale, { decimals: 2 }), b: euro(b.cost.cheapest.full_charge_cents, locale, { decimals: 2 }), better: pick(a.cost.cheapest.full_charge_cents, b.cost.cheapest.full_charge_cents, true) },
+      { label: r.costFullCheapest, a: full(a.cost.cheapest.full_charge_cents), b: full(b.cost.cheapest.full_charge_cents), better: pick(a.cost.cheapest.full_charge_cents, b.cost.cheapest.full_charge_cents, true) },
       ...(a.cost.baseline.tariff_slug !== a.cost.cheapest.tariff_slug
-        ? [{ label: r.costFullDay, a: euro(day(a)!.full_charge_cents, locale, { decimals: 2 }), b: euro(day(b)!.full_charge_cents, locale, { decimals: 2 }), better: pick(day(a)!.full_charge_cents, day(b)!.full_charge_cents, true) }]
+        ? [{ label: r.costFullDay, a: full(day(a)!.full_charge_cents), b: full(day(b)!.full_charge_cents), better: pick(day(a)!.full_charge_cents, day(b)!.full_charge_cents, true) }]
         : []),
       { label: r.cost100Cheapest, a: euro(a.cost.cheapest.cents_per_100km, locale, { decimals: 2 }), b: euro(b.cost.cheapest.cents_per_100km, locale, { decimals: 2 }), better: pick(a.cost.cheapest.cents_per_100km, b.cost.cheapest.cents_per_100km, true) },
     );

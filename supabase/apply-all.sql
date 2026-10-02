@@ -27,7 +27,7 @@ create table if not exists versions (
   trim text not null,
   model_year int,
   battery_gross_wh int,
-  battery_net_wh int not null,
+  battery_net_wh int,                   -- leeg als alleen de nominale capaciteit gepubliceerd is (0005)
   wltp_range_km int,
   consumption_wh_per_km int not null,
   ac_max_w int not null,
@@ -185,3 +185,8 @@ create index if not exists spec_candidates_match_idx on spec_candidates (match_k
 
 alter table spec_candidates enable row level security;
 -- Geen anon-policy: alleen service role leest en schrijft staging.
+
+-- 0005: bruikbare capaciteit mag leeg zijn als de nominale bekend is.
+alter table versions alter column battery_net_wh drop not null;
+alter table versions drop constraint if exists versions_battery_present;
+alter table versions add constraint versions_battery_present check (battery_net_wh is not null or battery_gross_wh is not null);

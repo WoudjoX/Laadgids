@@ -7,3 +7,4 @@ export * from "./vaaBE";
 export * from "./bijtellingNL";
 export * from "./deductibilityBE";
 export * from "./completeness";
+export * from "./battery";

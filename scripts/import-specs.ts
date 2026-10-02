@@ -3,6 +3,7 @@
 // Kolommen: vehicle_slug,version_slug,trim,model_year,battery_gross_wh,battery_net_wh,wltp_range_km,
 //   consumption_wh_per_km,ac_max_w,ac_phases,dc_max_w,towing_kg,catalog_price_be_cents,catalog_price_nl_cents,
 //   co2_wltp_g_km,sold_in,spec_source_url,spec_source_date
+// battery_net_wh mag leeg blijven als de fabrikant alleen de nominale capaciteit publiceert (dan in battery_gross_wh).
 // Lege cellen blijven leeg (null). Niet raden; completeness regelt de rest.
 import "@/lib/env";
 import { promises as fs } from "node:fs";
@@ -21,7 +22,7 @@ const row = z.object({
   trim: z.string().min(1),
   model_year: optInt,
   battery_gross_wh: optInt,
-  battery_net_wh: z.coerce.number().int().positive(),
+  battery_net_wh: optInt, // leeg toegestaan als battery_gross_wh de nominale capaciteit bevat (zie superRefine)
   wltp_range_km: optInt,
   consumption_wh_per_km: z.coerce.number().int().positive(),
   ac_max_w: z.coerce.number().int().positive(),
@@ -37,6 +38,8 @@ const row = z.object({
     .pipe(z.array(z.enum(["BE", "NL"]))),
   spec_source_url: z.url(),
   spec_source_date: z.string().regex(/^\d{4}-\d{2}-\d{2}$/),
+}).superRefine((r, ctx) => {
+  if (!r.battery_net_wh && !r.battery_gross_wh) ctx.addIssue({ code: "custom", path: ["battery_net_wh"], message: "battery_net_wh or battery_gross_wh is required" });
 });
 
 function parseCsv(text: string): Record<string, string>[] {

@@ -1,3 +1,4 @@
+import { batteryForCalc } from "./battery";
 import type { TariffRow } from "@/lib/db/types";
 import type { VersionInput } from "./types";
 
@@ -20,7 +21,8 @@ export interface ChargingCostResult {
   wh_charged_per_year: number;
   cents_per_year: number;
   cents_per_100km: number;
-  full_charge_cents: number;
+  /** null als alleen de nominale capaciteit bekend is: een volle lading op die waarde zou enkele procenten te duur uitvallen. */
+  full_charge_cents: number | null;
 }
 
 /** Laadkosten per tarief (CLAUDE.md 6.4). Output niet afgerond. */
@@ -33,7 +35,8 @@ export function chargingCost(version: VersionInput, tariff: TariffInput, opts: C
   const wh_charged_per_year = (wh_per_km_real * km_per_year) / (1 - loss);
   const cents_per_year = (wh_charged_per_year / 1000) * tariff.price_cents_per_kwh;
   const cents_per_100km = ((wh_per_km_real * 100) / (1 - loss) / 1000) * tariff.price_cents_per_kwh;
-  const full_charge_cents = (version.battery_net_wh / 1000 / (1 - loss)) * tariff.price_cents_per_kwh;
+  const battery = batteryForCalc(version);
+  const full_charge_cents = battery?.basis === "net" ? (battery.wh / 1000 / (1 - loss)) * tariff.price_cents_per_kwh : null;
   return {
     tariff_slug: tariff.slug,
     price_cents_per_kwh: tariff.price_cents_per_kwh,

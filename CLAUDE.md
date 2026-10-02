@@ -147,7 +147,7 @@ create table versions (
   trim text not null,
   model_year int,
   battery_gross_wh int,
-  battery_net_wh int not null,
+  battery_net_wh int,                   -- bruikbaar; leeg als de fabrikant alleen de nominale waarde publiceert (staat dan in battery_gross_wh)
   wltp_range_km int,
   consumption_wh_per_km int not null,   -- WLTP gecombineerd
   ac_max_w int not null,                -- bv. 11000
@@ -262,6 +262,8 @@ if connection.phases == 3 and version.ac_phases == 1: effective_w = min(effectiv
 energy_needed_wh = version.battery_net_wh * (to_pct - from_pct) / 100 / (1 - charging_loss)
 seconds = energy_needed_wh / effective_w * 3600
 ```
+Capaciteit: `battery_net_wh` als die bekend is. Publiceert de fabrikant alleen de nominale capaciteit, dan blijft `battery_net_wh` leeg en rekent de laadtijd met `battery_gross_wh` (bovengrens, zichtbaar gemarkeerd als "nominaal"); de kost per volle lading wordt dan niet getoond. Kosten per 100 km en per jaar lopen altijd via verbruik × afstand (6.4). Zie `lib/calc/battery.ts`.
+
 Connecties: `socket_2300`, `1f_16a_3700`, `1f_32a_7400`, `3f_16a_11000`, `3f_32a_22000`. Markeer een connectie als `no_gain: true` als `effective_w` gelijk is aan die van de vorige, goedkopere connectie.
 
 ### 6.2 `advice(version, region)`

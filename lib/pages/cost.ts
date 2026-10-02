@@ -1,4 +1,5 @@
 // Assemblage van een charging_cost-pagina (CLAUDE.md 4.1): één model, één tarief. Geen I/O, geen tekst.
+import { batteryForCalc } from "@/lib/calc/battery";
 import { advice, chargingCost, DEFAULT_REAL_WORLD_FACTOR, type ChargingCostResult } from "@/lib/calc";
 import { LOCALE_CONFIG, chargerPath, costPath, getCopy, type Copy, type CostPageVars } from "@/lib/copy";
 import type { Locale, TariffRow, VersionFull } from "@/lib/db/types";
@@ -33,6 +34,8 @@ export function buildCostPage(version: VersionFull, locale: Locale, tariff: Tari
   const others = allTariffs.filter((t) => t.slug !== tariff.slug).map((t) => ({ tariff: t, result: chargingCost(version, t, { km_per_year: COST_DEFAULT_KM }) }));
   const cons = new Intl.NumberFormat(lang === "fr" ? "fr-BE" : "nl-BE", { minimumFractionDigits: 1, maximumFractionDigits: 1 }).format(version.consumption_wh_per_km / 10);
 
+  const battery = batteryForCalc(version) ?? { wh: 0, basis: "net" as const };
+
   const vars: CostPageVars = {
     locale,
     make: version.make.name,
@@ -43,10 +46,11 @@ export function buildCostPage(version: VersionFull, locale: Locale, tariff: Tari
     region: cfg.region,
     tariffLabel: tariff.label[lang] ?? tariff.slug,
     pricePerKwh: centsPerKwh(Number(tariff.price_cents_per_kwh), locale),
-    batteryNet: kwh(version.battery_net_wh, locale),
+    batteryNet: kwh(battery.wh, locale),
+    batteryNominal: battery.basis === "nominal",
     consumptionWltp: `${cons} kWh/100 km`,
     per100km: euroPer100Km(result.cents_per_100km, locale),
-    perFull: euro(result.full_charge_cents, locale, { decimals: 2 }),
+    perFull: result.full_charge_cents != null ? euro(result.full_charge_cents, locale, { decimals: 2 }) : null,
     perYear: euro(result.cents_per_year, locale, { decimals: 0 }),
     kmPerYear: int(COST_DEFAULT_KM, locale),
     realWorldPct: `${int(Math.round((DEFAULT_REAL_WORLD_FACTOR - 1) * 100), locale)} %`,

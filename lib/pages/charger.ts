@@ -1,4 +1,5 @@
 // Assemblage van een charger_for_model-pagina: data + calc + copy-variabelen. Geen I/O.
+import { batteryForCalc } from "@/lib/calc/battery";
 import { advice, compareTariffs, connection, type AdviceResult, type TariffComparison } from "@/lib/calc";
 import { LOCALE_CONFIG, getCopy, type ChargerPageVars, type Copy } from "@/lib/copy";
 import type { Locale, RuleRow, TariffRow, VersionFull } from "@/lib/db/types";
@@ -47,6 +48,9 @@ export function buildChargerPage(version: VersionFull, locale: Locale, rules: Ru
   const cap74 = a.capacity?.scenarios.find((s) => s.charger_w === 7400) ?? null;
   const capMain = cap11 ?? cap74;
 
+  // Pagina's zonder capaciteit bestaan niet (status draft), dus dit is altijd gevuld.
+  const battery = batteryForCalc(version) ?? { wh: 0, basis: "net" as const };
+
   const vars: ChargerPageVars = {
     locale,
     make: version.make.name,
@@ -56,7 +60,7 @@ export function buildChargerPage(version: VersionFull, locale: Locale, rules: Ru
     model_year: version.model_year,
     fullName: `${version.make.name} ${version.vehicle.model} ${version.trim}${version.model_year ? ` (${version.model_year})` : ""}`,
     region: cfg.region,
-    batteryNet: kwh(version.battery_net_wh, locale),
+    batteryNet: kwh(battery.wh, locale),
     acMax: kw(version.ac_max_w, locale),
     acPhases: version.ac_phases,
     recommendedLabel: `${copy.connections[a.recommended_connection]}, ${kw(recConn.max_w, locale)}`,
@@ -67,7 +71,7 @@ export function buildChargerPage(version: VersionFull, locale: Locale, rules: Ru
     advice: a,
     cost,
     cheapestLabel: cheapestTariff ? (cheapestTariff.label[lang] ?? cheapestTariff.slug) : null,
-    cheapestFull: cost ? euro(cost.cheapest.full_charge_cents, locale, { decimals: 2 }) : null,
+    cheapestFull: cost && cost.cheapest.full_charge_cents != null ? euro(cost.cheapest.full_charge_cents, locale, { decimals: 2 }) : null,
     savingYear: cost && cost.saving_cents_per_year > 0 ? euro(cost.saving_cents_per_year, locale, { decimals: 0 }) : null,
     kmPerYear: int(KM_PER_YEAR, locale),
     capacity11: cap11,
@@ -80,6 +84,7 @@ export function buildChargerPage(version: VersionFull, locale: Locale, rules: Ru
     capacityIsAverage: Boolean(capRule?.params.is_regional_average),
     specNotes: version.spec_notes ?? null,
     batteryEstimated: Boolean(version.battery_estimated),
+    batteryNominal: battery.basis === "nominal",
   };
 
   const sources: SourceItem[] = [{ title: `${version.make.name} ${version.vehicle.model}: specificaties`, url: version.spec_source_url, checked: version.spec_source_date }];

@@ -48,7 +48,8 @@ export interface VersionRow {
   trim: string;
   model_year: number | null;
   battery_gross_wh: number | null;
-  battery_net_wh: number;
+  /** Bruikbare capaciteit. Leeg als de fabrikant alleen de nominale waarde publiceert (dan staat die in battery_gross_wh). */
+  battery_net_wh: number | null;
   wltp_range_km: number | null;
   consumption_wh_per_km: number;
   ac_max_w: number;

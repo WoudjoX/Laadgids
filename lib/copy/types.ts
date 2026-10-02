@@ -38,6 +38,8 @@ export interface ChargerPageVars {
   capacityIsAverage: boolean;
   specNotes: string | null;
   batteryEstimated: boolean;
+  /** true: alleen de nominale capaciteit is gepubliceerd; batteryNet bevat dan die nominale waarde. */
+  batteryNominal: boolean;
 }
 
 /** Variabelen voor de laadkosten-pagina, al geformatteerd. */
@@ -54,7 +56,8 @@ export interface CostPageVars {
   batteryNet: string;
   consumptionWltp: string; // "14,6 kWh/100 km"
   per100km: string; // "€ 5,93"
-  perFull: string; // "€ 17,24"
+  perFull: string | null; // "€ 17,24"; null als alleen de nominale capaciteit bekend is
+  batteryNominal: boolean;
   perYear: string; // "€ 712"
   kmPerYear: string; // "12.000"
   realWorldPct: string; // "15 %"
@@ -133,7 +136,8 @@ export interface Copy {
     metaDescription: (v: ChargerPageVars) => string;
     shortAnswerLabel: string;
     shortAnswer: (v: ChargerPageVars) => string; // 2 tot 4 zinnen
-    metrics: { acMax: string; battery: string; batteryEstimated: string; time: (v: ChargerPageVars) => string };
+    metrics: { acMax: string; battery: string; batteryEstimated: string; batteryNominal: string; time: (v: ChargerPageVars) => string };
+    nominalNote: (v: ChargerPageVars) => string;
     estimateNote: (v: ChargerPageVars) => string; // zichtbare regel onder de cijfers als de batterij een schatting is
     table: {
       heading: (v: ChargerPageVars) => string;

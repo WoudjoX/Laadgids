@@ -1,4 +1,5 @@
 // Indexatiebeleid (CLAUDE.md 4.3). Pure functie; gebruikt door recalc-pages en de lokale repo.
+import { batteryForCalc } from "@/lib/calc/battery";
 import { completeness } from "@/lib/calc/completeness";
 import { LOCALE_CONFIG } from "@/lib/copy";
 import type { Locale, PageStatus, Template, VersionRow } from "@/lib/db/types";
@@ -25,7 +26,7 @@ export function decidePageStatus(version: VersionRow, locale: Locale, template: 
   const score = completeness(version, template);
   const country = LOCALE_CONFIG[locale].country;
 
-  if (!(version.battery_net_wh > 0) || !(version.ac_max_w > 0)) {
+  if (!batteryForCalc(version) || !(version.ac_max_w > 0)) {
     return { completeness_score: score, status: "draft", reasons: ["calculation impossible: missing battery or ac power"] };
   }
   if (score < 1) reasons.push(`completeness ${score.toFixed(2)} < 1`);
@@ -42,7 +43,7 @@ export function decidePageStatus(version: VersionRow, locale: Locale, template: 
  * We importeren zonder defaults (leeg in plaats van raden), dus dit vangt alleen rijen die
  * per ongeluk toch een placeholder-profiel kregen.
  */
-export function isDistinctive(version: Pick<VersionRow, "ac_max_w" | "ac_phases" | "battery_net_wh" | "consumption_wh_per_km">): boolean {
-  const placeholder = version.ac_max_w === 11000 && version.ac_phases === 3 && version.battery_net_wh === 60000 && version.consumption_wh_per_km === 160;
+export function isDistinctive(version: Pick<VersionRow, "ac_max_w" | "ac_phases" | "battery_net_wh" | "consumption_wh_per_km"> & Partial<Pick<VersionRow, "battery_gross_wh">>): boolean {
+  const placeholder = version.ac_max_w === 11000 && version.ac_phases === 3 && batteryForCalc(version)?.wh === 60000 && version.consumption_wh_per_km === 160;
   return !placeholder;
 }

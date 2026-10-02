@@ -4,6 +4,7 @@ Pure functies, geen I/O, geen tekst. Input zijn rijen uit het datamodel (`lib/db
 
 | Functie | Spec | Opmerking |
 |---|---|---|
+| `batteryForCalc` | 6.1 | Kiest de capaciteit voor de berekening: `battery_net_wh` als die er is, anders `battery_gross_wh` met `basis: "nominal"`. Publiceert een fabrikant alleen de nominale capaciteit, dan blijft het nettoveld leeg; de laadtijd is dan een bovengrens en `chargingCost.full_charge_cents` is `null`. |
 | `chargeTime`, `chargeTimeTable` | 6.1 | Default 20 naar 80 %, laadverlies 10 %. Fase-mismatch cap op 7 400 W volgens spec. `no_gain` vergelijkt met de vorige, goedkopere aansluiting. |
 | `advice` | 6.2 | Geeft codes (`ReasonCode`, `WarningCode`), geen zinnen. Copy staat in `lib/copy/{locale}.ts`. |
 | `capacityImpact` | 6.3 | Alleen renderen als er een `capacity_tariff`-regel voor het gewest is. Kosten in eurocent, mogelijk fractioneel. Laders boven het AC-maximum van de auto worden weggelaten. |

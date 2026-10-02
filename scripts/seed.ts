@@ -26,9 +26,16 @@ async function main() {
   ];
   for (const s of steps) {
     const rows = await readJson<Record<string, unknown>[]>(s.file);
-    const { error } = await db.from(s.table).upsert(rows, { onConflict: s.onConflict });
+    let { error } = await db.from(s.table).upsert(rows, { onConflict: s.onConflict });
+    if (error && s.table === "versions" && /battery_net_wh/.test(error.message) && /not-null|null value/.test(error.message)) {
+      // Migratie 0005 nog niet toegepast: rijen met alleen een nominale capaciteit kunnen er nog niet in.
+      const ready = rows.filter((r) => r.battery_net_wh != null);
+      const waiting = rows.filter((r) => r.battery_net_wh == null).map((r) => r.slug);
+      console.warn(`versions: migration 0005 not applied yet; skipped ${waiting.length} rows without battery_net_wh: ${waiting.join(", ")}`);
+      ({ error } = await db.from(s.table).upsert(ready, { onConflict: s.onConflict }));
+      if (!error) console.log(`${s.table}: ${ready.length} rows`);
+    } else if (!error) console.log(`${s.table}: ${rows.length} rows`);
     if (error) throw new Error(`${s.table}: ${error.message}`);
-    console.log(`${s.table}: ${rows.length} rows`);
   }
   console.log("Run `pnpm recalc-pages` next.");
 }

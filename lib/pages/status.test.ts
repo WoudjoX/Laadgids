@@ -39,7 +39,14 @@ describe("decidePageStatus", () => {
     expect(decidePageStatus(base, "nl-NL", "charger_for_model").status).toBe("noindex");
     expect(decidePageStatus(base, "nl-BE", "charger_for_model", { unverified: true }).status).toBe("noindex");
   });
-  it("draft als de berekening onmogelijk is", () => {
-    expect(decidePageStatus({ ...base, battery_net_wh: 0 }, "nl-BE", "charger_for_model").status).toBe("draft");
+  it("draft als de berekening onmogelijk is: geen bruikbare en geen nominale capaciteit", () => {
+    expect(decidePageStatus({ ...base, battery_net_wh: 0, battery_gross_wh: null }, "nl-BE", "charger_for_model").status).toBe("draft");
+    expect(decidePageStatus({ ...base, battery_net_wh: null, battery_gross_wh: null }, "nl-BE", "charger_for_model").status).toBe("draft");
+  });
+  it("alleen nominale capaciteit: geen draft, volledig en indexeerbaar na verificatie", () => {
+    const d = decidePageStatus({ ...base, battery_net_wh: null, battery_gross_wh: 106000 }, "nl-BE", "charger_for_model");
+    expect(d.completeness_score).toBe(1);
+    expect(d.status).toBe("index");
+    expect(decidePageStatus({ ...base, battery_net_wh: null, battery_gross_wh: 106000 }, "nl-BE", "charging_cost").status).toBe("index");
   });
 });
