@@ -5,6 +5,7 @@ export const nlBE: Copy = {
   locale: "nl-BE",
   site: {
     name: "Laadgids",
+    notFound: { title: "Pagina niet gevonden", body: "Deze pagina bestaat niet of is verplaatst.", home: "Naar de startpagina", models: "Alle modellen bekijken" },
     tagline: "Het juiste laadadvies voor jouw auto, jouw meter en jouw gewest, met de cijfers erbij.",
     langSwitch: [
       { locale: "nl-BE", label: "nl" },
@@ -245,7 +246,7 @@ export const nlBE: Copy = {
     breadcrumbSection: "Laadkosten per model",
     h1: (v) => `Wat kost thuisladen voor een ${v.make} ${v.model} ${v.trim}?`,
     metaTitle: (v) => `Laadkosten ${v.make} ${v.model} ${v.trim}: ${v.per100km} per 100 km | Laadgids`,
-    metaDescription: (v) => `Thuisladen van een ${v.make} ${v.model} ${v.trim} kost ${v.per100km} per 100 km en ${v.perFull} per volle lading met ${v.tariffLabel} (${v.pricePerKwh} per kWh). Per jaar en per kilometer, met bronnen.`,
+    metaDescription: (v) => `Thuisladen van een ${v.make} ${v.model} ${v.trim} kost ${v.per100km} per 100 km en ${v.perFull} per volle lading met ${v.tariffLabel} (${v.pricePerKwh} per kWh).`,
     shortAnswer: (v) => `${v.per100km} per 100 km, ${v.perFull} per volle lading en ${v.perYear} per jaar bij ${v.kmPerYear} km. Gerekend met ${v.tariffLabel} van ${v.pricePerKwh} per kWh, ${v.lossPct} laadverlies en ${v.realWorldPct} bovenop het WLTP-verbruik van ${v.consumptionWltp}.`,
     metrics: { per100km: "Per 100 km", perFull: "Per volle lading", perYear: (v) => `Per jaar (${v.kmPerYear} km)` },
     kmTable: { heading: "Jaarkost per kilometrage", colKm: "Km per jaar", colYear: "Per jaar", colMonth: "Per maand" },

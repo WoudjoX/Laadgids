@@ -8,7 +8,7 @@ import { LeadForm } from "@/components/LeadForm";
 import { MetricCards } from "@/components/MetricCards";
 import { SourcesBlock } from "@/components/SourcesBlock";
 import { eventAttrs } from "@/lib/analytics";
-import { LOCALE_CONFIG, type ChargerPageVars } from "@/lib/copy";
+import { LOCALE_CONFIG, type ChargerPageVars, makePath } from "@/lib/copy";
 import type { Locale, PageRow } from "@/lib/db/types";
 import { dateLong, euro, int } from "@/lib/format";
 import type { CostPageData } from "@/lib/pages/cost";
@@ -31,7 +31,8 @@ export function CostPage({ data, locale, page, canonical, energyCta }: Props) {
   const crumbs = [
     { label: copy.site.home, href: `/${cfg.segment}` },
     { label: c.breadcrumbSection, href: `/${cfg.segment}/${c.sectionSlug}` },
-    { label: `${vars.make} ${vars.model} ${vars.trim}` },
+    { label: vars.make, href: makePath(locale, vars.makeSlug) },
+    { label: `${vars.model} ${vars.trim}` },
   ];
   return (
     <article className="mx-auto max-w-content px-4 pb-16 pt-6">

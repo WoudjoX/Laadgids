@@ -8,7 +8,7 @@ import { loadPages } from "@/lib/db/cached";
 import type { Locale } from "@/lib/db/types";
 import { makeHubVars } from "@/lib/pages/makeHub";
 import { modelIndex } from "@/lib/pages/modelIndex";
-import { alternatesFor, assertValidHreflangKeys } from "@/lib/seo/alternates";
+import { alternatesFor, assertValidHreflangKeys, defaultOgImages, fitTitle } from "@/lib/seo/alternates";
 
 export interface MakeParams {
   locale: string;
@@ -51,11 +51,12 @@ export async function makeMetadata(section: string, params: MakeParams): Promise
   const alt = alternatesFor(r.page, r.pages);
   assertValidHreflangKeys(alt.languages as Record<string, string>);
   return {
-    title: copy.makeHub.metaTitle(vars.make, vars.count),
+    title: fitTitle(copy.makeHub.metaTitle(vars.make, vars.count), copy.site.name),
     description: copy.makeHub.metaDescription(vars.make, vars.count, vars.powers),
     alternates: { canonical: alt.canonical, languages: alt.languages },
     robots: r.page.status === "index" ? { index: true, follow: true } : { index: false, follow: true },
-    openGraph: { title: copy.makeHub.h1(vars.make), description: copy.makeHub.metaDescription(vars.make, vars.count, vars.powers), url: alt.canonical, locale: alt.ogLocale, alternateLocale: alt.ogAlternateLocales, type: "website", siteName: copy.site.name },
+    openGraph: { title: copy.makeHub.h1(vars.make), description: copy.makeHub.metaDescription(vars.make, vars.count, vars.powers), url: alt.canonical, locale: alt.ogLocale, alternateLocale: alt.ogAlternateLocales, type: "website", siteName: copy.site.name, images: defaultOgImages() },
+    twitter: { card: "summary_large_image" },
   };
 }
 
@@ -69,7 +70,7 @@ export async function renderMake(section: string, params: MakeParams) {
   const seen = new Set<number>();
   const otherMakes = r.all.map((i) => i.v.make).filter((m) => m.id !== make.id && !seen.has(m.id) && seen.add(m.id)).sort((a, b) => a.name.localeCompare(b.name));
   return (
-    <Shell copy={copy} locale={r.locale} alternates={alt.languages}>
+    <Shell copy={copy} locale={r.locale} alternates={alt.switcher}>
       <MakePage copy={copy} locale={r.locale} make={make} items={r.items} all={r.all} otherMakes={otherMakes} vars={vars} canonical={alt.canonical} />
     </Shell>
   );

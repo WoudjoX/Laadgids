@@ -7,6 +7,7 @@ import type { Locale, Region } from "@/lib/db/types";
 export interface ChargerPageVars {
   locale: Locale;
   make: string;
+  makeSlug: string;
   model: string;
   trim: string;
   model_year: number | null;
@@ -43,6 +44,7 @@ export interface ChargerPageVars {
 export interface CostPageVars {
   locale: Locale;
   make: string;
+  makeSlug: string;
   model: string;
   trim: string;
   fullName: string;
@@ -95,6 +97,7 @@ export interface Copy {
     cardAc: string; // "AC max."
     cardBattery: string; // "batterij"
     cardTime: string; // "20 naar 80 %"
+    notFound: { title: string; body: string; home: string; models: string };
   };
   home: {
     h1: string; // de belofte, geen categorielabel

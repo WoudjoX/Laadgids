@@ -36,6 +36,7 @@ export function buildCostPage(version: VersionFull, locale: Locale, tariff: Tari
   const vars: CostPageVars = {
     locale,
     make: version.make.name,
+    makeSlug: version.make.slug,
     model: version.vehicle.model,
     trim: version.trim,
     fullName: `${version.make.name} ${version.vehicle.model} ${version.trim}${version.model_year ? ` (${version.model_year})` : ""}`,

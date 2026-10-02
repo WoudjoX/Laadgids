@@ -7,7 +7,7 @@ import { COST_SECTION, LOCALE_CONFIG, LOCALES, getCopy, localeFromSegment } from
 import { loadPages, loadTariffs, loadVersion } from "@/lib/db/cached";
 import type { Locale } from "@/lib/db/types";
 import { buildCostPage } from "@/lib/pages/cost";
-import { alternatesFor, assertValidHreflangKeys } from "@/lib/seo/alternates";
+import { alternatesFor, assertValidHreflangKeys, defaultOgImages, fitTitle } from "@/lib/seo/alternates";
 
 export interface CostParams {
   locale: string;
@@ -54,11 +54,12 @@ export async function costMetadata(section: string, params: CostParams): Promise
   const alt = alternatesFor(r.page, r.pages);
   assertValidHreflangKeys(alt.languages as Record<string, string>);
   return {
-    title: data.copy.cost.metaTitle(data.vars),
+    title: fitTitle(data.copy.cost.metaTitle(data.vars), data.copy.site.name),
     description: data.copy.cost.metaDescription(data.vars),
     alternates: { canonical: alt.canonical, languages: alt.languages },
     robots: r.page.status === "index" ? { index: true, follow: true } : { index: false, follow: true },
-    openGraph: { title: data.copy.cost.metaTitle(data.vars), description: data.copy.cost.metaDescription(data.vars), url: alt.canonical, locale: alt.ogLocale, alternateLocale: alt.ogAlternateLocales, type: "article", siteName: getCopy(r.locale).site.name },
+    openGraph: { title: fitTitle(data.copy.cost.metaTitle(data.vars), data.copy.site.name), description: data.copy.cost.metaDescription(data.vars), url: alt.canonical, locale: alt.ogLocale, alternateLocale: alt.ogAlternateLocales, type: "article", siteName: getCopy(r.locale).site.name, images: defaultOgImages() },
+    twitter: { card: "summary_large_image" },
   };
 }
 
@@ -70,7 +71,7 @@ export async function renderCost(section: string, params: CostParams) {
   const alt = alternatesFor(r.page, r.pages);
   const energyCta = process.env[`ENERGY_CTA_URL_${cfg.country}`]?.trim() || null;
   return (
-    <Shell copy={data.copy} locale={r.locale} alternates={alt.languages}>
+    <Shell copy={data.copy} locale={r.locale} alternates={alt.switcher}>
       <CostPage data={data} locale={r.locale} page={r.page} canonical={alt.canonical} energyCta={energyCta} />
     </Shell>
   );

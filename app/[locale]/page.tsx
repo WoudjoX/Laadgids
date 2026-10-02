@@ -10,6 +10,8 @@ import { dateLong } from "@/lib/format";
 import { buildChargerPage } from "@/lib/pages/charger";
 import { homeData } from "@/lib/pages/home";
 import { modelIndex } from "@/lib/pages/modelIndex";
+import { defaultOgImages, fitTitle, sectionAlternates } from "@/lib/seo/alternates";
+import { indexableLocales } from "@/lib/seo/locales";
 
 export const revalidate = 86400;
 
@@ -17,7 +19,17 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const locale = localeFromSegment((await params).locale);
   if (!locale) return {};
   const copy = getCopy(locale);
-  return { title: `${copy.home.h1} | ${copy.site.name}`, description: copy.site.tagline };
+  const indexable = await indexableLocales();
+  const alt = sectionAlternates(Object.fromEntries(LOCALES.map((l) => [l, `/${LOCALE_CONFIG[l].segment}`])), locale, indexable);
+  const title = fitTitle(copy.home.h1, copy.site.name);
+  return {
+    title,
+    description: copy.site.tagline,
+    alternates: { canonical: alt.canonical, languages: alt.languages },
+    robots: indexable.includes(locale) ? { index: true, follow: true } : { index: false, follow: true },
+    openGraph: { title, description: copy.site.tagline, url: alt.canonical, locale: alt.ogLocale, alternateLocale: alt.ogAlternateLocales, type: "website", siteName: copy.site.name, images: defaultOgImages() },
+    twitter: { card: "summary_large_image" },
+  };
 }
 
 /**

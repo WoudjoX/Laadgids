@@ -7,7 +7,7 @@ import { LOCALE_CONFIG, LOCALES, RULES_SECTION, getCopy, localeFromSegment, rule
 import { RULES, ruleContent } from "@/lib/content/rules";
 import { loadAllVersions, loadPages } from "@/lib/db/cached";
 import type { Locale } from "@/lib/db/types";
-import { alternatesFor, assertValidHreflangKeys } from "@/lib/seo/alternates";
+import { alternatesFor, assertValidHreflangKeys, defaultOgImages } from "@/lib/seo/alternates";
 
 export interface RuleParams {
   locale: string;
@@ -48,7 +48,8 @@ export async function ruleMetadata(section: string, params: RuleParams): Promise
     description: r.rule.metaDescription,
     alternates: { canonical: alt.canonical, languages: alt.languages },
     robots: r.page.status === "index" ? { index: true, follow: true } : { index: false, follow: true },
-    openGraph: { title: r.rule.title, description: r.rule.metaDescription, url: alt.canonical, locale: alt.ogLocale, alternateLocale: alt.ogAlternateLocales, type: "article" },
+    openGraph: { title: r.rule.title, description: r.rule.metaDescription, url: alt.canonical, locale: alt.ogLocale, alternateLocale: alt.ogAlternateLocales, type: "article", images: defaultOgImages() },
+    twitter: { card: "summary_large_image" },
   };
 }
 
@@ -66,7 +67,7 @@ export async function renderRule(section: string, params: RuleParams) {
     .sort((a, b) => a.label.localeCompare(b.label));
   const alt = alternatesFor(r.page, r.pages);
   return (
-    <Shell copy={copy} locale={r.locale} alternates={alt.languages}>
+    <Shell copy={copy} locale={r.locale} alternates={alt.switcher}>
       <RulePage rule={r.rule} copy={copy} locale={r.locale} canonical={alt.canonical} modelLinks={modelLinks} />
     </Shell>
   );

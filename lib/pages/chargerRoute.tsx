@@ -7,7 +7,7 @@ import { LOCALE_CONFIG, LOCALES, getCopy, localeFromSegment } from "@/lib/copy";
 import { loadAllVersions, loadPages, loadRules, loadTariffs, loadVersion } from "@/lib/db/cached";
 import type { Locale } from "@/lib/db/types";
 import { buildChargerPage } from "@/lib/pages/charger";
-import { alternatesFor, assertValidHreflangKeys } from "@/lib/seo/alternates";
+import { alternatesFor, assertValidHreflangKeys, fitTitle } from "@/lib/seo/alternates";
 import { relatedFor } from "@/lib/seo/related";
 
 export interface ChargerParams {
@@ -57,12 +57,12 @@ export async function chargerMetadata(section: string, params: ChargerParams): P
   const alt = alternatesFor(r.page, r.pages);
   assertValidHreflangKeys(alt.languages as Record<string, string>);
   return {
-    title: data.copy.charger.metaTitle(data.vars),
+    title: fitTitle(data.copy.charger.metaTitle(data.vars), data.copy.site.name),
     description: data.copy.charger.metaDescription(data.vars),
     alternates: { canonical: alt.canonical, languages: alt.languages },
     robots: r.page.status === "index" ? { index: true, follow: true } : { index: false, follow: true },
     openGraph: {
-      title: data.copy.charger.metaTitle(data.vars),
+      title: fitTitle(data.copy.charger.metaTitle(data.vars), data.copy.site.name),
       description: data.copy.charger.metaDescription(data.vars),
       url: alt.canonical,
       locale: alt.ogLocale,
@@ -89,7 +89,7 @@ export async function renderCharger(section: string, params: ChargerParams) {
   // Bedrijfswagenblok: rechtstreeks naar de CREG-regelpagina als die in deze locale bestaat, los van de 'verder lezen'-selectie.
   const cregPath = allPages.find((p) => p.template === "rule" && p.status !== "draft" && /creg/.test(p.path))?.path ?? null;
   return (
-    <Shell copy={data.copy} locale={r.locale} alternates={alt.languages}>
+    <Shell copy={data.copy} locale={r.locale} alternates={alt.switcher}>
       <ChargerPage data={data} locale={r.locale} page={r.page} related={related} canonical={alt.canonical} cregPath={cregPath} />
     </Shell>
   );

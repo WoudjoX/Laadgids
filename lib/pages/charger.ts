@@ -50,6 +50,7 @@ export function buildChargerPage(version: VersionFull, locale: Locale, rules: Ru
   const vars: ChargerPageVars = {
     locale,
     make: version.make.name,
+    makeSlug: version.make.slug,
     model: version.vehicle.model,
     trim: version.trim,
     model_year: version.model_year,

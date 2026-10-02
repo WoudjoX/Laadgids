@@ -10,7 +10,8 @@ import { Shell } from "@/components/Shell";
 import { LOCALES, LOCALE_CONFIG, comparePath, getCopy, localeFromSegment, makePath } from "@/lib/copy";
 import type { Locale } from "@/lib/db/types";
 import { modelIndex } from "./modelIndex";
-import { siteUrl } from "@/lib/seo/alternates";
+import { defaultOgImages, fitTitle, sectionAlternates } from "@/lib/seo/alternates";
+import { indexableLocales } from "@/lib/seo/locales";
 
 function resolve(section: string, seg: string): Locale | null {
   const locale = localeFromSegment(seg);
@@ -29,13 +30,16 @@ export async function chargerIndexMetadata(section: string, seg: string): Promis
   const locale = resolve(section, seg);
   if (!locale) return {};
   const copy = getCopy(locale);
-  const base = siteUrl();
-  const languages: Record<string, string> = Object.fromEntries(LOCALES.map((l) => [l, base + sectionPath(l)]));
-  languages["x-default"] = base + sectionPath("nl-BE");
+  const indexable = await indexableLocales();
+  const alt = sectionAlternates(Object.fromEntries(LOCALES.map((l) => [l, sectionPath(l)])), locale, indexable);
+  const title = fitTitle(copy.charger.breadcrumbSection, copy.site.name);
   return {
-    title: `${copy.charger.breadcrumbSection} | ${copy.site.name}`,
+    title,
     description: copy.site.homeIntro,
-    alternates: { canonical: base + sectionPath(locale), languages },
+    alternates: { canonical: alt.canonical, languages: alt.languages },
+    robots: indexable.includes(locale) ? { index: true, follow: true } : { index: false, follow: true },
+    openGraph: { title, description: copy.site.homeIntro, url: alt.canonical, locale: alt.ogLocale, alternateLocale: alt.ogAlternateLocales, type: "website", siteName: copy.site.name, images: defaultOgImages() },
+    twitter: { card: "summary_large_image" },
   };
 }
 

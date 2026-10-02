@@ -5,6 +5,7 @@ export const frBE: Copy = {
   locale: "fr-BE",
   site: {
     name: "Laadgids",
+    notFound: { title: "Page introuvable", body: "Cette page n'existe pas ou a été déplacée.", home: "Vers la page d'accueil", models: "Voir tous les modèles" },
     tagline: "Le bon conseil de recharge pour votre voiture, votre compteur et votre région, chiffres à l'appui.",
     langSwitch: [
       { locale: "nl-BE", label: "nl" },
@@ -235,7 +236,7 @@ export const frBE: Copy = {
     breadcrumbSection: "Coût de recharge par modèle",
     h1: (v) => `Combien coûte la recharge à domicile d'une ${v.make} ${v.model} ${v.trim} ?`,
     metaTitle: (v) => `Coût de recharge ${v.make} ${v.model} ${v.trim} : ${v.per100km} par 100 km | Laadgids`,
-    metaDescription: (v) => `Recharger une ${v.make} ${v.model} ${v.trim} à domicile coûte ${v.per100km} par 100 km et ${v.perFull} par charge complète avec le ${v.tariffLabel} (${v.pricePerKwh} par kWh). Par an et par kilomètre, sources comprises.`,
+    metaDescription: (v) => `Recharger une ${v.make} ${v.model} ${v.trim} à domicile coûte ${v.per100km} par 100 km et ${v.perFull} par charge complète avec le ${v.tariffLabel} (${v.pricePerKwh} par kWh).`,
     shortAnswer: (v) => `${v.per100km} par 100 km, ${v.perFull} par charge complète et ${v.perYear} par an pour ${v.kmPerYear} km. Calculé avec le ${v.tariffLabel} à ${v.pricePerKwh} par kWh, ${v.lossPct} de pertes de charge et ${v.realWorldPct} en plus de la consommation WLTP de ${v.consumptionWltp}.`,
     metrics: { per100km: "Par 100 km", perFull: "Par charge complète", perYear: (v) => `Par an (${v.kmPerYear} km)` },
     kmTable: { heading: "Coût annuel selon le kilométrage", colKm: "Km par an", colYear: "Par an", colMonth: "Par mois" },

@@ -12,7 +12,7 @@ import { PeakBlock } from "@/components/PeakBlock";
 import { RelatedLinks } from "@/components/RelatedLinks";
 import { SourcesBlock } from "@/components/SourcesBlock";
 import Link from "next/link";
-import { LOCALE_CONFIG, comparePath } from "@/lib/copy";
+import { LOCALE_CONFIG, comparePath, makePath } from "@/lib/copy";
 import type { Locale, PageRow } from "@/lib/db/types";
 import { PhaseDiagram } from "@/components/viz/PhaseDiagram";
 import { dateLong, durationCompact, kw } from "@/lib/format";
@@ -45,7 +45,8 @@ export function ChargerPage({ data, locale, page, related, canonical, cregPath }
   const crumbs = [
     { label: copy.site.home, href: `/${cfg.segment}` },
     { label: c.breadcrumbSection, href: `/${cfg.segment}/${c.sectionSlug}` },
-    { label: `${vars.make} ${vars.model} ${vars.trim}` },
+    { label: vars.make, href: makePath(locale, vars.makeSlug) },
+    { label: `${vars.model} ${vars.trim}` },
   ];
 
   return (
