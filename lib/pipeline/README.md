@@ -16,7 +16,7 @@ Automatiseert het opzoeken, niet het beslissen. Drie stappen, elk apart te draai
 - **afwijking**: er is een rij, maar batterij, verbruik, AC-vermogen of fasen verschillen meer dan 3 %. Ook in de CSV.
 - **bevestigd**: binnen 3 %. Alleen in het rapport.
 - **onvolledig**: geen rij, en het document geeft niet alle vereiste cijfers. Niet importeerbaar; een tweede document is nodig.
-- **bronnen met een probleem**: rijen waarvan het brondocument onbereikbaar is (na 30 dagen noindex, CLAUDE.md §8) of niet in de registry staat.
+- **bronnen met een probleem**: rijen waarvan het brondocument weg is (404 of 410; na 30 dagen noindex, CLAUDE.md §8), geblokkeerd is voor geautomatiseerd ophalen (403, 429, 5xx; geen termijn, in de browser nakijken) of niet in de registry staat. Vanaf GitHub Actions blokkeren meer sites dan vanaf een thuisverbinding; dat zegt niets over het document.
 
 ## Regels die de code volgt
 

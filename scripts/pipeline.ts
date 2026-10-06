@@ -47,9 +47,9 @@ async function cmdFetch(): Promise<void> {
   // Netwerkguard: is meer dan de helft van de online documenten onbereikbaar, dan ligt het aan dit netwerk, niet aan de bronnen.
   // De toestand wordt dan niet overschreven (anders zou elke rij een valse 'onbereikbaar sinds' krijgen).
   const online = docs.filter((d) => !d.file).length;
-  const unreachable = counts.unreachable ?? 0;
-  if (online > 0 && unreachable > online / 2) {
-    throw new Error(`fetch: ${unreachable} of ${online} online documents unreachable; this looks like a network restriction, state not saved`);
+  const failed = (counts.unreachable ?? 0) + (counts.blocked ?? 0);
+  if (online > 0 && failed > online / 2) {
+    throw new Error(`fetch: ${failed} of ${online} online documents unreachable or blocked; this looks like a network restriction, state not saved`);
   }
   await saveState(state);
   console.log("fetch:", counts);
@@ -141,6 +141,7 @@ async function cmdReview(): Promise<void> {
   for (const v of versions) {
     const hit = byUrl.get(v.spec_source_url);
     if (!hit) orphanVersions.push({ version: v, reason: `bron staat niet in data/sources/oem-documents.json (${v.spec_source_url})` });
+    else if (hit.state?.status === "blocked") orphanVersions.push({ version: v, reason: `bron blokkeert geautomatiseerd ophalen (${hit.state.error ?? "?"}); geen termijn, wel in de browser nakijken bij de volgende verificatie` });
     else if (hit.state?.status === "unreachable") {
       const since = hit.state.unreachable_since ?? hit.state.fetched_at.slice(0, 10);
       const days = Math.floor((Date.now() - new Date(since).getTime()) / 86_400_000);

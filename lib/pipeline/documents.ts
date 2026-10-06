@@ -24,7 +24,18 @@ export type OemDocument = z.infer<typeof documentSchema>;
 
 export const registrySchema = z.object({ $comment: z.string().optional(), documents: z.array(documentSchema) });
 
-export type FetchStatus = "ok" | "unchanged" | "changed" | "unreachable" | "local" | "unsupported";
+/**
+ * unreachable: het document is weg (404/410 of geen verbinding) en telt voor de 30-dagenregel.
+ * blocked: de site weigert geautomatiseerd ophalen (403, 429, 5xx); vanaf een datacenter gebeurt dat vaker dan thuis.
+ * Dat zegt niets over het document zelf: vorige toestand blijft staan en in de browser nakijken volstaat.
+ */
+export type FetchStatus = "ok" | "unchanged" | "changed" | "unreachable" | "blocked" | "local" | "unsupported";
+
+/** Welke status een mislukte aanvraag krijgt. Alleen 404 en 410 betekenen dat het document weg is. */
+export function failureStatus(http: number | null): "unreachable" | "blocked" {
+  if (http == null) return "unreachable";
+  return http === 404 || http === 410 ? "unreachable" : "blocked";
+}
 
 export interface DocumentState {
   status: FetchStatus;
@@ -128,7 +139,20 @@ export async function fetchDocument(doc: OemDocument, previous: DocumentState | 
   let contentType: string | null = null;
   let local = false;
   const today = fetchedAt.slice(0, 10);
-  const failed = (error: string): FetchedDocument => ({ doc, text: null, state: { ...emptyState(fetchedAt, previous), status: "unreachable", http, unreachable_since: previous?.unreachable_since ?? today, error } });
+  const failed = (error: string): FetchedDocument => {
+    const status = failureStatus(http);
+    return {
+      doc,
+      text: null,
+      state: {
+        ...emptyState(fetchedAt, previous),
+        status,
+        http,
+        unreachable_since: status === "unreachable" ? (previous?.unreachable_since ?? today) : null,
+        error: status === "blocked" ? `${error} (geblokkeerd voor geautomatiseerd ophalen; in de browser nakijken)` : error,
+      },
+    };
+  };
   try {
     if (doc.file) {
       try {

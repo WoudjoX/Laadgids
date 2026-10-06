@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 import type { VersionFull } from "@/lib/db/types";
 import { classifyBatteryLabel, compareExtraction, conflictingVariantTokens, renderReport, renderVerificationCsv, sampleForHumanCheck, toCandidate } from "./compare";
-import { htmlToText, isPdf, loadRegistry, registrySchema, type OemDocument } from "./documents";
+import { failureStatus, htmlToText, isPdf, loadRegistry, registrySchema, type OemDocument } from "./documents";
 import { extractionSchema, type ExtractedVariant } from "./extract";
 
 const doc: OemDocument = { id: "volvo-ex30-pricelist-ie-my25-5", make: "volvo", models: ["EX30"], market: "IE", kind: "price_list", url: "https://example.com/ex30.pdf" };
@@ -71,6 +71,14 @@ describe("documents", () => {
     expect(t).toContain("61 kWh & 15 - 17 kWh/100km");
     expect(t).toContain("AC 11 kW");
     expect(t).not.toContain("var x");
+  });
+  it("alleen 404 en 410 betekenen dat een document weg is; 403, 429 en 5xx zijn een blokkade", () => {
+    expect(failureStatus(404)).toBe("unreachable");
+    expect(failureStatus(410)).toBe("unreachable");
+    expect(failureStatus(null)).toBe("unreachable");
+    expect(failureStatus(403)).toBe("blocked");
+    expect(failureStatus(429)).toBe("blocked");
+    expect(failureStatus(503)).toBe("blocked");
   });
   it("herkent een PDF aan de magische bytes of het contenttype", () => {
     expect(isPdf(new Uint8Array([0x25, 0x50, 0x44, 0x46, 0x2d]), null, "https://x/y")).toBe(true);
