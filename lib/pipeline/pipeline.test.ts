@@ -94,6 +94,17 @@ describe("compare", () => {
     expect(classifyBatteryLabel("Bruto Accu capaciteit")).toBe("gross");
     expect(classifyBatteryLabel("Batterijenergie (nominaal)")).toBe("gross");
     expect(classifyBatteryLabel("Accucapaciteit (kWh)")).toBe("unlabeled");
+    expect(classifyBatteryLabel("Battery Size - nominal / useable,KWh")).toBe("mixed");
+  });
+  it("toCandidate: twee cijfers onder een gemengd label 'nominal / useable' worden bruto en netto", () => {
+    const { candidate, notes } = toCandidate(doc, state, variant({ battery: [
+      { label: "Battery Size - nominal / useable,KWh", kwh: 82, page: 9, quote: "82/79" },
+      { label: "Battery Size - nominal / useable,KWh", kwh: 79, page: 9, quote: "82/79" },
+      { label: "Lithium-Ion Battery", kwh: 82, page: 4, quote: "+ Lithium-Ion Battery 82KWh" },
+    ] }));
+    expect(candidate.battery_gross_wh).toBe(82000);
+    expect(candidate.battery_net_wh).toBe(79000);
+    expect(notes.join(" ")).toContain("nominaal en bruikbaar samen");
   });
   it("toCandidate: netto en bruto uit labels, verbruiksbereik naar het midden, optie en notities", () => {
     const { candidate, notes } = toCandidate(doc, state, variant({ consumption_kwh_100km: { min: 14.1, max: 18.4, page: null, quote: "14,1 - 18,4" } }));

@@ -7,13 +7,22 @@ import type { SpecCandidate } from "@/lib/specs/types";
 import type { DocumentState, OemDocument } from "./documents";
 import type { ExtractedVariant, Extraction } from "./extract";
 
-export type BatteryLabelKind = "net" | "gross" | "unlabeled";
+export type BatteryLabelKind = "net" | "gross" | "mixed" | "unlabeled";
 
-/** "Netto capaciteit", "Battery Size - usable" → net; "Bruto", "nominaal", "nominal" → gross; anders ongelabeld. */
+const NET_RE = /\b(netto|net|bruikbaar|bruikbare|usable|useable|utilisable|nutzbar)\b/;
+const GROSS_RE = /\b(bruto|brut|gross|nominaal|nominale|nominal)\b/;
+
+/**
+ * "Netto capaciteit", "Battery Size - usable" → net; "Bruto", "nominaal", "nominal" → gross; een label met beide woorden
+ * ("nominal / useable") → mixed (twee cijfers onder één label: het grootste is bruto, het kleinste netto); anders ongelabeld.
+ */
 export function classifyBatteryLabel(label: string): BatteryLabelKind {
   const l = norm(label);
-  if (/\b(netto|net|bruikbaar|bruikbare|usable|useable|utilisable|nutzbar)\b/.test(l)) return "net";
-  if (/\b(bruto|brut|gross|nominaal|nominale|nominal)\b/.test(l)) return "gross";
+  const net = NET_RE.test(l);
+  const gross = GROSS_RE.test(l);
+  if (net && gross) return "mixed";
+  if (net) return "net";
+  if (gross) return "gross";
   return "unlabeled";
 }
 
@@ -28,13 +37,23 @@ export function toCandidate(doc: OemDocument, docState: Pick<DocumentState, "sha
   let net: number | null = null;
   let gross: number | null = null;
   const unlabeled: number[] = [];
+  const mixed: number[] = [];
   for (const b of v.battery) {
     const kind = classifyBatteryLabel(b.label);
     const wh = Math.round(b.kwh * 1000);
     if (kind === "net") net = net ?? wh;
     else if (kind === "gross") gross = gross ?? wh;
+    else if (kind === "mixed") mixed.push(wh);
     else unlabeled.push(wh);
   }
+  if (mixed.length >= 2) {
+    const uniq = [...new Set(mixed)].sort((a, b) => a - b);
+    if (uniq.length >= 2) {
+      net = net ?? uniq[0]!;
+      gross = gross ?? uniq[uniq.length - 1]!;
+      notes.push(`label noemt nominaal en bruikbaar samen; ${uniq[uniq.length - 1]! / 1000} kWh als bruto en ${uniq[0]! / 1000} kWh als netto gelezen`);
+    } else unlabeled.push(uniq[0]!);
+  } else if (mixed.length === 1) unlabeled.push(mixed[0]!);
   if (net == null && gross == null && unlabeled.length === 1) {
     net = unlabeled[0]!;
     notes.push(`batterij ${unlabeled[0]! / 1000} kWh zonder label netto/bruto (enig gepubliceerd cijfer)`);
