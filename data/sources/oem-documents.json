@@ -1,0 +1,422 @@
+{
+  "$comment": "Brondocumenten van fabrikanten voor de verificatiepijplijn (scripts/pipeline.ts). Eén regel per document. market: BE, NL, IE of INT. kind: price_list, spec_page, press_kit of offer_page. Documenten die geautomatiseerd ophalen blokkeren staan er toch in: de pijplijn meldt dan 'unreachable' en wijst op handmatig downloaden naar data/import/ (veld file).",
+  "documents": [
+    {
+      "id": "volvo-ex30-pricelist-ie-my25-5",
+      "make": "volvo",
+      "models": [
+        "EX30"
+      ],
+      "market": "IE",
+      "kind": "price_list",
+      "url": "https://azure-eu-assets.contentstack.com/v3/assets/blt84e01a6904dbd2e8/bltdc4437137eec679e/681332dd924f57737f7a3d4b/EX30_Model_Year_25.5.pdf",
+      "note": "Volvo Car Ireland, modeljaar 2025, oktober 2024. Bruikbare capaciteit op p. 9."
+    },
+    {
+      "id": "volvo-ex30-pricelist-ie-my26",
+      "make": "volvo",
+      "models": [
+        "EX30"
+      ],
+      "market": "IE",
+      "kind": "price_list",
+      "url": "https://azure-eu-assets.contentstack.com/v3/assets/blt84e01a6904dbd2e8/blta71afbaa2d71a6bb/68d12aea69b4b23e9c66296b/EX30_Model_Year_26_September_Retail_Pricelist_Update.pdf",
+      "note": "Volvo Car Ireland, modeljaar 2026, september 2025."
+    },
+    {
+      "id": "volvo-ex40-pricelist-ie-my25-5",
+      "make": "volvo",
+      "models": [
+        "EX40"
+      ],
+      "market": "IE",
+      "kind": "price_list",
+      "url": "https://azure-eu-assets.contentstack.com/v3/assets/blt84e01a6904dbd2e8/blt8e29e4c783d3ecc5/681332dd3fb32f44da715297/EX40_Model_Year_25.5.pdf",
+      "note": "Volvo Car Ireland, modeljaar 2025, oktober 2024."
+    },
+    {
+      "id": "volvo-ex30-specs-be",
+      "make": "volvo",
+      "models": [
+        "EX30"
+      ],
+      "market": "BE",
+      "kind": "spec_page",
+      "url": "https://www.volvocars.com/nl-be/cars/ex30-electric/specifications/",
+      "note": "Leesbaar via de pijplijn (curl krijgt 403). Toont P5 / P5 Long Range / P8 AWD met nominale kWh en WLTP-verbruik."
+    },
+    {
+      "id": "volvo-ex40-specs-be",
+      "make": "volvo",
+      "models": [
+        "EX40"
+      ],
+      "market": "BE",
+      "kind": "spec_page",
+      "url": "https://www.volvocars.com/nl-be/cars/ex40-electric/specifications/",
+      "note": "Leesbaar via de pijplijn (curl krijgt 403)."
+    },
+    {
+      "id": "volvo-ex90-specs-be",
+      "make": "volvo",
+      "models": [
+        "EX90"
+      ],
+      "market": "BE",
+      "kind": "spec_page",
+      "url": "https://www.volvocars.com/nl-be/cars/ex90-electric/specifications/",
+      "note": "Leesbaar via de pijplijn (curl krijgt 403). Alleen nominale capaciteit."
+    },
+    {
+      "id": "volvo-ec40-specs-be",
+      "make": "volvo",
+      "models": [
+        "EC40"
+      ],
+      "market": "BE",
+      "kind": "spec_page",
+      "url": "https://www.volvocars.com/nl-be/cars/ec40-electric/specifications/",
+      "note": "Leesbaar via de pijplijn (curl krijgt 403). Alleen nominale capaciteit; laadduur zonder kW."
+    },
+    {
+      "id": "skoda-elroq-pricelist-nl",
+      "make": "skoda",
+      "models": [
+        "Elroq"
+      ],
+      "market": "NL",
+      "kind": "price_list",
+      "url": "https://www.skoda.nl/_doc/fc32057f-e470-4667-b5e9-6c8eb90d2d92",
+      "note": "Škoda Nederland, modeljaar 2027, per 1 september 2026. Technische tabel p. 17."
+    },
+    {
+      "id": "skoda-enyaq-pricelist-nl",
+      "make": "skoda",
+      "models": [
+        "Enyaq"
+      ],
+      "market": "NL",
+      "kind": "price_list",
+      "url": "https://www.skoda.nl/_doc/63beb232-4650-4797-a214-8ee7f95c89e6",
+      "note": "Škoda Nederland, modeljaar 2027, per 1 oktober 2026. Technische tabel p. 19."
+    },
+    {
+      "id": "skoda-elroq-page-be",
+      "make": "skoda",
+      "models": [
+        "Elroq"
+      ],
+      "market": "BE",
+      "kind": "spec_page",
+      "url": "https://nl.skoda.be/models/elroq/elroq",
+      "note": "Toont batterij en WLTP-bereik per motorisering."
+    },
+    {
+      "id": "skoda-enyaq-page-be",
+      "make": "skoda",
+      "models": [
+        "Enyaq"
+      ],
+      "market": "BE",
+      "kind": "spec_page",
+      "url": "https://nl.skoda.be/models/enyaq/enyaq"
+    },
+    {
+      "id": "skoda-enyaq-presskit-2025",
+      "make": "skoda",
+      "models": [
+        "Enyaq"
+      ],
+      "market": "INT",
+      "kind": "press_kit",
+      "url": "https://cdn.skoda-storyboard.com/2025/05/Press_Kit_New_Skoda_Enyaq_492b58d1.pdf",
+      "note": "Mei 2025; tabel op p. 8."
+    },
+    {
+      "id": "vw-id4-pricelist-nl",
+      "make": "volkswagen",
+      "models": [
+        "ID.4"
+      ],
+      "market": "NL",
+      "kind": "price_list",
+      "url": "https://www.volkswagen.nl/idhub/content/dam/onehub_pkw/importers/nl/prijslijsten/ID4_prijslijst.pdf",
+      "note": "Volkswagen Nederland, per 1 september 2026. Technische gegevens p. 16 en 17."
+    },
+    {
+      "id": "vw-id7-offer-be",
+      "make": "volkswagen",
+      "models": [
+        "ID.7"
+      ],
+      "market": "BE",
+      "kind": "offer_page",
+      "url": "https://www.volkswagen.be/app/offers/nl/professional/id7-pro-business-premium"
+    },
+    {
+      "id": "vw-id3-offer-be",
+      "make": "volkswagen",
+      "models": [
+        "ID.3"
+      ],
+      "market": "BE",
+      "kind": "offer_page",
+      "url": "https://www.volkswagen.be/app/offers/nl/professional/id3-pro-business",
+      "note": "Gaf HTTP 403 op 2026-10-06; dit is de bron van de ID.3 Pro-pagina."
+    },
+    {
+      "id": "vw-id3-neo-page-be",
+      "make": "volkswagen",
+      "models": [
+        "ID.3 Neo"
+      ],
+      "market": "BE",
+      "kind": "spec_page",
+      "url": "https://www.volkswagen.be/nl/modellen/id-3-neo.html"
+    },
+    {
+      "id": "vw-id4-page-be",
+      "make": "volkswagen",
+      "models": [
+        "ID.4"
+      ],
+      "market": "BE",
+      "kind": "spec_page",
+      "url": "https://www.volkswagen.be/nl/modellen/id4.html"
+    },
+    {
+      "id": "hyundai-kona-pricelist-nl",
+      "make": "hyundai",
+      "models": [
+        "Kona Electric"
+      ],
+      "market": "NL",
+      "kind": "price_list",
+      "url": "https://www.hyundai.com/eu/dam/downloads/nl/prijslijsten/Prijslijst-Hyundai-KONA-Electric.pdf",
+      "note": "Hyundai Nederland, modeljaar 2027, per 1 juli 2026. Technische tabel p. 5."
+    },
+    {
+      "id": "hyundai-kona-performance-be",
+      "make": "hyundai",
+      "models": [
+        "Kona Electric"
+      ],
+      "market": "BE",
+      "kind": "spec_page",
+      "url": "https://www.hyundai.com/be/nl/modellen/kona-electric/performance.html"
+    },
+    {
+      "id": "kia-ev3-page-be",
+      "make": "kia",
+      "models": [
+        "EV3"
+      ],
+      "market": "BE",
+      "kind": "spec_page",
+      "url": "https://www.kia.com/be/nl/modellen/ev3/ontdekken/"
+    },
+    {
+      "id": "byd-seal-page-be",
+      "make": "byd",
+      "models": [
+        "Seal"
+      ],
+      "market": "BE",
+      "kind": "spec_page",
+      "url": "https://www.byd.com/be-nl/car/seal",
+      "note": "Gaf HTTP 404 op 2026-10-06; dit is de bron van de BYD Seal-pagina. Nieuw adres zoeken op byd.com/be-nl."
+    },
+    {
+      "id": "peugeot-208-pricelist-be",
+      "make": "peugeot",
+      "models": [
+        "e-208"
+      ],
+      "market": "BE",
+      "kind": "price_list",
+      "url": "https://www.peugeot.be/content/dam/peugeot/belgium/nl/b2c/tools/prijslijst/october/208-2025_BENL.pdf"
+    },
+    {
+      "id": "citroen-c3-pricelist-be",
+      "make": "citroen",
+      "models": [
+        "ë-C3"
+      ],
+      "market": "BE",
+      "kind": "price_list",
+      "url": "https://www.citroen.be/content/dam/citroen/belgium/b2c/brochure/202509/Tarif_CC21_C3_AM30_20250908_BE-FR.pdf"
+    },
+    {
+      "id": "dacia-spring-pricelist-nl",
+      "make": "dacia",
+      "models": [
+        "Spring"
+      ],
+      "market": "NL",
+      "kind": "price_list",
+      "url": "https://cdn.group.renault.com/dac/nl/brochures-en-prijslijsten/prijslijst/archief/prijslijst-spring-januari-25.pdf"
+    },
+    {
+      "id": "fiat-500e-pricelist-nl",
+      "make": "fiat",
+      "models": [
+        "500e"
+      ],
+      "market": "NL",
+      "kind": "price_list",
+      "url": "https://www.media.stellantis.com/uploads/nl/attachment//consumentenprijslijstfiat500emy2522oktober2024-671760646ee09.pdf"
+    },
+    {
+      "id": "ford-mach-e-pricelist-nl",
+      "make": "ford",
+      "models": [
+        "Mustang Mach-E"
+      ],
+      "market": "NL",
+      "kind": "price_list",
+      "url": "https://weupreviewimagesprd.blob.core.windows.net/nl12/siteassets/prijslijst-ford-mustang-mach-e-2025-4-16.pdf"
+    },
+    {
+      "id": "cupra-tavascan-techsheet",
+      "make": "cupra",
+      "models": [
+        "Tavascan"
+      ],
+      "market": "INT",
+      "kind": "press_kit",
+      "url": "https://www.seat-cupra-mediacenter.es/content/dam/seat-media-center/models-all-brands/cupra-models/cupra-tavascan/technical-data/Ficha%20t%C3%A9cnica%20CUPRA%20Tavascan.pdf"
+    },
+    {
+      "id": "renault-zoe-pricelist-nl",
+      "make": "renault",
+      "models": [
+        "Zoe"
+      ],
+      "market": "NL",
+      "kind": "price_list",
+      "url": "https://cdn.group.renault.com/ren/nl/brochures-en-prijslijsten/prijzenarchief/zoe/zoe-prijslijst-01-2022.pdf"
+    },
+    {
+      "id": "renault-5-page-be",
+      "make": "renault",
+      "models": [
+        "5 E-Tech"
+      ],
+      "market": "BE",
+      "kind": "spec_page",
+      "url": "https://nl.renault.be/elektrische-wagens/r5-e-tech-electric/versies-en-prijzen.html"
+    },
+    {
+      "id": "polestar-2-specs-nl",
+      "make": "polestar",
+      "models": [
+        "2"
+      ],
+      "market": "NL",
+      "kind": "spec_page",
+      "url": "https://www.polestar.com/nl/polestar-2/specifications/"
+    },
+    {
+      "id": "bmw-i4-techdata-be",
+      "make": "bmw",
+      "models": [
+        "i4"
+      ],
+      "market": "BE",
+      "kind": "spec_page",
+      "url": "https://www.bmw.be/nl/all-models/bmw-i/i4/bmw-i4-technische-gegevens.html",
+      "note": "De HTML bevat alleen sjabloontekst (cijfers worden door script geladen); in de browser lezen."
+    },
+    {
+      "id": "bmw-ix2-techdata-be",
+      "make": "bmw",
+      "models": [
+        "iX2"
+      ],
+      "market": "BE",
+      "kind": "spec_page",
+      "url": "https://www.bmw.be/nl/all-models/bmw-i/ix2/bmw-ix2-technische-gegevens.html",
+      "note": "Zelfde als i4: cijfers via script; in de browser lezen."
+    },
+    {
+      "id": "bmw-ix3-techdata-be",
+      "make": "bmw",
+      "models": [
+        "iX3"
+      ],
+      "market": "BE",
+      "kind": "spec_page",
+      "url": "https://www.bmw.be/nl/all-models/x-series/ix3/bmw-ix3-technische-gegevens.html",
+      "note": "Zelfde als i4: cijfers via script; in de browser lezen."
+    },
+    {
+      "id": "mercedes-eqa-pricelist-be",
+      "make": "mercedes-benz",
+      "models": [
+        "EQA"
+      ],
+      "market": "BE",
+      "kind": "price_list",
+      "url": "https://www.mercedes-benz.be/nl/passengercars/models/suv/eqa/",
+      "file": "data/import/mercedes-eqa-prijslijst-be-2026-01-15.pdf",
+      "note": "Mercedes blokkeert geautomatiseerd ophalen; de PDF wordt in de browser gedownload naar data/import/. Geldig vanaf 15 januari 2026, tabel p. 21."
+    },
+    {
+      "id": "mercedes-eqb-pricelist-be",
+      "make": "mercedes-benz",
+      "models": [
+        "EQB"
+      ],
+      "market": "BE",
+      "kind": "price_list",
+      "url": "https://www.mercedes-benz.be/nl/passengercars/models/suv/eqb/",
+      "file": "data/import/mercedes-eqb-prijslijst-be-2025-07-01.pdf",
+      "note": "Geldig vanaf 1 juli 2025, tabel p. 14."
+    },
+    {
+      "id": "tesla-power-consumption-be",
+      "make": "tesla",
+      "models": [
+        "Model 3",
+        "Model Y"
+      ],
+      "market": "BE",
+      "kind": "spec_page",
+      "url": "https://www.tesla.com/nl_be/support/power-consumption",
+      "note": "De HTML bevat de verbruikstabel niet (wordt door script geladen); in de browser lezen."
+    },
+    {
+      "id": "bmw-ix1-press-nl",
+      "make": "bmw",
+      "models": [
+        "iX1"
+      ],
+      "market": "NL",
+      "kind": "press_kit",
+      "url": "https://www.press.bmwgroup.com/netherlands/article/detail/T0435758NL/de-prijs-van-de-geheel-nieuwe-bmw-ix1-edrive20-is-bekend?language=nl",
+      "note": "Persbericht BMW Nederland; bron van de iX1 eDrive20-rij."
+    },
+    {
+      "id": "tesla-model-y-page-be",
+      "make": "tesla",
+      "models": [
+        "Model Y"
+      ],
+      "market": "BE",
+      "kind": "spec_page",
+      "url": "https://www.tesla.com/nl_be/modely",
+      "note": "Bron van de Model Y Long Range RWD-rij; cijfers worden door script geladen, in de browser lezen."
+    },
+    {
+      "id": "vw-id4-techdata-be",
+      "make": "volkswagen",
+      "models": [
+        "ID.4"
+      ],
+      "market": "BE",
+      "kind": "spec_page",
+      "url": "https://www.volkswagen.be/nl/modellen/id4.html/__ui/technical-data.app",
+      "note": "Technische-data-app van volkswagen.be; bron van de ID.4 Pro-rij. Gaf eerder 403 bij geautomatiseerd ophalen."
+    }
+  ]
+}

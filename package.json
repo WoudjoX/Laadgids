@@ -27,11 +27,14 @@
     "fetch-open-ev-data": "tsx scripts/fetch-open-ev-data.ts",
     "import-eea": "tsx scripts/import-eea.ts",
     "forward-leads": "tsx scripts/forward-leads.ts",
-    "fetch-eea": "tsx scripts/fetch-eea.ts"
+    "fetch-eea": "tsx scripts/fetch-eea.ts",
+    "pipeline": "tsx scripts/pipeline.ts"
   },
   "dependencies": {
+    "@anthropic-ai/sdk": "^0.131.0",
     "@supabase/supabase-js": "^2.58.0",
     "next": "^16.3.4",
+    "pdf-parse": "^2.4.5",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
     "resend": "^6.1.0",

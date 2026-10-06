@@ -355,6 +355,7 @@ scripts/             -- import-specs, recalc-pages, audit-sources
 - **Regels** worden **handmatig** ingevoerd via een migratie of seed-script, nooit door een LLM gegenereerd. Elke regel heeft `source_checked_at`. Een n8n-flow herinnert 30 dagen voor `valid_to` of 90 dagen na `source_checked_at`.
 - **Tarieven** kwartaallijks bijwerken uit CREG-boordtabel (BE) en ACM/CBS of leveranciersgemiddelde (NL). Datum in de pagina tonen.
 - **Herberekening** (`scripts/recalc-pages.ts`): draait na elke data-wijziging, zet `completeness_score`, bepaalt `status` volgens 4.3, zet `last_calculated_at`, triggert revalidate.
+- **Verificatiepijplijn** (`scripts/pipeline.ts`, `lib/pipeline/`): haalt de fabrikantendocumenten uit `data/sources/oem-documents.json` op, bewaart een vingerafdruk, laat Claude per uitvoering de cijfers met label, pagina en citaat uittrekken, en legt ze naast `versions`. Uitkomst is een rapport en een CSV in het verificatieformaat; niets gaat automatisch naar `versions`. Erwin beslist per rij en controleert de 10 %-steekproef uit het rapport.
 - **Bronaudit** (`scripts/audit-sources.ts`): HEAD-request op alle `sources.url`; dode links rapporteren, pagina's die van die bron afhangen op `noindex` na 30 dagen zonder fix.
 
 LLM-gebruik in pipelines is toegestaan voor **extractie** van specs uit brochures (met verplichte menselijke steekproef van 10%), **niet** voor het schrijven van pagina-copy en **niet** voor regels of tarieven.

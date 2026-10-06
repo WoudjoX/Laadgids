@@ -1,5 +1,6 @@
 // Staging-rijen voor open specs (supabase/migrations/0002_spec_candidates.up.sql).
-export type SourceKind = "open_ev_data" | "rdw" | "eea" | "vca";
+// "oem": uit de verificatiepijplijn (lib/pipeline), alleen in het geheugen en in data/pipeline/, niet in spec_candidates.
+export type SourceKind = "open_ev_data" | "rdw" | "eea" | "vca" | "oem";
 export type ReviewStatus = "new" | "matched" | "conflict" | "ignored" | "promoted";
 
 export interface SpecCandidate {

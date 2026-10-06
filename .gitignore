@@ -17,3 +17,7 @@ data/import/review/
 
 # Prijslijsten van fabrikanten: lokaal bewaard als bewijs, niet in de repo (auteursrecht, grootte).
 data/import/*.pdf
+
+# Verificatiepijplijn: opgehaalde brondocumenten en uitgetrokken cijfers (lokaal, herafleidbaar)
+data/sources/cache/
+data/pipeline/
