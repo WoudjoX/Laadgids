@@ -1,0 +1,154 @@
+{
+  "doc_id": "bmw-ix1-techdata-be",
+  "sha256": "89caec6a5ac302d1fb45429daf0c5de3af3a6af5b7a199d9f2584b7b3fd9aec8",
+  "extracted_at": "2026-10-06T09:32:00.674Z",
+  "model": "claude-opus-5-5",
+  "usage": {
+    "input_tokens": 14428,
+    "output_tokens": 3180
+  },
+  "extraction": {
+    "document_title": "BMW iX1 SUV (U11): technische gegevens en motortypes",
+    "valid_from": null,
+    "market": "BE",
+    "model_year": null,
+    "variants": [
+      {
+        "make": "BMW",
+        "model": "iX1",
+        "variant": "Voorwielaandrijving 150 kW (204 pk), Accucapaciteit 65,2 kWh",
+        "model_year": null,
+        "battery": [
+          {
+            "label": "Accucapaciteit in kWh",
+            "kwh": 65.2,
+            "page": null,
+            "quote": "Accucapaciteit in kWh 65,2"
+          }
+        ],
+        "consumption_kwh_100km": {
+          "min": 14.2,
+          "max": 16,
+          "page": null,
+          "quote": "Stroomverbruik, gecombineerd WLTP in kWh/100 km 16–14,2"
+        },
+        "ac_charging": {
+          "kw": 11,
+          "phases": null,
+          "standard": true,
+          "page": null,
+          "quote": "Maximaal laadvermogen AC in kW 11 / 22 4 ... 4 Standaard uitrusting/ optionele uitrusting"
+        },
+        "ac_option_kw": 22,
+        "dc_max_kw": 130,
+        "range_km": {
+          "min": 460,
+          "max": 516
+        },
+        "notes": "De pagina noemt geen uitvoeringsnaam voor deze voorwielaangedreven blokken. Drie tabbladen met 65,2 kWh geven verschillende WLTP-waarden: 16–14,2 kWh/100 km en 460–516 km; 16–14,5 en 460–506 km; 15,1–14,6 en 493–503 km. Hier is het ruimste bereik genomen. AC 11 kW is standaard, 22 kW optioneel volgens voetnoot 4."
+      },
+      {
+        "make": "BMW",
+        "model": "iX1",
+        "variant": "Voorwielaandrijving 150 kW (204 pk) / 68 (92), Accucapaciteit 64,8 kWh",
+        "model_year": null,
+        "battery": [
+          {
+            "label": "Accucapaciteit in kWh",
+            "kwh": 64.8,
+            "page": null,
+            "quote": "Accucapaciteit in kWh 64,8"
+          }
+        ],
+        "consumption_kwh_100km": {
+          "min": 15.5,
+          "max": 17.1,
+          "page": null,
+          "quote": "Stroomverbruik, gecombineerd WLTP in kWh/100 km 17,1–15,5"
+        },
+        "ac_charging": {
+          "kw": 11,
+          "phases": null,
+          "standard": true,
+          "page": null,
+          "quote": "Maximaal laadvermogen AC in kW 11 / 22 4"
+        },
+        "ac_option_kw": 22,
+        "dc_max_kw": 130,
+        "range_km": {
+          "min": 431,
+          "max": 473
+        },
+        "notes": "De pagina noemt geen uitvoeringsnaam. Drie tabbladen met 64,8 kWh geven verschillende WLTP-waarden: 17,1–15,5 kWh/100 km en 431–473 km; 16,4–15,8 en 453–462 km; 17,1–15,5 en 431–472 km. De bereiken 431–473 en 431–472 km spreken elkaar tegen."
+      },
+      {
+        "make": "BMW",
+        "model": "iX1",
+        "variant": "Vierwielaandrijving 230 kW (313 pk), Accucapaciteit 65 kWh",
+        "model_year": null,
+        "battery": [
+          {
+            "label": "Accucapaciteit in kWh",
+            "kwh": 65,
+            "page": null,
+            "quote": "Accucapaciteit in kWh 65"
+          }
+        ],
+        "consumption_kwh_100km": {
+          "min": 15.6,
+          "max": 17.2,
+          "page": null,
+          "quote": "Stroomverbruik, gecombineerd WLTP in kWh/100 km 17,2–15,6"
+        },
+        "ac_charging": {
+          "kw": 11,
+          "phases": null,
+          "standard": true,
+          "page": null,
+          "quote": "Maximaal laadvermogen AC in kW 11 / 22 4"
+        },
+        "ac_option_kw": 22,
+        "dc_max_kw": 130,
+        "range_km": {
+          "min": 430,
+          "max": 469
+        },
+        "notes": "De datablokken zelf noemen geen naam. De kop 'BMW iX1 xDrive30: ... 17,2–15,6; ... 430–469' komt overeen met deze waarden. Een tweede tabblad geeft 17,2–15,7 kWh/100 km en 430–468 km. Het vermogen van 230 kW is volgens voetnoot 8 een tijdelijke verhoging van minder dan 10 s."
+      },
+      {
+        "make": "BMW",
+        "model": "iX1",
+        "variant": "Vierwielaandrijving 230 kW (313 pk) / 104 (141), Accucapaciteit 64,8 kWh",
+        "model_year": null,
+        "battery": [
+          {
+            "label": "Accucapaciteit in kWh",
+            "kwh": 64.8,
+            "page": null,
+            "quote": "Accucapaciteit in kWh 64,8"
+          }
+        ],
+        "consumption_kwh_100km": {
+          "min": 17,
+          "max": 18.1,
+          "page": null,
+          "quote": "Stroomverbruik, gecombineerd WLTP in kWh/100 km 18,1–17"
+        },
+        "ac_charging": {
+          "kw": 11,
+          "phases": null,
+          "standard": true,
+          "page": null,
+          "quote": "Maximaal laadvermogen AC in kW 11 / 22 4"
+        },
+        "ac_option_kw": 22,
+        "dc_max_kw": 130,
+        "range_km": {
+          "min": 417,
+          "max": 438
+        },
+        "notes": "De pagina noemt geen uitvoeringsnaam. Er zijn twee identieke tabbladen, maar één ervan vermeldt alleen 'Maximaal laadvermogen AC in kW 11' en 'Laadduur AC 0–100% in uur 6:30', zonder de 22 kW-optie. Dat is tegenstrijdig."
+      }
+    ]
+  }
+}
