@@ -179,6 +179,7 @@ describe("compare", () => {
     expect(md).toContain("Nieuwe uitvoeringen, klaar voor import (1)");
     expect(md).toContain("p. 4, 9");
     expect(md).toContain("Battery Size - usable, kWh");
+    expect(md.split("## Steekproef")[1]).toContain("- Gelezen: netto 65 kWh");
     const csv = renderVerificationCsv(fs);
     expect(csv.split("\n")[1]).toMatch(/^volvo-ex30-twin-motor-performance-2025;65.0;69.0;17.5;11.0;22.0;3;nee;https:\/\/example.com\/ex30.pdf;/);
   });

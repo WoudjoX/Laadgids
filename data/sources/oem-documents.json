@@ -417,6 +417,17 @@
       "kind": "spec_page",
       "url": "https://www.volkswagen.be/nl/modellen/id4.html/__ui/technical-data.app",
       "note": "Technische-data-app van volkswagen.be; bron van de ID.4 Pro-rij. Gaf eerder 403 bij geautomatiseerd ophalen."
+    },
+    {
+      "id": "bmw-ix1-techdata-be",
+      "make": "bmw",
+      "models": [
+        "iX1"
+      ],
+      "market": "BE",
+      "kind": "spec_page",
+      "url": "https://www.bmw.be/nl/all-models/bmw-i/ix1/bmw-ix1-technische-gegevens.html",
+      "note": "Belgische technische gegevens; tweede bron naast het persbericht met voorlopige WLTP-waarden."
     }
   ]
 }

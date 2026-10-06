@@ -295,9 +295,10 @@ export function renderReport(r: ReportInput): string {
   for (const o of r.orphanVersions) L.push(`- ${o.version.slug}: ${o.reason}`);
   L.push("");
 
-  L.push(`## Steekproef voor menselijke controle (${r.sample.length}, CLAUDE.md §8: 10 %)`, "");
-  for (const f of r.sample) L.push(`- ${f.doc.make} ${f.variant.model} ${f.variant.variant} · ${f.doc.id}${f.pages.length ? ` p. ${f.pages.join(", ")}` : ""} · ${f.doc.file ?? f.doc.url}`);
-  L.push("");
+  L.push(`## Steekproef voor menselijke controle (${r.sample.length}, CLAUDE.md §8: 10 %)`, "", "Open het document op de vermelde pagina en vergelijk met wat de pijplijn las:", "");
+  for (const f of r.sample) {
+    L.push(`### ${f.doc.make} ${f.variant.model} ${f.variant.variant} · ${f.doc.id}${f.pages.length ? ` p. ${f.pages.join(", ")}` : ""}`, `- Bron: ${f.doc.file ?? f.doc.url}`, values(f).replace("- Document:", "- Gelezen:"), "- Citaten:", ...quotes(f), "");
+  }
   return L.join("\n");
 }
 
