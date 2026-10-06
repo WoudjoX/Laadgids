@@ -154,6 +154,15 @@ export function matchVersion(c: SpecCandidate, versions: VersionFull[]): Version
   return close[0]?.v ?? null;
 }
 
+const FIELD_LABEL: Record<FieldDiff["field"], string> = {
+  battery_net_wh: "batterij",
+  consumption_wh_per_km: "verbruik",
+  ac_max_w: "AC-vermogen",
+  ac_phases: "fasen",
+  wltp_range_km: "rijbereik",
+  dc_max_w: "DC-vermogen",
+};
+
 export type FindingKind = "nieuw" | "bevestigd" | "afwijking" | "onvolledig";
 
 export interface Finding {
@@ -181,7 +190,14 @@ function complete(c: SpecCandidate): boolean {
   return (c.battery_net_wh != null || c.battery_gross_wh != null) && c.consumption_wh_per_km != null && c.ac_max_w != null;
 }
 
-export function compareExtraction(doc: OemDocument, docState: Pick<DocumentState, "sha256"> | undefined, extraction: Extraction, versions: VersionFull[]): Finding[] {
+export interface AcceptedDiff {
+  version_slug: string;
+  field: FieldDiff["field"];
+  document_id: string;
+  reason: string;
+}
+
+export function compareExtraction(doc: OemDocument, docState: Pick<DocumentState, "sha256"> | undefined, extraction: Extraction, versions: VersionFull[], accepted: AcceptedDiff[] = []): Finding[] {
   const out: Finding[] = [];
   for (const variant of extraction.variants) {
     const { candidate, notes } = toCandidate(doc, docState, variant);
@@ -197,6 +213,13 @@ export function compareExtraction(doc: OemDocument, docState: Pick<DocumentState
       const rel = Math.abs(matched.battery_gross_wh - candidate.battery_gross_wh) / matched.battery_gross_wh;
       const i = diffs.findIndex((d) => d.field === "battery_net_wh");
       diffs[i] = { field: "battery_net_wh", version: matched.battery_gross_wh, candidate: candidate.battery_gross_wh, rel, conflict: rel > 0.03 };
+    }
+    for (const d of diffs) {
+      const ok = accepted.find((a) => a.version_slug === matched.slug && a.field === d.field && a.document_id === doc.id);
+      if (ok && d.conflict) {
+        d.conflict = false;
+        notes.push(`aanvaard verschil in ${FIELD_LABEL[d.field]}: ${ok.reason}`);
+      }
     }
     const conflict = diffs.some((d) => d.conflict && ["battery_net_wh", "consumption_wh_per_km", "ac_max_w", "ac_phases"].includes(d.field));
     out.push({ kind: conflict ? "afwijking" : "bevestigd", doc, variant, candidate, version: matched, diffs, notes, pages });
@@ -214,14 +237,7 @@ export function sampleForHumanCheck<T extends { candidate: SpecCandidate }>(find
   return ranked.slice(0, n).map((x) => x.f);
 }
 
-const FIELD_LABEL: Record<FieldDiff["field"], string> = {
-  battery_net_wh: "batterij",
-  consumption_wh_per_km: "verbruik",
-  ac_max_w: "AC-vermogen",
-  ac_phases: "fasen",
-  wltp_range_km: "rijbereik",
-  dc_max_w: "DC-vermogen",
-};
+
 
 function fmt(field: FieldDiff["field"], v: number | null): string {
   if (v == null) return "–";

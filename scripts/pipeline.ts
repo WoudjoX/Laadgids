@@ -10,7 +10,7 @@ import { promises as fs } from "node:fs";
 import path from "node:path";
 import { getRepo } from "@/lib/db";
 import type { VersionFull } from "@/lib/db/types";
-import { compareExtraction, renderReport, renderVerificationCsv, sampleForHumanCheck, type Finding } from "@/lib/pipeline/compare";
+import { compareExtraction, renderReport, renderVerificationCsv, sampleForHumanCheck, type AcceptedDiff, type Finding } from "@/lib/pipeline/compare";
 import { fetchDocument, loadRegistry, loadState, readCachedText, saveState, type DocumentState, type OemDocument } from "@/lib/pipeline/documents";
 import { extractFromText, type Extraction } from "@/lib/pipeline/extract";
 
@@ -106,17 +106,26 @@ async function cmdExtract(): Promise<void> {
   console.log(`extract: ${done} documenten gelezen, ${skipped} overgeslagen (ongewijzigd of onbereikbaar), tokens`, tokens);
 }
 
+async function loadAccepted(): Promise<AcceptedDiff[]> {
+  try {
+    return (JSON.parse(await fs.readFile(path.join("data", "sources", "accepted-diffs.json"), "utf8")) as { accepted: AcceptedDiff[] }).accepted;
+  } catch {
+    return [];
+  }
+}
+
 async function cmdReview(): Promise<void> {
   const docs = await loadRegistry();
   const state = await loadState();
   const stored = await loadStored();
   const repo = await getRepo();
   const versions = (await repo.listVersions()) as VersionFull[];
+  const accepted = await loadAccepted();
   const findings: Finding[] = [];
   for (const doc of docs) {
     const s = stored.get(doc.id);
     if (!s) continue;
-    findings.push(...compareExtraction(doc, state[doc.id], s.extraction, versions));
+    findings.push(...compareExtraction(doc, state[doc.id], s.extraction, versions, accepted));
   }
   // Rijen waarvan de bron onbereikbaar is of buiten de registry valt.
   const byUrl = new Map<string, { doc: OemDocument; state: DocumentState | undefined }>();

@@ -1,0 +1,8 @@
+{
+  "$comment": "Bekende, aanvaarde verschillen tussen een document en de site. De pijplijn meldt ze als bevestigd met de reden erbij in plaats van als afwijking. Eén regel per versie, veld en document.",
+  "accepted": [
+    { "version_slug": "skoda-elroq-60-2027", "field": "consumption_wh_per_km", "document_id": "skoda-elroq-pricelist-nl", "reason": "Erwin 2026-10-06: Belgisch bereik (15 tot 17, midden) boven de Nederlandse enkelwaarde 15,3" },
+    { "version_slug": "skoda-elroq-85-2025", "field": "consumption_wh_per_km", "document_id": "skoda-elroq-pricelist-nl", "reason": "Erwin 2026-10-06: Belgisch bereik (15 tot 17, midden) boven de Nederlandse enkelwaarde 15,4" },
+    { "version_slug": "skoda-enyaq-85-2025", "field": "consumption_wh_per_km", "document_id": "skoda-enyaq-pricelist-nl", "reason": "Erwin 2026-10-06: Belgisch bereik (15 tot 16, midden) boven de Nederlandse enkelwaarde 15,0" }
+  ]
+}

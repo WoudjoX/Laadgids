@@ -135,6 +135,12 @@ describe("compare", () => {
     expect(f[0]!.kind).toBe("afwijking");
     expect(f[0]!.diffs.find((d) => d.field === "consumption_wh_per_km")?.conflict).toBe(true);
   });
+  it("een aanvaard verschil telt als bevestigd, met de reden in de notities", () => {
+    const ex = { document_title: "t", valid_from: null, market: null, model_year: null, variants: [variant({ consumption_kwh_100km: { min: 18.6, max: null, page: 9, quote: "18.6" } })] };
+    const [f] = compareExtraction(doc, state, ex, [version()], [{ version_slug: "volvo-ex30-single-motor-extended-range-2025", field: "consumption_wh_per_km", document_id: doc.id, reason: "Belgisch bereik" }]);
+    expect(f!.kind).toBe("bevestigd");
+    expect(f!.notes.join(" ")).toContain("aanvaard verschil in verbruik: Belgisch bereik");
+  });
   it("nieuw als er geen rij is; onvolledig als het verbruik of AC ontbreekt", () => {
     const v = variant({ variant: "Twin Motor Performance", battery: [{ label: "Battery Size - usable, kWh", kwh: 65, page: 9, quote: "q" }] });
     const [nieuw] = compareExtraction(doc, state, { document_title: "t", valid_from: null, market: null, model_year: null, variants: [v] }, [version()]);
