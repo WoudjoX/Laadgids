@@ -28,7 +28,7 @@
     "import-eea": "tsx scripts/import-eea.ts",
     "forward-leads": "tsx scripts/forward-leads.ts",
     "fetch-eea": "tsx scripts/fetch-eea.ts",
-    "pipeline": "tsx scripts/pipeline.ts"
+    "verify": "tsx scripts/pipeline.ts"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.131.0",

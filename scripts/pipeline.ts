@@ -1,9 +1,9 @@
 // Verificatiepijplijn (CLAUDE.md §8): fabrikantendocumenten ophalen → cijfers uittrekken → vergelijken met versions → rapport voor Erwin.
 // Gebruik:
-//   pnpm pipeline fetch                      alle documenten uit data/sources/oem-documents.json ophalen, vingerafdruk bijwerken
-//   pnpm pipeline extract [--doc id] [--force]   gewijzigde (of alle met --force) documenten uitlezen met Claude (ANTHROPIC_API_KEY)
-//   pnpm pipeline review                     rapport + CSV in data/import/review/
-//   pnpm pipeline run                        de drie stappen na elkaar
+//   pnpm verify fetch                        alle documenten uit data/sources/oem-documents.json ophalen, vingerafdruk bijwerken
+//   pnpm verify extract [--doc id] [--force]     gewijzigde (of alle met --force) documenten uitlezen met Claude (ANTHROPIC_API_KEY)
+//   pnpm verify review                       rapport + CSV in data/import/review/
+//   pnpm verify run                          de drie stappen na elkaar
 // Niets gaat automatisch naar versions: de CSV gaat door Erwin, daarna pnpm import-specs en pnpm recalc-pages.
 import "@/lib/env";
 import { promises as fs } from "node:fs";
@@ -43,6 +43,13 @@ async function cmdFetch(): Promise<void> {
     state[doc.id] = r.state;
     counts[r.state.status] = (counts[r.state.status] ?? 0) + 1;
     console.log(`${r.state.status.padEnd(11)} ${doc.id}${r.state.pages ? ` (${r.state.pages} p.)` : ""}${r.state.error ? ` — ${r.state.error}` : ""}`);
+  }
+  // Netwerkguard: is meer dan de helft van de online documenten onbereikbaar, dan ligt het aan dit netwerk, niet aan de bronnen.
+  // De toestand wordt dan niet overschreven (anders zou elke rij een valse 'onbereikbaar sinds' krijgen).
+  const online = docs.filter((d) => !d.file).length;
+  const unreachable = counts.unreachable ?? 0;
+  if (online > 0 && unreachable > online / 2) {
+    throw new Error(`fetch: ${unreachable} of ${online} online documents unreachable; this looks like a network restriction, state not saved`);
   }
   await saveState(state);
   console.log("fetch:", counts);
@@ -163,7 +170,7 @@ async function main() {
     await cmdExtract();
     await cmdReview();
   } else {
-    console.error("usage: pnpm pipeline <fetch|extract|review|run> [--doc id] [--force]");
+    console.error("usage: pnpm verify <fetch|extract|review|run> [--doc id] [--force]");
     process.exit(2);
   }
 }

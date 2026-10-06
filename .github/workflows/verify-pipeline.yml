@@ -1,0 +1,67 @@
+# Wekelijkse verificatiepijplijn (lib/pipeline/README.md): fabrikantendocumenten ophalen, uitlezen, vergelijken, rapport als PR.
+# Niets gaat automatisch naar versions: Erwin beslist per rij in de CSV, daarna pnpm import-specs en pnpm recalc-pages.
+name: verify-pipeline
+
+on:
+  schedule:
+    - cron: "0 5 * * 1" # maandag 07:00 Brussel (zomertijd); 06:00 in de winter
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 12
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - name: Sleutel aanwezig?
+        run: |
+          if [ -z "${{ secrets.ANTHROPIC_API_KEY }}" ]; then
+            echo "::error::Repository secret ANTHROPIC_API_KEY ontbreekt (Settings → Secrets and variables → Actions)."
+            exit 1
+          fi
+      - name: Ophalen
+        run: pnpm verify fetch
+      - name: Uitlezen (alleen gewijzigde documenten)
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: pnpm verify extract
+      - name: Vergelijken
+        id: review
+        run: |
+          pnpm verify review | tee review.log
+          echo "summary=$(grep '^review:' review.log)" >> "$GITHUB_OUTPUT"
+      - name: Rapport in de repo zetten
+        id: report
+        run: |
+          d=$(date -u +%F)
+          mkdir -p reports/pipeline
+          cp "data/import/review/pipeline-$d.md" "reports/pipeline/$d.md"
+          cp "data/import/review/pipeline-$d.csv" "reports/pipeline/$d.csv"
+          echo "date=$d" >> "$GITHUB_OUTPUT"
+          { echo 'body<<EOF'; sed -n '3p' "reports/pipeline/$d.md"; echo; sed -n '/## Bronnen met een probleem/,/## Steekproef/p' "reports/pipeline/$d.md" | sed '$d'; echo; echo "Volledig rapport: reports/pipeline/$d.md · CSV: reports/pipeline/$d.csv"; echo; echo "Zet ja in de CSV bij wat mag en zeg 'verwerk' in Claude Code."; echo 'EOF'; } >> "$GITHUB_OUTPUT"
+      - name: Pull request openen
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          D: ${{ steps.report.outputs.date }}
+          BODY: ${{ steps.report.outputs.body }}
+        run: |
+          git config user.name "verify-pipeline"
+          git config user.email "pipeline@laadgids.be"
+          git checkout -B "pipeline/$D"
+          git add data/sources/oem-documents.state.json data/pipeline/extracted reports/pipeline
+          if git diff --cached --quiet; then echo "niets veranderd"; exit 0; fi
+          git commit -m "pipeline: verificatierapport $D"
+          git push -f origin "pipeline/$D"
+          gh pr create --base main --head "pipeline/$D" --title "pipeline: verificatierapport $D" --body "$BODY" || gh pr edit "pipeline/$D" --body "$BODY"

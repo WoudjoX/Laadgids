@@ -1,6 +1,6 @@
 # lib/pipeline — verificatiepijplijn
 
-Automatiseert het opzoeken, niet het beslissen. Drie stappen, elk apart te draaien met `pnpm pipeline <stap>`:
+Automatiseert het opzoeken, niet het beslissen. Drie stappen, elk apart te draaien met `pnpm verify <stap>`:
 
 | Stap | Doet | Input | Output |
 |---|---|---|---|
@@ -8,7 +8,7 @@ Automatiseert het opzoeken, niet het beslissen. Drie stappen, elk apart te draai
 | `extract` | Laat Claude per uitvoering de cijfers uittrekken, met label, paginanummer en citaat; alleen voor documenten die sinds de vorige keer veranderd zijn | cache | `data/pipeline/extracted/<id>.json` (in git) |
 | `review` | Legt de uittreksels naast `versions`, meldt bronnen die onbereikbaar zijn, kiest een steekproef van 10 % | uittreksels + database | `data/import/review/pipeline-<datum>.md` en `.csv` |
 
-`pnpm pipeline run` doet de drie na elkaar.
+`pnpm verify run` doet de drie na elkaar.
 
 ## Wat de uitkomsten betekenen
 
@@ -35,6 +35,8 @@ Automatiseert het opzoeken, niet het beslissen. Drie stappen, elk apart te draai
 
 Eén regel in `data/sources/oem-documents.json`: `id` (kleine letters en streepjes), `make` (slug uit `makes`), `models`, `market` (BE, NL, IE, INT), `kind` (price_list, spec_page, press_kit, offer_page), `url` en eventueel `file` en `note`. De test in `pipeline.test.ts` weigert dubbele id's en ongeldige waarden.
 
-## Wekelijkse cloudroutine
+## Wekelijkse run op GitHub Actions
 
-Een routine in Claude Code (claude.ai/code/routines) draait `pnpm pipeline run` elke maandag in de cloud, zet rapport en CSV in `reports/pipeline/` en mailt de samenvatting. Zonder Supabase-sleutels valt `review` terug op `data/seed/versions.json`, wat dezelfde inhoud heeft. Alleen `ANTHROPIC_API_KEY` moet in de cloudomgeving staan. Documenten met een lokaal bestand (Mercedes) behouden daar hun vorige toestand.
+`.github/workflows/verify-pipeline.yml` draait `pnpm verify fetch`, `extract` en `review` elke maandag om 07:00 Belgische tijd, zet rapport en CSV in `reports/pipeline/` en opent een pull request naar main. Zonder Supabase-sleutels valt `review` terug op `data/seed/versions.json`, wat dezelfde inhoud heeft. Nodig: de repository secret `ANTHROPIC_API_KEY` (GitHub → Settings → Secrets and variables → Actions). Documenten met een lokaal bestand (Mercedes) behouden daar hun vorige toestand. Handmatig starten kan via "Run workflow" in het tabblad Actions.
+
+Een fetch waarbij meer dan de helft van de online documenten onbereikbaar is, wordt als netwerkprobleem behandeld: de toestand wordt dan niet overschreven en het script stopt met een fout.
