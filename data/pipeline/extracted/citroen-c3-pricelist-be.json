@@ -1,0 +1,120 @@
+{
+  "doc_id": "citroen-c3-pricelist-be",
+  "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "extracted_at": "2026-10-06T07:46:00.683Z",
+  "model": "claude-opus-5-5",
+  "usage": {
+    "input_tokens": 19415,
+    "output_tokens": 2841
+  },
+  "extraction": {
+    "document_title": "Citroën C3 - Prijslijst België / Tarif Belgique 08 september 2025 (MJ30)",
+    "valid_from": "08 SEPTEMBER 2025",
+    "market": "BELGIË",
+    "model_year": null,
+    "variants": [
+      {
+        "make": "Citroën",
+        "model": "ë-C3",
+        "variant": "Electric 113 ch Urban Range",
+        "model_year": null,
+        "battery": [
+          {
+            "label": "Capacité batterie / Batterij capaciteit (kWh)",
+            "kwh": 30.3,
+            "page": 15,
+            "quote": "Capacité batterie / Batterij capaciteit (kWh) 0,89 30,3 44,2 44,2"
+          }
+        ],
+        "consumption_kwh_100km": {
+          "min": 16.7,
+          "max": 17.2,
+          "page": 15,
+          "quote": "(kWh/100 km) - - 16,7 - 17,2 16,5 - 17,1 17,2 - 17,3"
+        },
+        "ac_charging": {
+          "kw": 7.4,
+          "phases": 1,
+          "standard": true,
+          "page": 4,
+          "quote": "Chargeur embarqué monophasé 7,4kW"
+        },
+        "ac_option_kw": 11,
+        "dc_max_kw": 30,
+        "range_km": {
+          "min": 206,
+          "max": 212
+        },
+        "notes": "Snelladen 100 kW DC is uitgesloten voor Urban Range (p.4). DC 30 kW is alleen optioneel (code 4301, p.6) en niet compatibel met de optionele driefasige 11 kW-lader (LZ04). Pagina 2 vermeldt laadtijden voor 'BATTERIE 30 kWh' (afgerond t.o.v. 30,3 kWh op p.15). Verbruik op p.5 voor PLUS: 16,7 (één waarde)."
+      },
+      {
+        "make": "Citroën",
+        "model": "ë-C3",
+        "variant": "Electric 113 ch Comfort Range",
+        "model_year": null,
+        "battery": [
+          {
+            "label": "Capacité batterie / Batterij capaciteit (kWh)",
+            "kwh": 44.2,
+            "page": 15,
+            "quote": "Capacité batterie / Batterij capaciteit (kWh) 0,89 30,3 44,2 44,2"
+          }
+        ],
+        "consumption_kwh_100km": {
+          "min": 16.5,
+          "max": 17.1,
+          "page": 15,
+          "quote": "(kWh/100 km) - - 16,7 - 17,2 16,5 - 17,1 17,2 - 17,3"
+        },
+        "ac_charging": {
+          "kw": 7.4,
+          "phases": 1,
+          "standard": true,
+          "page": 4,
+          "quote": "Chargeur embarqué monophasé 7,4kW"
+        },
+        "ac_option_kw": 11,
+        "dc_max_kw": 100,
+        "range_km": {
+          "min": 315,
+          "max": 326
+        },
+        "notes": "Verbruik en bereik verschillen per afwerking: p.5 YOU 16,6-17,1 kWh/100 km en 315-324 km, PLUS 16,6-16,7 en 323-324 km, MAX 16,6-16,7 en 322-323 km; p.11 BUSINESS 16,5-16,7 en 323-326 km. Pagina 2 vermeldt 'BATTERIE 44 kWh' (afgerond t.o.v. 44,2 kWh op p.15). Optionele driefasige 11 kW-lader LZ04 (p.6)."
+      },
+      {
+        "make": "Citroën",
+        "model": "ë-C3",
+        "variant": "Electric 113 ch Comfort Range VAN",
+        "model_year": null,
+        "battery": [
+          {
+            "label": "Capacité batterie / Batterij capaciteit (kWh)",
+            "kwh": 44.2,
+            "page": 15,
+            "quote": "Capacité batterie / Batterij capaciteit (kWh) 0,89 30,3 44,2 44,2"
+          }
+        ],
+        "consumption_kwh_100km": {
+          "min": 17.2,
+          "max": 17.3,
+          "page": 15,
+          "quote": "(kWh/100 km) - - 16,7 - 17,2 16,5 - 17,1 17,2 - 17,3"
+        },
+        "ac_charging": {
+          "kw": 7.4,
+          "phases": 1,
+          "standard": true,
+          "page": 4,
+          "quote": "Chargeur embarqué monophasé 7,4kW"
+        },
+        "ac_option_kw": 11,
+        "dc_max_kw": 100,
+        "range_km": {
+          "min": 323,
+          "max": 324
+        },
+        "notes": "N1-bestelwagenversie op basis van PLUS; eigen kolom in technische fiche p.15. Standaard 7,4 kW-lader en 100 kW DC afgeleid uit uitrusting PLUS (p.4); optie driefasige 11 kW-lader LZ04 op p.12."
+      }
+    ]
+  }
+}

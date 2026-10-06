@@ -1,0 +1,138 @@
+{
+  "doc_id": "volvo-ex30-pricelist-ie-my26",
+  "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "extracted_at": "2026-10-06T07:40:08.858Z",
+  "model": "claude-opus-5-5",
+  "usage": {
+    "input_tokens": 10130,
+    "output_tokens": 2053
+  },
+  "extraction": {
+    "document_title": "Price and Specification | Model Year 2026 | September 2025 VOLVO EX30",
+    "valid_from": "September 2025",
+    "market": "Ireland",
+    "model_year": 2026,
+    "variants": [
+      {
+        "make": "Volvo",
+        "model": "EX30",
+        "variant": "Single Motor",
+        "model_year": 2026,
+        "battery": [
+          {
+            "label": "Battery Size - nominal, kWh",
+            "kwh": 51,
+            "page": 9,
+            "quote": "Battery Size - nominal, kWh 51 69 69"
+          },
+          {
+            "label": "Battery Size - usable, kWh",
+            "kwh": 49,
+            "page": 9,
+            "quote": "Battery Size - usable, kWh 49 65 65"
+          }
+        ],
+        "consumption_kwh_100km": {
+          "min": 17.1,
+          "max": null,
+          "page": 9,
+          "quote": "Electric Consumption, (kWh/100km) 17.1 17.0 17.5"
+        },
+        "ac_charging": {
+          "kw": 11,
+          "phases": 3,
+          "standard": true,
+          "page": 4,
+          "quote": "+ 3-Phase On Board Charger - 11kW"
+        },
+        "ac_option_kw": null,
+        "dc_max_kw": 134,
+        "range_km": {
+          "min": 337,
+          "max": 337
+        },
+        "notes": "Only available in Core and Plus trims (not Ultra), so the 22kW charger from Ultra does not apply. AC charging times: single phase 10/16/32A 28/18/9 h, three phase 10/16A 12/8 h (0-100%). DC 10-80% 26 min at max 134kW. Technical data marked as preliminary."
+      },
+      {
+        "make": "Volvo",
+        "model": "EX30",
+        "variant": "Single Motor Extended Range",
+        "model_year": 2026,
+        "battery": [
+          {
+            "label": "Battery Size - nominal, kWh",
+            "kwh": 69,
+            "page": 9,
+            "quote": "Battery Size - nominal, kWh 51 69 69"
+          },
+          {
+            "label": "Battery Size - usable, kWh",
+            "kwh": 65,
+            "page": 9,
+            "quote": "Battery Size - usable, kWh 49 65 65"
+          }
+        ],
+        "consumption_kwh_100km": {
+          "min": 17,
+          "max": null,
+          "page": 9,
+          "quote": "Electric Consumption, (kWh/100km) 17.1 17.0 17.5"
+        },
+        "ac_charging": {
+          "kw": 11,
+          "phases": 3,
+          "standard": true,
+          "page": 4,
+          "quote": "+ 3-Phase On Board Charger - 11kW"
+        },
+        "ac_option_kw": 22,
+        "dc_max_kw": 153,
+        "range_km": {
+          "min": 474,
+          "max": 476
+        },
+        "notes": "11kW 3-phase charger standard on Core/Plus; 22kW 3-phase charger standard on Ultra trim (p.5, '+ 3-Phase On Board Charger - 22kW'), not a separate option. Range 476 km (Core/Plus) vs 474 km (Ultra) on p.2; technical table says up to 476. AC charging times: single phase 39/23/11 h, three phase 12/8/4 h (0-100%). DC 10-80% 28 min at max 153kW. Data preliminary."
+      },
+      {
+        "make": "Volvo",
+        "model": "EX30",
+        "variant": "Twin Motor Performance",
+        "model_year": 2026,
+        "battery": [
+          {
+            "label": "Battery Size - nominal, kWh",
+            "kwh": 69,
+            "page": 9,
+            "quote": "Battery Size - nominal, kWh 51 69 69"
+          },
+          {
+            "label": "Battery Size - usable, kWh",
+            "kwh": 65,
+            "page": 9,
+            "quote": "Battery Size - usable, kWh 49 65 65"
+          }
+        ],
+        "consumption_kwh_100km": {
+          "min": 17.5,
+          "max": null,
+          "page": 9,
+          "quote": "Electric Consumption, (kWh/100km) 17.1 17.0 17.5"
+        },
+        "ac_charging": {
+          "kw": 11,
+          "phases": 3,
+          "standard": true,
+          "page": 4,
+          "quote": "+ 3-Phase On Board Charger - 11kW"
+        },
+        "ac_option_kw": 22,
+        "dc_max_kw": 153,
+        "range_km": {
+          "min": 449,
+          "max": 450
+        },
+        "notes": "Available in Plus and Ultra trims. 11kW 3-phase charger standard on Plus; 22kW 3-phase charger standard on Ultra (p.5), not a separate option. Range 450 km (Plus) vs 449 km (Ultra) on p.2; technical table says up to 450. AC charging times: single phase 39/23/11 h, three phase 12/8/4 h (0-100%). DC 10-80% 28 min at max 153kW. Data preliminary."
+      }
+    ]
+  }
+}

@@ -131,7 +131,12 @@ export async function fetchDocument(doc: OemDocument, previous: DocumentState | 
   const failed = (error: string): FetchedDocument => ({ doc, text: null, state: { ...emptyState(fetchedAt, previous), status: "unreachable", http, unreachable_since: previous?.unreachable_since ?? today, error } });
   try {
     if (doc.file) {
-      buf = new Uint8Array(await fs.readFile(path.join(root, doc.file)));
+      try {
+        buf = new Uint8Array(await fs.readFile(path.join(root, doc.file)));
+      } catch {
+        // Het lokale bestand staat alleen op de machine waar Erwin het downloadde (bv. niet in de cloud): vorige toestand behouden.
+        return { doc, text: null, state: { ...(previous ?? emptyState(fetchedAt, undefined)), status: "local", fetched_at: fetchedAt, error: `lokaal bestand ${doc.file} niet aanwezig op deze machine; vorige toestand behouden` } };
+      }
       local = true;
     } else {
       // Eén herkansing: sommige fabrikantensites geven af en toe een 403 of een time-out op een eerste aanvraag.

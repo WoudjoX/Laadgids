@@ -1,0 +1,156 @@
+{
+  "doc_id": "skoda-elroq-pricelist-nl",
+  "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "extracted_at": "2026-10-06T07:41:48.561Z",
+  "model": "claude-opus-5-5",
+  "usage": {
+    "input_tokens": 22592,
+    "output_tokens": 2285
+  },
+  "extraction": {
+    "document_title": "Škoda Elroq Prijslijst",
+    "valid_from": "1 september 2026",
+    "market": "Nederland",
+    "model_year": 2027,
+    "variants": [
+      {
+        "make": "Škoda",
+        "model": "Elroq",
+        "variant": "60",
+        "model_year": 2027,
+        "battery": [
+          {
+            "label": "Netto accucapaciteit",
+            "kwh": 58,
+            "page": 4,
+            "quote": "PYLBB2/27/SEL Selection BEV 58 kWh 451 km Elektromotor 140 kW / 190 pk"
+          },
+          {
+            "label": "Bruto Accu capaciteit (kWh / Ah)",
+            "kwh": 61,
+            "page": 17,
+            "quote": "Bruto Accu capaciteit (kWh / Ah) 61 82 82"
+          },
+          {
+            "label": "Nominale capaciteit (kWh / Ah)",
+            "kwh": 58,
+            "page": 17,
+            "quote": "Nominale capaciteit (kWh / Ah) 58 77 77"
+          }
+        ],
+        "consumption_kwh_100km": {
+          "min": 15.3,
+          "max": null,
+          "page": 17,
+          "quote": "Gecombineerd 15,3 15,4 16,0"
+        },
+        "ac_charging": {
+          "kw": 11,
+          "phases": null,
+          "standard": true,
+          "page": 7,
+          "quote": "AC opladen tot 11 kW (Wallbox en publiek laden) ● ● ● ● ●"
+        },
+        "ac_option_kw": null,
+        "dc_max_kw": 105,
+        "range_km": {
+          "min": 443,
+          "max": 451
+        },
+        "notes": "Range verschilt per uitrustingsniveau (Selection 451, Edition 449, Business Edition 448, Sportline 443 km, voorlopige WLTP). Oplaadtijd AC 11 kW 100% SOC 06:30; DC 105 kW tot 80% 00:26."
+      },
+      {
+        "make": "Škoda",
+        "model": "Elroq",
+        "variant": "85",
+        "model_year": 2027,
+        "battery": [
+          {
+            "label": "Netto accucapaciteit",
+            "kwh": 77,
+            "page": 4,
+            "quote": "PYLDM2/27/EDT Edition BEV 77 kWh 576 km Elektromotor 210 kW / 286 pk"
+          },
+          {
+            "label": "Bruto Accu capaciteit (kWh / Ah)",
+            "kwh": 82,
+            "page": 17,
+            "quote": "Bruto Accu capaciteit (kWh / Ah) 61 82 82"
+          },
+          {
+            "label": "Nominale capaciteit (kWh / Ah)",
+            "kwh": 77,
+            "page": 17,
+            "quote": "Nominale capaciteit (kWh / Ah) 58 77 77"
+          }
+        ],
+        "consumption_kwh_100km": {
+          "min": 15.4,
+          "max": null,
+          "page": 17,
+          "quote": "Gecombineerd 15,3 15,4 16,0"
+        },
+        "ac_charging": {
+          "kw": 11,
+          "phases": null,
+          "standard": true,
+          "page": 7,
+          "quote": "AC opladen tot 11 kW (Wallbox en publiek laden) ● ● ● ● ●"
+        },
+        "ac_option_kw": null,
+        "dc_max_kw": 165,
+        "range_km": {
+          "min": 567,
+          "max": 576
+        },
+        "notes": "Range verschilt per uitrustingsniveau (Edition 576, Business Edition 575, Sportline 567 km, voorlopige WLTP). Oplaadtijd AC 11 kW 100% SOC 08:00; DC 165 kW tot 80% 00:29."
+      },
+      {
+        "make": "Škoda",
+        "model": "Elroq",
+        "variant": "RS",
+        "model_year": 2027,
+        "battery": [
+          {
+            "label": "Netto accucapaciteit",
+            "kwh": 77,
+            "page": 4,
+            "quote": "PYL6V4/27/ERS RS BEV 77 kWh 561 km Elektromotor 250 kW / 340 pk"
+          },
+          {
+            "label": "Bruto Accu capaciteit (kWh / Ah)",
+            "kwh": 82,
+            "page": 17,
+            "quote": "Bruto Accu capaciteit (kWh / Ah) 61 82 82"
+          },
+          {
+            "label": "Nominale capaciteit (kWh / Ah)",
+            "kwh": 77,
+            "page": 17,
+            "quote": "Nominale capaciteit (kWh / Ah) 58 77 77"
+          }
+        ],
+        "consumption_kwh_100km": {
+          "min": 16,
+          "max": null,
+          "page": 17,
+          "quote": "Gecombineerd 15,3 15,4 16,0"
+        },
+        "ac_charging": {
+          "kw": 11,
+          "phases": null,
+          "standard": true,
+          "page": 7,
+          "quote": "AC opladen tot 11 kW (Wallbox en publiek laden) ● ● ● ● ●"
+        },
+        "ac_option_kw": null,
+        "dc_max_kw": 165,
+        "range_km": {
+          "min": 561,
+          "max": null
+        },
+        "notes": "Oplaadtijd AC 11 kW 100% SOC 08:30; DC 165 kW tot 80% 00:29. Range voorlopige WLTP."
+      }
+    ]
+  }
+}

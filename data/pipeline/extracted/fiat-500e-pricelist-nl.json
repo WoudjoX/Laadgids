@@ -1,0 +1,110 @@
+{
+  "doc_id": "fiat-500e-pricelist-nl",
+  "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "extracted_at": "2026-10-06T07:46:37.128Z",
+  "model": "claude-opus-5-5",
+  "usage": {
+    "input_tokens": 13818,
+    "output_tokens": 2919
+  },
+  "extraction": {
+    "document_title": "fiat-500e-pricelist-nl",
+    "valid_from": null,
+    "market": "NL",
+    "model_year": null,
+    "variants": [
+      {
+        "make": "Fiat",
+        "model": "500e",
+        "variant": "24 kWh",
+        "model_year": null,
+        "battery": [
+          {
+            "label": "Accu capaciteit (kWh)",
+            "kwh": 24,
+            "page": 5,
+            "quote": "RED 332 R11 4 € 23.132,23 € 4.858 € 0 € 27.990 € 28.990 € 138 24 95 (70) 0 190"
+          },
+          {
+            "label": "Batterijcapaciteit - Bruto (kW)",
+            "kwh": 23.8,
+            "page": 15,
+            "quote": "Batterijcapaciteit - Bruto (kW) 23,8 42"
+          },
+          {
+            "label": "Batterijcapaciteit - Netto (kW)",
+            "kwh": 21.3,
+            "page": 15,
+            "quote": "Batterijcapaciteit - Netto (kW) 21,3 37,3"
+          }
+        ],
+        "consumption_kwh_100km": {
+          "min": 13,
+          "max": null,
+          "page": 16,
+          "quote": "Elektrisch verbruik gecombineerd (Wh/100km) 13,0 13,6 – 14,4 14,4 - 14,9 14,4 - 14,9"
+        },
+        "ac_charging": {
+          "kw": 11,
+          "phases": 3,
+          "standard": true,
+          "page": 15,
+          "quote": "Mode 3 - 11kW (3 fase 16A) 0% - 100% 02:30 04:15"
+        },
+        "ac_option_kw": null,
+        "dc_max_kw": 50,
+        "range_km": {
+          "min": 190,
+          "max": 190
+        },
+        "notes": "Verbruik staat in het document als 'Wh/100km', maar de waarden (13,0) passen bij kWh/100km; als kWh/100km overgenomen. Batterijlabels gebruiken de eenheid 'kW' in plaats van kWh. Bij de laadtijden staat 23,7 kWh, terwijl de bruto capaciteit 23,8 is. De uitrustingslijst noemt 'DC Snelladen tot 85kW' voor alle niveaus; de techniektabel geeft 50 kW voor 24 kWh. Vermogen staat op p.5 als 95 (70) en op p.15 als 'kW (pk)' 95 (70); de eenheden zijn mogelijk verwisseld."
+      },
+      {
+        "make": "Fiat",
+        "model": "500e",
+        "variant": "42 kWh",
+        "model_year": null,
+        "battery": [
+          {
+            "label": "Accu capaciteit (kWh)",
+            "kwh": 42,
+            "page": 5,
+            "quote": "RED 332 R12 4 € 26.851,24 € 5.639 € 0 € 32.490 € 33.490 € 165 42 118 (87) 0 331"
+          },
+          {
+            "label": "Batterijcapaciteit - Bruto (kW)",
+            "kwh": 42,
+            "page": 15,
+            "quote": "Batterijcapaciteit - Bruto (kW) 23,8 42"
+          },
+          {
+            "label": "Batterijcapaciteit - Netto (kW)",
+            "kwh": 37.3,
+            "page": 15,
+            "quote": "Batterijcapaciteit - Netto (kW) 21,3 37,3"
+          }
+        ],
+        "consumption_kwh_100km": {
+          "min": 13.6,
+          "max": 14.9,
+          "page": 16,
+          "quote": "Elektrisch verbruik gecombineerd (Wh/100km) 13,0 13,6 – 14,4 14,4 - 14,9 14,4 - 14,9"
+        },
+        "ac_charging": {
+          "kw": 11,
+          "phases": 3,
+          "standard": true,
+          "page": 15,
+          "quote": "Mode 3 - 11kW (3 fase 16A) 0% - 100% 02:30 04:15"
+        },
+        "ac_option_kw": null,
+        "dc_max_kw": 85,
+        "range_km": {
+          "min": 299,
+          "max": 331
+        },
+        "notes": "Verbruik staat in het document als 'Wh/100km', maar de waarden (13,6–14,9) passen bij kWh/100km; als kWh/100km overgenomen. Batterijlabels gebruiken de eenheid 'kW' in plaats van kWh. De actieradius spreekt zichzelf tegen: p.5 noemt tot 331 km (RED Hatchback) en 313 km (RED 3+1), terwijl p.16 310–312 (Hatchback), 299–310 (Cabrio) en 304–310 (3+1) noemt. Vermogen staat op p.5 als 118 (87) en op p.15 als 'kW (pk)' 87 (118)."
+      }
+    ]
+  }
+}

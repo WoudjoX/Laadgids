@@ -1,0 +1,98 @@
+{
+  "doc_id": "renault-zoe-pricelist-nl",
+  "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "extracted_at": "2026-10-06T07:47:28.076Z",
+  "model": "claude-opus-5-5",
+  "usage": {
+    "input_tokens": 22696,
+    "output_tokens": 1676
+  },
+  "extraction": {
+    "document_title": "Renault ZOE E-TECH 100% Electric Prijslijst januari 2022",
+    "valid_from": "1 januari 2022",
+    "market": "NL",
+    "model_year": null,
+    "variants": [
+      {
+        "make": "Renault",
+        "model": "ZOE",
+        "variant": "R110",
+        "model_year": null,
+        "battery": [
+          {
+            "label": "Capaciteit",
+            "kwh": 52,
+            "page": 14,
+            "quote": "Capaciteit 52 kWh"
+          },
+          {
+            "label": "Batterij",
+            "kwh": 52,
+            "page": 5,
+            "quote": "R110 Life Z.E. 50 (52kWh) 80 / 108"
+          }
+        ],
+        "consumption_kwh_100km": {
+          "min": 17.4,
+          "max": null,
+          "page": 14,
+          "quote": "Gemiddeld energieverbruik Wh/km 174 177"
+        },
+        "ac_charging": {
+          "kw": 22,
+          "phases": 3,
+          "standard": true,
+          "page": 14,
+          "quote": "Oplaadtijd (uren) 22 kW (3 fasen 32A) 0-100% uur 03:00"
+        },
+        "ac_option_kw": null,
+        "dc_max_kw": 50,
+        "range_km": {
+          "min": 395,
+          "max": null
+        },
+        "notes": "Verbruik opgegeven als 174 Wh/km, omgerekend naar 17,4 kWh/100 km. AC-lader 'Vermogen lader AC (kW/h) min-max 2,3 - 22 kW', standaard volgens uitrustingslijst p.10. Actieradius WLTP volgens voetnoot 'overeenkomstig de versie met de optimale waarden'. Uitvoering Life."
+      },
+      {
+        "make": "Renault",
+        "model": "ZOE",
+        "variant": "R135",
+        "model_year": null,
+        "battery": [
+          {
+            "label": "Capaciteit",
+            "kwh": 52,
+            "page": 14,
+            "quote": "Capaciteit 52 kWh"
+          },
+          {
+            "label": "Batterij",
+            "kwh": 52,
+            "page": 5,
+            "quote": "R135 Limited Z.E. 50 (52kWh) 100 / 136"
+          }
+        ],
+        "consumption_kwh_100km": {
+          "min": 17.7,
+          "max": null,
+          "page": 14,
+          "quote": "Gemiddeld energieverbruik Wh/km 174 177"
+        },
+        "ac_charging": {
+          "kw": 22,
+          "phases": 3,
+          "standard": true,
+          "page": 14,
+          "quote": "Oplaadtijd (uren) 22 kW (3 fasen 32A) 0-100% uur 03:00"
+        },
+        "ac_option_kw": null,
+        "dc_max_kw": 50,
+        "range_km": {
+          "min": 385,
+          "max": null
+        },
+        "notes": "Verbruik opgegeven als 177 Wh/km, omgerekend naar 17,7 kWh/100 km. Actieradius WLTP volgens voetnoot 'overeenkomstig de versie met de optimale waarden'. Uitvoeringen Limited, Intens, Intens Business. Prijzen Intens/Intens Business wijken af tussen p.4 (36.290/32.690) en p.5 (36.590/32.990)."
+      }
+    ]
+  }
+}

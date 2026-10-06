@@ -1,0 +1,218 @@
+{
+  "doc_id": "vw-id4-pricelist-nl",
+  "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "extracted_at": "2026-10-06T07:43:27.063Z",
+  "model": "claude-opus-5-5",
+  "usage": {
+    "input_tokens": 24225,
+    "output_tokens": 4007
+  },
+  "extraction": {
+    "document_title": "De ID.4 Limited Edition – Informatie en prijzen per 1 september 2026",
+    "valid_from": "1 september 2026",
+    "market": "Nederland",
+    "model_year": 2027,
+    "variants": [
+      {
+        "make": "Volkswagen",
+        "model": "ID.4",
+        "variant": "Limited Edition Elektromotor 140kW/190pk",
+        "model_year": 2027,
+        "battery": [
+          {
+            "label": "Batterij capaciteit (netto)",
+            "kwh": 58,
+            "page": 4,
+            "quote": "58 kWh 426 km 140 kW / 190 pk 1-versnelling Limited Edition"
+          },
+          {
+            "label": "Nominale accucapaciteit (kWh)",
+            "kwh": 58,
+            "page": 16,
+            "quote": "Nominale accucapaciteit (kWh) 58 77 77 77 77"
+          }
+        ],
+        "consumption_kwh_100km": {
+          "min": 16.32,
+          "max": null,
+          "page": 17,
+          "quote": "Gecomineerd (Wh/km) 163.2 157.9 160.5 165.8 168.3"
+        },
+        "ac_charging": {
+          "kw": 11,
+          "phases": null,
+          "standard": null,
+          "page": 6,
+          "quote": "Geschikt voor AC laden tot 11 kW (wallbox en publiek laden)"
+        },
+        "ac_option_kw": null,
+        "dc_max_kw": 105,
+        "range_km": {
+          "min": 426,
+          "max": null
+        },
+        "notes": "Verbruik omgerekend van 163.2 Wh/km (WLTP gecombineerd). Dezelfde 58 kWh heet op p. 4 'netto' en op p. 16 'nominale' capaciteit. Legenda in uitrustingstabel zegt '● optioneel ○ standaard' terwijl AC 11 kW met ● op de pagina Standaarduitrusting staat; standaard/optie daarom onduidelijk. Laadtijd AC 11 kW 100% SOC 06:30 h; DC 10-80% 00:26 h."
+      },
+      {
+        "make": "Volkswagen",
+        "model": "ID.4",
+        "variant": "Pro Limited Edition Elektromotor 210kW/286pk",
+        "model_year": 2027,
+        "battery": [
+          {
+            "label": "Batterij capaciteit (netto)",
+            "kwh": 77,
+            "page": 4,
+            "quote": "77 kWh 563 km 210 kW / 286 pk Pro Limited Edition"
+          },
+          {
+            "label": "Nominale accucapaciteit (kWh)",
+            "kwh": 77,
+            "page": 16,
+            "quote": "Nominale accucapaciteit (kWh) 58 77 77 77 77"
+          }
+        ],
+        "consumption_kwh_100km": {
+          "min": 15.79,
+          "max": null,
+          "page": 17,
+          "quote": "Gecomineerd (Wh/km) 163.2 157.9 160.5 165.8 168.3"
+        },
+        "ac_charging": {
+          "kw": 11,
+          "phases": null,
+          "standard": null,
+          "page": 6,
+          "quote": "Geschikt voor AC laden tot 11 kW (wallbox en publiek laden)"
+        },
+        "ac_option_kw": null,
+        "dc_max_kw": 165,
+        "range_km": {
+          "min": 563,
+          "max": null
+        },
+        "notes": "Verbruik omgerekend van 157.9 Wh/km. Dezelfde 77 kWh heet op p. 4 'netto' en op p. 16 'nominale' capaciteit. Legenda '● optioneel ○ standaard' tegenstrijdig met plaatsing op pagina Standaarduitrusting. Laadtijd AC 11 kW 100% SOC 08:30 h; DC 10-80% 00:29 h."
+      },
+      {
+        "make": "Volkswagen",
+        "model": "ID.4",
+        "variant": "Pro Limited Edition Plus Elektromotor 210kW/286pk",
+        "model_year": 2027,
+        "battery": [
+          {
+            "label": "Batterij capaciteit (netto)",
+            "kwh": 77,
+            "page": 4,
+            "quote": "77 kWh 563 km 210 kW / 286 pk Pro Limited Edition"
+          },
+          {
+            "label": "Nominale accucapaciteit (kWh)",
+            "kwh": 77,
+            "page": 16,
+            "quote": "Nominale accucapaciteit (kWh) 58 77 77 77 77"
+          }
+        ],
+        "consumption_kwh_100km": {
+          "min": 16.05,
+          "max": null,
+          "page": 17,
+          "quote": "Gecomineerd (Wh/km) 163.2 157.9 160.5 165.8 168.3"
+        },
+        "ac_charging": {
+          "kw": 11,
+          "phases": null,
+          "standard": null,
+          "page": 6,
+          "quote": "Geschikt voor AC laden tot 11 kW (wallbox en publiek laden)"
+        },
+        "ac_option_kw": null,
+        "dc_max_kw": 165,
+        "range_km": {
+          "min": 555,
+          "max": null
+        },
+        "notes": "Aparte record omdat verbruik en actieradius afwijken van Pro Limited Edition. Netto 77 kWh op p. 4 staat in een samengevoegde tabelcel bij de Pro-rij. Verbruik omgerekend van 160.5 Wh/km. Legenda '● optioneel ○ standaard' tegenstrijdig met pagina Standaarduitrusting. Laadtijd AC 11 kW 100% SOC 08:30 h; DC 10-80% 00:29 h."
+      },
+      {
+        "make": "Volkswagen",
+        "model": "ID.4",
+        "variant": "Pro Limited Edition Plus Elektromotor 220kW/299pk 4MOTION",
+        "model_year": 2027,
+        "battery": [
+          {
+            "label": "Batterij capaciteit (netto)",
+            "kwh": 77,
+            "page": 4,
+            "quote": "77 kWh 563 km 210 kW / 286 pk Pro Limited Edition"
+          },
+          {
+            "label": "Nominale accucapaciteit (kWh)",
+            "kwh": 77,
+            "page": 16,
+            "quote": "Nominale accucapaciteit (kWh) 58 77 77 77 77"
+          }
+        ],
+        "consumption_kwh_100km": {
+          "min": 16.58,
+          "max": null,
+          "page": 17,
+          "quote": "Gecomineerd (Wh/km) 163.2 157.9 160.5 165.8 168.3"
+        },
+        "ac_charging": {
+          "kw": 11,
+          "phases": null,
+          "standard": null,
+          "page": 6,
+          "quote": "Geschikt voor AC laden tot 11 kW (wallbox en publiek laden)"
+        },
+        "ac_option_kw": null,
+        "dc_max_kw": 165,
+        "range_km": {
+          "min": 542,
+          "max": null
+        },
+        "notes": "Netto 77 kWh op p. 4 staat in een samengevoegde tabelcel. Verbruik omgerekend van 165.8 Wh/km. Legenda '● optioneel ○ standaard' tegenstrijdig met pagina Standaarduitrusting. Laadtijd AC 11 kW 100% SOC 08:30 h; DC 10-80% 00:29 h."
+      },
+      {
+        "make": "Volkswagen",
+        "model": "ID.4",
+        "variant": "GTX Limited Edition Elektromotor 250kW/340pk 4MOTION",
+        "model_year": 2027,
+        "battery": [
+          {
+            "label": "Batterij capaciteit (netto)",
+            "kwh": 77,
+            "page": 4,
+            "quote": "77 kWh 563 km 210 kW / 286 pk Pro Limited Edition"
+          },
+          {
+            "label": "Nominale accucapaciteit (kWh)",
+            "kwh": 77,
+            "page": 16,
+            "quote": "Nominale accucapaciteit (kWh) 58 77 77 77 77"
+          }
+        ],
+        "consumption_kwh_100km": {
+          "min": 16.83,
+          "max": null,
+          "page": 17,
+          "quote": "Gecomineerd (Wh/km) 163.2 157.9 160.5 165.8 168.3"
+        },
+        "ac_charging": {
+          "kw": 11,
+          "phases": null,
+          "standard": null,
+          "page": 6,
+          "quote": "Geschikt voor AC laden tot 11 kW (wallbox en publiek laden)"
+        },
+        "ac_option_kw": null,
+        "dc_max_kw": 185,
+        "range_km": {
+          "min": 524,
+          "max": null
+        },
+        "notes": "Netto 77 kWh op p. 4 staat in een samengevoegde tabelcel (voetnoot noemt '77 kWh Pro / GTX'). Verbruik omgerekend van 168.3 Wh/km. Legenda '● optioneel ○ standaard' tegenstrijdig met pagina Standaarduitrusting. Laadtijd AC 11 kW 100% SOC 08:00 h; DC 10-80% 00:27 h."
+      }
+    ]
+  }
+}

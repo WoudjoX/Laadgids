@@ -1,0 +1,70 @@
+{
+  "doc_id": "bmw-ix1-press-nl",
+  "sha256": "f48628aac1348a196de8ebfbdeb8d835ee1bef56311604ce2fd180d6b6a40635",
+  "extracted_at": "2026-10-06T07:49:44.197Z",
+  "model": "claude-opus-5-5",
+  "usage": {
+    "input_tokens": 7692,
+    "output_tokens": 1067
+  },
+  "extraction": {
+    "document_title": "De prijs van de geheel nieuwe BMW iX1 eDrive20 is bekend.",
+    "valid_from": null,
+    "market": "NL",
+    "model_year": null,
+    "variants": [
+      {
+        "make": "BMW",
+        "model": "iX1",
+        "variant": "eDrive20",
+        "model_year": null,
+        "battery": [
+          {
+            "label": "bruikbare energie-inhoud",
+            "kwh": 64.7,
+            "page": null,
+            "quote": "De hoogspanningsaccu heeft een bruikbare energie-inhoud van 64,7 kWh"
+          }
+        ],
+        "consumption_kwh_100km": {
+          "min": 15.4,
+          "max": 17.2,
+          "page": null,
+          "quote": "gecombineerd stroomverbruik: 17,2 — 15,4 kWh/100 km volgens WLTP; CO2-uitstoot: 0 g/km, voorlopige waarden"
+        },
+        "ac_charging": {
+          "kw": 11,
+          "phases": null,
+          "standard": true,
+          "page": null,
+          "quote": "De gecombineerde laadeenheid van de nieuwe BMW iX1 eDrive20 maakt standaard AC-opladen tot 11 kW mogelijk."
+        },
+        "ac_option_kw": 22,
+        "dc_max_kw": 130,
+        "range_km": {
+          "min": 430,
+          "max": 475
+        },
+        "notes": "Verbruik en actieradius zijn voorlopige WLTP-waarden. AC 11 kW: 0-100% in 6,5 uur; optioneel driefase AC tot 22 kW: laadtijd 3:45 uur. DC 10-80% in 29 minuten. Fasen voor de standaard 11 kW-lader niet vermeld."
+      },
+      {
+        "make": "BMW",
+        "model": "iX1",
+        "variant": "xDrive30",
+        "model_year": null,
+        "battery": [],
+        "consumption_kwh_100km": {
+          "min": 16.8,
+          "max": 18.1,
+          "page": null,
+          "quote": "BMW iX1 xDrive30 (gecombineerd stroomverbruik: 18,1 — 16,8 kWh/100 km volgens WLTP; CO2-uitstoot: 0 g/km)"
+        },
+        "ac_charging": null,
+        "ac_option_kw": null,
+        "dc_max_kw": null,
+        "range_km": null,
+        "notes": "Alleen terloops genoemd ter vergelijking; behalve het verbruik geen technische gegevens in het document."
+      }
+    ]
+  }
+}

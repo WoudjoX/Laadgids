@@ -5,7 +5,7 @@ Automatiseert het opzoeken, niet het beslissen. Drie stappen, elk apart te draai
 | Stap | Doet | Input | Output |
 |---|---|---|---|
 | `fetch` | Haalt elk document uit `data/sources/oem-documents.json` op (of leest het lokale bestand uit `file`), berekent een vingerafdruk, bewaart ruw bestand en tekst | registry | `data/sources/cache/` (niet in git), `data/sources/oem-documents.state.json` (wel in git) |
-| `extract` | Laat Claude per uitvoering de cijfers uittrekken, met label, paginanummer en citaat; alleen voor documenten die sinds de vorige keer veranderd zijn | cache | `data/pipeline/extracted/<id>.json` |
+| `extract` | Laat Claude per uitvoering de cijfers uittrekken, met label, paginanummer en citaat; alleen voor documenten die sinds de vorige keer veranderd zijn | cache | `data/pipeline/extracted/<id>.json` (in git) |
 | `review` | Legt de uittreksels naast `versions`, meldt bronnen die onbereikbaar zijn, kiest een steekproef van 10 % | uittreksels + database | `data/import/review/pipeline-<datum>.md` en `.csv` |
 
 `pnpm pipeline run` doet de drie na elkaar.
@@ -34,3 +34,7 @@ Automatiseert het opzoeken, niet het beslissen. Drie stappen, elk apart te draai
 ## Een document toevoegen
 
 Eén regel in `data/sources/oem-documents.json`: `id` (kleine letters en streepjes), `make` (slug uit `makes`), `models`, `market` (BE, NL, IE, INT), `kind` (price_list, spec_page, press_kit, offer_page), `url` en eventueel `file` en `note`. De test in `pipeline.test.ts` weigert dubbele id's en ongeldige waarden.
+
+## Wekelijkse cloudroutine
+
+Een routine in Claude Code (claude.ai/code/routines) draait `pnpm pipeline run` elke maandag in de cloud, zet rapport en CSV in `reports/pipeline/` en mailt de samenvatting. Zonder Supabase-sleutels valt `review` terug op `data/seed/versions.json`, wat dezelfde inhoud heeft. Alleen `ANTHROPIC_API_KEY` moet in de cloudomgeving staan. Documenten met een lokaal bestand (Mercedes) behouden daar hun vorige toestand.

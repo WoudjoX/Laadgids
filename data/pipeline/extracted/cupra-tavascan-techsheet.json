@@ -1,0 +1,98 @@
+{
+  "doc_id": "cupra-tavascan-techsheet",
+  "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "extracted_at": "2026-10-06T07:47:13.279Z",
+  "model": "claude-opus-5-5",
+  "usage": {
+    "input_tokens": 4671,
+    "output_tokens": 1366
+  },
+  "extraction": {
+    "document_title": "ESPECIFICACIONES TÉCNICAS CUPRA Tavascan",
+    "valid_from": null,
+    "market": "INT",
+    "model_year": null,
+    "variants": [
+      {
+        "make": "Cupra",
+        "model": "Tavascan",
+        "variant": "(BEV) Endurance 210 kW (286 CV)",
+        "model_year": null,
+        "battery": [
+          {
+            "label": "Capacidad neta / bruta [kWh]",
+            "kwh": 77,
+            "page": 1,
+            "quote": "77 / 82"
+          },
+          {
+            "label": "Capacidad neta / bruta [kWh]",
+            "kwh": 82,
+            "page": 1,
+            "quote": "77 / 82"
+          }
+        ],
+        "consumption_kwh_100km": {
+          "min": 15.2,
+          "max": 16,
+          "page": 1,
+          "quote": "Ponderado (kWh / 100 Km) 15,2 - 16 16,5 - 16,8"
+        },
+        "ac_charging": {
+          "kw": 11,
+          "phases": null,
+          "standard": null,
+          "page": 1,
+          "quote": "Tiempo de carga con CA de 11 kW (0-100%)"
+        },
+        "ac_option_kw": null,
+        "dc_max_kw": 135,
+        "range_km": {
+          "min": 542,
+          "max": 568
+        },
+        "notes": "The PDF layout is jumbled. Battery values (77 / 82) are given as a single shared value; this record assumes they apply to both variants. 77 is the net value and 82 the gross value. Charging times: AC 11 kW 0-100% in 8 h; DC 135 kW 10-80% in 28 min."
+      },
+      {
+        "make": "Cupra",
+        "model": "Tavascan",
+        "variant": "(BEV) VZ 250 kW (340 CV)",
+        "model_year": null,
+        "battery": [
+          {
+            "label": "Capacidad neta / bruta [kWh]",
+            "kwh": 77,
+            "page": 1,
+            "quote": "77 / 82"
+          },
+          {
+            "label": "Capacidad neta / bruta [kWh]",
+            "kwh": 82,
+            "page": 1,
+            "quote": "77 / 82"
+          }
+        ],
+        "consumption_kwh_100km": {
+          "min": 16.5,
+          "max": 16.8,
+          "page": 1,
+          "quote": "Ponderado (kWh / 100 Km) 15,2 - 16 16,5 - 16,8"
+        },
+        "ac_charging": {
+          "kw": 11,
+          "phases": null,
+          "standard": null,
+          "page": 1,
+          "quote": "Tiempo de carga con CA de 11 kW (0-100%)"
+        },
+        "ac_option_kw": null,
+        "dc_max_kw": 135,
+        "range_km": {
+          "min": 512,
+          "max": 522
+        },
+        "notes": "The PDF layout is jumbled. Battery and charging values are given only once (shared); this record assumes they also apply to the VZ. 77 is the net value and 82 the gross value. Charging times: AC 11 kW 0-100% in 8 h; DC 135 kW 10-80% in 28 min."
+      }
+    ]
+  }
+}

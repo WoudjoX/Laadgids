@@ -1,0 +1,86 @@
+{
+  "doc_id": "dacia-spring-pricelist-nl",
+  "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "extracted_at": "2026-10-06T07:46:12.961Z",
+  "model": "claude-opus-5-5",
+  "usage": {
+    "input_tokens": 11556,
+    "output_tokens": 1349
+  },
+  "extraction": {
+    "document_title": "DACIA SPRING PRIJSLIJST JANUARI 2025",
+    "valid_from": "januari 2025",
+    "market": "NL",
+    "model_year": null,
+    "variants": [
+      {
+        "make": "Dacia",
+        "model": "Spring",
+        "variant": "Electric 45",
+        "model_year": null,
+        "battery": [
+          {
+            "label": "Capaciteit",
+            "kwh": 26.8,
+            "page": 4,
+            "quote": "Capaciteit 26,8 kWh 26,8 kWh"
+          }
+        ],
+        "consumption_kwh_100km": {
+          "min": 14.1,
+          "max": null,
+          "page": 4,
+          "quote": "Gemiddeld energieverbruik gecombineerde cyclus kWh/100km 14,1 13,2"
+        },
+        "ac_charging": {
+          "kw": 7,
+          "phases": 1,
+          "standard": true,
+          "page": 2,
+          "quote": "AC lader met een vermogen van 2,3 -7KW AC (1-fase)"
+        },
+        "ac_option_kw": null,
+        "dc_max_kw": 30,
+        "range_km": {
+          "min": 225,
+          "max": null
+        },
+        "notes": "Tegenstrijdig: technische tabel (p.4) noemt DC lader max 30 kW voor Electric 45, maar optielijst (p.3) zegt DC lader 30 kW 'niet i.c.m. Electric 45 motor'. AC lader 2,3-7 kW, maar oplaadtijdtabel noemt 7,4 kW AC (1 fase 32A) 20-100% in 04:00. Actieradius stadscyclus WLTP 305 km; 225 km is gecombineerd."
+      },
+      {
+        "make": "Dacia",
+        "model": "Spring",
+        "variant": "Electric 65",
+        "model_year": null,
+        "battery": [
+          {
+            "label": "Capaciteit",
+            "kwh": 26.8,
+            "page": 4,
+            "quote": "Capaciteit 26,8 kWh 26,8 kWh"
+          }
+        ],
+        "consumption_kwh_100km": {
+          "min": 13.2,
+          "max": null,
+          "page": 4,
+          "quote": "Gemiddeld energieverbruik gecombineerde cyclus kWh/100km 14,1 13,2"
+        },
+        "ac_charging": {
+          "kw": 7,
+          "phases": 1,
+          "standard": true,
+          "page": 2,
+          "quote": "AC lader met een vermogen van 2,3 -7KW AC (1-fase)"
+        },
+        "ac_option_kw": null,
+        "dc_max_kw": 30,
+        "range_km": {
+          "min": 225,
+          "max": null
+        },
+        "notes": "DC lader 30 kW is een optie (EUR 600) volgens optielijst p.3. AC lader 2,3-7 kW, maar oplaadtijdtabel noemt 7,4 kW AC (1 fase 32A) 20-100% in 04:00. Actieradius stadscyclus WLTP 305 km; 225 km is gecombineerd."
+      }
+    ]
+  }
+}

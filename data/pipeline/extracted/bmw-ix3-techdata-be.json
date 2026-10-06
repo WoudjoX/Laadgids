@@ -1,0 +1,120 @@
+{
+  "doc_id": "bmw-ix3-techdata-be",
+  "sha256": "7b6975af0d111c2018964cf4fcfbbe206a1b6c153121c901cbe2a47860ad0a84",
+  "extracted_at": "2026-10-06T07:48:37.862Z",
+  "model": "claude-opus-5-5",
+  "usage": {
+    "input_tokens": 9955,
+    "output_tokens": 1749
+  },
+  "extraction": {
+    "document_title": "BMW iX3 (NA5): technische gegevens, afmetingen en motoren",
+    "valid_from": null,
+    "market": "BE",
+    "model_year": null,
+    "variants": [
+      {
+        "make": "BMW",
+        "model": "iX3",
+        "variant": "235 kW (320 pk) Achterwielaandrijving",
+        "model_year": null,
+        "battery": [
+          {
+            "label": "Accucapaciteit in kWh",
+            "kwh": 82.6,
+            "page": null,
+            "quote": "Accucapaciteit in kWh 82,6"
+          }
+        ],
+        "consumption_kwh_100km": {
+          "min": 15.7,
+          "max": 18.9,
+          "page": null,
+          "quote": "Stroomverbruik, gecombineerd WLTP in kWh/100 km 18,9–15,7"
+        },
+        "ac_charging": {
+          "kw": 11,
+          "phases": null,
+          "standard": true,
+          "page": null,
+          "quote": "Maximaal laadvermogen AC in kW 11 / 22 5"
+        },
+        "ac_option_kw": 22,
+        "dc_max_kw": 300,
+        "range_km": {
+          "min": 532,
+          "max": 645
+        },
+        "notes": "De variantnaam staat niet in de tekst; uitvoering aangeduid via vermogen en aandrijving. AC 11/22 kW met voetnoot 5 'Standaard uitrusting/ optionele uitrusting'; laadduur AC 0–100% 8:15 / 4:15. Het 1-fasen cijfer (7,4 kW) geldt voor de BMW Wallbox Professional, niet de boordlader."
+      },
+      {
+        "make": "BMW",
+        "model": "iX3",
+        "variant": "275 kW (374 pk) Vierwielaandrijving",
+        "model_year": null,
+        "battery": [
+          {
+            "label": "Accucapaciteit in kWh",
+            "kwh": 82.6,
+            "page": null,
+            "quote": "Accucapaciteit in kWh 82,6"
+          }
+        ],
+        "consumption_kwh_100km": {
+          "min": 16.3,
+          "max": 19.5,
+          "page": null,
+          "quote": "Stroomverbruik, gecombineerd WLTP in kWh/100 km 19,5–16,3"
+        },
+        "ac_charging": {
+          "kw": 11,
+          "phases": null,
+          "standard": true,
+          "page": null,
+          "quote": "Maximaal laadvermogen AC in kW 11 / 22 5"
+        },
+        "ac_option_kw": 22,
+        "dc_max_kw": 300,
+        "range_km": {
+          "min": 515,
+          "max": 621
+        },
+        "notes": "De variantnaam staat niet in de tekst; uitvoering aangeduid via vermogen en aandrijving. AC 11/22 kW met voetnoot 5 'Standaard uitrusting/ optionele uitrusting'; laadduur AC 0–100% 8:15 / 4:15. Het 1-fasen cijfer (7,4 kW) geldt voor de BMW Wallbox Professional."
+      },
+      {
+        "make": "BMW",
+        "model": "iX3",
+        "variant": "50 xDrive",
+        "model_year": null,
+        "battery": [
+          {
+            "label": "Accucapaciteit in kWh",
+            "kwh": 108.7,
+            "page": null,
+            "quote": "Accucapaciteit in kWh 108,7"
+          }
+        ],
+        "consumption_kwh_100km": {
+          "min": 15.1,
+          "max": 18.1,
+          "page": null,
+          "quote": "BMW iX3 50 xDrive: Energieverbruik elektrisch, gecombineerd WLTP in kWh/100 km: 18,1–15,1"
+        },
+        "ac_charging": {
+          "kw": 11,
+          "phases": null,
+          "standard": null,
+          "page": null,
+          "quote": "Maximaal laadvermogen AC in kW 11"
+        },
+        "ac_option_kw": null,
+        "dc_max_kw": 400,
+        "range_km": {
+          "min": 673,
+          "max": 805
+        },
+        "notes": "Naam '50 xDrive' afgeleid uit overeenkomst van verbruik en rijbereik (18,1–15,1; 673–805) met de vermelding 'BMW iX3 50 xDrive' (345 kW, vierwielaandrijving). Laadduur AC 0–100% 11:00. Het 1-fasen cijfer (7,4 kW) geldt voor de BMW Wallbox Professional."
+      }
+    ]
+  }
+}

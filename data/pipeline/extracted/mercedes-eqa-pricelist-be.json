@@ -1,0 +1,120 @@
+{
+  "doc_id": "mercedes-eqa-pricelist-be",
+  "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "extracted_at": "2026-10-06T07:48:51.039Z",
+  "model": "claude-opus-5-5",
+  "usage": {
+    "input_tokens": 15739,
+    "output_tokens": 1648
+  },
+  "extraction": {
+    "document_title": "Prijslijst EQA",
+    "valid_from": "15 januari 2026",
+    "market": "BE",
+    "model_year": null,
+    "variants": [
+      {
+        "make": "Mercedes-Benz",
+        "model": "EQA",
+        "variant": "250+",
+        "model_year": null,
+        "battery": [
+          {
+            "label": "Accucapaciteit (kWh)",
+            "kwh": 70,
+            "page": 21,
+            "quote": "Accucapaciteit (kWh) 70 70 70"
+          }
+        ],
+        "consumption_kwh_100km": {
+          "min": 14.5,
+          "max": 16.4,
+          "page": 21,
+          "quote": "Gecombineerd elektrisch verbruik WLTP (kWh/100km) 14,5 - 16,4"
+        },
+        "ac_charging": {
+          "kw": 11,
+          "phases": null,
+          "standard": true,
+          "page": 21,
+          "quote": "Max. AC-laadcapaciteit (kW) 11 11 11"
+        },
+        "ac_option_kw": null,
+        "dc_max_kw": 100,
+        "range_km": {
+          "min": 497,
+          "max": 557
+        },
+        "notes": "AC-laadtijd 0-100% bij 11 kW: 7u15; DC 10-80%: 35 min. Standaarduitrusting p. 8: 'Wisselstroom-laadsysteem (AC), tot 11 kW' standaard. Prijstabel p. 3: Essential Line 557 km / 14,5 kWh/100km, Business Star Edition 543 km / 14,9 kWh/100km (binnen het bereik van p. 21)."
+      },
+      {
+        "make": "Mercedes-Benz",
+        "model": "EQA",
+        "variant": "300 4MATIC",
+        "model_year": null,
+        "battery": [
+          {
+            "label": "Accucapaciteit (kWh)",
+            "kwh": 70,
+            "page": 21,
+            "quote": "Accucapaciteit (kWh) 70 70 70"
+          }
+        ],
+        "consumption_kwh_100km": {
+          "min": 18,
+          "max": 18.6,
+          "page": 21,
+          "quote": "Gecombineerd elektrisch verbruik WLTP (kWh/100km) 14,5 - 16,4 18,0 - 18,6"
+        },
+        "ac_charging": {
+          "kw": 11,
+          "phases": null,
+          "standard": true,
+          "page": 21,
+          "quote": "Max. AC-laadcapaciteit (kW) 11 11 11"
+        },
+        "ac_option_kw": null,
+        "dc_max_kw": 100,
+        "range_km": {
+          "min": 435,
+          "max": 450
+        },
+        "notes": "AC-laadtijd 0-100% bij 11 kW: 7u15; DC 10-80%: 35 min. Standaarduitrusting p. 8: AC tot 11 kW standaard. Prijstabel p. 3: Luxury Line 450 km / 18,0 kWh/100km, AMG Line 444 km / 18,2 kWh/100km (binnen het bereik van p. 21)."
+      },
+      {
+        "make": "Mercedes-Benz",
+        "model": "EQA",
+        "variant": "350 4MATIC",
+        "model_year": null,
+        "battery": [
+          {
+            "label": "Accucapaciteit (kWh)",
+            "kwh": 70,
+            "page": 21,
+            "quote": "Accucapaciteit (kWh) 70 70 70"
+          }
+        ],
+        "consumption_kwh_100km": {
+          "min": 18.3,
+          "max": 18.6,
+          "page": 21,
+          "quote": "Gecombineerd elektrisch verbruik WLTP (kWh/100km) 14,5 - 16,4 18,0 - 18,6 18,3 - 18,6"
+        },
+        "ac_charging": {
+          "kw": 11,
+          "phases": null,
+          "standard": true,
+          "page": 21,
+          "quote": "Max. AC-laadcapaciteit (kW) 11 11 11"
+        },
+        "ac_option_kw": null,
+        "dc_max_kw": 100,
+        "range_km": {
+          "min": 435,
+          "max": 443
+        },
+        "notes": "AC-laadtijd 0-100% bij 11 kW: 7u15; DC 10-80%: 35 min. Standaarduitrusting p. 8: AC tot 11 kW standaard. Prijstabel p. 3: AMG Line 443 km / 18,3 kWh/100km."
+      }
+    ]
+  }
+}

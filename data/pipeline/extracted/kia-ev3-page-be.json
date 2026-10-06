@@ -1,0 +1,78 @@
+{
+  "doc_id": "kia-ev3-page-be",
+  "sha256": "3a84c1358dc8c550aa5a723a50d9d3c6788786c02b0561f408b184de7ddef32a",
+  "extracted_at": "2026-10-06T07:45:20.954Z",
+  "model": "claude-opus-5-5",
+  "usage": {
+    "input_tokens": 19628,
+    "output_tokens": 2372
+  },
+  "extraction": {
+    "document_title": "De Kia EV3: De compacte elektrische SUV | Kia Belgium",
+    "valid_from": null,
+    "market": "België",
+    "model_year": null,
+    "variants": [
+      {
+        "make": "Kia",
+        "model": "EV3",
+        "variant": "Standard Range FWD",
+        "model_year": null,
+        "battery": [
+          {
+            "label": "",
+            "kwh": 58.3,
+            "page": null,
+            "quote": "Het EV3 Standard-model wordt uitsluitend aangeboden met een batterij van 58,3 kWh"
+          },
+          {
+            "label": "",
+            "kwh": 63,
+            "page": null,
+            "quote": "een batterijpakket met standaard rijbereik (63 kWh)"
+          }
+        ],
+        "consumption_kwh_100km": {
+          "min": 14.9,
+          "max": null,
+          "page": null,
+          "quote": "EV3 Business 58,3kWh 204pk ... Indicatief gemiddeld verbruik (kWh/100km): 14.9."
+        },
+        "ac_charging": null,
+        "ac_option_kw": 22,
+        "dc_max_kw": null,
+        "range_km": null,
+        "notes": "Tegenstrijdige batterijcapaciteit: 58,3 kWh in de tekst, 63 kWh bij 'Standard Range FWD' en bij de batterijcellen. Verbruik 14,9 komt uit de leasingvoetnoot voor EV3 Business 58,3kWh. Algemeen modelverbruik in de voetnoot: '14,9 kWh/100 km tot 15,6 kWh/100km' en ook '[14,9-16,2] kWh/100 km' (onderling tegenstrijdig). 22 kW On-Board Charger wordt vermeld ('wanneer de EV3 is uitgerust met de 22 kW On-Board Charger'); het standaard AC-vermogen wordt niet gegeven. Geen DC-maximum van de auto vermeld; snelladen 10-80% in ongeveer 31 minuten, aan een 400V-lader van minstens 150 kW. Motor 150 kW / 204 pk."
+      },
+      {
+        "make": "Kia",
+        "model": "EV3",
+        "variant": "Long Range FWD",
+        "model_year": null,
+        "battery": [
+          {
+            "label": "",
+            "kwh": 81.4,
+            "page": null,
+            "quote": "terwijl de EV3 Long Range is uitgerust met een batterij van 81,4 kWh"
+          },
+          {
+            "label": "",
+            "kwh": 84,
+            "page": null,
+            "quote": "een batterijpakket met groot rijbereik (84 kWh)"
+          }
+        ],
+        "consumption_kwh_100km": null,
+        "ac_charging": null,
+        "ac_option_kw": 22,
+        "dc_max_kw": null,
+        "range_km": {
+          "min": 605,
+          "max": null
+        },
+        "notes": "Tegenstrijdige batterijcapaciteit: 81,4 kWh in de tekst tegenover 84 kWh bij de batterijcellen; de voetnoot schrijft '81,4Wh batterijpakket'. Rijbereik 'Tot 605 km' is een maximum, volgens de voetnoot bepaald 'op basis van een 81,4Wh batterijpakket, achterwielaandrijving en 17\" wielen'. Geen verbruik per uitvoering; algemeen modelverbruik: 14,9-15,6 kWh/100 km en ook [14,9-16,2] kWh/100 km. GT-Line Long Range FWD wordt apart genoemd met 'Aandrijflijn: RWD – achterwielaandrijving', wat in tegenspraak is met FWD in de naam en met 'beide verkrijgbaar met voorwielaandrijving'. 22 kW On-Board Charger vermeld, standaard AC-vermogen niet gegeven. Geen DC-maximum van de auto vermeld; 10-80% in ongeveer 31 minuten. Acceleratie 7,7 s."
+      }
+    ]
+  }
+}

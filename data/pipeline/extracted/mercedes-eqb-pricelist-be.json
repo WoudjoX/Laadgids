@@ -1,0 +1,52 @@
+{
+  "doc_id": "mercedes-eqb-pricelist-be",
+  "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "extracted_at": "2026-10-06T07:49:02.339Z",
+  "model": "claude-opus-5-5",
+  "usage": {
+    "input_tokens": 8423,
+    "output_tokens": 1216
+  },
+  "extraction": {
+    "document_title": "De EQB. Prijslijst geldig vanaf 1 juli 2025.",
+    "valid_from": "1 juli 2025",
+    "market": "BE",
+    "model_year": null,
+    "variants": [
+      {
+        "make": "Mercedes-Benz",
+        "model": "EQB",
+        "variant": "250+ Business Star Edition",
+        "model_year": null,
+        "battery": [
+          {
+            "label": "Bruikbare HV batterijcapaciteit (kWu)",
+            "kwh": 70.5,
+            "page": 14,
+            "quote": "Bruikbare HV batterijcapaciteit (kWu) 70,5"
+          }
+        ],
+        "consumption_kwh_100km": {
+          "min": 15.6,
+          "max": 15.8,
+          "page": 14,
+          "quote": "Gecombineerd elektrisch verbruik WLTP (kWh/100km) 15,6 - 15,8"
+        },
+        "ac_charging": {
+          "kw": 11,
+          "phases": null,
+          "standard": true,
+          "page": 8,
+          "quote": "82B Wisselstroom-laadsysteem (AC), tot 11 kW S"
+        },
+        "ac_option_kw": null,
+        "dc_max_kw": 100,
+        "range_km": {
+          "min": 516,
+          "max": 522
+        },
+        "notes": "Prijstabel p. 3 geeft één verbruikswaarde (15,6 kWh/100km) en één actieradius (522 km); de technische tabel p. 14 geeft bereiken 15,6 - 15,8 kWh/100km en 516 - 522 km. Batterijcapaciteit staat vermeld met eenheid 'kWu'. Max. AC-laadcapaciteit 11 kW ook vermeld op p. 14; AC-laadtijd 0-100% bij 11 kW: 7u15. DC-laadtijd 10-80%: 35 min. De laadkabel 9B7 is driefasig tot 22 kW, maar de fasen van de boordlader worden niet vermeld. EQB 300 4MATIC en 350 4MATIC worden in uitrustingsvoetnoten genoemd, zonder technische gegevens."
+      }
+    ]
+  }
+}

@@ -1,0 +1,218 @@
+{
+  "doc_id": "ford-mach-e-pricelist-nl",
+  "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "extracted_at": "2026-10-06T07:47:01.758Z",
+  "model": "claude-opus-5-5",
+  "usage": {
+    "input_tokens": 14293,
+    "output_tokens": 3268
+  },
+  "extraction": {
+    "document_title": "Mustang Mach-E prijslijst, Modeljaar 2025.00, Prijzenbladnr. 3675R",
+    "valid_from": "16 april 2025",
+    "market": "NL",
+    "model_year": 2025,
+    "variants": [
+      {
+        "make": "Ford",
+        "model": "Mustang Mach-E",
+        "variant": "Standard Range RWD",
+        "model_year": 2025,
+        "battery": [
+          {
+            "label": "Accupakket (bruikbaar)",
+            "kwh": 72.6,
+            "page": 6,
+            "quote": "Mach-E \tStandard Range RWD \t72,6 kWh \t470 km \t198 (269)"
+          },
+          {
+            "label": "Bruikbare batterijcapaciteit",
+            "kwh": 72.6,
+            "page": 19,
+            "quote": "Bruikbare batterijcapaciteit \t72,6 kWh \t88 kWh \t88 kWh \t91 kWh \t91 kWh"
+          }
+        ],
+        "consumption_kwh_100km": {
+          "min": 18.5,
+          "max": null,
+          "page": 19,
+          "quote": "Energieverbruik \t18,5 kWh/100 km"
+        },
+        "ac_charging": {
+          "kw": 11,
+          "phases": null,
+          "standard": null,
+          "page": 19,
+          "quote": "AC laadpaal/wallbox laadtijd op 11kW \t7:54u"
+        },
+        "ac_option_kw": null,
+        "dc_max_kw": 150,
+        "range_km": {
+          "min": 470,
+          "max": null
+        },
+        "notes": "AC-cijfer is een laadtijd 'op 11kW' (7:54u); boordladervermogen niet expliciet genoemd. Vermogen tegenstrijdig: p.6 198 kW (269 pk), p.19 197 kW / 268 pk."
+      },
+      {
+        "make": "Ford",
+        "model": "Mustang Mach-E",
+        "variant": "Premium Extended Range RWD",
+        "model_year": 2025,
+        "battery": [
+          {
+            "label": "Accupakket (bruikbaar)",
+            "kwh": 88,
+            "page": 6,
+            "quote": "Premium \tExtended Range RWD \t88 kWh \t600 km \t203 (276)"
+          },
+          {
+            "label": "Bruikbare batterijcapaciteit",
+            "kwh": 88,
+            "page": 19,
+            "quote": "Bruikbare batterijcapaciteit \t72,6 kWh \t88 kWh \t88 kWh \t91 kWh \t91 kWh"
+          }
+        ],
+        "consumption_kwh_100km": {
+          "min": 17.7,
+          "max": null,
+          "page": 19,
+          "quote": "Energieverbruik \t18,5 kWh/100 km \t17,7 kWh/100 km"
+        },
+        "ac_charging": {
+          "kw": 11,
+          "phases": null,
+          "standard": null,
+          "page": 19,
+          "quote": "AC laadpaal/wallbox laadtijd op 11kW \t7:54u \t9:30u"
+        },
+        "ac_option_kw": null,
+        "dc_max_kw": 150,
+        "range_km": {
+          "min": 600,
+          "max": null
+        },
+        "notes": "AC-cijfer is een laadtijd 'op 11kW' (9:30u); boordladervermogen niet expliciet genoemd."
+      },
+      {
+        "make": "Ford",
+        "model": "Mustang Mach-E",
+        "variant": "Premium Extended Range AWD",
+        "model_year": 2025,
+        "battery": [
+          {
+            "label": "Accupakket (bruikbaar)",
+            "kwh": 88,
+            "page": 6,
+            "quote": "Extended Range AWD \t88 kWh \t550 km \t276 (375)"
+          },
+          {
+            "label": "Bruikbare batterijcapaciteit",
+            "kwh": 88,
+            "page": 19,
+            "quote": "Bruikbare batterijcapaciteit \t72,6 kWh \t88 kWh \t88 kWh \t91 kWh \t91 kWh"
+          }
+        ],
+        "consumption_kwh_100km": {
+          "min": 19.3,
+          "max": null,
+          "page": 19,
+          "quote": "Energieverbruik \t18,5 kWh/100 km \t17,7 kWh/100 km \t19,3 kWh/100 km"
+        },
+        "ac_charging": {
+          "kw": 11,
+          "phases": null,
+          "standard": null,
+          "page": 19,
+          "quote": "AC laadpaal/wallbox laadtijd op 11kW \t7:54u \t9:30u \t9:30u"
+        },
+        "ac_option_kw": null,
+        "dc_max_kw": 150,
+        "range_km": {
+          "min": 550,
+          "max": null
+        },
+        "notes": "AC-cijfer is een laadtijd 'op 11kW' (9:30u); boordladervermogen niet expliciet genoemd."
+      },
+      {
+        "make": "Ford",
+        "model": "Mustang Mach-E",
+        "variant": "GT Extended Range AWD",
+        "model_year": 2025,
+        "battery": [
+          {
+            "label": "Accupakket (bruikbaar)",
+            "kwh": 91,
+            "page": 6,
+            "quote": "GT \tExtended Range AWD \t91 kWh \t515 km \t358 (487)"
+          },
+          {
+            "label": "Bruikbare batterijcapaciteit",
+            "kwh": 91,
+            "page": 19,
+            "quote": "Bruikbare batterijcapaciteit \t72,6 kWh \t88 kWh \t88 kWh \t91 kWh \t91 kWh"
+          }
+        ],
+        "consumption_kwh_100km": {
+          "min": 21,
+          "max": null,
+          "page": 19,
+          "quote": "19,3 kWh/100 km \t21,0 kWh/100 km \t21,3 kWh/100 km"
+        },
+        "ac_charging": {
+          "kw": 11,
+          "phases": null,
+          "standard": null,
+          "page": 19,
+          "quote": "AC laadpaal/wallbox laadtijd op 11kW \t7:54u \t9:30u \t9:30u \t9:42u"
+        },
+        "ac_option_kw": null,
+        "dc_max_kw": 150,
+        "range_km": {
+          "min": 515,
+          "max": null
+        },
+        "notes": "AC-cijfer is een laadtijd 'op 11kW' (9:42u); boordladervermogen niet expliciet genoemd."
+      },
+      {
+        "make": "Ford",
+        "model": "Mustang Mach-E",
+        "variant": "Rally Extended Range AWD",
+        "model_year": 2025,
+        "battery": [
+          {
+            "label": "Accupakket (bruikbaar)",
+            "kwh": 91,
+            "page": 10,
+            "quote": "Rally \tExtended Range AWD \t91 kWh \t510 km \t358 (487)"
+          },
+          {
+            "label": "Bruikbare batterijcapaciteit",
+            "kwh": 91,
+            "page": 19,
+            "quote": "Bruikbare batterijcapaciteit \t72,6 kWh \t88 kWh \t88 kWh \t91 kWh \t91 kWh"
+          }
+        ],
+        "consumption_kwh_100km": {
+          "min": 21.3,
+          "max": null,
+          "page": 19,
+          "quote": "21,0 kWh/100 km \t21,3 kWh/100 km"
+        },
+        "ac_charging": {
+          "kw": 11,
+          "phases": null,
+          "standard": null,
+          "page": 19,
+          "quote": "AC laadpaal/wallbox laadtijd op 11kW \t7:54u \t9:30u \t9:30u \t9:42u \t9:42u"
+        },
+        "ac_option_kw": null,
+        "dc_max_kw": 150,
+        "range_km": {
+          "min": 510,
+          "max": null
+        },
+        "notes": "AC-cijfer is een laadtijd 'op 11kW' (9:42u); boordladervermogen niet expliciet genoemd."
+      }
+    ]
+  }
+}

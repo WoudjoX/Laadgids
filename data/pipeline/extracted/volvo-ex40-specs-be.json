@@ -1,0 +1,102 @@
+{
+  "doc_id": "volvo-ex40-specs-be",
+  "sha256": "990a335461231f8afddb6056c097e0f2751c1999650e551e5ce6bf0bdc8325aa",
+  "extracted_at": "2026-10-06T07:40:59.157Z",
+  "model": "claude-opus-5-5",
+  "usage": {
+    "input_tokens": 10585,
+    "output_tokens": 1762
+  },
+  "extraction": {
+    "document_title": "Volvo EX40 volledig elektrische SUV | Specificaties | Volvo Cars België",
+    "valid_from": null,
+    "market": "België",
+    "model_year": null,
+    "variants": [
+      {
+        "make": "Volvo",
+        "model": "EX40",
+        "variant": "P5",
+        "model_year": null,
+        "battery": [
+          {
+            "label": "Batterijenergie (nominaal)",
+            "kwh": 70,
+            "page": null,
+            "quote": "Batterijenergie (nominaal) 70 kWh"
+          }
+        ],
+        "consumption_kwh_100km": {
+          "min": 17.2,
+          "max": null,
+          "page": null,
+          "quote": "Verbruik elektrische energie totaal (WLTP) 17.2 kWh/100 km"
+        },
+        "ac_charging": null,
+        "ac_option_kw": null,
+        "dc_max_kw": null,
+        "range_km": {
+          "min": 477,
+          "max": null
+        },
+        "notes": "AC: alleen laadduur vermeld, 'Laadduur batterij 0-100% (3-fase 16A) 7 h', geen kW-cijfer. DC: 'Oplaadduur batterij 10-80% (DC 200 kW) 26 min'. De 200 kW staat bij de laadduur; het is niet expliciet het maximale laadvermogen van de auto. Actieradius gecombineerd 'Tot 477 km', in de stad 'Tot 643 km'. Verbruik in de stad 12.2 kWh/100 km."
+      },
+      {
+        "make": "Volvo",
+        "model": "EX40",
+        "variant": "P5 Long Range",
+        "model_year": null,
+        "battery": [
+          {
+            "label": "Batterijenergie (nominaal)",
+            "kwh": 82,
+            "page": null,
+            "quote": "Batterijenergie (nominaal) 82 kWh"
+          }
+        ],
+        "consumption_kwh_100km": {
+          "min": 16.7,
+          "max": null,
+          "page": null,
+          "quote": "Verbruik elektrische energie totaal (WLTP) 16.7 kWh/100 km"
+        },
+        "ac_charging": null,
+        "ac_option_kw": null,
+        "dc_max_kw": null,
+        "range_km": {
+          "min": 575,
+          "max": null
+        },
+        "notes": "AC: alleen laadduur vermeld, 'Laadduur batterij 0-100% (3-fase 16A) 8 h', geen kW-cijfer. DC: 'Oplaadduur batterij 10-80% (DC 200 kW) 28 min'. De 200 kW staat bij de laadduur; het is niet expliciet het maximale laadvermogen van de auto. Actieradius gecombineerd 'Tot 575 km', in de stad 'Tot 802 km'. Verbruik in de stad 11.4 kWh/100 km."
+      },
+      {
+        "make": "Volvo",
+        "model": "EX40",
+        "variant": "P8 Performance AWD",
+        "model_year": null,
+        "battery": [
+          {
+            "label": "Batterijenergie (nominaal)",
+            "kwh": 82,
+            "page": null,
+            "quote": "Batterijenergie (nominaal) 82 kWh"
+          }
+        ],
+        "consumption_kwh_100km": {
+          "min": 17.7,
+          "max": null,
+          "page": null,
+          "quote": "Verbruik elektrische energie totaal (WLTP) 17.7 kWh/100 km"
+        },
+        "ac_charging": null,
+        "ac_option_kw": null,
+        "dc_max_kw": null,
+        "range_km": {
+          "min": 534,
+          "max": null
+        },
+        "notes": "AC: alleen laadduur vermeld, 'Laadduur batterij 0-100% (3-fase 16A) 8 h', geen kW-cijfer. DC: 'Oplaadduur batterij 10-80% (DC 200 kW) 28 min'. De 200 kW staat bij de laadduur; het is niet expliciet het maximale laadvermogen van de auto. Actieradius gecombineerd 'Tot 534 km', in de stad 'Tot 710 km'. Verbruik in de stad 12.9 kWh/100 km."
+      }
+    ]
+  }
+}

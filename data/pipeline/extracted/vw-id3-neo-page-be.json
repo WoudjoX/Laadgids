@@ -1,0 +1,84 @@
+{
+  "doc_id": "vw-id3-neo-page-be",
+  "sha256": "f4972ef708faf14138bdb569b0930166f728f0735884713bf48a168ee2580448",
+  "extracted_at": "2026-10-06T07:43:56.153Z",
+  "model": "claude-opus-5-5",
+  "usage": {
+    "input_tokens": 10391,
+    "output_tokens": 1667
+  },
+  "extraction": {
+    "document_title": "Volkswagen ID.3 Neo - Nieuwe compacte EV tot 627 km",
+    "valid_from": null,
+    "market": "België",
+    "model_year": null,
+    "variants": [
+      {
+        "make": "Volkswagen",
+        "model": "ID.3 Neo",
+        "variant": "50 kWh",
+        "model_year": null,
+        "battery": [
+          {
+            "label": "batterijcapaciteiten",
+            "kwh": 50,
+            "page": null,
+            "quote": "De ID.3 Neo is beschikbaar met drie batterijcapaciteiten: 50 kWh, 58 kWh en 79 kWh. De 50 kWh-batterij is beschikbaar op de Trend-uitvoering"
+          }
+        ],
+        "consumption_kwh_100km": null,
+        "ac_charging": null,
+        "ac_option_kw": null,
+        "dc_max_kw": null,
+        "range_km": {
+          "min": 417,
+          "max": null
+        },
+        "notes": "Rijbereik 417 km WLTP voor Trend (50 kWh). Geen boordladervermogen; alleen 'Thuis aan een 11 kW AC-wallbox duurt een volledige lading 5 tot 8 uur' (wallbox, geen boordlader). DC 'tot 183 kW' en '29 minuten bij 105 kW, afhankelijk van de versie' niet per batterij toegewezen."
+      },
+      {
+        "make": "Volkswagen",
+        "model": "ID.3 Neo",
+        "variant": "58 kWh",
+        "model_year": null,
+        "battery": [
+          {
+            "label": "batterijcapaciteiten",
+            "kwh": 58,
+            "page": null,
+            "quote": "De ID.3 Neo is beschikbaar met drie batterijcapaciteiten: 50 kWh, 58 kWh en 79 kWh."
+          }
+        ],
+        "consumption_kwh_100km": null,
+        "ac_charging": null,
+        "ac_option_kw": null,
+        "dc_max_kw": null,
+        "range_km": null,
+        "notes": "Geen rijbereik voor 58 kWh vermeld. Geen boordladervermogen; alleen laadduur 5 tot 8 uur aan een 11 kW AC-wallbox. DC 'tot 183 kW' en '29 minuten bij 105 kW, afhankelijk van de versie' niet per batterij toegewezen."
+      },
+      {
+        "make": "Volkswagen",
+        "model": "ID.3 Neo",
+        "variant": "79 kWh",
+        "model_year": null,
+        "battery": [
+          {
+            "label": "batterijcapaciteiten",
+            "kwh": 79,
+            "page": null,
+            "quote": "De ID.3 Neo is beschikbaar met drie batterijcapaciteiten: 50 kWh, 58 kWh en 79 kWh."
+          }
+        ],
+        "consumption_kwh_100km": null,
+        "ac_charging": null,
+        "ac_option_kw": null,
+        "dc_max_kw": null,
+        "range_km": {
+          "min": 630,
+          "max": null
+        },
+        "notes": "Tegenstrijdig maximaal rijbereik: FAQ zegt 630 km (79 kWh), elders 'Rijbereik (WLTP) 417 - 627 km' en 'maximaal 627 km'. Geen boordladervermogen; alleen laadduur 5 tot 8 uur aan een 11 kW AC-wallbox. DC 'tot 183 kW' niet expliciet per batterij toegewezen (ook '105 kW, afhankelijk van de versie')."
+      }
+    ]
+  }
+}

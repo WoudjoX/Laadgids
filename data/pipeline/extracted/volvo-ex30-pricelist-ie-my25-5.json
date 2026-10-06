@@ -1,0 +1,138 @@
+{
+  "doc_id": "volvo-ex30-pricelist-ie-my25-5",
+  "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "extracted_at": "2026-10-06T07:39:39.116Z",
+  "model": "claude-opus-5-5",
+  "usage": {
+    "input_tokens": 9698,
+    "output_tokens": 2273
+  },
+  "extraction": {
+    "document_title": "Volvo EX30 Price and Specification | Model Year 2025 | October 2024 (MY25.5)",
+    "valid_from": "October 2024",
+    "market": "Ireland",
+    "model_year": 2025,
+    "variants": [
+      {
+        "make": "Volvo",
+        "model": "EX30",
+        "variant": "Single Motor",
+        "model_year": 2025,
+        "battery": [
+          {
+            "label": "Battery Size - nominal, kWh",
+            "kwh": 51,
+            "page": 9,
+            "quote": "Battery Size - nominal, kWh 51 69 69"
+          },
+          {
+            "label": "Battery Size - usable, kWh",
+            "kwh": 49,
+            "page": 9,
+            "quote": "Battery Size - usable, kWh 49 65 65"
+          }
+        ],
+        "consumption_kwh_100km": {
+          "min": 17.1,
+          "max": null,
+          "page": 9,
+          "quote": "Electric Consumption, (kWh/100km) 17.1 17.0 17.5"
+        },
+        "ac_charging": {
+          "kw": 11,
+          "phases": 3,
+          "standard": true,
+          "page": 4,
+          "quote": "+ 3-Phase On Board Charger - 11kW"
+        },
+        "ac_option_kw": null,
+        "dc_max_kw": 134,
+        "range_km": {
+          "min": 337,
+          "max": 337
+        },
+        "notes": "Alleen in Plus leverbaar. DC: 'Charging Time - max DC 134kW 10-80%, mins 26'. AC-laadtijden 0-100%: 1-fase 28/18/9 uur, 3-fase 12/8 uur. Technische gegevens zijn 'Preliminary data'."
+      },
+      {
+        "make": "Volvo",
+        "model": "EX30",
+        "variant": "Single Motor Extended Range",
+        "model_year": 2025,
+        "battery": [
+          {
+            "label": "Battery Size - nominal, kWh",
+            "kwh": 69,
+            "page": 9,
+            "quote": "Battery Size - nominal, kWh 51 69 69"
+          },
+          {
+            "label": "Battery Size - usable, kWh",
+            "kwh": 65,
+            "page": 9,
+            "quote": "Battery Size - usable, kWh 49 65 65"
+          }
+        ],
+        "consumption_kwh_100km": {
+          "min": 17,
+          "max": null,
+          "page": 9,
+          "quote": "Electric Consumption, (kWh/100km) 17.1 17.0 17.5"
+        },
+        "ac_charging": {
+          "kw": 11,
+          "phases": 3,
+          "standard": true,
+          "page": 4,
+          "quote": "+ 3-Phase On Board Charger - 11kW"
+        },
+        "ac_option_kw": 22,
+        "dc_max_kw": 153,
+        "range_km": {
+          "min": 474,
+          "max": 476
+        },
+        "notes": "11 kW 3-fase standaard op Plus; 22 kW 3-fase boordlader is standaard op Ultra (p.5: '+ 3-Phase On Board Charger - 22kW'), geen losse optie. Bereik 476 km (Plus) / 474 km (Ultra) op p.2; p.9 noemt 'up to (476)'. AC-laadtijden 0-100%: 1-fase 39/23/11 uur, 3-fase 12/8/4 uur (4 uur met 22kW OBC). Technische gegevens zijn 'Preliminary data'."
+      },
+      {
+        "make": "Volvo",
+        "model": "EX30",
+        "variant": "Twin Motor Performance",
+        "model_year": 2025,
+        "battery": [
+          {
+            "label": "Battery Size - nominal, kWh",
+            "kwh": 69,
+            "page": 9,
+            "quote": "Battery Size - nominal, kWh 51 69 69"
+          },
+          {
+            "label": "Battery Size - usable, kWh",
+            "kwh": 65,
+            "page": 9,
+            "quote": "Battery Size - usable, kWh 49 65 65"
+          }
+        ],
+        "consumption_kwh_100km": {
+          "min": 17.5,
+          "max": null,
+          "page": 9,
+          "quote": "Electric Consumption, (kWh/100km) 17.1 17.0 17.5"
+        },
+        "ac_charging": {
+          "kw": 11,
+          "phases": 3,
+          "standard": true,
+          "page": 4,
+          "quote": "+ 3-Phase On Board Charger - 11kW"
+        },
+        "ac_option_kw": 22,
+        "dc_max_kw": 153,
+        "range_km": {
+          "min": 449,
+          "max": 450
+        },
+        "notes": "11 kW 3-fase standaard op Plus; 22 kW 3-fase boordlader is standaard op Ultra (p.5), geen losse optie. Bereik 450 km (Plus) / 449 km (Ultra) op p.2; p.9 noemt 'up to (450)'. AC-laadtijden 0-100%: 1-fase 39/23/11 uur, 3-fase 12/8/4 uur (4 uur met 22kW OBC). Technische gegevens zijn 'Preliminary data'."
+      }
+    ]
+  }
+}

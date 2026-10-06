@@ -1,0 +1,102 @@
+{
+  "doc_id": "volvo-ex30-specs-be",
+  "sha256": "9ed8eff90c06ee86414969d62e68fc450461b3c31866bc4573a1860b6a578433",
+  "extracted_at": "2026-10-06T07:40:44.376Z",
+  "model": "claude-opus-5-5",
+  "usage": {
+    "input_tokens": 10170,
+    "output_tokens": 1585
+  },
+  "extraction": {
+    "document_title": "Volvo EX30 volledig elektrische SUV | Specificaties | Volvo Cars België",
+    "valid_from": null,
+    "market": "België",
+    "model_year": null,
+    "variants": [
+      {
+        "make": "Volvo",
+        "model": "EX30",
+        "variant": "P5",
+        "model_year": null,
+        "battery": [
+          {
+            "label": "Batterijenergie (nominaal)",
+            "kwh": 51,
+            "page": null,
+            "quote": "Batterijenergie (nominaal) 51 kWh"
+          }
+        ],
+        "consumption_kwh_100km": {
+          "min": 17.1,
+          "max": null,
+          "page": null,
+          "quote": "Verbruik elektrische energie totaal (WLTP) 17.1 kWh/100 km"
+        },
+        "ac_charging": null,
+        "ac_option_kw": null,
+        "dc_max_kw": null,
+        "range_km": {
+          "min": 337,
+          "max": null
+        },
+        "notes": "AC: alleen laadduur 'Laadduur batterij 0-100% (3-fase 16A) 6 h', geen kW per uitvoering. Kenmerkenlijst noemt zowel 'Ingebouwde lader van 11 kW' als 'Ingebouwde lader (OBC) van 22 kW' zonder toewijzing per uitvoering of standaard/optie. DC: 'Laadduur van batterij 26 min' zonder kW-waarde of SoC-bereik. Actieradius stad tot 441 km; gecombineerd tot 337 km. Stadsverbruik 13.1 kWh/100 km."
+      },
+      {
+        "make": "Volvo",
+        "model": "EX30",
+        "variant": "P5 Long Range",
+        "model_year": null,
+        "battery": [
+          {
+            "label": "Batterijenergie (nominaal)",
+            "kwh": 69,
+            "page": null,
+            "quote": "Batterijenergie (nominaal) 69 kWh"
+          }
+        ],
+        "consumption_kwh_100km": {
+          "min": 17,
+          "max": null,
+          "page": null,
+          "quote": "Verbruik elektrische energie totaal (WLTP) 17 kWh/100 km"
+        },
+        "ac_charging": null,
+        "ac_option_kw": null,
+        "dc_max_kw": 175,
+        "range_km": {
+          "min": 475,
+          "max": null
+        },
+        "notes": "AC: alleen laadduur 'Laadduur batterij 0-100% (3-fase 16A) 8 h', geen kW per uitvoering. Kenmerkenlijst noemt zowel 11 kW als 22 kW ingebouwde lader zonder toewijzing per uitvoering. DC: 'Laadduur batterij 10-80% (DC 175 kW) 27 min'. Actieradius stad tot 635 km. Stadsverbruik 12.7 kWh/100 km."
+      },
+      {
+        "make": "Volvo",
+        "model": "EX30",
+        "variant": "P8 AWD",
+        "model_year": null,
+        "battery": [
+          {
+            "label": "Batterijenergie (nominaal)",
+            "kwh": 69,
+            "page": null,
+            "quote": "Batterijenergie (nominaal) 69 kWh"
+          }
+        ],
+        "consumption_kwh_100km": {
+          "min": 17.5,
+          "max": null,
+          "page": null,
+          "quote": "Verbruik elektrische energie totaal (WLTP) 17.5 kWh/100 km"
+        },
+        "ac_charging": null,
+        "ac_option_kw": null,
+        "dc_max_kw": 175,
+        "range_km": {
+          "min": 450,
+          "max": null
+        },
+        "notes": "AC: alleen laadduur 'Laadduur batterij 0-100% (3-fase 16A) 8 h', geen kW per uitvoering. Kenmerkenlijst noemt zowel 11 kW als 22 kW ingebouwde lader zonder toewijzing per uitvoering. DC: 'Laadduur batterij 10-80% (DC 175 kW) 27 min'. Actieradius stad tot 590 km. Stadsverbruik 13.5 kWh/100 km."
+      }
+    ]
+  }
+}

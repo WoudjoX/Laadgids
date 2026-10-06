@@ -18,6 +18,6 @@ data/import/review/
 # Prijslijsten van fabrikanten: lokaal bewaard als bewijs, niet in de repo (auteursrecht, grootte).
 data/import/*.pdf
 
-# Verificatiepijplijn: opgehaalde brondocumenten en uitgetrokken cijfers (lokaal, herafleidbaar)
+# Verificatiepijplijn: opgehaalde brondocumenten (lokaal, herafleidbaar). De uittreksels in data/pipeline/ gaan wel mee,
+# zodat een run elders (cloudroutine) alleen gewijzigde documenten opnieuw leest.
 data/sources/cache/
-data/pipeline/

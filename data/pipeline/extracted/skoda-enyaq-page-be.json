@@ -1,0 +1,93 @@
+{
+  "doc_id": "skoda-enyaq-page-be",
+  "sha256": "37cf23c46482f85e9621e7400bdc76308519eabb4bbd43eac26c74b5bb3a907c",
+  "extracted_at": "2026-10-06T07:42:34.124Z",
+  "model": "claude-opus-5-5",
+  "usage": {
+    "input_tokens": 10227,
+    "output_tokens": 1364
+  },
+  "extraction": {
+    "document_title": "Nieuwe Škoda Enyaq: stijlvolle elektrische SUV",
+    "valid_from": null,
+    "market": "BE",
+    "model_year": null,
+    "variants": [
+      {
+        "make": "Škoda",
+        "model": "Enyaq",
+        "variant": "61 kWh",
+        "model_year": null,
+        "battery": [
+          {
+            "label": "",
+            "kwh": 61,
+            "page": null,
+            "quote": "Motoren 61 kWh Selection, Corporate, Clever"
+          }
+        ],
+        "consumption_kwh_100km": {
+          "min": 15,
+          "max": 16,
+          "page": null,
+          "quote": "61 kWh Selection, Corporate, Clever Gemiddeld elektrisch verbruik 2 15 - 16 kWh/100km"
+        },
+        "ac_charging": null,
+        "ac_option_kw": null,
+        "dc_max_kw": null,
+        "range_km": null,
+        "notes": "Batterijcijfer zonder label (enkel motorisatienaam). 'DC laden tot 165kW' staat bij uitrustingsniveaus Selection en Clever, niet per motorisatie; daarom niet ingevuld. Rijbereik 'tot 581 km' geldt voor het model in het algemeen, niet per uitvoering. Geen AC-laadgegevens."
+      },
+      {
+        "make": "Škoda",
+        "model": "Enyaq",
+        "variant": "82 kWh",
+        "model_year": null,
+        "battery": [
+          {
+            "label": "",
+            "kwh": 82,
+            "page": null,
+            "quote": "82 kWh Selection, Corporate, Clever"
+          }
+        ],
+        "consumption_kwh_100km": {
+          "min": 15,
+          "max": 16,
+          "page": null,
+          "quote": "82 kWh Selection, Corporate, Clever Gemiddeld elektrisch verbruik 2 15 - 16 kWh/100km"
+        },
+        "ac_charging": null,
+        "ac_option_kw": null,
+        "dc_max_kw": null,
+        "range_km": null,
+        "notes": "Batterijcijfer zonder label. Transmissie 1v (achterwielaandrijving niet vermeld). 'DC laden tot 165kW' staat bij uitrustingsniveaus, niet per motorisatie. Rijbereik 'tot 581 km' geldt voor het model, niet per uitvoering. Verbruik 15-16 identiek voor alle motorisaties vermeld."
+      },
+      {
+        "make": "Škoda",
+        "model": "Enyaq",
+        "variant": "82 kWh 4x4",
+        "model_year": null,
+        "battery": [
+          {
+            "label": "",
+            "kwh": 82,
+            "page": null,
+            "quote": "82 kWh Selection, Corporate, Clever Gemiddeld elektrisch verbruik 2 15 - 16 kWh/100km ... Transmissie 1v 4x4"
+          }
+        ],
+        "consumption_kwh_100km": {
+          "min": 15,
+          "max": 16,
+          "page": null,
+          "quote": "Gemiddeld elektrisch verbruik 2 15 - 16 kWh/100km"
+        },
+        "ac_charging": null,
+        "ac_option_kw": null,
+        "dc_max_kw": null,
+        "range_km": null,
+        "notes": "Batterijcijfer zonder label. Variant onderscheiden door 'Transmissie 1v 4x4'. 'DC laden tot 165kW' staat bij uitrustingsniveaus, niet per motorisatie. Rijbereik 'tot 581 km' geldt voor het model, niet per uitvoering. Verbruik 15-16 identiek voor alle motorisaties vermeld."
+      }
+    ]
+  }
+}

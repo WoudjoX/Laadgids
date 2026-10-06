@@ -1,0 +1,92 @@
+{
+  "doc_id": "vw-id7-offer-be",
+  "sha256": "4d3b29f2be70c487d18622dfc17e3367b43a95cf3ecb92082419bdcca422f203",
+  "extracted_at": "2026-10-06T07:43:41.428Z",
+  "model": "claude-opus-5-5",
+  "usage": {
+    "input_tokens": 8969,
+    "output_tokens": 1570
+  },
+  "extraction": {
+    "document_title": "ID.7 aanbiedingen voor professionals | Volkswagen",
+    "valid_from": "30/09/2026",
+    "market": "BE",
+    "model_year": null,
+    "variants": [
+      {
+        "make": "Volkswagen",
+        "model": "ID.7",
+        "variant": "Corporate Plus 77 kWh 286 ch/pk",
+        "model_year": null,
+        "battery": [
+          {
+            "label": "Batterij",
+            "kwh": 77,
+            "page": null,
+            "quote": "Batterij 77 kWh - tot 613 km autonomie (WLTP)"
+          }
+        ],
+        "consumption_kwh_100km": {
+          "min": 14.1,
+          "max": 18.4,
+          "page": null,
+          "quote": "14,1 - 18,4 kWh/100KM"
+        },
+        "ac_charging": null,
+        "ac_option_kw": null,
+        "dc_max_kw": null,
+        "range_km": {
+          "min": 610,
+          "max": 613
+        },
+        "notes": "Range 613 km for Corporate Plus, 610 km for ID.7 Corporate S (also 77 kWh); there is also the headline 'Tot 700 km rijbereik', which contradicts 613 km. The consumption figure is given for the whole page and is not tied to a specific version. No AC/DC charging figures are given."
+      },
+      {
+        "make": "Volkswagen",
+        "model": "ID.7 Tourer",
+        "variant": "59 kWh",
+        "model_year": null,
+        "battery": [
+          {
+            "label": "Batterij",
+            "kwh": 59,
+            "page": null,
+            "quote": "Batterij 59 kWh - tot 463 km autonomie (WLTP)"
+          }
+        ],
+        "consumption_kwh_100km": null,
+        "ac_charging": null,
+        "ac_option_kw": null,
+        "dc_max_kw": null,
+        "range_km": {
+          "min": 463,
+          "max": 463
+        },
+        "notes": "Listed only under 'Andere aanbiedingen'. No separate consumption figure for the Tourer."
+      },
+      {
+        "make": "Volkswagen",
+        "model": "ID.7 Tourer",
+        "variant": "Corporate Plus 77 kWh",
+        "model_year": null,
+        "battery": [
+          {
+            "label": "Batterij",
+            "kwh": 77,
+            "page": null,
+            "quote": "Batterij 77 kWh - tot 620 km autonomie (WLTP)"
+          }
+        ],
+        "consumption_kwh_100km": null,
+        "ac_charging": null,
+        "ac_option_kw": null,
+        "dc_max_kw": null,
+        "range_km": {
+          "min": 620,
+          "max": 620
+        },
+        "notes": "Listed only under 'Andere aanbiedingen'. No separate consumption figure for the Tourer."
+      }
+    ]
+  }
+}

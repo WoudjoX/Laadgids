@@ -1,0 +1,56 @@
+{
+  "doc_id": "renault-5-page-be",
+  "sha256": "73ca4aa4afcbadb2b0cc439752dd9fa69af809079399cdd3f7dac7181111d08e",
+  "extracted_at": "2026-10-06T07:47:36.930Z",
+  "model": "claude-opus-5-5",
+  "usage": {
+    "input_tokens": 15056,
+    "output_tokens": 841
+  },
+  "extraction": {
+    "document_title": "R5 E-TECH Electric – prijzen en uitrustingsniveaus – Renault",
+    "valid_from": null,
+    "market": "BE",
+    "model_year": null,
+    "variants": [
+      {
+        "make": "Renault",
+        "model": "5 E-Tech",
+        "variant": "E-Tech electric 120 hp urban range",
+        "model_year": null,
+        "battery": [],
+        "consumption_kwh_100km": null,
+        "ac_charging": {
+          "kw": 11,
+          "phases": null,
+          "standard": null,
+          "page": null,
+          "quote": "Standaard oplaadbeurt 11"
+        },
+        "ac_option_kw": null,
+        "dc_max_kw": 80,
+        "range_km": null,
+        "notes": "De pagina geeft bij 'Standaard oplaadbeurt' (11) en 'Snelle oplaadbeurt (DC)' (80) geen eenheid; kW is aangenomen. Geen batterijcapaciteit, verbruik of rijbereik vermeld. Vermogen 90 kW (120 pk)."
+      },
+      {
+        "make": "Renault",
+        "model": "5 E-Tech",
+        "variant": "E-Tech electric 150 hp comfort range",
+        "model_year": null,
+        "battery": [],
+        "consumption_kwh_100km": null,
+        "ac_charging": {
+          "kw": 11,
+          "phases": null,
+          "standard": null,
+          "page": null,
+          "quote": "Standaard oplaadbeurt 11"
+        },
+        "ac_option_kw": null,
+        "dc_max_kw": 100,
+        "range_km": null,
+        "notes": "De pagina geeft bij 'Standaard oplaadbeurt' (11) en 'Snelle oplaadbeurt (DC)' (100) geen eenheid; kW is aangenomen. Geen batterijcapaciteit, verbruik of rijbereik vermeld. Vermogen 110 kW (150 pk)."
+      }
+    ]
+  }
+}

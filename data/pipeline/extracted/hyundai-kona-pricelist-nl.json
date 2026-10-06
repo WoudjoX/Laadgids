@@ -1,0 +1,86 @@
+{
+  "doc_id": "hyundai-kona-pricelist-nl",
+  "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "extracted_at": "2026-10-06T07:44:36.601Z",
+  "model": "claude-opus-5-5",
+  "usage": {
+    "input_tokens": 20410,
+    "output_tokens": 1703
+  },
+  "extraction": {
+    "document_title": "Hyundai KONA Electric (MY27) - Prijslijst per 1 juli 2026",
+    "valid_from": "1 juli 2026",
+    "market": "NL",
+    "model_year": 2027,
+    "variants": [
+      {
+        "make": "Hyundai",
+        "model": "KONA Electric",
+        "variant": "Standard Range 48,6 kWh",
+        "model_year": 2027,
+        "battery": [
+          {
+            "label": "Capaciteit (kWh)",
+            "kwh": 48.6,
+            "page": 5,
+            "quote": "Capaciteit (kWh) \t48,6 \t64,8"
+          }
+        ],
+        "consumption_kwh_100km": {
+          "min": 14.6,
+          "max": null,
+          "page": 5,
+          "quote": "Verbruik* (kWh/100 km): \t17” lichtmetaal \t14,6 \t14,7"
+        },
+        "ac_charging": {
+          "kw": 11,
+          "phases": 3,
+          "standard": null,
+          "page": 5,
+          "quote": "3-fase (kW) \t11,0 \t11,0"
+        },
+        "ac_option_kw": null,
+        "dc_max_kw": null,
+        "range_km": {
+          "min": 380,
+          "max": null
+        },
+        "notes": "Ook 1-fase 7,0 kW vermeld. Geen maximaal DC-laadvermogen van de auto vermeld; alleen laadtijden aan snellaadstations (350 kW: 39 min., 100 kW: 45 min., 50 kW: 65 min., 10-80%). AC-laadtijd 11 kW 3-fase: 5 uur en 20 min. (10-100%). Geldt voor Comfort en Comfort Smart; alleen 17-inch velgen."
+      },
+      {
+        "make": "Hyundai",
+        "model": "KONA Electric",
+        "variant": "Long Range 64,8 kWh",
+        "model_year": 2027,
+        "battery": [
+          {
+            "label": "Capaciteit (kWh)",
+            "kwh": 64.8,
+            "page": 5,
+            "quote": "Capaciteit (kWh) \t48,6 \t64,8"
+          }
+        ],
+        "consumption_kwh_100km": {
+          "min": 14.7,
+          "max": 16.8,
+          "page": 5,
+          "quote": "Verbruik* (kWh/100 km): \t17” lichtmetaal \t14,6 \t14,7 19\" lichtmetaal \t- \t16,8"
+        },
+        "ac_charging": {
+          "kw": 11,
+          "phases": 3,
+          "standard": null,
+          "page": 5,
+          "quote": "3-fase (kW) \t11,0 \t11,0"
+        },
+        "ac_option_kw": null,
+        "dc_max_kw": null,
+        "range_km": {
+          "min": 440,
+          "max": 510
+        },
+        "notes": "Verbruik en actieradius afhankelijk van velgmaat: 17\" 14,7 kWh/100 km / 510 km (Comfort, Comfort Smart), 19\" 16,8 kWh/100 km / 440 km (Premium, N Line). Ook 1-fase 7,0 kW vermeld. Geen maximaal DC-laadvermogen van de auto vermeld; alleen laadtijden aan snellaadstations (350 kW: 39 min., 100 kW: 45 min., 50 kW: 65 min., 10-80%). AC-laadtijd 11 kW 3-fase: 6 uur en 25 min. (10-100%)."
+      }
+    ]
+  }
+}

@@ -1,0 +1,154 @@
+{
+  "doc_id": "vw-id4-techdata-be",
+  "sha256": "f6f7b9ef04b21740c3f5d5f219475cbdda487cad5d6c2a95bfbc597624d591f2",
+  "extracted_at": "2026-10-06T07:50:13.657Z",
+  "model": "claude-opus-5-5",
+  "usage": {
+    "input_tokens": 14655,
+    "output_tokens": 2699
+  },
+  "extraction": {
+    "document_title": "Volkswagen ID.4 — 100% elektrische gezins-SUV tot 561 km",
+    "valid_from": null,
+    "market": "BE",
+    "model_year": null,
+    "variants": [
+      {
+        "make": "Volkswagen",
+        "model": "ID.4",
+        "variant": "Pure",
+        "model_year": null,
+        "battery": [
+          {
+            "label": "Energie-inhoud batterij (netto)",
+            "kwh": 58,
+            "page": null,
+            "quote": "Energie-inhoud batterij (netto) 58 kW·h"
+          }
+        ],
+        "consumption_kwh_100km": {
+          "min": 16.01,
+          "max": 18.15,
+          "page": null,
+          "quote": "181,5 - 160,1 Wh/km"
+        },
+        "ac_charging": {
+          "kw": 11,
+          "phases": null,
+          "standard": true,
+          "page": null,
+          "quote": "De ID.4 laadt standaard aan 11 kW AC"
+        },
+        "ac_option_kw": null,
+        "dc_max_kw": 105,
+        "range_km": {
+          "min": 381,
+          "max": 434
+        },
+        "notes": "Geldt voor Pure Business en Pure Business Essential. Verbruik in Wh/km omgerekend (÷10); bereik over beide uitrustingsniveaus: Pure Business 181,2-162,4 Wh/km, Pure Business Essential 181,5-160,1 Wh/km; rijbereik 381-428 resp. 381-434 km. Laadtijd AC 11 kW 100% SOC 06:30 h. Pagina noemt elders WLTP-bereik 331-561 km en DC tot 175 kW, wat afwijkt van de tabel (381 km, 105 kW)."
+      },
+      {
+        "make": "Volkswagen",
+        "model": "ID.4",
+        "variant": "Pro",
+        "model_year": null,
+        "battery": [
+          {
+            "label": "Energie-inhoud batterij (netto)",
+            "kwh": 77,
+            "page": null,
+            "quote": "Energie-inhoud batterij (netto) 77 kW·h"
+          }
+        ],
+        "consumption_kwh_100km": {
+          "min": 15.57,
+          "max": 17.62,
+          "page": null,
+          "quote": "176,2 - 155,7 Wh/km"
+        },
+        "ac_charging": {
+          "kw": 11,
+          "phases": null,
+          "standard": true,
+          "page": null,
+          "quote": "De ID.4 laadt standaard aan 11 kW AC"
+        },
+        "ac_option_kw": null,
+        "dc_max_kw": 165,
+        "range_km": {
+          "min": 507,
+          "max": 570
+        },
+        "notes": "Geldt voor Pro Business, Pro Business Essential, Pro Business Premium en Pro Business Sport; verbruik en bereik verschillen per uitrustingsniveau (bv. Pro Business 176,2-157,5 Wh/km / 507-565 km, Essential 176,2-155,7 / 507-570, Premium 176,2-158,5 / 507-561, Sport 175,2-159,6 / 510-558). Verbruik in Wh/km omgerekend (÷10). Laadtijd AC 11 kW 100% SOC 08:30 h. Tegenstrijdig: pagina noemt DC tot 175 kW, tabel 165 kW; FAQ noemt 0-100 in 8,5 s voor Pro, tabel 6,7 s; FAQ noemt 561 km voor 'Pro S', tabel tot 570 km."
+      },
+      {
+        "make": "Volkswagen",
+        "model": "ID.4",
+        "variant": "Pro 4MOTION",
+        "model_year": null,
+        "battery": [
+          {
+            "label": "Energie-inhoud batterij (netto)",
+            "kwh": 77,
+            "page": null,
+            "quote": "Energie-inhoud batterij (netto) 77 kW·h"
+          }
+        ],
+        "consumption_kwh_100km": {
+          "min": 16.48,
+          "max": 18.25,
+          "page": null,
+          "quote": "182,5 - 164,8 Wh/km"
+        },
+        "ac_charging": {
+          "kw": 11,
+          "phases": null,
+          "standard": true,
+          "page": null,
+          "quote": "De ID.4 laadt standaard aan 11 kW AC"
+        },
+        "ac_option_kw": null,
+        "dc_max_kw": 165,
+        "range_km": {
+          "min": 492,
+          "max": 545
+        },
+        "notes": "Uitrustingsniveau Pro 4MOTION Business Sport. Verbruik in Wh/km omgerekend (÷10). Batterijgegevens gedeeld met Pro-tabel (laadtijd AC 11 kW 100% SOC 08:30 h). Pagina noemt DC tot 175 kW, tabel 165 kW."
+      },
+      {
+        "make": "Volkswagen",
+        "model": "ID.4",
+        "variant": "GTX 4MOTION",
+        "model_year": null,
+        "battery": [
+          {
+            "label": "Energie-inhoud batterij (netto)",
+            "kwh": 77,
+            "page": null,
+            "quote": "Energie-inhoud batterij (netto) 77 kW·h"
+          }
+        ],
+        "consumption_kwh_100km": {
+          "min": 16.62,
+          "max": 18.19,
+          "page": null,
+          "quote": "181,9 - 166,2 Wh/km"
+        },
+        "ac_charging": {
+          "kw": 11,
+          "phases": null,
+          "standard": true,
+          "page": null,
+          "quote": "De ID.4 laadt standaard aan 11 kW AC"
+        },
+        "ac_option_kw": null,
+        "dc_max_kw": 185,
+        "range_km": {
+          "min": 485,
+          "max": 530
+        },
+        "notes": "Uitrustingsniveau GTX 4MOTION Business Premium. Verbruik in Wh/km omgerekend (÷10). Laadtijd AC 11 kW 100% SOC 08:00 h. Pagina noemt elders 'snelladen tot 175 kW', tabel geeft 185 kW."
+      }
+    ]
+  }
+}

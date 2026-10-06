@@ -1,0 +1,88 @@
+{
+  "doc_id": "hyundai-kona-performance-be",
+  "sha256": "90540a5248b64116bf0a6efd2af29a45e036520390736314738e88e6b2156dc7",
+  "extracted_at": "2026-10-06T07:44:52.576Z",
+  "model": "claude-opus-5-5",
+  "usage": {
+    "input_tokens": 6960,
+    "output_tokens": 1905
+  },
+  "extraction": {
+    "document_title": "KONA Electric | Prestaties | Hyundai België",
+    "valid_from": null,
+    "market": "BE",
+    "model_year": null,
+    "variants": [
+      {
+        "make": "Hyundai",
+        "model": "KONA Electric",
+        "variant": "Standaard batterij 48,6 kWh",
+        "model_year": null,
+        "battery": [
+          {
+            "label": "",
+            "kwh": 48.6,
+            "page": null,
+            "quote": "In de accuversie met standaardbereik: 48,6 kWh, uitgerust met FWD en 17\" wielen"
+          },
+          {
+            "label": "",
+            "kwh": 48.4,
+            "page": null,
+            "quote": "Maximum range 377 km for the 48.4 kWh battery version according to WLTP cycle."
+          }
+        ],
+        "consumption_kwh_100km": null,
+        "ac_charging": {
+          "kw": 10.5,
+          "phases": 3,
+          "standard": true,
+          "page": null,
+          "quote": "De KONA Electric is uitgerust met een 10,5 kW on-board lader (OBC.) Op een 11 kW thuis wallbox of openbaar AC laadstation (EU 3-fase 230V) is de laadtijd: 4 uur 55 minuten."
+        },
+        "ac_option_kw": null,
+        "dc_max_kw": 74,
+        "range_km": {
+          "min": 378,
+          "max": null
+        },
+        "notes": "Batterij in de hoofdtekst 48,6 kWh, maar in de laadcalculator en voetnoot 48.4 kWh. Rijbereik in de tekst 'tot 378 km', in de voetnoot 'Maximum range 377 km' (WLTP). DC: '74 kW DC snellaadstation: Oplaadtijd 43 min van 10 tot 80%'. 3-fase verwijst naar het laadstation (EU 3-fase 230V). AC-laadduur 4 uur 55 minuten. Geen verbruik vermeld."
+      },
+      {
+        "make": "Hyundai",
+        "model": "KONA Electric",
+        "variant": "Batterij met groot bereik 64,8 kWh",
+        "model_year": null,
+        "battery": [
+          {
+            "label": "",
+            "kwh": 64.8,
+            "page": null,
+            "quote": "In de batterijversie met groot bereik: 64,8 kWh, uitgerust met FWD en 17\" wielen"
+          },
+          {
+            "label": "",
+            "kwh": 65.4,
+            "page": null,
+            "quote": "Maximum range 514 km for the 65.4 kWh battery version (2WD) according to WLTP cycle."
+          }
+        ],
+        "consumption_kwh_100km": null,
+        "ac_charging": {
+          "kw": 10.5,
+          "phases": 3,
+          "standard": true,
+          "page": null,
+          "quote": "De KONA Electric is uitgerust met een 10,5 kW on-board lader (OBC.) Op een 11 kW thuis wallbox of openbaar AC laadstation (EU 3-fase 230V) is de laadtijd: 6 uur en 25 minuten."
+        },
+        "ac_option_kw": null,
+        "dc_max_kw": 101,
+        "range_km": {
+          "min": 509,
+          "max": null
+        },
+        "notes": "Batterij in de hoofdtekst 64,8 kWh, maar in de laadcalculator en voetnoot 65.4 kWh. Rijbereik in de tekst 509 km (WLTP), in de voetnoot 'Maximum range 514 km'. DC: '101 kW DC snellaadstation: Oplaadtijd 43 min van 10 tot 80%', 162 km extra in 15 minuten. 3-fase verwijst naar het laadstation (EU 3-fase 230V). AC-laadduur 6 uur en 25 minuten. Geen verbruik vermeld."
+      }
+    ]
+  }
+}

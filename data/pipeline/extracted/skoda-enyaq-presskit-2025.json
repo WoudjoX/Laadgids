@@ -1,0 +1,158 @@
+{
+  "doc_id": "skoda-enyaq-presskit-2025",
+  "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "extracted_at": "2026-10-06T07:42:56.205Z",
+  "model": "claude-opus-5-5",
+  "usage": {
+    "input_tokens": 21755,
+    "output_tokens": 2647
+  },
+  "extraction": {
+    "document_title": "Press Kit New Škoda Enyaq",
+    "valid_from": "9 May 2025",
+    "market": null,
+    "model_year": null,
+    "variants": [
+      {
+        "make": "Škoda",
+        "model": "Enyaq",
+        "variant": "60",
+        "model_year": null,
+        "battery": [
+          {
+            "label": "Battery capacity (kWh) (gross/net)",
+            "kwh": 63,
+            "page": 8,
+            "quote": "Battery capacity (kWh) (gross/net) 63/59 82/77 82/77"
+          },
+          {
+            "label": "Battery capacity (kWh) (gross/net)",
+            "kwh": 59,
+            "page": 8,
+            "quote": "Battery capacity (kWh) (gross/net) 63/59 82/77 82/77"
+          }
+        ],
+        "consumption_kwh_100km": null,
+        "ac_charging": {
+          "kw": 11,
+          "phases": null,
+          "standard": null,
+          "page": 8,
+          "quote": "All models charge at up to 11 kW at AC charging stations."
+        },
+        "ac_option_kw": null,
+        "dc_max_kw": 165,
+        "range_km": {
+          "min": 437,
+          "max": 446
+        },
+        "notes": "Range 437 km (SUV) / 446 km (Coupé), WLTP. Page 7 also states 'total gross capacity of 63 kWh'. DC 10-80% in 24 min."
+      },
+      {
+        "make": "Škoda",
+        "model": "Enyaq",
+        "variant": "85",
+        "model_year": null,
+        "battery": [
+          {
+            "label": "Battery capacity (kWh) (gross/net)",
+            "kwh": 82,
+            "page": 8,
+            "quote": "Battery capacity (kWh) (gross/net) 63/59 82/77 82/77"
+          },
+          {
+            "label": "Battery capacity (kWh) (gross/net)",
+            "kwh": 77,
+            "page": 8,
+            "quote": "Battery capacity (kWh) (gross/net) 63/59 82/77 82/77"
+          }
+        ],
+        "consumption_kwh_100km": null,
+        "ac_charging": {
+          "kw": 11,
+          "phases": null,
+          "standard": null,
+          "page": 8,
+          "quote": "All models charge at up to 11 kW at AC charging stations."
+        },
+        "ac_option_kw": null,
+        "dc_max_kw": 135,
+        "range_km": {
+          "min": 582,
+          "max": 591
+        },
+        "notes": "Range 582 km (SUV) / 591 km (Coupé), WLTP. Table gives max. charging rate 135 kW for the 85, while the text says the larger battery charges 10-80% in 28 min and mentions up to 175 kW; table also lists 28 min for both 85 and 85x – possible inconsistency."
+      },
+      {
+        "make": "Škoda",
+        "model": "Enyaq",
+        "variant": "85x",
+        "model_year": null,
+        "battery": [
+          {
+            "label": "Battery capacity (kWh) (gross/net)",
+            "kwh": 82,
+            "page": 8,
+            "quote": "Battery capacity (kWh) (gross/net) 63/59 82/77 82/77"
+          },
+          {
+            "label": "Battery capacity (kWh) (gross/net)",
+            "kwh": 77,
+            "page": 8,
+            "quote": "Battery capacity (kWh) (gross/net) 63/59 82/77 82/77"
+          }
+        ],
+        "consumption_kwh_100km": null,
+        "ac_charging": {
+          "kw": 11,
+          "phases": null,
+          "standard": null,
+          "page": 8,
+          "quote": "All models charge at up to 11 kW at AC charging stations."
+        },
+        "ac_option_kw": null,
+        "dc_max_kw": 175,
+        "range_km": {
+          "min": 549,
+          "max": 558
+        },
+        "notes": "Range 549 km (SUV) / 558 km (Coupé), WLTP. Page 7 says the 85x battery has twelve modules with 24 cells each, while the 85 has twelve modules with 16 cells, although both are listed as 82/77 kWh."
+      },
+      {
+        "make": "Škoda",
+        "model": "Enyaq",
+        "variant": "RS",
+        "model_year": null,
+        "battery": [
+          {
+            "label": "capacity",
+            "kwh": 84,
+            "page": 16,
+            "quote": "Charging the high-voltage battery with a capacity of 84 kWh (79 kWh net) from 10 to 80 per cent takes just 26 minutes"
+          },
+          {
+            "label": "net",
+            "kwh": 79,
+            "page": 16,
+            "quote": "Charging the high-voltage battery with a capacity of 84 kWh (79 kWh net) from 10 to 80 per cent takes just 26 minutes"
+          }
+        ],
+        "consumption_kwh_100km": null,
+        "ac_charging": {
+          "kw": 11,
+          "phases": null,
+          "standard": null,
+          "page": 16,
+          "quote": "AC charging is possible at 11 kW; charging the battery from 0 to 100 per cent"
+        },
+        "ac_option_kw": null,
+        "dc_max_kw": 185,
+        "range_km": {
+          "min": 560,
+          "max": null
+        },
+        "notes": "Range given as 'over 560 km' (WLTP) for Enyaq RS and Enyaq Coupé RS. AC charging 0-100% takes 8:30 hours. DC 10-80% in 26 min."
+      }
+    ]
+  }
+}
