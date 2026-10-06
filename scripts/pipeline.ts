@@ -141,7 +141,7 @@ async function cmdReview(): Promise<void> {
   for (const v of versions) {
     const hit = byUrl.get(v.spec_source_url);
     if (!hit) orphanVersions.push({ version: v, reason: `bron staat niet in data/sources/oem-documents.json (${v.spec_source_url})` });
-    else if (hit.state?.status === "blocked") orphanVersions.push({ version: v, reason: `bron blokkeert geautomatiseerd ophalen (${hit.state.error ?? "?"}); geen termijn, wel in de browser nakijken bij de volgende verificatie` });
+    else if (hit.state?.status === "blocked") orphanVersions.push({ version: v, reason: `bron blokkeert geautomatiseerd ophalen (HTTP ${hit.state.http ?? "?"}); geen termijn, wel in de browser nakijken bij de volgende verificatie` });
     else if (hit.state?.status === "unreachable") {
       const since = hit.state.unreachable_since ?? hit.state.fetched_at.slice(0, 10);
       const days = Math.floor((Date.now() - new Date(since).getTime()) / 86_400_000);
