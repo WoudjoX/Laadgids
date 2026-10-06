@@ -149,6 +149,8 @@ describe("compare", () => {
     expect(conflictingVariantTokens("Long range Dual motor", "Long Range Single Motor")).toBe(true);
     expect(conflictingVariantTokens("Single Motor Extended Range", "Single Motor Extended Range")).toBe(false);
     expect(conflictingVariantTokens("85", "85")).toBe(false);
+    expect(conflictingVariantTokens("Pro 4MOTION", "Pro")).toBe(true);
+    expect(conflictingVariantTokens("Pro", "Pro 4MOTION")).toBe(false);
     const dual = variant({ variant: "Long range Dual motor", battery: [{ label: "usable", kwh: 65, page: null, quote: "q" }] });
     const [f] = compareExtraction(doc, state, { document_title: "t", valid_from: null, market: null, model_year: null, variants: [dual] }, [version()]);
     expect(f!.kind).toBe("nieuw");

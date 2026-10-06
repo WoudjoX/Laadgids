@@ -109,6 +109,8 @@ export function conflictingVariantTokens(a: string, b: string): boolean {
     const ca = ta.filter((t) => cls.includes(t));
     const cb = tb.filter((t) => cls.includes(t));
     if (ca.length && cb.length && !ca.some((t) => cb.includes(t))) return true;
+    // Het document noemt een aandrijving ("Pro 4MOTION") die de rij niet noemt ("Pro"): een rij zonder dat woord is de basisaandrijving.
+    if (ca.length && !cb.length) return true;
   }
   return false;
 }
