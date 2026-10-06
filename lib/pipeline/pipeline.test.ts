@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import type { VersionFull } from "@/lib/db/types";
-import { classifyBatteryLabel, compareExtraction, renderReport, renderVerificationCsv, sampleForHumanCheck, toCandidate } from "./compare";
+import { classifyBatteryLabel, compareExtraction, conflictingVariantTokens, renderReport, renderVerificationCsv, sampleForHumanCheck, toCandidate } from "./compare";
 import { htmlToText, isPdf, loadRegistry, registrySchema, type OemDocument } from "./documents";
 import { extractionSchema, type ExtractedVariant } from "./extract";
 
@@ -142,6 +142,16 @@ describe("compare", () => {
     expect(a!.version?.slug).toBe("volvo-ex30-single-motor-2025");
     const [b] = compareExtraction(doc, state, { document_title: "t", valid_from: null, market: null, model_year: null, variants: [variant({ variant: "Single Motor", battery: [{ label: "usable", kwh: 49, page: 9, quote: "q" }] })] }, [version()]);
     expect(b!.kind).toBe("nieuw");
+  });
+  it("koppelt nooit uitvoeringen met een ander getal of een andere aandrijving", () => {
+    expect(conflictingVariantTokens("Electric 45", "Electric 65")).toBe(true);
+    expect(conflictingVariantTokens("Premium Extended Range AWD", "Extended Range RWD")).toBe(true);
+    expect(conflictingVariantTokens("Long range Dual motor", "Long Range Single Motor")).toBe(true);
+    expect(conflictingVariantTokens("Single Motor Extended Range", "Single Motor Extended Range")).toBe(false);
+    expect(conflictingVariantTokens("85", "85")).toBe(false);
+    const dual = variant({ variant: "Long range Dual motor", battery: [{ label: "usable", kwh: 65, page: null, quote: "q" }] });
+    const [f] = compareExtraction(doc, state, { document_title: "t", valid_from: null, market: null, model_year: null, variants: [dual] }, [version()]);
+    expect(f!.kind).toBe("nieuw");
   });
   it("steekproef is deterministisch en minstens één", () => {
     const fs = compareExtraction(doc, state, { document_title: "t", valid_from: null, market: null, model_year: null, variants: [variant(), variant({ variant: "Single Motor" })] }, [version()]);

@@ -93,10 +93,30 @@ export function toCandidate(doc: OemDocument, docState: Pick<DocumentState, "sha
  * alleen als de uitvoeringsnaam exact overeenkomt, of minstens de helft van de woorden deelt én de batterij binnen 3 % ligt.
  * Zo wordt "Twin Motor Performance" nooit aan "Single Motor Extended Range" gekoppeld.
  */
+const TOKEN_CLASSES: string[][] = [
+  ["rwd", "awd", "fwd", "4matic", "xdrive", "sdrive", "4x4", "4x2", "quattro", "4motion", "achterwielaandrijving", "vierwielaandrijving", "voorwielaandrijving"],
+  ["single", "dual", "twin"],
+];
+
+/** Twee uitvoeringsnamen spreken elkaar tegen als ze verschillende getallen of een verschillende aandrijving noemen. */
+export function conflictingVariantTokens(a: string, b: string): boolean {
+  const ta = norm(a).split(" ").filter(Boolean);
+  const tb = norm(b).split(" ").filter(Boolean);
+  const na = ta.filter((t) => /^\d+$/.test(t));
+  const nb = tb.filter((t) => /^\d+$/.test(t));
+  if (na.length && nb.length && !na.some((n) => nb.includes(n))) return true;
+  for (const cls of TOKEN_CLASSES) {
+    const ca = ta.filter((t) => cls.includes(t));
+    const cb = tb.filter((t) => cls.includes(t));
+    if (ca.length && cb.length && !ca.some((t) => cb.includes(t))) return true;
+  }
+  return false;
+}
+
 export function matchVersion(c: SpecCandidate, versions: VersionFull[]): VersionFull | null {
   const key = modelKey(c.make_name, c.model_name);
   const same = versions.filter((v) => modelKey(v.make.name, v.vehicle.model) === key);
-  const scored = same.map((v) => ({ v, score: variantScore(c.variant, v.trim) }));
+  const scored = same.filter((v) => !conflictingVariantTokens(c.variant ?? "", v.trim)).map((v) => ({ v, score: variantScore(c.variant, v.trim) }));
   const exact = scored.filter((s) => s.score === 1).map((s) => s.v);
   if (exact.length > 0) {
     return exact.find((v) => c.release_year != null && v.model_year === c.release_year) ?? exact[0]!;
