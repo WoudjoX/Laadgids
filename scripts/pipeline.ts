@@ -125,7 +125,11 @@ async function cmdReview(): Promise<void> {
   for (const v of versions) {
     const hit = byUrl.get(v.spec_source_url);
     if (!hit) orphanVersions.push({ version: v, reason: `bron staat niet in data/sources/oem-documents.json (${v.spec_source_url})` });
-    else if (hit.state?.status === "unreachable") orphanVersions.push({ version: v, reason: `bron onbereikbaar sinds ${hit.state.fetched_at.slice(0, 10)} (${hit.state.error ?? "?"}); na 30 dagen noindex (CLAUDE.md §8)` });
+    else if (hit.state?.status === "unreachable") {
+      const since = hit.state.unreachable_since ?? hit.state.fetched_at.slice(0, 10);
+      const days = Math.floor((Date.now() - new Date(since).getTime()) / 86_400_000);
+      orphanVersions.push({ version: v, reason: `bron onbereikbaar sinds ${since} (${days} dagen, ${hit.state.error ?? "?"}); na 30 dagen noindex (CLAUDE.md §8)${hit.doc.note ? ` — ${hit.doc.note}` : ""}` });
+    }
   }
   const actionable = findings.filter((f) => f.kind === "nieuw" || f.kind === "afwijking");
   const date = new Date().toISOString().slice(0, 10);

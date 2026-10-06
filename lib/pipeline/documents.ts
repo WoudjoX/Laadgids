@@ -37,6 +37,8 @@ export interface DocumentState {
   fetched_at: string;
   /** Datum waarop de inhoud voor het laatst veranderde (vingerafdruk). */
   changed_at: string | null;
+  /** Eerste dag waarop het document niet bereikbaar was; null zodra het weer lukt. Basis voor de 30-dagenregel (CLAUDE.md §8). */
+  unreachable_since: string | null;
   error: string | null;
 }
 
@@ -125,27 +127,31 @@ export async function fetchDocument(doc: OemDocument, previous: DocumentState | 
   let http: number | null = null;
   let contentType: string | null = null;
   let local = false;
+  const today = fetchedAt.slice(0, 10);
+  const failed = (error: string): FetchedDocument => ({ doc, text: null, state: { ...emptyState(fetchedAt, previous), status: "unreachable", http, unreachable_since: previous?.unreachable_since ?? today, error } });
   try {
     if (doc.file) {
       buf = new Uint8Array(await fs.readFile(path.join(root, doc.file)));
       local = true;
     } else {
-      const res = await fetch(doc.url, { headers: { "user-agent": UA, accept: "text/html,application/pdf,*/*" }, redirect: "follow", signal: AbortSignal.timeout(90_000) });
+      // Eén herkansing: sommige fabrikantensites geven af en toe een 403 of een time-out op een eerste aanvraag.
+      let res = await fetchOnce(doc.url);
+      if (!res.ok && res.status !== 404) {
+        await new Promise((r) => setTimeout(r, 4000));
+        res = await fetchOnce(doc.url);
+      }
       http = res.status;
       contentType = res.headers.get("content-type");
-      if (!res.ok) {
-        return { doc, text: null, state: { ...emptyState(fetchedAt, previous), status: "unreachable", http, error: `HTTP ${res.status}` } };
-      }
+      if (!res.ok) return failed(`HTTP ${res.status}`);
       buf = new Uint8Array(await res.arrayBuffer());
     }
   } catch (e) {
-    return { doc, text: null, state: { ...emptyState(fetchedAt, previous), status: "unreachable", http, error: (e as Error).message.slice(0, 200) } };
+    return failed((e as Error).message.slice(0, 200));
   }
-  const hash = sha256(buf);
   const pdf = isPdf(buf, contentType, doc.url);
   const htmlLike = !pdf && (/html|xml/i.test(contentType ?? "") || /<html/i.test(Buffer.from(buf.subarray(0, 4096)).toString("utf8")));
   if (!pdf && !htmlLike) {
-    return { doc, text: null, state: { ...emptyState(fetchedAt, previous), status: "unsupported", http, sha256: hash, bytes: buf.length, content_type: contentType, error: "neither PDF nor HTML" } };
+    return { doc, text: null, state: { ...emptyState(fetchedAt, previous), status: "unsupported", http, sha256: sha256(buf), bytes: buf.length, content_type: contentType, error: "neither PDF nor HTML" } };
   }
   await fs.writeFile(path.join(cacheDir, `${doc.id}.${pdf ? "pdf" : "html"}`), buf);
   let text: string;
@@ -158,6 +164,8 @@ export async function fetchDocument(doc: OemDocument, previous: DocumentState | 
     text = htmlToText(Buffer.from(buf).toString("utf8"));
   }
   await fs.writeFile(path.join(cacheDir, `${doc.id}.txt`), text, "utf8");
+  // Vingerafdruk: voor PDF's op de bytes, voor webpagina's op de tekst (de HTML zelf wisselt per aanvraag door scripts en tokens).
+  const hash = pdf ? sha256(buf) : sha256(new TextEncoder().encode(text));
   const changed = previous?.sha256 != null && previous.sha256 !== hash;
   const status: FetchStatus = local ? "local" : previous?.sha256 == null ? "ok" : changed ? "changed" : "unchanged";
   return {
@@ -173,13 +181,18 @@ export async function fetchDocument(doc: OemDocument, previous: DocumentState | 
       chars: text.length,
       fetched_at: fetchedAt,
       changed_at: changed || previous?.sha256 == null ? fetchedAt.slice(0, 10) : (previous?.changed_at ?? null),
+      unreachable_since: null,
       error: null,
     },
   };
 }
 
 function emptyState(fetchedAt: string, previous: DocumentState | undefined): DocumentState {
-  return { status: "unreachable", http: null, sha256: previous?.sha256 ?? null, bytes: previous?.bytes ?? null, content_type: previous?.content_type ?? null, pages: previous?.pages ?? null, chars: previous?.chars ?? null, fetched_at: fetchedAt, changed_at: previous?.changed_at ?? null, error: null };
+  return { status: "unreachable", http: null, sha256: previous?.sha256 ?? null, bytes: previous?.bytes ?? null, content_type: previous?.content_type ?? null, pages: previous?.pages ?? null, chars: previous?.chars ?? null, fetched_at: fetchedAt, changed_at: previous?.changed_at ?? null, unreachable_since: null, error: null };
+}
+
+function fetchOnce(url: string): Promise<Response> {
+  return fetch(url, { headers: { "user-agent": UA, accept: "text/html,application/pdf,*/*", "accept-language": "nl-BE,nl;q=0.9,fr-BE;q=0.8" }, redirect: "follow", signal: AbortSignal.timeout(90_000) });
 }
 
 /** Leest de bewaarde tekst van een eerder opgehaald document. */
