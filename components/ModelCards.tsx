@@ -28,45 +28,37 @@ interface Props {
   locale: Locale;
   /** Langste laadtijd in de hele lijst, zodat balkjes over groepen heen vergelijkbaar blijven. */
   maxSeconds?: number;
-  /** "accent": oranje rand en naam, lichte lift, pijltje en oranje balk bij hover (zelfde taal als de merktegels). */
-  hover?: "subtle" | "accent";
 }
 
 /** Modelkaarten: AC-maximum, laadtijd met balk, aanbevolen aansluiting. De laadtijd is het cijfer dat verschilt. */
-export function ModelCards({ items, copy, locale, maxSeconds, hover = "subtle" }: Props) {
-  const accent = hover === "accent";
+export function ModelCards({ items, copy, locale, maxSeconds }: Props) {
   const max = maxSeconds ?? Math.max(...items.map(({ v }) => recommendedSeconds(v)));
   return (
-    <ul className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+    <ul className="grid auto-rows-fr grid-cols-1 gap-3 sm:grid-cols-2">
       {items.map(({ path, v }) => {
         const a = advice(v, { region: null, capacity_rule: null });
         const secs = a.table.find((r) => r.connection === a.recommended_connection)!.seconds;
         const pct = Math.max(6, Math.round((secs / max) * 100));
         return (
-          <li key={path}>
+          <li key={path} className="h-full">
+            {/* Alle kaarten even hoog: de naam reserveert twee regels, het balkje zit onderaan. Hover in dezelfde taal als de merktegels. */}
             <Link
               href={path}
-              className={
-                accent
-                  ? "group block rounded-card border-hair border-line bg-card p-4 no-underline transition duration-150 ease-out hover:-translate-y-0.5 hover:border-accent hover:shadow-sm focus-visible:border-accent motion-reduce:transition-none motion-reduce:hover:translate-y-0"
-                  : "block rounded-card border-hair border-line bg-card p-4 no-underline hover:border-line2"
-              }
+              className="group flex h-full flex-col rounded-card border-hair border-line bg-card p-4 no-underline transition duration-150 ease-out hover:-translate-y-0.5 hover:border-accent hover:shadow-sm focus-visible:border-accent motion-reduce:transition-none motion-reduce:hover:translate-y-0"
             >
               <p className="flex items-baseline justify-between gap-2 text-[13px] text-ink2">
                 <span>
                   {v.make.name}
                   {v.model_year ? ` · ${v.model_year}` : ""}
                 </span>
-                {accent && (
-                  <span className="text-[15px] text-accent opacity-0 transition-opacity group-hover:opacity-100 group-focus-visible:opacity-100" aria-hidden="true">
-                    →
-                  </span>
-                )}
+                <span className="text-[15px] text-accent opacity-0 transition-opacity group-hover:opacity-100 group-focus-visible:opacity-100" aria-hidden="true">
+                  →
+                </span>
               </p>
-              <p className={accent ? "text-[18px] font-semibold text-ink transition-colors group-hover:text-accent" : "text-[18px] font-semibold text-ink"}>
+              <p className="line-clamp-2 min-h-[3.5rem] text-[18px] font-semibold leading-7 text-ink transition-colors group-hover:text-accent">
                 {v.vehicle.model} {v.trim}
               </p>
-              <dl className="tnum mt-3 grid grid-cols-[1fr_1.2fr_1.6fr] gap-2 text-[13px] text-ink2">
+              <dl className="tnum mb-3 mt-3 grid grid-cols-[1fr_1.2fr_1.6fr] gap-2 text-[13px] text-ink2">
                 <div>
                   <dt>{copy.site.cardAc}</dt>
                   <dd className="whitespace-nowrap text-[16px] font-medium text-ink">{kw(v.ac_max_w, locale)}</dd>
@@ -80,8 +72,8 @@ export function ModelCards({ items, copy, locale, maxSeconds, hover = "subtle" }
                   <dd className="whitespace-nowrap text-[16px] font-medium text-ok">{copy.connections[a.recommended_connection]}</dd>
                 </div>
               </dl>
-              <div className="mt-3 h-1.5 w-full rounded-sm bg-paper" aria-hidden="true">
-                <div className={accent ? "h-1.5 rounded-sm bg-ink2 transition-colors group-hover:bg-accent" : "h-1.5 rounded-sm bg-ink2"} style={{ width: `${pct}%` }} />
+              <div className="mt-auto h-1.5 w-full rounded-sm bg-paper pt-0" aria-hidden="true">
+                <div className="h-1.5 rounded-sm bg-ink2 transition-colors group-hover:bg-accent" style={{ width: `${pct}%` }} />
               </div>
             </Link>
           </li>

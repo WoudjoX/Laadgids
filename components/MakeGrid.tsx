@@ -7,7 +7,7 @@ import type { MakeTile } from "@/lib/pages/homeOverview";
 /** Raster van merken: naam, aantal modellen en spreiding van de laadtijd. Elke tegel linkt naar de merkpagina. */
 export function MakeGrid({ tiles, copy, locale }: { tiles: MakeTile[]; copy: Copy; locale: Locale }) {
   return (
-    <ul className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">
+    <ul className="grid auto-rows-fr grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">
       {tiles.map((t) => {
         const from = durationShort(t.minSeconds, locale);
         const to = durationShort(t.maxSeconds, locale);
