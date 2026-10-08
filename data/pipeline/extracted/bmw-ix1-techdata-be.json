@@ -1,21 +1,21 @@
 {
-  "doc_id": "bmw-ix2-techdata-be",
-  "sha256": "29a4be510e0031057753098605c9843c580372374cb40a6a050f5af47e40c4ec",
-  "extracted_at": "2026-10-08T16:35:54.735Z",
+  "doc_id": "bmw-ix1-techdata-be",
+  "sha256": "be1c0ea6cc195acf4ace420407d7d147b691a4b598fd95716d8a7305f875a7c7",
+  "extracted_at": "2026-10-08T16:36:43.703Z",
   "model": "claude-opus-5-5",
   "usage": {
-    "input_tokens": 13058,
-    "output_tokens": 2716
+    "input_tokens": 14430,
+    "output_tokens": 3497
   },
   "extraction": {
-    "document_title": "BMW iX2 (U10): motoren & technische gegevens",
+    "document_title": "BMW iX1 SUV (U11): technische gegevens en motortypes",
     "valid_from": null,
     "market": "BE",
     "model_year": null,
     "variants": [
       {
         "make": "BMW",
-        "model": "iX2",
+        "model": "iX1",
         "variant": "Voorwielaandrijving 150 kW (204 pk), 65,2 kWh",
         "model_year": null,
         "battery": [
@@ -28,9 +28,9 @@
         ],
         "consumption_kwh_100km": {
           "min": 14.2,
-          "max": 15.6,
+          "max": 16,
           "page": null,
-          "quote": "Stroomverbruik, gecombineerd WLTP in kWh/100 km 15,6–14,2"
+          "quote": "Stroomverbruik, gecombineerd WLTP in kWh/100 km 16–14,2"
         },
         "ac_charging": {
           "kw": 11,
@@ -42,15 +42,15 @@
         "ac_option_kw": 22,
         "dc_max_kw": 130,
         "range_km": {
-          "min": 477,
+          "min": 460,
           "max": 516
         },
-        "notes": "De pagina noemt deze uitvoering niet bij naam. Het technische blok staat er twee keer in, met identieke cijfers. Laadduur AC 0–100%: 6:30 / 3:45 uur. Laadduur DC 10–80%: 0:29 uur."
+        "notes": "Uitvoeringsnaam staat niet in de tekst; de pagina toont drie ongelabelde blokken met deze techniek en verschillende WLTP-waarden: 16–14,2 kWh/100 km en 460–516 km; 16–14,5 en 460–506 km; 15,1–14,6 en 493–503 km. Hier het eerste blok (breedste bereik) weergegeven. Laadduur AC 0–100% 6:30 / 3:45 uur; DC 10–80% 0:29 uur."
       },
       {
         "make": "BMW",
-        "model": "iX2",
-        "variant": "xDrive30 (Vierwielaandrijving 230 kW (313 pk), 65 kWh)",
+        "model": "iX1",
+        "variant": "xDrive30",
         "model_year": null,
         "battery": [
           {
@@ -61,10 +61,10 @@
           }
         ],
         "consumption_kwh_100km": {
-          "min": 15.3,
-          "max": 16.6,
+          "min": 15.6,
+          "max": 17.2,
           "page": null,
-          "quote": "Stroomverbruik, gecombineerd WLTP in kWh/100 km 16,6–15,3"
+          "quote": "BMW iX1 xDrive30: Energieverbruik, gecombineerd WLTP in kWh/100 km: 17,2–15,6; elektrische actieradius, WLTP in km¹: 430–469"
         },
         "ac_charging": {
           "kw": 11,
@@ -76,15 +76,15 @@
         "ac_option_kw": 22,
         "dc_max_kw": 130,
         "range_km": {
-          "min": 446,
-          "max": 479
+          "min": 430,
+          "max": 469
         },
-        "notes": "De naam xDrive30 komt alleen uit de koptekst ('BMW iX2 xDrive30: 16,6–15,3; 446–479'); de technische blokken zelf noemen geen naam. Er zijn twee blokken met deze techniek, met een tegenstrijdig minimumbereik: 446–479 en 447–479 km. Laadduur AC 0–100%: 6:30 / 3:45 uur. Laadduur DC 10–80%: 0:29 uur."
+        "notes": "De naam xDrive30 staat alleen in de koptekst; de waarden daar (17,2–15,6 kWh/100 km, 430–469 km) komen overeen met het ongelabelde blok met vierwielaandrijving, 230 kW (313 pk) en 65 kWh. Een tweede blok met dezelfde techniek geeft 17,2–15,7 kWh/100 km en 430–468 km. Vermogen 230 kW is een tijdelijke verhoging (<10 s). Laadduur AC 0–100% 6:30 / 3:45 uur; DC 10–80% 0:29 uur."
       },
       {
         "make": "BMW",
-        "model": "iX2",
-        "variant": "Vierwielaandrijving 230 kW (313 pk), 225 (306) / 104 (141), 64,8 kWh",
+        "model": "iX1",
+        "variant": "Voorwielaandrijving 150 kW (204 pk), 64,8 kWh",
         "model_year": null,
         "battery": [
           {
@@ -95,10 +95,10 @@
           }
         ],
         "consumption_kwh_100km": {
-          "min": 16.3,
-          "max": 17.7,
+          "min": 15.5,
+          "max": 17.1,
           "page": null,
-          "quote": "Stroomverbruik, gecombineerd WLTP in kWh/100 km 17,7–16,3"
+          "quote": "Stroomverbruik, gecombineerd WLTP in kWh/100 km 17,1–15,5"
         },
         "ac_charging": {
           "kw": 11,
@@ -110,15 +110,15 @@
         "ac_option_kw": 22,
         "dc_max_kw": 130,
         "range_km": {
-          "min": 418,
-          "max": 449
+          "min": 431,
+          "max": 473
         },
-        "notes": "De pagina noemt deze uitvoering niet bij naam. Er zijn twee blokken met deze techniek, met een tegenstrijdig maximumbereik: 418–449 en 418–448 km. Laadduur AC 0–100%: 6:30 / 3:45 uur. Laadduur DC 10–80%: 0:29 uur."
+        "notes": "Uitvoeringsnaam staat niet in de tekst. Er zijn drie ongelabelde blokken met deze techniek (150 (204) / 68 (92) kW): 17,1–15,5 kWh/100 km en 431–473 km; 16,4–15,8 en 453–462 km; 17,1–15,5 en 431–472 km. Hier het eerste blok weergegeven. Laadduur AC 0–100% 6:30 / 3:45 uur; DC 10–80% 0:29 uur."
       },
       {
         "make": "BMW",
-        "model": "iX2",
-        "variant": "Voorwielaandrijving 150 kW (204 pk), 150 (204) / 68 (92), 64,8 kWh",
+        "model": "iX1",
+        "variant": "Vierwielaandrijving 230 kW (313 pk), 64,8 kWh",
         "model_year": null,
         "battery": [
           {
@@ -129,25 +129,25 @@
           }
         ],
         "consumption_kwh_100km": {
-          "min": 15.3,
-          "max": 16.9,
+          "min": 17,
+          "max": 18.1,
           "page": null,
-          "quote": "Stroomverbruik, gecombineerd WLTP in kWh/100 km 16,9–15,3"
+          "quote": "Stroomverbruik, gecombineerd WLTP in kWh/100 km 18,1–17"
         },
         "ac_charging": {
           "kw": 11,
           "phases": null,
           "standard": true,
           "page": null,
-          "quote": "Maximaal laadvermogen AC in kW 11 / 22 4 ... 4 Standaard uitrusting/ optionele uitrusting"
+          "quote": "Maximaal laadvermogen AC in kW 11 / 22 4"
         },
         "ac_option_kw": 22,
         "dc_max_kw": 130,
         "range_km": {
-          "min": 439,
-          "max": 478
+          "min": 417,
+          "max": 438
         },
-        "notes": "De pagina noemt deze uitvoering niet bij naam. Er zijn twee blokken met deze techniek, met een tegenstrijdig maximumbereik: 439–478 en 439–477 km. Laadduur AC 0–100%: 6:30 / 3:45 uur. Laadduur DC 10–80%: 0:29 uur."
+        "notes": "Uitvoeringsnaam staat niet in de tekst. Er zijn twee ongelabelde blokken met deze techniek (225 (306) / 104 (141) kW). Het ene blok geeft alleen 'Maximaal laadvermogen AC in kW 11' en een laadduur van 6:30 uur. Het andere geeft 11 / 22 kW met laadduur 6:30 / 3:45 uur. Daardoor is onzeker of 22 kW hier leverbaar is. Vermogen 230 kW is een tijdelijke verhoging (<10 s). DC 10–80% 0:29 uur."
       }
     ]
   }

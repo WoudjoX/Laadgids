@@ -1,11 +1,11 @@
 {
   "doc_id": "renault-5-page-be",
-  "sha256": "73ca4aa4afcbadb2b0cc439752dd9fa69af809079399cdd3f7dac7181111d08e",
-  "extracted_at": "2026-10-06T07:47:36.930Z",
+  "sha256": "38a750a8c488206ea5f89f4c493834496b3e234d9f09ba8534cfcaabb981031d",
+  "extracted_at": "2026-10-08T16:35:15.066Z",
   "model": "claude-opus-5-5",
   "usage": {
-    "input_tokens": 15056,
-    "output_tokens": 841
+    "input_tokens": 14991,
+    "output_tokens": 826
   },
   "extraction": {
     "document_title": "R5 E-TECH Electric – prijzen en uitrustingsniveaus – Renault",
@@ -30,7 +30,7 @@
         "ac_option_kw": null,
         "dc_max_kw": 80,
         "range_km": null,
-        "notes": "De pagina geeft bij 'Standaard oplaadbeurt' (11) en 'Snelle oplaadbeurt (DC)' (80) geen eenheid; kW is aangenomen. Geen batterijcapaciteit, verbruik of rijbereik vermeld. Vermogen 90 kW (120 pk)."
+        "notes": "De pagina vermeldt bij AC ('Standaard oplaadbeurt 11') en DC ('Snelle oplaadbeurt (DC) 80') geen eenheid; kW is aangenomen. Er staan geen cijfers voor batterij, verbruik of rijbereik. Uitrustingsniveaus (evolution, techno, iconic cinq, Roland-Garros) hebben geen eigen techniek."
       },
       {
         "make": "Renault",
@@ -49,7 +49,7 @@
         "ac_option_kw": null,
         "dc_max_kw": 100,
         "range_km": null,
-        "notes": "De pagina geeft bij 'Standaard oplaadbeurt' (11) en 'Snelle oplaadbeurt (DC)' (100) geen eenheid; kW is aangenomen. Geen batterijcapaciteit, verbruik of rijbereik vermeld. Vermogen 110 kW (150 pk)."
+        "notes": "De pagina vermeldt bij AC ('Standaard oplaadbeurt 11') en DC ('Snelle oplaadbeurt (DC) 100') geen eenheid; kW is aangenomen. Er staan geen cijfers voor batterij, verbruik of rijbereik."
       }
     ]
   }
