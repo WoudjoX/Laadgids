@@ -7,21 +7,36 @@ export interface MakeTile {
   count: number;
   minSeconds: number;
   maxSeconds: number;
+  /** Modelnamen van het merk, uniek en alfabetisch ("i4", "iX1", ...). */
+  models: string[];
+  /** Etiket alleen als het merk een uitvoering heeft die eenfasig of boven 11 kW laadt; hoogste AC-vermogen voor dat laatste. */
+  badge: { kind: "one_phase" } | { kind: "above_11"; ac_max_w: number } | null;
 }
 
 /** Eén tegel per merk, alfabetisch, met het aantal uitvoeringen en de spreiding van de laadtijd (20 naar 80 %). */
 export function makeTiles(items: ModelCardItem[]): MakeTile[] {
-  const map = new Map<string, MakeTile>();
+  const map = new Map<string, MakeTile & { modelSet: Set<string> }>();
   for (const it of items) {
     const s = recommendedSeconds(it.v);
-    const t = map.get(it.v.make.slug);
-    if (t) {
-      t.count++;
-      t.minSeconds = Math.min(t.minSeconds, s);
-      t.maxSeconds = Math.max(t.maxSeconds, s);
-    } else map.set(it.v.make.slug, { slug: it.v.make.slug, name: it.v.make.name, count: 1, minSeconds: s, maxSeconds: s });
+    let t = map.get(it.v.make.slug);
+    if (!t) {
+      t = { slug: it.v.make.slug, name: it.v.make.name, count: 0, minSeconds: s, maxSeconds: s, models: [], badge: null, modelSet: new Set() };
+      map.set(it.v.make.slug, t);
+    }
+    t.count++;
+    t.minSeconds = Math.min(t.minSeconds, s);
+    t.maxSeconds = Math.max(t.maxSeconds, s);
+    t.modelSet.add(it.v.vehicle.model);
+    const kind = exceptionKind(it.v);
+    if (kind === "one_phase") t.badge = { kind: "one_phase" };
+    else if (kind === "above_11" && t.badge?.kind !== "one_phase") {
+      const cur = t.badge?.kind === "above_11" ? t.badge.ac_max_w : 0;
+      t.badge = { kind: "above_11", ac_max_w: Math.max(cur, it.v.ac_max_w) };
+    }
   }
-  return [...map.values()].sort((a, b) => a.name.localeCompare(b.name));
+  return [...map.values()]
+    .map(({ modelSet, ...t }) => ({ ...t, models: [...modelSet].sort((a, b) => a.localeCompare(b, undefined, { numeric: true })) }))
+    .sort((a, b) => a.name.localeCompare(b.name));
 }
 
 /** Waarom het advies voor een uitvoering afwijkt van de gewone 11 kW-driefasige auto. */

@@ -30,6 +30,15 @@ describe("makeTiles", () => {
     expect(volvo.count).toBe(2);
     expect(volvo.minSeconds).toBeLessThan(volvo.maxSeconds);
   });
+  it("toont modelnamen uniek en natuurlijk gesorteerd, en een etiket alleen bij eenfasig of boven 11 kW", () => {
+    const t = makeTiles([car11b, car11, item("Volvo", "EX30", "Twin", 11000, 3), car74, oneOn3, car22, item("Renault", "5", "52 kWh", 11000, 3), car105]);
+    expect(t.find((x) => x.slug === "volvo")!.models).toEqual(["EX30", "EX40"]);
+    expect(t.find((x) => x.slug === "volvo")!.badge).toBeNull();
+    expect(t.find((x) => x.slug === "citroën")!.badge).toEqual({ kind: "one_phase" });
+    expect(t.find((x) => x.slug === "renault")!.badge).toEqual({ kind: "above_11", ac_max_w: 22000 });
+    expect(t.find((x) => x.slug === "renault")!.models).toEqual(["5", "Zoe"]);
+    expect(t.find((x) => x.slug === "hyundai")!.badge).toBeNull();
+  });
   it("lege lijst geeft geen tegels (randgeval)", () => {
     expect(makeTiles([])).toEqual([]);
   });

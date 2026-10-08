@@ -43,8 +43,9 @@ export const frBE: Copy = {
     makeTileTime: (from, to, same) => (same ? `recharge en ${from}` : `recharge en ${from} à ${to}`),
     allModelsLink: (n) => `Voir les ${n} modèles`,
     makeTileRange: (from, to, same) => (same ? from : `${from}–${to}`),
-    makeScale: (h) => `La barre va de 0 à ${h} h : de la version la plus rapide à la plus lente de la marque.`,
     allModelsTile: { title: "Tous les modèles", sub: (n) => `${n} versions` },
+    makeBadge: { one_phase: "monophasé", above_11: (kw) => `jusqu'à ${kw}` },
+    moreModels: (n) => `+${n}`,
     exceptionsHeading: "Attention à ces modèles",
     exceptionsIntro: "La plupart des voitures électriques se rechargent à domicile en 11 kW triphasé. Pour ces modèles, le conseil est différent.",
     exceptionReason: {

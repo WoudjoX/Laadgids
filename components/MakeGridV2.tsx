@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { makePath, type Copy } from "@/lib/copy";
 import type { Locale } from "@/lib/db/types";
-import { durationShort } from "@/lib/format";
+import { durationShort, kw } from "@/lib/format";
 import type { MakeTile } from "@/lib/pages/homeOverview";
 
 interface Props {
@@ -13,61 +13,63 @@ interface Props {
   allCount: number;
 }
 
-/** Schaal in hele uren boven de traagste uitvoering, zodat de balken over merken heen vergelijkbaar zijn. */
-export function scaleHours(tiles: MakeTile[]): number {
-  const max = Math.max(0, ...tiles.map((t) => t.maxSeconds));
-  return Math.max(1, Math.ceil(max / 3600));
-}
+/** Aantal modelnamen per tegel: twee op gsm (smalle tegel), drie vanaf tablet. */
+const SHOWN_MOBILE = 2;
+const SHOWN_MODELS = 3;
 
 /**
- * Merkentegels: naam en aantal op één regel, laadtijd (20 naar 80 %) als cijfer en als balk op een gedeelde schaal.
- * Laatste tegel linkt naar alle modellen. Geen client-JS: hover via CSS.
+ * Merkentegels: naam en aantal, de modelnamen (zodat je ziet of je auto erbij staat), de laadtijd van 20 naar 80 %
+ * als klein cijfer, en een etiket alleen als het merk eenfasig of boven 11 kW laadt. Laatste tegel: alle modellen.
+ * Geen client-JS: hover via CSS.
  */
 export function MakeGridV2({ tiles, copy, locale, allHref, allCount }: Props) {
-  const hours = scaleHours(tiles);
-  const scale = hours * 3600;
   return (
-    <div>
-      <ul className="grid grid-cols-2 gap-2 sm:grid-cols-3 sm:gap-3">
-        {tiles.map((t) => {
-          const from = durationShort(t.minSeconds, locale);
-          const to = durationShort(t.maxSeconds, locale);
-          const left = (t.minSeconds / scale) * 100;
-          const width = Math.max(3, ((t.maxSeconds - t.minSeconds) / scale) * 100);
-          return (
-            <li key={t.slug}>
-              <Link
-                href={makePath(locale, t.slug)}
-                className="group block h-full rounded-card border-hair border-line bg-card px-3 py-3 no-underline transition-colors hover:border-accent sm:px-4"
-              >
-                <span className="flex items-baseline justify-between gap-2">
-                  <span className="truncate text-[16px] font-semibold text-ink">{t.name}</span>
-                  <span className="tnum shrink-0 text-[13px] text-ink3 group-hover:hidden">{t.count}</span>
-                  <span className="hidden shrink-0 text-[14px] text-accent group-hover:inline" aria-hidden="true">
-                    →
+    <ul className="grid grid-cols-2 gap-2 sm:grid-cols-3 sm:gap-3">
+      {tiles.map((t) => {
+        const from = durationShort(t.minSeconds, locale);
+        const to = durationShort(t.maxSeconds, locale);
+        const moreMobile = t.models.length - SHOWN_MOBILE;
+        const moreDesktop = t.models.length - SHOWN_MODELS;
+        const badge = t.badge ? (t.badge.kind === "one_phase" ? copy.home.makeBadge.one_phase : copy.home.makeBadge.above_11(kw(t.badge.ac_max_w, locale))) : null;
+        return (
+          <li key={t.slug}>
+            <Link
+              href={makePath(locale, t.slug)}
+              className="group flex h-full flex-col rounded-card border-hair border-line bg-card px-3 py-3 no-underline transition-colors hover:border-accent sm:px-4"
+            >
+              <span className="flex items-baseline justify-between gap-2">
+                <span className="truncate text-[16px] font-semibold text-ink group-hover:text-accent">{t.name}</span>
+                <span className="tnum shrink-0 text-[13px] text-ink3">{t.count}</span>
+              </span>
+              <span className="mt-1 block truncate text-[14px] text-ink2">
+                {t.models.slice(0, SHOWN_MODELS).map((m, i) => (
+                  <span key={m} className={i >= SHOWN_MOBILE ? "hidden sm:inline" : undefined}>
+                    {i > 0 ? " · " : ""}
+                    {m}
                   </span>
-                </span>
-                <span className="tnum mt-1 block whitespace-nowrap text-[15px] font-medium text-ink2">{copy.home.makeTileRange(from, to, from === to)}</span>
-                <span className="relative mt-2 block h-1.5 w-full rounded-sm bg-paper" aria-hidden="true">
-                  <span className="absolute top-0 h-1.5 rounded-sm bg-ink2 group-hover:bg-accent" style={{ left: `${left}%`, width: `${width}%` }} />
-                </span>
-              </Link>
-            </li>
-          );
-        })}
-        <li>
-          <Link
-            href={allHref}
-            className="group flex h-full flex-col justify-center rounded-card border-hair border-dashed border-line2 bg-paper px-3 py-3 no-underline transition-colors hover:border-accent sm:px-4"
-          >
-            <span className="text-[16px] font-semibold text-ink">
-              {copy.home.allModelsTile.title} <span className="text-accent">→</span>
-            </span>
-            <span className="tnum mt-1 text-[13px] text-ink3">{copy.home.allModelsTile.sub(allCount)}</span>
-          </Link>
-        </li>
-      </ul>
-      <p className="mt-3 text-[13px] text-ink3">{copy.home.makeScale(hours)}</p>
-    </div>
+                ))}
+                {moreMobile > 0 && <span className="text-ink3 sm:hidden"> {copy.home.moreModels(moreMobile)}</span>}
+                {moreDesktop > 0 && <span className="hidden text-ink3 sm:inline"> {copy.home.moreModels(moreDesktop)}</span>}
+              </span>
+              <span className="mt-auto flex items-center justify-between gap-2 pt-2">
+                <span className="tnum whitespace-nowrap text-[13px] text-ink3">{copy.home.makeTileRange(from, to, from === to)}</span>
+                {badge && <span className="whitespace-nowrap rounded-btn bg-warnSoft px-1.5 py-0.5 text-[12px] font-medium text-warn">{badge}</span>}
+              </span>
+            </Link>
+          </li>
+        );
+      })}
+      <li>
+        <Link
+          href={allHref}
+          className="group flex h-full flex-col justify-center rounded-card border-hair border-dashed border-line2 bg-paper px-3 py-3 no-underline transition-colors hover:border-accent sm:px-4"
+        >
+          <span className="text-[16px] font-semibold text-ink">
+            {copy.home.allModelsTile.title} <span className="text-accent">→</span>
+          </span>
+          <span className="tnum mt-1 text-[13px] text-ink3">{copy.home.allModelsTile.sub(allCount)}</span>
+        </Link>
+      </li>
+    </ul>
   );
 }

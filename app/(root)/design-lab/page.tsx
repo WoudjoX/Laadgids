@@ -94,7 +94,7 @@ export default async function DesignLab() {
       <Header copy={copy} locale={locale} />
       <div className="mx-auto max-w-content px-4 py-8">
         <h1>Design-lab</h1>
-        <Block title="Voorstel merkentegels v2: compact, laadtijd als cijfer en balk op een gedeelde schaal, tegel 'Alle modellen', accent bij hover">
+        <Block title="Voorstel merkentegels v3: modelnamen, laadtijd als klein cijfer, etiket alleen bij eenfasig of boven 11 kW, tegel 'Alle modellen'">
           <h2>{copy.home.makesHeading}</h2>
           <p className="mt-2 max-w-prose text-ink2">{copy.home.makesIntro}</p>
           <div className="mt-4">
