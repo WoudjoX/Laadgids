@@ -18,6 +18,7 @@ import type { RuleRow, TariffRow, VersionFull } from "@/lib/db/types";
 import { buildChargerPage } from "@/lib/pages/charger";
 import { ExceptionList } from "@/components/ExceptionList";
 import { MakeGrid } from "@/components/MakeGrid";
+import { MakeGridV2 } from "@/components/MakeGridV2";
 import { ModelPicker } from "@/components/ModelPicker";
 import { makeTiles, modelExceptions } from "@/lib/pages/homeOverview";
 import { modelIndex } from "@/lib/pages/modelIndex";
@@ -93,6 +94,13 @@ export default async function DesignLab() {
       <Header copy={copy} locale={locale} />
       <div className="mx-auto max-w-content px-4 py-8">
         <h1>Design-lab</h1>
+        <Block title="Voorstel merkentegels v2: compact, laadtijd als cijfer en balk op een gedeelde schaal, tegel 'Alle modellen', accent bij hover">
+          <h2>{copy.home.makesHeading}</h2>
+          <p className="mt-2 max-w-prose text-ink2">{copy.home.makesIntro}</p>
+          <div className="mt-4">
+            <MakeGridV2 tiles={makeTiles(all)} copy={copy} locale={locale} allHref={`/nl-be/${copy.charger.sectionSlug}`} allCount={all.length} />
+          </div>
+        </Block>
         <Block title="Startpagina-blokken (echte data, live sinds 2026-10-08): keuzeveld, merken, uitzonderingen, link naar alle modellen.">
           <div className="space-y-10 rounded-card bg-paper">
             <ModelPicker items={all} copy={copy} locale={locale} />

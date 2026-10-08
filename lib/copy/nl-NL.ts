@@ -39,6 +39,9 @@ export const nlNL: Copy = {
     makeTileCount: (n) => `${n} ${n === 1 ? "model" : "modellen"}`,
     makeTileTime: (from, to, same) => (same ? `laadt in ${from}` : `laadt in ${from} tot ${to}`),
     allModelsLink: (n) => `Alle ${n} modellen bekijken`,
+    makeTileRange: (from, to, same) => (same ? from : `${from}–${to}`),
+    makeScale: (h) => `De balk loopt van 0 tot ${h} uur: van de snelste tot de traagste uitvoering van het merk.`,
+    allModelsTile: { title: "Alle modellen", sub: (n) => `${n} uitvoeringen` },
     exceptionsHeading: "Let op bij deze modellen",
     exceptionsIntro: "De meeste elektrische auto's laden thuis op 11 kW, 3-fase. Voor deze modellen is het advies anders.",
     exceptionReason: {
