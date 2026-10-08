@@ -1,0 +1,22 @@
+{
+  "$comment": "Koppelt een uitvoering zoals een fabrikantendocument ze noemt aan een rij op de site (version_slug), of sluit ze uit (ignore met reden). De pijplijn gebruikt dit vóór de automatische matching. document_id + variant moeten exact overeenkomen met wat de uittrekstap las (rapport, kop van elke uitvoering).",
+  "aliases": [
+    { "document_id": "peugeot-208-pricelist-be", "variant": "Elektrisch 136 pk batterij 50 kWh", "version_slug": "peugeot-e-208-50-2025" },
+    { "document_id": "peugeot-208-pricelist-be", "variant": "Elektrisch 156 pk batterij 51 kWh", "version_slug": "peugeot-e-208-51-2025" },
+    { "document_id": "citroen-c3-pricelist-be", "variant": "Electric 113 ch Urban Range", "version_slug": "citroen-e-c3-30-kwh-2025" },
+    { "document_id": "citroen-c3-pricelist-be", "variant": "Electric 113 ch Comfort Range", "version_slug": "citroen-e-c3-44-kwh-2025" },
+    { "document_id": "bmw-i4-techdata-be", "variant": "400 kW (544 pk) Vierwielaandrijving", "version_slug": "bmw-i4-m50-xdrive-2025" },
+    { "document_id": "bmw-i4-techdata-be", "variant": "250 kW (340 pk) Achterwielaandrijving", "version_slug": "bmw-i4-edrive40-2025" },
+    { "document_id": "bmw-ix2-techdata-be", "variant": "Vierwielaandrijving 230 kW (313 pk), 65 kWh", "version_slug": "bmw-ix2-xdrive30-2026" },
+    { "document_id": "mercedes-eqb-pricelist-be", "variant": "250+ Business Star Edition", "version_slug": "mercedes-benz-eqb-250-plus-2025" },
+
+    { "document_id": "vw-id4-pricelist-nl", "variant": "*", "ignore": "Erwin 2026-10-08: Nederlandse Limited Edition-uitvoeringen; de Belgische versies komen van volkswagen.be" },
+    { "document_id": "hyundai-kona-pricelist-nl", "variant": "Standard Range 48,6 kWh", "version_slug": "hyundai-kona-electric-48-2025" },
+    { "document_id": "hyundai-kona-pricelist-nl", "variant": "Long Range 64,8 kWh", "ignore": "Erwin 2026-10-08: de 65 kWh-uitvoering staat al op de site" },
+    { "document_id": "citroen-c3-pricelist-be", "variant": "Electric 113 ch Comfort Range VAN", "ignore": "Erwin 2026-10-08: bestelwagen, buiten scope" },
+    { "document_id": "bmw-ix2-techdata-be", "variant": "Voorwielaandrijving 150 kW (204 pk), 65,2 kWh", "ignore": "Erwin 2026-10-08: nieuw modeljaar van de eDrive20 die al op de site staat; later als aparte rij" },
+    { "document_id": "bmw-ix2-techdata-be", "variant": "Vierwielaandrijving 230 kW (313 pk), 64,8 kWh", "ignore": "vorig modeljaar, blok staat nog op bmw.be" },
+    { "document_id": "bmw-ix2-techdata-be", "variant": "Voorwielaandrijving 150 kW (204 pk), 64,8 kWh", "ignore": "vorig modeljaar, blok staat nog op bmw.be" },
+    { "document_id": "bmw-ix3-techdata-be", "variant": "*", "ignore": "Erwin 2026-10-08: vorige iX3-generatie; de nieuwe iX3 50 xDrive staat al op de site" }
+  ]
+}

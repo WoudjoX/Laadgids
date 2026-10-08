@@ -10,7 +10,7 @@ import { promises as fs } from "node:fs";
 import path from "node:path";
 import { getRepo } from "@/lib/db";
 import type { VersionFull } from "@/lib/db/types";
-import { compareExtraction, renderReport, renderVerificationCsv, sampleForHumanCheck, type AcceptedDiff, type Finding } from "@/lib/pipeline/compare";
+import { compareExtraction, renderReport, renderVerificationCsv, sampleForHumanCheck, type AcceptedDiff, type Finding, type VariantAlias } from "@/lib/pipeline/compare";
 import { fetchDocument, loadRegistry, loadState, readCachedText, saveState, type DocumentState, type OemDocument } from "@/lib/pipeline/documents";
 import { extractFromText, type Extraction } from "@/lib/pipeline/extract";
 
@@ -121,6 +121,14 @@ async function loadAccepted(): Promise<AcceptedDiff[]> {
   }
 }
 
+async function loadAliases(): Promise<VariantAlias[]> {
+  try {
+    return (JSON.parse(await fs.readFile(path.join("data", "sources", "variant-aliases.json"), "utf8")) as { aliases: VariantAlias[] }).aliases;
+  } catch {
+    return [];
+  }
+}
+
 async function cmdReview(): Promise<void> {
   const docs = await loadRegistry();
   const state = await loadState();
@@ -128,11 +136,12 @@ async function cmdReview(): Promise<void> {
   const repo = await getRepo();
   const versions = (await repo.listVersions()) as VersionFull[];
   const accepted = await loadAccepted();
+  const aliases = await loadAliases();
   const findings: Finding[] = [];
   for (const doc of docs) {
     const s = stored.get(doc.id);
     if (!s) continue;
-    findings.push(...compareExtraction(doc, state[doc.id], s.extraction, versions, accepted));
+    findings.push(...compareExtraction(doc, state[doc.id], s.extraction, versions, accepted, aliases));
   }
   // Rijen waarvan de bron onbereikbaar is of buiten de registry valt.
   const byUrl = new Map<string, { doc: OemDocument; state: DocumentState | undefined }>();

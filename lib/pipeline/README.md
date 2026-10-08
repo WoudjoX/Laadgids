@@ -40,3 +40,8 @@ Eén regel in `data/sources/oem-documents.json`: `id` (kleine letters en streepj
 `.github/workflows/verify-pipeline.yml` draait `pnpm verify fetch`, `extract` en `review` elke maandag om 07:00 Belgische tijd, zet rapport en CSV in `reports/pipeline/` en opent een pull request naar main. Zonder Supabase-sleutels valt `review` terug op `data/seed/versions.json`, wat dezelfde inhoud heeft. Nodig: de repository secret `ANTHROPIC_API_KEY` (GitHub → Settings → Secrets and variables → Actions). Documenten met een lokaal bestand (Mercedes) behouden daar hun vorige toestand. Handmatig starten kan via "Run workflow" in het tabblad Actions.
 
 Een fetch waarbij meer dan de helft van de online documenten onbereikbaar is, wordt als netwerkprobleem behandeld: de toestand wordt dan niet overschreven en het script stopt met een fout.
+
+## Koppelingen en afwijzingen
+
+`data/sources/variant-aliases.json` koppelt een uitvoering zoals de fabrikant ze noemt ("400 kW (544 pk) Vierwielaandrijving") aan een rij op de site, of sluit ze uit met een reden ("vorig modeljaar", "bestelwagen"). `data/sources/accepted-diffs.json` legt aanvaarde verschillen vast. Beide zorgen dat het wekelijkse rapport alleen nieuws bevat.
+

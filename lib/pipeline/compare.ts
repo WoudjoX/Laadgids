@@ -190,6 +190,14 @@ function complete(c: SpecCandidate): boolean {
   return (c.battery_net_wh != null || c.battery_gross_wh != null) && c.consumption_wh_per_km != null && c.ac_max_w != null;
 }
 
+export interface VariantAlias {
+  document_id: string;
+  /** Uitvoering zoals het document ze noemt, of "*" voor alle uitvoeringen van dat document. */
+  variant: string;
+  version_slug?: string;
+  ignore?: string;
+}
+
 export interface AcceptedDiff {
   version_slug: string;
   field: FieldDiff["field"];
@@ -197,11 +205,22 @@ export interface AcceptedDiff {
   reason: string;
 }
 
-export function compareExtraction(doc: OemDocument, docState: Pick<DocumentState, "sha256"> | undefined, extraction: Extraction, versions: VersionFull[], accepted: AcceptedDiff[] = []): Finding[] {
+export function compareExtraction(
+  doc: OemDocument,
+  docState: Pick<DocumentState, "sha256"> | undefined,
+  extraction: Extraction,
+  versions: VersionFull[],
+  accepted: AcceptedDiff[] = [],
+  aliases: VariantAlias[] = [],
+): Finding[] {
   const out: Finding[] = [];
   for (const variant of extraction.variants) {
+    const alias = aliases.find((a) => a.document_id === doc.id && (a.variant === "*" || norm(a.variant) === norm(variant.variant)));
+    if (alias?.ignore) continue;
     const { candidate, notes } = toCandidate(doc, docState, variant);
-    const matched = matchVersion(candidate, versions);
+    const aliased = alias?.version_slug ? (versions.find((v) => v.slug === alias.version_slug) ?? null) : null;
+    if (alias?.version_slug && !aliased) notes.push(`alias wijst naar ${alias.version_slug}, maar die rij bestaat niet`);
+    const matched = aliased ?? matchVersion(candidate, versions);
     const pages = pagesOf(variant);
     if (!matched) {
       out.push({ kind: complete(candidate) ? "nieuw" : "onvolledig", doc, variant, candidate, version: null, diffs: [], notes, pages });

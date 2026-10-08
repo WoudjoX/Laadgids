@@ -143,6 +143,17 @@ describe("compare", () => {
     expect(f[0]!.kind).toBe("afwijking");
     expect(f[0]!.diffs.find((d) => d.field === "consumption_wh_per_km")?.conflict).toBe(true);
   });
+  it("een alias koppelt een documentnaam aan een rij; ignore laat een uitvoering weg", () => {
+    const ex = { document_title: "t", valid_from: null, market: null, model_year: null, variants: [variant({ variant: "P5 Long Range Elektrisch" }), variant({ variant: "Van" })] };
+    const fs = compareExtraction(doc, state, ex, [version()], [], [
+      { document_id: doc.id, variant: "P5 Long Range Elektrisch", version_slug: "volvo-ex30-single-motor-extended-range-2025" },
+      { document_id: doc.id, variant: "van", ignore: "bestelwagen" },
+    ]);
+    expect(fs).toHaveLength(1);
+    expect(fs[0]!.kind).toBe("bevestigd");
+    expect(fs[0]!.version?.slug).toBe("volvo-ex30-single-motor-extended-range-2025");
+    expect(compareExtraction(doc, state, ex, [version()], [], [{ document_id: doc.id, variant: "*", ignore: "alles" }])).toHaveLength(0);
+  });
   it("een aanvaard verschil telt als bevestigd, met de reden in de notities", () => {
     const ex = { document_title: "t", valid_from: null, market: null, model_year: null, variants: [variant({ consumption_kwh_100km: { min: 18.6, max: null, page: 9, quote: "18.6" } })] };
     const [f] = compareExtraction(doc, state, ex, [version()], [{ version_slug: "volvo-ex30-single-motor-extended-range-2025", field: "consumption_wh_per_km", document_id: doc.id, reason: "Belgisch bereik" }]);
