@@ -1,11 +1,11 @@
 {
   "doc_id": "bmw-i4-techdata-be",
-  "sha256": "e552beddc654e53aefc6897841a054d79dc0a030a4277e09dac5e67245acc222",
-  "extracted_at": "2026-10-06T07:48:02.909Z",
+  "sha256": "5e2f0dafa0548d7cc7ba50e5e72507088a52b2364918b5d7a4c39454e7c95385",
+  "extracted_at": "2026-10-08T16:35:25.582Z",
   "model": "claude-opus-5-5",
   "usage": {
-    "input_tokens": 8600,
-    "output_tokens": 1174
+    "input_tokens": 8565,
+    "output_tokens": 1185
   },
   "extraction": {
     "document_title": "BMW i4 Gran Coupé: technische gegevens en maten van alle motortypes",
@@ -45,12 +45,12 @@
           "min": 416,
           "max": 520
         },
-        "notes": "De pagina noemt geen uitvoeringsnaam; variant aangeduid met vermogen en aandrijving zoals vermeld. Laadduur AC 0–100%: 8:30 uur; laadduur DC 10–80%: 0:30 uur."
+        "notes": "De uitvoeringsnaam van deze motorisering (400 kW, vierwielaandrijving) staat niet in de tekst; alleen de technische gegevens. Laadduur DC 10–80%: 0:30 uur; AC 0–100%: 8:30 uur."
       },
       {
         "make": "BMW",
         "model": "i4 Gran Coupé",
-        "variant": "250 kW (340 pk) Achterwielaandrijving",
+        "variant": "eDrive40",
         "model_year": null,
         "battery": [
           {
@@ -79,7 +79,7 @@
           "min": 491,
           "max": 600
         },
-        "notes": "De pagina noemt geen uitvoeringsnaam; variant aangeduid met vermogen en aandrijving zoals vermeld. Laadduur AC 0–100%: 8:30 uur; laadduur DC 10–80%: 0:30 uur. 'Bi-directional charging' vermeld zonder verdere cijfers."
+        "notes": "Naam eDrive40 gekoppeld via identieke verbruiks- en rijbereikwaarden in de kop (18,6–15,4 kWh/100 km; 491–600 km); de technische tabel zelf noemt geen uitvoeringsnaam (250 kW, achterwielaandrijving). Laadduur DC 10–80%: 0:30 uur; AC 0–100%: 8:30 uur. Bi-directional charging vermeld."
       }
     ]
   }

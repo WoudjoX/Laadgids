@@ -1,11 +1,11 @@
 {
   "doc_id": "volvo-ec40-specs-be",
-  "sha256": "37c1b85475c470668a6c90f545eed0d9f092fc5672704b87defde53e5943f301",
-  "extracted_at": "2026-10-06T07:41:25.261Z",
+  "sha256": "b263d261da68057cdbfe1652a59b4df31f452cb93f8698a86ff9614350acd0f5",
+  "extracted_at": "2026-10-08T16:34:47.561Z",
   "model": "claude-opus-5-5",
   "usage": {
-    "input_tokens": 10452,
-    "output_tokens": 1470
+    "input_tokens": 10479,
+    "output_tokens": 1349
   },
   "extraction": {
     "document_title": "Specificaties Volvo EC40 crossover | De nieuwe naam voor de C40 Recharge | Volvo Cars België",
@@ -39,7 +39,7 @@
           "min": 486,
           "max": null
         },
-        "notes": "Geen AC-laadvermogen in kW vermeld; alleen laadduur 'Laadduur batterij 0-100% (3-fase 16A) 7 h'. DC 200 kW komt uit het label 'Oplaadduur batterij 10-80% (DC 200 kW) 26 min'. Actieradius gecombineerd 'Tot 486 km'; stad 'Tot 643 km'. Verbruik stad 12.2 kWh/100 km."
+        "notes": "AC: alleen laadduur vermeld zonder kW: 'Laadduur batterij 0-100% (3-fase 16A) 7 h'. DC 200 kW staat als voorwaarde bij laadduur 10-80% (26 min), niet expliciet als maximaal laadvermogen. Actieradius 'Tot 486 km' (gecombineerd)."
       },
       {
         "make": "Volvo",
@@ -67,7 +67,7 @@
           "min": 584,
           "max": null
         },
-        "notes": "Geen AC-laadvermogen in kW vermeld; alleen laadduur 'Laadduur batterij 0-100% (3-fase 16A) 8 h'. DC 200 kW komt uit het label 'Oplaadduur batterij 10-80% (DC 200 kW) 28 min'. Actieradius gecombineerd 'Tot 584 km'; stad 'Tot 782 km'. Verbruik stad 11.7 kWh/100 km."
+        "notes": "AC: alleen laadduur vermeld zonder kW: 'Laadduur batterij 0-100% (3-fase 16A) 8 h'. DC 200 kW staat als voorwaarde bij laadduur 10-80% (28 min), niet expliciet als maximaal laadvermogen. Actieradius 'Tot 584 km' (gecombineerd)."
       },
       {
         "make": "Volvo",
@@ -95,7 +95,7 @@
           "min": 549,
           "max": null
         },
-        "notes": "Geen AC-laadvermogen in kW vermeld; alleen laadduur 'Laadduur batterij 0-100% (3-fase 16A) 8 h'. DC 200 kW komt uit het label 'Oplaadduur batterij 10-80% (DC 200 kW) 28 min'. Actieradius gecombineerd 'Tot 549 km'; stad 'Tot 737 km'. Verbruik stad 12.4 kWh/100 km."
+        "notes": "AC: alleen laadduur vermeld zonder kW: 'Laadduur batterij 0-100% (3-fase 16A) 8 h'. DC 200 kW staat als voorwaarde bij laadduur 10-80% (28 min), niet expliciet als maximaal laadvermogen. Actieradius 'Tot 549 km' (gecombineerd)."
       }
     ]
   }

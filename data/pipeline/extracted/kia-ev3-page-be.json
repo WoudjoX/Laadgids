@@ -1,16 +1,16 @@
 {
   "doc_id": "kia-ev3-page-be",
-  "sha256": "3a84c1358dc8c550aa5a723a50d9d3c6788786c02b0561f408b184de7ddef32a",
-  "extracted_at": "2026-10-06T07:45:20.954Z",
+  "sha256": "93864b77b197b4b9fedc84e9e417043c04cb43139d4fa10b356040b97f666e91",
+  "extracted_at": "2026-10-08T16:35:07.677Z",
   "model": "claude-opus-5-5",
   "usage": {
     "input_tokens": 19628,
-    "output_tokens": 2372
+    "output_tokens": 2200
   },
   "extraction": {
     "document_title": "De Kia EV3: De compacte elektrische SUV | Kia Belgium",
     "valid_from": null,
-    "market": "België",
+    "market": "BE",
     "model_year": null,
     "variants": [
       {
@@ -36,13 +36,13 @@
           "min": 14.9,
           "max": null,
           "page": null,
-          "quote": "EV3 Business 58,3kWh 204pk ... Indicatief gemiddeld verbruik (kWh/100km): 14.9."
+          "quote": "EV3 Business 58,3kWh 204pk vanaf € 299,00 per maand ... Indicatief gemiddeld verbruik (kWh/100km): 14.9."
         },
         "ac_charging": null,
         "ac_option_kw": 22,
         "dc_max_kw": null,
         "range_km": null,
-        "notes": "Tegenstrijdige batterijcapaciteit: 58,3 kWh in de tekst, 63 kWh bij 'Standard Range FWD' en bij de batterijcellen. Verbruik 14,9 komt uit de leasingvoetnoot voor EV3 Business 58,3kWh. Algemeen modelverbruik in de voetnoot: '14,9 kWh/100 km tot 15,6 kWh/100km' en ook '[14,9-16,2] kWh/100 km' (onderling tegenstrijdig). 22 kW On-Board Charger wordt vermeld ('wanneer de EV3 is uitgerust met de 22 kW On-Board Charger'); het standaard AC-vermogen wordt niet gegeven. Geen DC-maximum van de auto vermeld; snelladen 10-80% in ongeveer 31 minuten, aan een 400V-lader van minstens 150 kW. Motor 150 kW / 204 pk."
+        "notes": "Twee batterijcijfers zonder label: 58,3 kWh en 63 kWh (Standard Range FWD 63 kWh). De optionele 22 kW On-Board Charger wordt alleen modelbreed genoemd. Verbruik modelbreed tegenstrijdig: '14,9 tot 15,6 kWh/100km' en '[14,9-16,2] kWh/100 km'. Laadduur 10-80% in ongeveer 31 minuten (niet per uitvoering). Geen maximaal DC-laadvermogen van de auto vermeld; alleen dat een 400V-lader van minstens 150 kW nodig is. Standaard AC-vermogen niet vermeld."
       },
       {
         "make": "Kia",
@@ -71,7 +71,7 @@
           "min": 605,
           "max": null
         },
-        "notes": "Tegenstrijdige batterijcapaciteit: 81,4 kWh in de tekst tegenover 84 kWh bij de batterijcellen; de voetnoot schrijft '81,4Wh batterijpakket'. Rijbereik 'Tot 605 km' is een maximum, volgens de voetnoot bepaald 'op basis van een 81,4Wh batterijpakket, achterwielaandrijving en 17\" wielen'. Geen verbruik per uitvoering; algemeen modelverbruik: 14,9-15,6 kWh/100 km en ook [14,9-16,2] kWh/100 km. GT-Line Long Range FWD wordt apart genoemd met 'Aandrijflijn: RWD – achterwielaandrijving', wat in tegenspraak is met FWD in de naam en met 'beide verkrijgbaar met voorwielaandrijving'. 22 kW On-Board Charger vermeld, standaard AC-vermogen niet gegeven. Geen DC-maximum van de auto vermeld; 10-80% in ongeveer 31 minuten. Acceleratie 7,7 s."
+        "notes": "Twee batterijcijfers zonder label: 81,4 kWh en 84 kWh; voetnoot schrijft '81,4Wh batterijpakket' (tikfout). Rijbereik 'tot 605 km' volgens voetnoot gebaseerd op 81,4 batterij, achterwielaandrijving en 17\" wielen, terwijl de uitvoering FWD heet. GT-Line Long Range FWD vermeldt 'Aandrijflijn: RWD – achterwielaandrijving', tegenstrijdig met naam FWD en met 'beide verkrijgbaar met voorwielaandrijving'. Verbruik alleen modelbreed: '14,9 tot 15,6 kWh/100km' en '[14,9-16,2] kWh/100 km' (tegenstrijdig). Optionele 22 kW On-Board Charger modelbreed genoemd. Laadduur 10-80% in ongeveer 31 minuten. Geen maximaal DC-laadvermogen vermeld."
       }
     ]
   }
