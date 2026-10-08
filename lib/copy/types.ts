@@ -120,10 +120,6 @@ export interface Copy {
     makeTileCount: (n: number) => string; // "6 modellen"
     makeTileTime: (from: string, to: string, same: boolean) => string; // "2 u 50 tot 4 u 40"
     allModelsLink: (n: number) => string; // "Alle 60 modellen bekijken"
-    makeTileRange: (from: string, to: string, same: boolean) => string; // "3u55–6u35"
-    allModelsTile: { title: string; sub: (n: number) => string };
-    makeBadge: { one_phase: string; above_11: (kw: string) => string };
-    moreModels: (n: number) => string; // "+2"
     exceptionsHeading: string; // "Let op bij deze modellen"
     exceptionsIntro: string;
     exceptionReason: { one_phase: (kw: string) => string; above_11: (kw: string) => string; below_11: (kw: string) => string };
