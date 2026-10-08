@@ -19,6 +19,7 @@ import { buildChargerPage } from "@/lib/pages/charger";
 import { ExceptionList } from "@/components/ExceptionList";
 import { MakeGrid } from "@/components/MakeGrid";
 import { ModelPicker } from "@/components/ModelPicker";
+import { ModelCards } from "@/components/ModelCards";
 import { makeTiles, modelExceptions } from "@/lib/pages/homeOverview";
 import { modelIndex } from "@/lib/pages/modelIndex";
 import Link from "next/link";
@@ -93,6 +94,12 @@ export default async function DesignLab() {
       <Header copy={copy} locale={locale} />
       <div className="mx-auto max-w-content px-4 py-8">
         <h1>Design-lab</h1>
+        <Block title="Voorstel modelkaarten: zelfde hover als de merktegels (oranje rand en naam, lichte lift, pijltje) en een oranje laadtijdbalk. Ga met de muis over de kaarten.">
+          <ModelCards items={all.filter((i) => i.v.make.slug === "volvo")} copy={copy} locale={locale} hover="accent" />
+        </Block>
+        <Block title="Huidige modelkaarten (ter vergelijking)">
+          <ModelCards items={all.filter((i) => i.v.make.slug === "volvo")} copy={copy} locale={locale} />
+        </Block>
         <Block title="Startpagina-blokken (echte data, live sinds 2026-10-08): keuzeveld, merken, uitzonderingen, link naar alle modellen.">
           <div className="space-y-10 rounded-card bg-paper">
             <ModelPicker items={all} copy={copy} locale={locale} />
