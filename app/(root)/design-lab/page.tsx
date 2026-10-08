@@ -93,7 +93,7 @@ export default async function DesignLab() {
       <Header copy={copy} locale={locale} />
       <div className="mx-auto max-w-content px-4 py-8">
         <h1>Design-lab</h1>
-        <Block title="Voorstel startpagina (echte data): keuzeveld, merken, uitzonderingen, link naar alle modellen. Vervangt de lange lijst per laadvermogen.">
+        <Block title="Startpagina-blokken (echte data, live sinds 2026-10-08): keuzeveld, merken, uitzonderingen, link naar alle modellen.">
           <div className="space-y-10 rounded-card bg-paper">
             <ModelPicker items={all} copy={copy} locale={locale} />
             <section>
