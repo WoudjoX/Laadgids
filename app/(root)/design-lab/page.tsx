@@ -16,6 +16,12 @@ import { PhaseDiagram } from "@/components/viz/PhaseDiagram";
 import { getCopy } from "@/lib/copy";
 import type { RuleRow, TariffRow, VersionFull } from "@/lib/db/types";
 import { buildChargerPage } from "@/lib/pages/charger";
+import { ExceptionList } from "@/components/ExceptionList";
+import { MakeGrid } from "@/components/MakeGrid";
+import { ModelPicker } from "@/components/ModelPicker";
+import { makeTiles, modelExceptions } from "@/lib/pages/homeOverview";
+import { modelIndex } from "@/lib/pages/modelIndex";
+import Link from "next/link";
 
 export const metadata: Metadata = { title: "Design-lab", robots: { index: false, follow: false } };
 
@@ -73,9 +79,12 @@ function Block({ title, children }: { title: string; children: React.ReactNode }
   );
 }
 
-export default function DesignLab() {
+export const revalidate = 3600;
+
+export default async function DesignLab() {
   const locale = "nl-BE" as const;
   const copy = getCopy(locale);
+  const all = await modelIndex(locale);
   const d11 = buildChargerPage(sample, locale, rules, tariffs, "2026-09-10");
   const d74 = buildChargerPage(sample1f, locale, rules, tariffs, "2026-09-10");
   const { intro: leadIntro, ...leadCopy } = copy.charger.lead;
@@ -84,6 +93,28 @@ export default function DesignLab() {
       <Header copy={copy} locale={locale} />
       <div className="mx-auto max-w-content px-4 py-8">
         <h1>Design-lab</h1>
+        <Block title="Voorstel startpagina (echte data): keuzeveld, merken, uitzonderingen, link naar alle modellen. Vervangt de lange lijst per laadvermogen.">
+          <div className="space-y-10 rounded-card bg-paper">
+            <ModelPicker items={all} copy={copy} locale={locale} />
+            <section>
+              <h2>{copy.home.makesHeading}</h2>
+              <p className="mt-2 max-w-prose text-ink2">{copy.home.makesIntro}</p>
+              <div className="mt-4">
+                <MakeGrid tiles={makeTiles(all)} copy={copy} locale={locale} />
+              </div>
+            </section>
+            <section>
+              <h2>{copy.home.exceptionsHeading}</h2>
+              <p className="mt-2 max-w-prose text-ink2">{copy.home.exceptionsIntro}</p>
+              <div className="mt-4">
+                <ExceptionList items={modelExceptions(all)} copy={copy} locale={locale} />
+              </div>
+            </section>
+            <p className="text-[15px]">
+              <Link href={`/nl-be/${copy.charger.sectionSlug}`}>{copy.home.allModelsLink(all.length)} →</Link>
+            </p>
+          </div>
+        </Block>
         <Block title="Breadcrumb">
           <Breadcrumb items={[{ label: "Home", href: "/nl-be" }, { label: "Laadpaal per model", href: "/nl-be/laadpaal-voor" }, { label: "Tesla Model 3 RWD" }]} />
         </Block>

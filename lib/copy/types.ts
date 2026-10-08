@@ -116,6 +116,13 @@ export interface Copy {
     noMatch: (q: string) => string; // "Geen model gevonden voor '{q}'. Kies hieronder."
     makesHeading: string; // "Merken"
     allMakes: string; // "Alle merken"
+    makesIntro: string; // "Kies je merk ..."
+    makeTileCount: (n: number) => string; // "6 modellen"
+    makeTileTime: (from: string, to: string, same: boolean) => string; // "2 u 50 tot 4 u 40"
+    allModelsLink: (n: number) => string; // "Alle 60 modellen bekijken"
+    exceptionsHeading: string; // "Let op bij deze modellen"
+    exceptionsIntro: string;
+    exceptionReason: { one_phase: (kw: string) => string; above_11: (kw: string) => string; below_11: (kw: string) => string };
   };
   makeHub: {
     sectionSlug: string; // "merk" / "marque"

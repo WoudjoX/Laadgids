@@ -37,6 +37,15 @@ export function duration(seconds: number, locale: Locale): string {
   return `${h} ${hu} ${String(m).padStart(2, "0")} min`;
 }
 
+/** Korte vorm voor tegels: "3u55" (nl), "3h55" (fr), "45 min" onder het uur. Afronden op 5 minuten. */
+export function durationShort(seconds: number, locale: Locale): string {
+  const totalMin = Math.round(seconds / 60 / 5) * 5;
+  const h = Math.floor(totalMin / 60);
+  const m = totalMin % 60;
+  if (h === 0) return `${m} min`;
+  return `${h}${locale === "fr-BE" ? "h" : "u"}${String(m).padStart(2, "0")}`;
+}
+
 /** Compacte vorm voor metric cards: { value: "3:30", unit: "u" }. Afronden op 5 minuten. */
 export function durationCompact(seconds: number, locale: Locale): { value: string; unit: string } {
   const totalMin = Math.round(seconds / 60 / 5) * 5;

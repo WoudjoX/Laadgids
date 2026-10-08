@@ -38,6 +38,17 @@ export const nlBE: Copy = {
     noMatch: (q) => `Geen model gevonden voor "${q}". Kies hieronder of typ een ander merk.`,
     makesHeading: "Merken",
     allMakes: "Alle merken",
+    makesIntro: "Kies je merk. De laadtijd is die van 20 naar 80 % op de aanbevolen aansluiting; per uitvoering zie je ook het juiste vermogen en wat thuisladen kost.",
+    makeTileCount: (n) => `${n} ${n === 1 ? "model" : "modellen"}`,
+    makeTileTime: (from, to, same) => (same ? `laadt in ${from}` : `laadt in ${from} tot ${to}`),
+    allModelsLink: (n) => `Alle ${n} modellen bekijken`,
+    exceptionsHeading: "Let op bij deze modellen",
+    exceptionsIntro: "De meeste elektrische auto's laden thuis op 11 kW, driefasig. Voor deze modellen is het advies anders.",
+    exceptionReason: {
+      one_phase: (kw) => `laadt eenfasig tot ${kw}: een driefasige paal geeft geen tijdwinst`,
+      above_11: (kw) => `laadt tot ${kw}: dat vraagt een driefasige aansluiting van 32 A`,
+      below_11: (kw) => `laadt tot ${kw}: een gewone 11 kW-paal volstaat ruim`,
+    },
   },
   makeHub: {
     sectionSlug: "merk",

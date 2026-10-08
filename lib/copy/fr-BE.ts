@@ -38,6 +38,17 @@ export const frBE: Copy = {
     noMatch: (q) => `Aucun modèle trouvé pour « ${q} ». Choisissez ci-dessous ou tapez une autre marque.`,
     makesHeading: "Marques",
     allMakes: "Toutes les marques",
+    makesIntro: "Choisissez votre marque. Le temps de charge est celui de 20 à 80 % sur le raccordement recommandé ; pour chaque version, vous voyez aussi la bonne puissance et le coût de la recharge à domicile.",
+    makeTileCount: (n) => `${n} ${n === 1 ? "modèle" : "modèles"}`,
+    makeTileTime: (from, to, same) => (same ? `recharge en ${from}` : `recharge en ${from} à ${to}`),
+    allModelsLink: (n) => `Voir les ${n} modèles`,
+    exceptionsHeading: "Attention à ces modèles",
+    exceptionsIntro: "La plupart des voitures électriques se rechargent à domicile en 11 kW triphasé. Pour ces modèles, le conseil est différent.",
+    exceptionReason: {
+      one_phase: (kw) => `recharge en monophasé jusqu'à ${kw} : une borne triphasée n'apporte aucun gain de temps`,
+      above_11: (kw) => `recharge jusqu'à ${kw} : il faut un raccordement triphasé de 32 A`,
+      below_11: (kw) => `recharge jusqu'à ${kw} : une borne de 11 kW suffit largement`,
+    },
   },
   makeHub: {
     sectionSlug: "marque",
