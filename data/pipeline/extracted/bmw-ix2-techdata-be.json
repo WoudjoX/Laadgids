@@ -1,11 +1,11 @@
 {
   "doc_id": "bmw-ix2-techdata-be",
-  "sha256": "842823af2c02e2c6511cf54be82be20a3261a4fb9ccb03449b323c8ecc4d55cc",
-  "extracted_at": "2026-10-06T07:48:23.624Z",
+  "sha256": "129560805a61e134c34fcdba105bdc5fbbefd86894822e1b453351c4034dd701",
+  "extracted_at": "2026-10-12T14:39:10.355Z",
   "model": "claude-opus-5-5",
   "usage": {
-    "input_tokens": 13056,
-    "output_tokens": 2605
+    "input_tokens": 13059,
+    "output_tokens": 2459
   },
   "extraction": {
     "document_title": "BMW iX2 (U10): motoren & technische gegevens",
@@ -16,7 +16,7 @@
       {
         "make": "BMW",
         "model": "iX2",
-        "variant": "Voorwielaandrijving 150 kW (204 pk), 65,2 kWh",
+        "variant": "150 kW (204 pk) voorwielaandrijving, 65,2 kWh",
         "model_year": null,
         "battery": [
           {
@@ -37,7 +37,7 @@
           "phases": null,
           "standard": true,
           "page": null,
-          "quote": "Maximaal laadvermogen AC in kW 11 / 22 4 … 4 Standaard uitrusting/ optionele uitrusting"
+          "quote": "Maximaal laadvermogen AC in kW 11 / 22 4 ... 4 Standaard uitrusting/ optionele uitrusting"
         },
         "ac_option_kw": 22,
         "dc_max_kw": 130,
@@ -45,12 +45,12 @@
           "min": 477,
           "max": 516
         },
-        "notes": "Uitvoeringsnaam niet vermeld op de pagina (tabellen zonder modelnaam); deze techniekblok staat twee keer identiek op de pagina. Laadduur AC 0–100%: 6:30 / 3:45 uur; DC 10–80%: 0:29 uur."
+        "notes": "De pagina noemt deze uitvoering niet bij naam; tabelblok staat er twee keer identiek. Laadduur AC 0–100% 6:30 / 3:45 uur; DC 10–80% 0:29 uur."
       },
       {
         "make": "BMW",
         "model": "iX2",
-        "variant": "Vierwielaandrijving 230 kW (313 pk), 65 kWh",
+        "variant": "xDrive30",
         "model_year": null,
         "battery": [
           {
@@ -71,7 +71,7 @@
           "phases": null,
           "standard": true,
           "page": null,
-          "quote": "Maximaal laadvermogen AC in kW 11 / 22 4 … 4 Standaard uitrusting/ optionele uitrusting"
+          "quote": "Maximaal laadvermogen AC in kW 11 / 22 4 ... 4 Standaard uitrusting/ optionele uitrusting"
         },
         "ac_option_kw": 22,
         "dc_max_kw": 130,
@@ -79,12 +79,12 @@
           "min": 446,
           "max": 479
         },
-        "notes": "Uitvoeringsnaam niet in de tabel; verbruik en rijbereik komen overeen met de koptekst 'BMW iX2 xDrive30 … 16,6–15,3 … 446–479'. Blok staat twee keer op de pagina met verschillend rijbereik: 446–479 en 447–479 km. Laadduur AC 0–100%: 6:30 / 3:45 uur; DC 10–80%: 0:29 uur."
+        "notes": "Tabelblokken hebben geen naam; koppeling aan xDrive30 via de kopregel 'BMW iX2 xDrive30: 16,6–15,3 kWh/100 km; 446–479 km' (230 kW vierwielaandrijving, 225/110 kW). Twee bijna identieke blokken: rijbereik 446–479 vs 447–479 km. Laadduur AC 0–100% 6:30 / 3:45 uur; DC 10–80% 0:29 uur."
       },
       {
         "make": "BMW",
         "model": "iX2",
-        "variant": "Vierwielaandrijving 230 kW (313 pk), 64,8 kWh",
+        "variant": "230 kW (313 pk) vierwielaandrijving, 64,8 kWh",
         "model_year": null,
         "battery": [
           {
@@ -105,7 +105,7 @@
           "phases": null,
           "standard": true,
           "page": null,
-          "quote": "Maximaal laadvermogen AC in kW 11 / 22 4 … 4 Standaard uitrusting/ optionele uitrusting"
+          "quote": "Maximaal laadvermogen AC in kW 11 / 22 4 ... 4 Standaard uitrusting/ optionele uitrusting"
         },
         "ac_option_kw": 22,
         "dc_max_kw": 130,
@@ -113,12 +113,12 @@
           "min": 418,
           "max": 449
         },
-        "notes": "Uitvoeringsnaam niet vermeld (elektromotor 225 (306) / 104 (141)). Blok staat twee keer op de pagina met verschillend rijbereik: 418–449 en 418–448 km. Laadduur AC 0–100%: 6:30 / 3:45 uur; DC 10–80%: 0:29 uur."
+        "notes": "Uitvoering niet bij naam genoemd (elektromotor 225 (306) / 104 (141) kW). Twee bijna identieke blokken: rijbereik 418–449 vs 418–448 km. Laadduur AC 0–100% 6:30 / 3:45 uur; DC 10–80% 0:29 uur."
       },
       {
         "make": "BMW",
         "model": "iX2",
-        "variant": "Voorwielaandrijving 150 kW (204 pk), 64,8 kWh",
+        "variant": "150 kW (204 pk) voorwielaandrijving, 64,8 kWh",
         "model_year": null,
         "battery": [
           {
@@ -139,7 +139,7 @@
           "phases": null,
           "standard": true,
           "page": null,
-          "quote": "Maximaal laadvermogen AC in kW 11 / 22 4 … 4 Standaard uitrusting/ optionele uitrusting"
+          "quote": "Maximaal laadvermogen AC in kW 11 / 22 4 ... 4 Standaard uitrusting/ optionele uitrusting"
         },
         "ac_option_kw": 22,
         "dc_max_kw": 130,
@@ -147,7 +147,7 @@
           "min": 439,
           "max": 478
         },
-        "notes": "Uitvoeringsnaam niet vermeld (elektromotor 150 (204) / 68 (92)). Blok staat twee keer op de pagina met verschillend rijbereik: 439–478 en 439–477 km. Laadduur AC 0–100%: 6:30 / 3:45 uur; DC 10–80%: 0:29 uur."
+        "notes": "Uitvoering niet bij naam genoemd (elektromotor 150 (204) / 68 (92) kW). Twee bijna identieke blokken: rijbereik 439–478 vs 439–477 km. Laadduur AC 0–100% 6:30 / 3:45 uur; DC 10–80% 0:29 uur."
       }
     ]
   }

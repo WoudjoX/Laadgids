@@ -1,11 +1,11 @@
 {
   "doc_id": "vw-id7-offer-be",
-  "sha256": "4d3b29f2be70c487d18622dfc17e3367b43a95cf3ecb92082419bdcca422f203",
-  "extracted_at": "2026-10-06T07:43:41.428Z",
+  "sha256": "cf4e589d85fbd250af9f0fc885b25ce0e6384d5e06a9383264027e86432fe73f",
+  "extracted_at": "2026-10-12T14:36:58.666Z",
   "model": "claude-opus-5-5",
   "usage": {
     "input_tokens": 8969,
-    "output_tokens": 1570
+    "output_tokens": 1845
   },
   "extraction": {
     "document_title": "ID.7 aanbiedingen voor professionals | Volkswagen",
@@ -16,7 +16,7 @@
       {
         "make": "Volkswagen",
         "model": "ID.7",
-        "variant": "Corporate Plus 77 kWh 286 ch/pk",
+        "variant": "77 kWh 286 ch/pk",
         "model_year": null,
         "battery": [
           {
@@ -39,7 +39,7 @@
           "min": 610,
           "max": 613
         },
-        "notes": "Range 613 km for Corporate Plus, 610 km for ID.7 Corporate S (also 77 kWh); there is also the headline 'Tot 700 km rijbereik', which contradicts 613 km. The consumption figure is given for the whole page and is not tied to a specific version. No AC/DC charging figures are given."
+        "notes": "Geldt voor Corporate Plus (tot 613 km WLTP) en Corporate S (tot 610 km WLTP); uitrustingsniveaus met dezelfde 77 kWh-batterij. De kop 'Tot 700 km rijbereik' is in strijd met de 613 km WLTP bij de uitrusting. Het verbruiksbereik staat algemeen op de pagina en is niet aan één uitvoering gekoppeld. Geen laadgegevens vermeld."
       },
       {
         "make": "Volkswagen",
@@ -60,14 +60,14 @@
         "dc_max_kw": null,
         "range_km": {
           "min": 463,
-          "max": 463
+          "max": null
         },
-        "notes": "Listed only under 'Andere aanbiedingen'. No separate consumption figure for the Tourer."
+        "notes": "Alleen vermeld als 'Andere aanbieding'. Het algemene verbruiksbereik (14,1 - 18,4 kWh/100KM) op de pagina is niet expliciet aan deze uitvoering gekoppeld. Geen laadgegevens vermeld."
       },
       {
         "make": "Volkswagen",
         "model": "ID.7 Tourer",
-        "variant": "Corporate Plus 77 kWh",
+        "variant": "77 kWh",
         "model_year": null,
         "battery": [
           {
@@ -83,9 +83,9 @@
         "dc_max_kw": null,
         "range_km": {
           "min": 620,
-          "max": 620
+          "max": null
         },
-        "notes": "Listed only under 'Andere aanbiedingen'. No separate consumption figure for the Tourer."
+        "notes": "Vermeld als ID.7 Tourer Corporate Plus bij 'Andere aanbiedingen'. Het algemene verbruiksbereik (14,1 - 18,4 kWh/100KM) op de pagina is niet expliciet aan deze uitvoering gekoppeld. Geen laadgegevens vermeld."
       }
     ]
   }

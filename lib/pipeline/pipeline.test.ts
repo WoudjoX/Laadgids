@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 import type { VersionFull } from "@/lib/db/types";
-import { classifyBatteryLabel, compareExtraction, conflictingVariantTokens, renderReport, renderVerificationCsv, sampleForHumanCheck, toCandidate } from "./compare";
-import { failureStatus, htmlToText, isPdf, loadRegistry, registrySchema, type OemDocument } from "./documents";
+import { aliasMatches, classifyBatteryLabel, compareExtraction, conflictingVariantTokens, renderReport, renderVerificationCsv, sampleForHumanCheck, toCandidate } from "./compare";
+import { failureStatus, htmlToText, isPdf, loadRegistry, registrySchema, specLines, type OemDocument } from "./documents";
 import { extractionSchema, type ExtractedVariant } from "./extract";
 
 const doc: OemDocument = { id: "volvo-ex30-pricelist-ie-my25-5", make: "volvo", models: ["EX30"], market: "IE", kind: "price_list", url: "https://example.com/ex30.pdf" };
@@ -80,6 +80,12 @@ describe("documents", () => {
     expect(failureStatus(429)).toBe("blocked");
     expect(failureStatus(503)).toBe("blocked");
   });
+  it("vingerafdruk van webpagina's kijkt alleen naar specificatieregels, niet naar promo of prijzen", () => {
+    const a = "Nu met 2000 euro korting!\nAccucapaciteit 65 kWh\nVerbruik 15,3 kWh/100 km\nVanaf € 49.990";
+    const b = "Herfstactie: gratis laadkabel\nVerbruik 15,3 kWh/100 km\nAccucapaciteit 65 kWh\nVanaf € 47.990";
+    expect(specLines(a)).toBe(specLines(b));
+    expect(specLines(a)).not.toBe(specLines(a.replace("65 kWh", "64,8 kWh")));
+  });
   it("herkent een PDF aan de magische bytes of het contenttype", () => {
     expect(isPdf(new Uint8Array([0x25, 0x50, 0x44, 0x46, 0x2d]), null, "https://x/y")).toBe(true);
     expect(isPdf(new Uint8Array([0x3c, 0x68, 0x74, 0x6d, 0x6c]), "text/html", "https://x/y.pdf")).toBe(true);
@@ -153,6 +159,12 @@ describe("compare", () => {
     expect(fs[0]!.kind).toBe("bevestigd");
     expect(fs[0]!.version?.slug).toBe("volvo-ex30-single-motor-extended-range-2025");
     expect(compareExtraction(doc, state, ex, [version()], [], [{ document_id: doc.id, variant: "*", ignore: "alles" }])).toHaveLength(0);
+  });
+  it("alias werkt op woorden, niet op de exacte naam", () => {
+    expect(aliasMatches("eDrive40", "Gran Coupé eDrive40")).toBe(true);
+    expect(aliasMatches("250 kW achterwielaandrijving", "250 kW (340 pk) Achterwielaandrijving")).toBe(true);
+    expect(aliasMatches("eDrive40", "M50 xDrive")).toBe(false);
+    expect(aliasMatches("*", "wat dan ook")).toBe(true);
   });
   it("een aanvaard verschil telt als bevestigd, met de reden in de notities", () => {
     const ex = { document_title: "t", valid_from: null, market: null, model_year: null, variants: [variant({ consumption_kwh_100km: { min: 18.6, max: null, page: 9, quote: "18.6" } })] };

@@ -59,17 +59,23 @@ jobs:
           cp "data/import/review/pipeline-$d.csv" "reports/pipeline/$d.csv"
           echo "date=$d" >> "$GITHUB_OUTPUT"
           { echo 'body<<EOF'; sed -n '3p' "reports/pipeline/$d.md"; echo; sed -n '/## Bronnen met een probleem/,/## Steekproef/p' "reports/pipeline/$d.md" | sed '$d'; echo; echo "Volledig rapport: reports/pipeline/$d.md · CSV: reports/pipeline/$d.csv"; echo; echo "Zet ja in de CSV bij wat mag en zeg 'verwerk' in Claude Code."; echo 'EOF'; } >> "$GITHUB_OUTPUT"
-      - name: Pull request openen
+      - name: Pull request openen of bijwerken
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           D: ${{ steps.report.outputs.date }}
           BODY: ${{ steps.report.outputs.body }}
         run: |
+          # Eén vaste branch en één pull request: elke run werkt dezelfde PR bij, er stapelen er geen op.
           git config user.name "verify-pipeline"
           git config user.email "pipeline@laadgids.be"
-          git checkout -B "pipeline/$D"
+          git checkout -B pipeline/weekly
           git add data/sources/oem-documents.state.json data/pipeline/extracted reports/pipeline
           if git diff --cached --quiet; then echo "niets veranderd"; exit 0; fi
           git commit -m "pipeline: verificatierapport $D"
-          git push -f origin "pipeline/$D"
-          gh pr create --base main --head "pipeline/$D" --title "pipeline: verificatierapport $D" --body "$BODY" || gh pr edit "pipeline/$D" --body "$BODY"
+          git push -f origin pipeline/weekly
+          title="pipeline: verificatierapport $D"
+          if gh pr view pipeline/weekly --json state -q .state 2>/dev/null | grep -q OPEN; then
+            gh pr edit pipeline/weekly --title "$title" --body "$BODY"
+          else
+            gh pr create --base main --head pipeline/weekly --title "$title" --body "$BODY"
+          fi

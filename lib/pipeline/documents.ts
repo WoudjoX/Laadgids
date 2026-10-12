@@ -101,6 +101,18 @@ export function htmlToText(html: string): string {
     .join("\n");
 }
 
+const SPEC_LINE = /\d[\d.,]*\s*(kwh|kw|km|wh\/km|kwh\/100\s*km|kwh\/100km|pk|ch|h|u|min)\b/i;
+const PRICE = /€|eur\b/i;
+
+/** Alleen regels met een specificatie (kWh, kW, km, verbruik, vermogen, laadtijd), zonder prijzen, gesorteerd en uniek. */
+export function specLines(text: string): string {
+  const lines = text
+    .split("\n")
+    .map((l) => l.trim())
+    .filter((l) => SPEC_LINE.test(l) && !PRICE.test(l));
+  return [...new Set(lines)].sort().join("\n");
+}
+
 /** PDF naar tekst met paginamarkeringen, zodat de uittrekstap paginanummers kan citeren. */
 export async function pdfToText(data: Uint8Array): Promise<{ text: string; pages: number }> {
   const { PDFParse } = await import("pdf-parse");
@@ -193,8 +205,9 @@ export async function fetchDocument(doc: OemDocument, previous: DocumentState | 
     text = htmlToText(Buffer.from(buf).toString("utf8"));
   }
   await fs.writeFile(path.join(cacheDir, `${doc.id}.txt`), text, "utf8");
-  // Vingerafdruk: voor PDF's op de bytes, voor webpagina's op de tekst (de HTML zelf wisselt per aanvraag door scripts en tokens).
-  const hash = pdf ? sha256(buf) : sha256(new TextEncoder().encode(text));
+  // Vingerafdruk: voor PDF's op de bytes, voor webpagina's alleen op de regels met specificaties. Webpagina's wisselen elke
+  // week van promotekst, prijzen en tokens; een herlezing daardoor kost geld en geeft andere uitvoeringsnamen.
+  const hash = pdf ? sha256(buf) : sha256(new TextEncoder().encode(specLines(text)));
   const changed = previous?.sha256 != null && previous.sha256 !== hash;
   const status: FetchStatus = local ? "local" : previous?.sha256 == null ? "ok" : changed ? "changed" : "unchanged";
   return {

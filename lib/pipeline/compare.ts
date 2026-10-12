@@ -198,6 +198,17 @@ export interface VariantAlias {
   ignore?: string;
 }
 
+/**
+ * Een alias past als alle woorden ervan in de uitvoeringsnaam van het document staan ("eDrive40" past op
+ * "Gran Coupé eDrive40"), of als ze "*" is. Zo overleeft een koppeling dat de uittrekstap een naam net anders schrijft.
+ */
+export function aliasMatches(aliasVariant: string, variant: string): boolean {
+  if (aliasVariant === "*") return true;
+  const want = norm(aliasVariant).split(" ").filter(Boolean);
+  const have = new Set(norm(variant).split(" ").filter(Boolean));
+  return want.length > 0 && want.every((w) => have.has(w));
+}
+
 export interface AcceptedDiff {
   version_slug: string;
   field: FieldDiff["field"];
@@ -215,7 +226,7 @@ export function compareExtraction(
 ): Finding[] {
   const out: Finding[] = [];
   for (const variant of extraction.variants) {
-    const alias = aliases.find((a) => a.document_id === doc.id && (a.variant === "*" || norm(a.variant) === norm(variant.variant)));
+    const alias = aliases.find((a) => a.document_id === doc.id && aliasMatches(a.variant, variant.variant));
     if (alias?.ignore) continue;
     const { candidate, notes } = toCandidate(doc, docState, variant);
     const aliased = alias?.version_slug ? (versions.find((v) => v.slug === alias.version_slug) ?? null) : null;
