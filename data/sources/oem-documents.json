@@ -428,6 +428,17 @@
       "kind": "spec_page",
       "url": "https://www.bmw.be/nl/all-models/bmw-i/ix1/bmw-ix1-technische-gegevens.html",
       "note": "Belgische technische gegevens; tweede bron naast het persbericht met voorlopige WLTP-waarden."
+    },
+    {
+      "id": "byd-seal-pricelist-nl-2026-05",
+      "make": "byd",
+      "models": [
+        "Seal"
+      ],
+      "market": "NL",
+      "kind": "price_list",
+      "url": "https://www.byd.com/material/byd-site/nl/pdfs/pricelist-may-2026/Prijslijst%20BYD%20SEAL%202026%20per%20Mei%202026%20-%20V1.0.pdf",
+      "note": "BYD Nederland, per mei 2026. Mogelijke vervanger voor de Belgische Seal-pagina, die sinds 2026-10-06 een 404 geeft."
     }
   ]
 }
