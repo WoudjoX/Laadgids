@@ -1,11 +1,11 @@
 {
   "doc_id": "bmw-ix3-techdata-be",
-  "sha256": "7b6975af0d111c2018964cf4fcfbbe206a1b6c153121c901cbe2a47860ad0a84",
-  "extracted_at": "2026-10-06T07:48:37.862Z",
+  "sha256": "4b433bff4eedaf6d15adf5b94ef5de5c083f79800ab0f133f6759ae74e0ad8e2",
+  "extracted_at": "2026-10-12T12:58:59.481Z",
   "model": "claude-opus-5-5",
   "usage": {
-    "input_tokens": 9955,
-    "output_tokens": 1749
+    "input_tokens": 9958,
+    "output_tokens": 1763
   },
   "extraction": {
     "document_title": "BMW iX3 (NA5): technische gegevens, afmetingen en motoren",
@@ -16,7 +16,7 @@
       {
         "make": "BMW",
         "model": "iX3",
-        "variant": "235 kW (320 pk) Achterwielaandrijving",
+        "variant": "235 (320) Achterwielaandrijving",
         "model_year": null,
         "battery": [
           {
@@ -37,7 +37,7 @@
           "phases": null,
           "standard": true,
           "page": null,
-          "quote": "Maximaal laadvermogen AC in kW 11 / 22 5"
+          "quote": "Maximaal laadvermogen AC in kW 11 / 22 5 ... Standaard uitrusting/ optionele uitrusting"
         },
         "ac_option_kw": 22,
         "dc_max_kw": 300,
@@ -45,12 +45,12 @@
           "min": 532,
           "max": 645
         },
-        "notes": "De variantnaam staat niet in de tekst; uitvoering aangeduid via vermogen en aandrijving. AC 11/22 kW met voetnoot 5 'Standaard uitrusting/ optionele uitrusting'; laadduur AC 0–100% 8:15 / 4:15. Het 1-fasen cijfer (7,4 kW) geldt voor de BMW Wallbox Professional, niet de boordlader."
+        "notes": "De pagina noemt geen uitvoeringsnaam voor dit blok; variant beschreven via vermogen (235 kW) en aandrijving. Laadduur AC 0–100%: 8:15 / 4:15 uur; DC 10–80%: 0:21 uur. Wallbox Professional 1-fasen 7,4 kW."
       },
       {
         "make": "BMW",
         "model": "iX3",
-        "variant": "275 kW (374 pk) Vierwielaandrijving",
+        "variant": "275 (374) Vierwielaandrijving",
         "model_year": null,
         "battery": [
           {
@@ -71,7 +71,7 @@
           "phases": null,
           "standard": true,
           "page": null,
-          "quote": "Maximaal laadvermogen AC in kW 11 / 22 5"
+          "quote": "Maximaal laadvermogen AC in kW 11 / 22 5 ... Standaard uitrusting/ optionele uitrusting"
         },
         "ac_option_kw": 22,
         "dc_max_kw": 300,
@@ -79,7 +79,7 @@
           "min": 515,
           "max": 621
         },
-        "notes": "De variantnaam staat niet in de tekst; uitvoering aangeduid via vermogen en aandrijving. AC 11/22 kW met voetnoot 5 'Standaard uitrusting/ optionele uitrusting'; laadduur AC 0–100% 8:15 / 4:15. Het 1-fasen cijfer (7,4 kW) geldt voor de BMW Wallbox Professional."
+        "notes": "De pagina noemt geen uitvoeringsnaam voor dit blok; variant beschreven via vermogen (275 kW) en aandrijving. Laadduur AC 0–100%: 8:15 / 4:15 uur; DC 10–80%: 0:21 uur. Wallbox Professional 1-fasen 7,4 kW."
       },
       {
         "make": "BMW",
@@ -113,7 +113,7 @@
           "min": 673,
           "max": 805
         },
-        "notes": "Naam '50 xDrive' afgeleid uit overeenkomst van verbruik en rijbereik (18,1–15,1; 673–805) met de vermelding 'BMW iX3 50 xDrive' (345 kW, vierwielaandrijving). Laadduur AC 0–100% 11:00. Het 1-fasen cijfer (7,4 kW) geldt voor de BMW Wallbox Professional."
+        "notes": "Naam '50 xDrive' gekoppeld aan het derde blok (345 kW, vierwielaandrijving) op basis van overeenkomende verbruiks- en bereikcijfers in de juridische vermelding. Laadduur AC 0–100%: 11:00 uur; DC 10–80%: 0:21 uur. Wallbox Professional 1-fasen 7,4 kW (16:30 uur)."
       }
     ]
   }
