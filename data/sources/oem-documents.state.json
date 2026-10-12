@@ -3,11 +3,11 @@
     "status": "unchanged",
     "http": 200,
     "sha256": "328314cd770fa73dd0e5f3a357cc5581a780c6b956ea031b72c19c3c4066be77",
-    "bytes": 280831,
+    "bytes": 280921,
     "content_type": "text/html;charset=utf-8",
     "pages": null,
     "chars": 9798,
-    "fetched_at": "2026-10-12T14:41:47.573Z",
+    "fetched_at": "2026-10-12T14:43:33.192Z",
     "changed_at": "2026-10-12",
     "unreachable_since": null,
     "error": null
@@ -16,11 +16,11 @@
     "status": "unchanged",
     "http": 200,
     "sha256": "b8b3d1278b71c9ec6a0754424f87e9400bb5b91c870e4046df2171cd474b7926",
-    "bytes": 62004,
+    "bytes": 62001,
     "content_type": "text/html;charset=UTF-8",
     "pages": null,
     "chars": 8541,
-    "fetched_at": "2026-10-12T14:41:53.650Z",
+    "fetched_at": "2026-10-12T14:43:39.932Z",
     "changed_at": "2026-10-12",
     "unreachable_since": null,
     "error": null
@@ -29,11 +29,11 @@
     "status": "unchanged",
     "http": 200,
     "sha256": "a830739cc39c197edab66b192b297abbd60256f1590d14a0eea978bbc562cb44",
-    "bytes": 702096,
+    "bytes": 702005,
     "content_type": "text/html;charset=utf-8",
     "pages": null,
     "chars": 19973,
-    "fetched_at": "2026-10-12T14:41:58.520Z",
+    "fetched_at": "2026-10-12T14:43:46.220Z",
     "changed_at": "2026-10-12",
     "unreachable_since": null,
     "error": null
@@ -42,11 +42,11 @@
     "status": "unchanged",
     "http": 200,
     "sha256": "129560805a61e134c34fcdba105bdc5fbbefd86894822e1b453351c4034dd701",
-    "bytes": 594880,
+    "bytes": 594757,
     "content_type": "text/html;charset=utf-8",
     "pages": null,
     "chars": 17642,
-    "fetched_at": "2026-10-12T14:41:48.053Z",
+    "fetched_at": "2026-10-12T14:43:34.460Z",
     "changed_at": "2026-10-12",
     "unreachable_since": null,
     "error": null
@@ -55,11 +55,11 @@
     "status": "unchanged",
     "http": 200,
     "sha256": "c7a746d27a958d812dccd776dd9f974f19edfb44754be9b32d9c2b7fa2d66701",
-    "bytes": 362111,
+    "bytes": 362246,
     "content_type": "text/html;charset=utf-8",
     "pages": null,
     "chars": 12396,
-    "fetched_at": "2026-10-12T14:41:48.549Z",
+    "fetched_at": "2026-10-12T14:43:34.951Z",
     "changed_at": "2026-10-12",
     "unreachable_since": null,
     "error": null
@@ -72,20 +72,20 @@
     "content_type": null,
     "pages": null,
     "chars": null,
-    "fetched_at": "2026-10-12T14:41:42.214Z",
+    "fetched_at": "2026-10-12T14:43:22.410Z",
     "changed_at": null,
     "unreachable_since": "2026-10-06",
     "error": "HTTP 404"
   },
   "byd-seal-pricelist-nl-2026-05": {
-    "status": "ok",
+    "status": "unchanged",
     "http": 200,
     "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
     "bytes": 0,
     "content_type": "application/pdf",
     "pages": 10,
     "chars": 18085,
-    "fetched_at": "2026-10-12T14:41:59.184Z",
+    "fetched_at": "2026-10-12T14:43:46.690Z",
     "changed_at": "2026-10-12",
     "unreachable_since": null,
     "error": null
@@ -98,7 +98,7 @@
     "content_type": "application/pdf",
     "pages": 17,
     "chars": 26785,
-    "fetched_at": "2026-10-12T14:41:42.936Z",
+    "fetched_at": "2026-10-12T14:43:24.186Z",
     "changed_at": "2026-10-06",
     "unreachable_since": null,
     "error": null
@@ -111,7 +111,7 @@
     "content_type": "application/pdf",
     "pages": 1,
     "chars": 2053,
-    "fetched_at": "2026-10-12T14:41:46.558Z",
+    "fetched_at": "2026-10-12T14:43:31.109Z",
     "changed_at": "2026-10-06",
     "unreachable_since": null,
     "error": null
@@ -124,7 +124,7 @@
     "content_type": "application/pdf",
     "pages": 8,
     "chars": 15114,
-    "fetched_at": "2026-10-12T14:41:43.914Z",
+    "fetched_at": "2026-10-12T14:43:28.194Z",
     "changed_at": "2026-10-06",
     "unreachable_since": null,
     "error": null
@@ -137,7 +137,7 @@
     "content_type": "application/pdf",
     "pages": 21,
     "chars": 19200,
-    "fetched_at": "2026-10-12T14:41:44.176Z",
+    "fetched_at": "2026-10-12T14:43:28.623Z",
     "changed_at": "2026-10-06",
     "unreachable_since": null,
     "error": null
@@ -150,7 +150,7 @@
     "content_type": "application/pdf",
     "pages": 22,
     "chars": 19579,
-    "fetched_at": "2026-10-12T14:41:44.700Z",
+    "fetched_at": "2026-10-12T14:43:29.200Z",
     "changed_at": "2026-10-06",
     "unreachable_since": null,
     "error": null
@@ -163,7 +163,7 @@
     "content_type": "text/html; charset=UTF-8",
     "pages": null,
     "chars": 7004,
-    "fetched_at": "2026-10-12T14:41:41.866Z",
+    "fetched_at": "2026-10-12T14:43:20.138Z",
     "changed_at": "2026-10-12",
     "unreachable_since": null,
     "error": null
@@ -176,7 +176,7 @@
     "content_type": "application/pdf",
     "pages": 18,
     "chars": 32455,
-    "fetched_at": "2026-10-12T14:41:41.339Z",
+    "fetched_at": "2026-10-12T14:43:19.359Z",
     "changed_at": "2026-10-06",
     "unreachable_since": null,
     "error": null
@@ -189,7 +189,7 @@
     "content_type": "text/html; charset=UTF-8",
     "pages": null,
     "chars": 33615,
-    "fetched_at": "2026-10-12T14:41:42.018Z",
+    "fetched_at": "2026-10-12T14:43:21.352Z",
     "changed_at": "2026-10-12",
     "unreachable_since": null,
     "error": null
@@ -202,10 +202,10 @@
     "content_type": "application/pdf",
     "pages": 28,
     "chars": 19229,
-    "fetched_at": "2026-10-12T14:41:49.068Z",
+    "fetched_at": "2026-10-12T14:43:35.571Z",
     "changed_at": "2026-10-06",
     "unreachable_since": null,
-    "error": null
+    "error": "lokaal bestand data/import/mercedes-eqa-prijslijst-be-2026-01-15.pdf niet aanwezig op deze machine; vorige toestand behouden"
   },
   "mercedes-eqb-pricelist-be": {
     "status": "local",
@@ -215,10 +215,10 @@
     "content_type": "application/pdf",
     "pages": 18,
     "chars": 8964,
-    "fetched_at": "2026-10-12T14:41:49.199Z",
+    "fetched_at": "2026-10-12T14:43:35.571Z",
     "changed_at": "2026-10-06",
     "unreachable_since": null,
-    "error": null
+    "error": "lokaal bestand data/import/mercedes-eqb-prijslijst-be-2025-07-01.pdf niet aanwezig op deze machine; vorige toestand behouden"
   },
   "peugeot-208-pricelist-be": {
     "status": "unchanged",
@@ -228,7 +228,7 @@
     "content_type": "application/pdf",
     "pages": 34,
     "chars": 44165,
-    "fetched_at": "2026-10-12T14:41:42.408Z",
+    "fetched_at": "2026-10-12T14:43:23.569Z",
     "changed_at": "2026-10-06",
     "unreachable_since": null,
     "error": null
@@ -241,7 +241,7 @@
     "content_type": "text/html",
     "pages": null,
     "chars": 24398,
-    "fetched_at": "2026-10-12T14:41:47.424Z",
+    "fetched_at": "2026-10-12T14:43:32.015Z",
     "changed_at": "2026-10-12",
     "unreachable_since": null,
     "error": null
@@ -254,7 +254,7 @@
     "content_type": "text/html; charset=utf-8",
     "pages": null,
     "chars": 24167,
-    "fetched_at": "2026-10-12T14:41:47.185Z",
+    "fetched_at": "2026-10-12T14:43:31.463Z",
     "changed_at": "2026-10-12",
     "unreachable_since": null,
     "error": null
@@ -267,23 +267,23 @@
     "content_type": "application/pdf",
     "pages": 20,
     "chars": 36294,
-    "fetched_at": "2026-10-12T14:41:46.730Z",
+    "fetched_at": "2026-10-12T14:43:31.306Z",
     "changed_at": "2026-10-06",
     "unreachable_since": null,
     "error": null
   },
   "skoda-elroq-page-be": {
-    "status": "unchanged",
-    "http": 200,
+    "status": "unreachable",
+    "http": null,
     "sha256": "25d3ed11c314ff2b7a6b2a418ce2d02444d8ef3624a6a0f2ebcd5dba842d99ff",
     "bytes": 710861,
     "content_type": "text/html; charset=utf-8",
     "pages": null,
     "chars": 14169,
-    "fetched_at": "2026-10-12T14:41:34.690Z",
+    "fetched_at": "2026-10-12T14:43:08.905Z",
     "changed_at": "2026-10-12",
-    "unreachable_since": null,
-    "error": null
+    "unreachable_since": "2026-10-12",
+    "error": "fetch failed"
   },
   "skoda-elroq-pricelist-nl": {
     "status": "unchanged",
@@ -293,7 +293,7 @@
     "content_type": "application/pdf",
     "pages": 19,
     "chars": 33520,
-    "fetched_at": "2026-10-12T14:41:31.769Z",
+    "fetched_at": "2026-10-12T14:43:05.436Z",
     "changed_at": "2026-10-06",
     "unreachable_since": null,
     "error": null
@@ -306,7 +306,7 @@
     "content_type": "text/html; charset=utf-8",
     "pages": null,
     "chars": 14001,
-    "fetched_at": "2026-10-12T14:41:34.828Z",
+    "fetched_at": "2026-10-12T14:43:09.265Z",
     "changed_at": "2026-10-12",
     "unreachable_since": null,
     "error": null
@@ -319,7 +319,7 @@
     "content_type": "application/pdf",
     "pages": 20,
     "chars": 49832,
-    "fetched_at": "2026-10-12T14:41:34.884Z",
+    "fetched_at": "2026-10-12T14:43:09.841Z",
     "changed_at": "2026-10-06",
     "unreachable_since": null,
     "error": null
@@ -332,7 +332,7 @@
     "content_type": "application/pdf",
     "pages": 20,
     "chars": 33574,
-    "fetched_at": "2026-10-12T14:41:33.176Z",
+    "fetched_at": "2026-10-12T14:43:07.473Z",
     "changed_at": "2026-10-06",
     "unreachable_since": null,
     "error": null
@@ -345,7 +345,7 @@
     "content_type": "text/html",
     "pages": null,
     "chars": 32,
-    "fetched_at": "2026-10-12T14:41:54.085Z",
+    "fetched_at": "2026-10-12T14:43:41.060Z",
     "changed_at": "2026-10-06",
     "unreachable_since": null,
     "error": "HTTP 403 (geblokkeerd voor geautomatiseerd ophalen; in de browser nakijken)"
@@ -358,7 +358,7 @@
     "content_type": "text/html",
     "pages": null,
     "chars": 32,
-    "fetched_at": "2026-10-12T14:41:49.279Z",
+    "fetched_at": "2026-10-12T14:43:35.571Z",
     "changed_at": "2026-10-06",
     "unreachable_since": null,
     "error": "HTTP 403 (geblokkeerd voor geautomatiseerd ophalen; in de browser nakijken)"
@@ -367,11 +367,11 @@
     "status": "unchanged",
     "http": 200,
     "sha256": "8143f546ea94571ad5c882d6b513bd1a56816891f1907be6d4b25c2c9720833e",
-    "bytes": 555262,
+    "bytes": 555263,
     "content_type": "text/html; charset=utf-8",
     "pages": null,
     "chars": 13266,
-    "fetched_at": "2026-10-12T14:41:31.558Z",
+    "fetched_at": "2026-10-12T14:43:03.199Z",
     "changed_at": "2026-10-12",
     "unreachable_since": null,
     "error": null
@@ -384,7 +384,7 @@
     "content_type": "application/pdf",
     "pages": 10,
     "chars": 12124,
-    "fetched_at": "2026-10-12T14:41:27.180Z",
+    "fetched_at": "2026-10-12T14:42:54.749Z",
     "changed_at": "2026-10-06",
     "unreachable_since": null,
     "error": null
@@ -397,7 +397,7 @@
     "content_type": "application/pdf",
     "pages": 10,
     "chars": 13373,
-    "fetched_at": "2026-10-12T14:41:29.651Z",
+    "fetched_at": "2026-10-12T14:42:56.037Z",
     "changed_at": "2026-10-06",
     "unreachable_since": null,
     "error": null
@@ -406,11 +406,11 @@
     "status": "unchanged",
     "http": 200,
     "sha256": "871e7bb116a3f52bda8d91912f8a47f0450aa86b198ceef4af4558215acf901c",
-    "bytes": 565589,
+    "bytes": 565485,
     "content_type": "text/html; charset=utf-8",
     "pages": null,
     "chars": 12524,
-    "fetched_at": "2026-10-12T14:41:30.191Z",
+    "fetched_at": "2026-10-12T14:42:56.455Z",
     "changed_at": "2026-10-12",
     "unreachable_since": null,
     "error": null
@@ -423,7 +423,7 @@
     "content_type": "application/pdf",
     "pages": 10,
     "chars": 14097,
-    "fetched_at": "2026-10-12T14:41:29.908Z",
+    "fetched_at": "2026-10-12T14:42:56.259Z",
     "changed_at": "2026-10-06",
     "unreachable_since": null,
     "error": null
@@ -432,11 +432,11 @@
     "status": "unchanged",
     "http": 200,
     "sha256": "9305d42543f2d0edd5e4904dbd53f375f598c1e7b3182d3c02e2f4e3e0dae41f",
-    "bytes": 567323,
+    "bytes": 567613,
     "content_type": "text/html; charset=utf-8",
     "pages": null,
     "chars": 13563,
-    "fetched_at": "2026-10-12T14:41:30.793Z",
+    "fetched_at": "2026-10-12T14:42:59.780Z",
     "changed_at": "2026-10-12",
     "unreachable_since": null,
     "error": null
@@ -445,11 +445,11 @@
     "status": "unchanged",
     "http": 200,
     "sha256": "5bd444eab5d42aba292224769203df37be4b0b32794bd2a03b04460be7cc4f2b",
-    "bytes": 577219,
+    "bytes": 577222,
     "content_type": "text/html; charset=utf-8",
     "pages": null,
-    "chars": 14344,
-    "fetched_at": "2026-10-12T14:41:31.147Z",
+    "chars": 14345,
+    "fetched_at": "2026-10-12T14:43:01.178Z",
     "changed_at": "2026-10-12",
     "unreachable_since": null,
     "error": null
@@ -462,7 +462,7 @@
     "content_type": "text/html;charset=utf-8",
     "pages": null,
     "chars": 13912,
-    "fetched_at": "2026-10-12T14:41:41.147Z",
+    "fetched_at": "2026-10-12T14:43:18.700Z",
     "changed_at": "2026-10-12",
     "unreachable_since": null,
     "error": null
@@ -475,7 +475,7 @@
     "content_type": null,
     "pages": null,
     "chars": null,
-    "fetched_at": "2026-10-12T14:41:36.585Z",
+    "fetched_at": "2026-10-12T14:43:13.574Z",
     "changed_at": null,
     "unreachable_since": null,
     "error": "HTTP 403 (geblokkeerd voor geautomatiseerd ophalen; in de browser nakijken)"
@@ -488,7 +488,7 @@
     "content_type": "text/html;charset=utf-8",
     "pages": null,
     "chars": 12219,
-    "fetched_at": "2026-10-12T14:41:41.241Z",
+    "fetched_at": "2026-10-12T14:43:19.035Z",
     "changed_at": "2026-10-12",
     "unreachable_since": null,
     "error": null
@@ -501,7 +501,7 @@
     "content_type": "application/pdf",
     "pages": 23,
     "chars": 36847,
-    "fetched_at": "2026-10-12T14:41:35.575Z",
+    "fetched_at": "2026-10-12T14:43:11.373Z",
     "changed_at": "2026-10-06",
     "unreachable_since": null,
     "error": null
@@ -514,7 +514,7 @@
     "content_type": "text/html;charset=utf-8",
     "pages": null,
     "chars": 20879,
-    "fetched_at": "2026-10-12T14:41:58.359Z",
+    "fetched_at": "2026-10-12T14:43:45.275Z",
     "changed_at": "2026-10-12",
     "unreachable_since": null,
     "error": null
@@ -527,7 +527,7 @@
     "content_type": "text/html; charset=UTF-8",
     "pages": null,
     "chars": 10860,
-    "fetched_at": "2026-10-12T14:41:36.372Z",
+    "fetched_at": "2026-10-12T14:43:11.769Z",
     "changed_at": "2026-10-12",
     "unreachable_since": null,
     "error": null
