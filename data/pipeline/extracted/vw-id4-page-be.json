@@ -1,11 +1,11 @@
 {
   "doc_id": "vw-id4-page-be",
-  "sha256": "de6185e4de294754af1ed1ecf724d7b97e47d0790eda9b8b46ce294e6fdb2066",
-  "extracted_at": "2026-10-06T07:44:20.374Z",
+  "sha256": "fc1a6ab771dd75443fc8b5808291f455714ea6f59f14f7ed41bf2ea33ae2a89e",
+  "extracted_at": "2026-10-12T12:57:26.988Z",
   "model": "claude-opus-5-5",
   "usage": {
-    "input_tokens": 9540,
-    "output_tokens": 1901
+    "input_tokens": 9545,
+    "output_tokens": 2202
   },
   "extraction": {
     "document_title": "Volkswagen ID.4 — 100% elektrische gezins-SUV tot 561 km",
@@ -33,7 +33,7 @@
           "min": 331,
           "max": null
         },
-        "notes": "De pagina noemt de instapversie niet bij naam en geeft geen batterijcapaciteit of verbruik. AC 11 kW en DC 175 kW staan algemeen voor de ID.4 vermeld, niet per uitvoering. Tegenstrijdig vermogen: 'Vermogen 170 pk / 286 pk' tegenover '170 tot 340 pk' in de FAQ. Ook de Pro wordt genoemd (0-100 km/u in 8,5 s), zonder batterij- of laadcijfers."
+        "notes": "Uitvoering niet bij naam genoemd ('instapversie'); geen batterijcapaciteit vermeld. AC 11 kW en DC 175 kW worden voor de ID.4 in het algemeen vermeld ('snelladen tot 175 kW'), niet per uitvoering. Een versie 'Pro' (0-100 km/u in 8,5 s) wordt genoemd; onduidelijk of dit de instapversie is. Basisversie heeft 170 pk."
       },
       {
         "make": "Volkswagen",
@@ -62,7 +62,7 @@
           "min": 561,
           "max": null
         },
-        "notes": "Laadduur AC: 'op een 11 kW wallbox in 7 tot 8 uur volledig op (77 kWh batterij)'. DC 10-80% in ca. 30 min. De batterij heeft geen label (netto/bruto niet vermeld). AC- en DC-cijfers staan algemeen voor de ID.4 vermeld."
+        "notes": "AC 11 kW en DC 175 kW worden voor de ID.4 in het algemeen vermeld, niet specifiek per uitvoering. Thuisladen op 11 kW wallbox in 7 tot 8 uur volledig (77 kWh batterij). Batterijcijfer zonder label (bruto/netto niet vermeld)."
       },
       {
         "make": "Volkswagen",
@@ -81,7 +81,7 @@
         "ac_option_kw": null,
         "dc_max_kw": 175,
         "range_km": null,
-        "notes": "Er staan geen batterij-, verbruik- of bereikcijfers specifiek voor de GTX (340 pk). AC- en DC-cijfers staan algemeen voor de ID.4 vermeld. De 340 pk spreekt de bovenaan vermelde '170 pk / 286 pk' tegen."
+        "notes": "340 pk, vierwielaandrijving; geen batterij- of rijbereikcijfer specifiek voor GTX. AC 11 kW en DC 175 kW gelden voor de ID.4 in het algemeen. Tegenstrijdigheid: kopblok vermeldt 'Vermogen 170 pk / 286 pk', FAQ vermeldt '170 tot 340 pk'."
       }
     ]
   }

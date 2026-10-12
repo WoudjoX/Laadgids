@@ -1,11 +1,11 @@
 {
   "doc_id": "volvo-ex90-specs-be",
-  "sha256": "652c59ad35a77fcb53fc01a56564956f1e91676fdb06ad98bad123742329fd4d",
-  "extracted_at": "2026-10-06T07:41:13.641Z",
+  "sha256": "c099dbe0591d1f5558bfd93be45b3183f642d7696fe2b62c7f36090e6b019f6b",
+  "extracted_at": "2026-10-12T12:56:17.579Z",
   "model": "claude-opus-5-5",
   "usage": {
-    "input_tokens": 11048,
-    "output_tokens": 1788
+    "input_tokens": 11064,
+    "output_tokens": 1923
   },
   "extraction": {
     "document_title": "Volvo EX90 ruime elektrische SUV | Specificaties | Volvo Cars België",
@@ -45,7 +45,7 @@
           "min": 571,
           "max": null
         },
-        "notes": "Boordlader van 11 kW staat in de algemene kenmerkenlijst zonder vermelding per uitvoering of standaard/optie. Laadduur 0-100% (3-fase 16A): 9 h. Laadduur 10-80% (DC 350 kW): 22 min; 350 kW is het vermogen van de laadpaal in het label, geen opgegeven max. DC-vermogen van de auto. Actieradius 'Tot 571 km' (gecombineerd), stad tot 766 km."
+        "notes": "Actieradius staat er als 'Tot 571 km' (gecombineerd). Boordlader van 11 kW staat in de algemene kenmerkenlijst, niet per uitvoering; of hij standaard is, is niet duidelijk. Fasen worden bij de lader zelf niet vermeld. Laadduur 0-100% (3-fase 16A): 9 h. Laadduur 10-80% (DC 350 kW): 22 min; 350 kW is de laadconditie, geen opgegeven maximaal DC-vermogen van de auto."
       },
       {
         "make": "Volvo",
@@ -79,7 +79,7 @@
           "min": 625,
           "max": null
         },
-        "notes": "Boordlader van 11 kW staat in de algemene kenmerkenlijst zonder vermelding per uitvoering of standaard/optie. Laadduur 0-100% (3-fase 16A): 10 h. Laadduur 10-80% (DC 350 kW): 22 min; 350 kW is het vermogen van de laadpaal in het label, geen opgegeven max. DC-vermogen van de auto. Actieradius 'Tot 625 km' (gecombineerd), stad tot 797 km."
+        "notes": "Actieradius staat er als 'Tot 625 km' (gecombineerd). Boordlader van 11 kW staat in de algemene kenmerkenlijst, niet per uitvoering; of hij standaard is, is niet duidelijk. Fasen worden bij de lader zelf niet vermeld. Laadduur 0-100% (3-fase 16A): 10 h. Laadduur 10-80% (DC 350 kW): 22 min; 350 kW is de laadconditie, geen opgegeven maximaal DC-vermogen van de auto."
       },
       {
         "make": "Volvo",
@@ -113,7 +113,7 @@
           "min": 615,
           "max": null
         },
-        "notes": "Boordlader van 11 kW staat in de algemene kenmerkenlijst zonder vermelding per uitvoering of standaard/optie. Laadduur 0-100% (3-fase 16A): 10 h. Laadduur 10-80% (DC 350 kW): 22 min; 350 kW is het vermogen van de laadpaal in het label, geen opgegeven max. DC-vermogen van de auto. Actieradius 'Tot 615 km' (gecombineerd), stad tot 783 km."
+        "notes": "Actieradius staat er als 'Tot 615 km' (gecombineerd). Boordlader van 11 kW staat in de algemene kenmerkenlijst, niet per uitvoering; of hij standaard is, is niet duidelijk. Fasen worden bij de lader zelf niet vermeld. Laadduur 0-100% (3-fase 16A): 10 h. Laadduur 10-80% (DC 350 kW): 22 min; 350 kW is de laadconditie, geen opgegeven maximaal DC-vermogen van de auto."
       }
     ]
   }

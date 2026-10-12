@@ -1,11 +1,11 @@
 {
   "doc_id": "volvo-ex30-specs-be",
-  "sha256": "9ed8eff90c06ee86414969d62e68fc450461b3c31866bc4573a1860b6a578433",
-  "extracted_at": "2026-10-06T07:40:44.376Z",
+  "sha256": "cf72cebb5c89454a8ffe039521ac7bb98e8c61c503b3f514aa593f9407666bdb",
+  "extracted_at": "2026-10-12T12:55:41.385Z",
   "model": "claude-opus-5-5",
   "usage": {
-    "input_tokens": 10170,
-    "output_tokens": 1585
+    "input_tokens": 10146,
+    "output_tokens": 1899
   },
   "extraction": {
     "document_title": "Volvo EX30 volledig elektrische SUV | Specificaties | Volvo Cars België",
@@ -39,7 +39,7 @@
           "min": 337,
           "max": null
         },
-        "notes": "AC: alleen laadduur 'Laadduur batterij 0-100% (3-fase 16A) 6 h', geen kW per uitvoering. Kenmerkenlijst noemt zowel 'Ingebouwde lader van 11 kW' als 'Ingebouwde lader (OBC) van 22 kW' zonder toewijzing per uitvoering of standaard/optie. DC: 'Laadduur van batterij 26 min' zonder kW-waarde of SoC-bereik. Actieradius stad tot 441 km; gecombineerd tot 337 km. Stadsverbruik 13.1 kWh/100 km."
+        "notes": "AC: alleen laadduur 'Laadduur batterij 0-100% (3-fase 16A) 6 h', geen kW per uitvoering. De algemene kenmerkenlijst noemt 'Ingebouwde lader van 11 kW' en 'Ingebouwde lader (OBC) van 22 kW' zonder toewijzing per uitvoering of aanduiding standaard/optie. DC: 'Laadduur van batterij 26 min' zonder kW-cijfer of SoC-bereik. Actieradius gecombineerd tot 337 km, stad tot 441 km."
       },
       {
         "make": "Volvo",
@@ -67,7 +67,7 @@
           "min": 475,
           "max": null
         },
-        "notes": "AC: alleen laadduur 'Laadduur batterij 0-100% (3-fase 16A) 8 h', geen kW per uitvoering. Kenmerkenlijst noemt zowel 11 kW als 22 kW ingebouwde lader zonder toewijzing per uitvoering. DC: 'Laadduur batterij 10-80% (DC 175 kW) 27 min'. Actieradius stad tot 635 km. Stadsverbruik 12.7 kWh/100 km."
+        "notes": "AC: alleen laadduur 'Laadduur batterij 0-100% (3-fase 16A) 8 h', geen kW per uitvoering. De algemene kenmerkenlijst noemt 'Ingebouwde lader van 11 kW' en 'Ingebouwde lader (OBC) van 22 kW' zonder toewijzing per uitvoering of aanduiding standaard/optie. DC uit 'Laadduur batterij 10-80% (DC 175 kW) 27 min'. Actieradius gecombineerd tot 475 km, stad tot 635 km."
       },
       {
         "make": "Volvo",
@@ -95,7 +95,7 @@
           "min": 450,
           "max": null
         },
-        "notes": "AC: alleen laadduur 'Laadduur batterij 0-100% (3-fase 16A) 8 h', geen kW per uitvoering. Kenmerkenlijst noemt zowel 11 kW als 22 kW ingebouwde lader zonder toewijzing per uitvoering. DC: 'Laadduur batterij 10-80% (DC 175 kW) 27 min'. Actieradius stad tot 590 km. Stadsverbruik 13.5 kWh/100 km."
+        "notes": "AC: alleen laadduur 'Laadduur batterij 0-100% (3-fase 16A) 8 h', geen kW per uitvoering. De algemene kenmerkenlijst noemt 'Ingebouwde lader van 11 kW' en 'Ingebouwde lader (OBC) van 22 kW' zonder toewijzing per uitvoering of aanduiding standaard/optie. DC uit 'Laadduur batterij 10-80% (DC 175 kW) 27 min'. Actieradius gecombineerd tot 450 km, stad tot 590 km."
       }
     ]
   }
