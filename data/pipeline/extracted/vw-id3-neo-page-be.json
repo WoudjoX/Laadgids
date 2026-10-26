@@ -1,16 +1,16 @@
 {
   "doc_id": "vw-id3-neo-page-be",
-  "sha256": "1e7143f1021c6b640e8893e29959728d54bd257562c1546d17f51b8ad61c18f4",
-  "extracted_at": "2026-10-12T14:37:18.801Z",
+  "sha256": "635e54953cd6f92b6dee0e2814500ea09f50d8b7ba50e23c6febc4a20d336790",
+  "extracted_at": "2026-10-26T10:53:31.564Z",
   "model": "claude-opus-5-5",
   "usage": {
-    "input_tokens": 10396,
-    "output_tokens": 1673
+    "input_tokens": 10435,
+    "output_tokens": 1804
   },
   "extraction": {
     "document_title": "Volkswagen ID.3 Neo - Nieuwe compacte EV tot 627 km",
     "valid_from": null,
-    "market": "België",
+    "market": "BE",
     "model_year": null,
     "variants": [
       {
@@ -34,7 +34,7 @@
           "min": 417,
           "max": null
         },
-        "notes": "Rijbereik 417 km WLTP voor de Trend-uitvoering (50 kWh). Op de pagina wordt DC-laden tot 183 kW genoemd, of 105 kW afhankelijk van de versie; per batterij wordt dit niet toegewezen. Thuis aan een 11 kW AC-wallbox duurt een volledige lading 5 tot 8 uur; het vermogen van de boordlader wordt niet vermeld. Tegenstrijdig: 50 kWh alleen op Trend, maar elders 'Life (50–79 kWh batterijen)'."
+        "notes": "Bruto of netto capaciteit niet vermeld. Rijbereik: 'bedraagt 417 km voor de Trend-uitvoering (50 kWh batterij)'. DC-snelladen 'tot 183 kW' of '105 kW, afhankelijk van de versie'; niet per batterij toegewezen. Thuis aan een 11 kW AC-wallbox: laadtijd 5 tot 8 uur, afhankelijk van de batterij; vermogen boordlader niet vermeld."
       },
       {
         "make": "Volkswagen",
@@ -54,7 +54,7 @@
         "ac_option_kw": null,
         "dc_max_kw": null,
         "range_km": null,
-        "notes": "Geen rijbereik per batterij vermeld. DC-laden tot 183 kW of 105 kW afhankelijk van de versie; niet per batterij toegewezen. Volledige lading aan een 11 kW AC-wallbox duurt 5 tot 8 uur; het vermogen van de boordlader wordt niet vermeld."
+        "notes": "Bruto of netto capaciteit niet vermeld. Rijbereik voor 58 kWh niet apart vermeld. DC-snelladen 'tot 183 kW' of '105 kW, afhankelijk van de versie'; niet per batterij toegewezen. Thuis aan een 11 kW AC-wallbox: laadtijd 5 tot 8 uur; vermogen boordlader niet vermeld."
       },
       {
         "make": "Volkswagen",
@@ -77,7 +77,7 @@
           "min": 630,
           "max": null
         },
-        "notes": "Tegenstrijdig maximaal rijbereik: 627 km ('Rijbereik (WLTP) 417 - 627 km') tegenover 630 km ('loopt op tot 630 km ... met de 79 kWh-batterij'). DC-laden tot 183 kW of 105 kW afhankelijk van de versie; niet per batterij toegewezen. Volledige lading aan een 11 kW AC-wallbox duurt 5 tot 8 uur; het vermogen van de boordlader wordt niet vermeld."
+        "notes": "Bruto of netto capaciteit niet vermeld. Tegenstrijdigheid in het maximale rijbereik: de pagina noemt 'tot 627 km' (WLTP 417 - 627 km) en elders '630 km voor de Life- en Style-uitvoeringen met de 79 kWh-batterij'. DC-snelladen 'tot 183 kW' of '105 kW, afhankelijk van de versie'; niet per batterij toegewezen. Thuis aan een 11 kW AC-wallbox: laadtijd 5 tot 8 uur; vermogen boordlader niet vermeld."
       }
     ]
   }
