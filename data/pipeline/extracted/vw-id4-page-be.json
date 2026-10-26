@@ -1,11 +1,11 @@
 {
   "doc_id": "vw-id4-page-be",
-  "sha256": "cacee160a80a11872b63905389a70b22432846fc5620c9df363f0e90a465730a",
-  "extracted_at": "2026-10-12T14:37:36.845Z",
+  "sha256": "7bb2881f95ed748410f73c5afd6bc55d2cecfb8e3ca941b0d50f7f189b406e03",
+  "extracted_at": "2026-10-26T10:53:50.005Z",
   "model": "claude-opus-5-5",
   "usage": {
-    "input_tokens": 9545,
-    "output_tokens": 2096
+    "input_tokens": 9584,
+    "output_tokens": 2003
   },
   "extraction": {
     "document_title": "Volkswagen ID.4 — 100% elektrische gezins-SUV tot 561 km",
@@ -33,26 +33,7 @@
           "min": 331,
           "max": null
         },
-        "notes": "Batterijcapaciteit niet vermeld. AC- en DC-cijfers gelden voor de ID.4 in het algemeen. De pagina noemt 'Vermogen 170 pk / 286 pk' maar elders '170 tot 340 pk'. Niet duidelijk of de instapversie dezelfde is als de Pro."
-      },
-      {
-        "make": "Volkswagen",
-        "model": "ID.4",
-        "variant": "Pro",
-        "model_year": null,
-        "battery": [],
-        "consumption_kwh_100km": null,
-        "ac_charging": {
-          "kw": 11,
-          "phases": null,
-          "standard": true,
-          "page": null,
-          "quote": "De ID.4 laadt standaard aan 11 kW AC"
-        },
-        "ac_option_kw": null,
-        "dc_max_kw": 175,
-        "range_km": null,
-        "notes": "Alleen de acceleratie (0-100 km/u in 8,5 s) wordt specifiek voor de Pro vermeld. AC- en DC-cijfers gelden voor de ID.4 in het algemeen."
+        "notes": "Batterijcapaciteit voor de instapversie niet vermeld. AC 11 kW en DC 175 kW worden algemeen voor de ID.4 vermeld, niet per uitvoering. Vermogen tegenstrijdig: '170 pk / 286 pk' in specificaties vs '170 tot 340 pk' in FAQ. Een 'Pro' (0-100 km/u in 8,5 s) wordt genoemd zonder verdere technische cijfers; onduidelijk of dit de instapversie is."
       },
       {
         "make": "Volkswagen",
@@ -81,12 +62,12 @@
           "min": 561,
           "max": null
         },
-        "notes": "Laadduur thuis: 11 kW wallbox in 7 tot 8 uur volledig op (77 kWh batterij). Het batterijcijfer heeft geen label (netto/bruto niet vermeld)."
+        "notes": "Batterijcijfer zonder label (niet vermeld of netto of bruto). Laadduur: 'op een 11 kW wallbox in 7 tot 8 uur volledig op (77 kWh batterij)'; 10-80% in ca. 30 min aan DC. AC en DC worden algemeen voor de ID.4 vermeld."
       },
       {
         "make": "Volkswagen",
         "model": "ID.4",
-        "variant": "GTX 4MOTION",
+        "variant": "GTX",
         "model_year": null,
         "battery": [],
         "consumption_kwh_100km": null,
@@ -100,7 +81,7 @@
         "ac_option_kw": null,
         "dc_max_kw": 175,
         "range_km": null,
-        "notes": "340 pk, 0-100 km/u in 5,4 s. Batterij en rijbereik niet specifiek vermeld. De headline noemt 'Vermogen 170 pk / 286 pk', wat niet strookt met 340 pk voor de GTX."
+        "notes": "4MOTION, 340 pk volgens FAQ, maar specificatieblok vermeldt 'Vermogen 170 pk / 286 pk' (tegenstrijdig). Batterij en rijbereik voor GTX niet vermeld. AC en DC worden algemeen voor de ID.4 vermeld."
       }
     ]
   }
