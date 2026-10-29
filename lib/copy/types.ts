@@ -140,6 +140,8 @@ export interface Copy {
     breadcrumbSection: string;
     h1: (v: ChargerPageVars) => string;
     metaTitle: (v: ChargerPageVars) => string;
+    /** Kortere titel zonder vraag, voor lange uitvoeringsnamen. */
+    metaTitleShort: (v: ChargerPageVars) => string;
     metaDescription: (v: ChargerPageVars) => string;
     shortAnswerLabel: string;
     shortAnswer: (v: ChargerPageVars) => string; // 2 tot 4 zinnen
@@ -222,6 +224,15 @@ export interface Copy {
     breadcrumbSection: string; // "Laadkosten per model"
     h1: (v: CostPageVars) => string;
     metaTitle: (v: CostPageVars) => string;
+    /** Kortere titel zonder bedrag, voor lange uitvoeringsnamen. */
+    metaTitleShort: (v: CostPageVars) => string;
+    index: {
+      intro: (tariff: string, price: string, loss: string, km: string) => string;
+      colModel: string;
+      colPer100: string;
+      colYear: (km: string) => string;
+      makeLink: (make: string) => string;
+    };
     metaDescription: (v: CostPageVars) => string;
     shortAnswer: (v: CostPageVars) => string;
     metrics: { per100km: string; perFull: string; perYear: (v: CostPageVars) => string };

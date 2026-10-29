@@ -75,6 +75,7 @@ export const nlBE: Copy = {
     breadcrumbSection: "Laadpaal per model",
     h1: (v) => `Welke laadpaal voor een ${v.make} ${v.model} ${v.trim}?`,
     metaTitle: (v) => `Laadpaal voor ${v.make} ${v.model} ${v.trim}: ${v.recommendedKw} of niet? | Laadgids`,
+    metaTitleShort: (v) => `Laadpaal voor ${v.make} ${v.model} ${v.trim}`,
     metaDescription: (v) =>
       `${v.make} ${v.model} ${v.trim} laadt thuis op maximaal ${v.acMax}. Laadtijd per aansluiting, kosten per tarief en impact op het capaciteitstarief. Bijgewerkt voor ${v.region ? nlBE.site.regionLabel[v.region] : "België"}.`,
     shortAnswerLabel: "Kort antwoord",
@@ -223,7 +224,7 @@ export const nlBE: Copy = {
         }
         items.push({
           q: `Hoelang duurt een nacht laden voor de ${v.model}?`,
-          a: `Van ${v.fromPct} naar ${v.toPct} % duurt ${v.recommendedTime} op ${v.recommendedKw}.` + (v.batteryNominal || !v.cheapestFull ? "" : ` Een volle batterij van ${v.batteryNet} inclusief laadverlies is ongeveer ${v.cheapestFull} met het goedkoopste tarief.`),
+          a: `Van ${v.fromPct} naar ${v.toPct} % duurt ${v.recommendedTime} op ${v.recommendedKw}.` + (v.batteryNominal || !v.cheapestFull ? "" : ` Een volle batterij van ${v.batteryNet} inclusief laadverlies is ongeveer ${v.cheapestFull} met ${v.cheapestLabel}.`),
         });
         if (v.region === "VLA" && v.capacityDelta && v.capacityDeltaLb) {
           items.push({
@@ -259,6 +260,14 @@ export const nlBE: Copy = {
     breadcrumbSection: "Laadkosten per model",
     h1: (v) => `Wat kost thuisladen voor een ${v.make} ${v.model} ${v.trim}?`,
     metaTitle: (v) => `Laadkosten ${v.make} ${v.model} ${v.trim}: ${v.per100km} per 100 km | Laadgids`,
+    metaTitleShort: (v) => `Laadkosten ${v.make} ${v.model} ${v.trim}`,
+    index: {
+      intro: (tariff, price, loss, km) => `Wat thuisladen kost per 100 km en per jaar, voor elke uitvoering op de site. Gerekend met ${tariff} van ${price} per kWh, ${loss} laadverlies en ${km} km per jaar. Klik op een model voor de berekening en de bronnen.`,
+      colModel: "Uitvoering",
+      colPer100: "Per 100 km",
+      colYear: (km) => `Per jaar (${km} km)`,
+      makeLink: (make) => `Laadpaal voor een ${make}`,
+    },
     metaDescription: (v) => `Thuisladen van een ${v.make} ${v.model} ${v.trim} kost ${v.per100km} per 100 km${v.perFull ? ` en ${v.perFull} per volle lading` : ""} met ${v.tariffLabel} (${v.pricePerKwh} per kWh).`,
     shortAnswer: (v) => `${v.per100km} per 100 km${v.perFull ? `, ${v.perFull} per volle lading` : ""} en ${v.perYear} per jaar bij ${v.kmPerYear} km. Gerekend met ${v.tariffLabel} van ${v.pricePerKwh} per kWh, ${v.lossPct} laadverlies en ${v.realWorldPct} bovenop het WLTP-verbruik van ${v.consumptionWltp}.`,
     metrics: { per100km: "Per 100 km", perFull: "Per volle lading", perYear: (v) => `Per jaar (${v.kmPerYear} km)` },

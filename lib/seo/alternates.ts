@@ -93,6 +93,37 @@ export function fitTitle(title: string, siteName: string, max = 60): string {
   return bare.length + suffix.length <= max ? bare + suffix : bare;
 }
 
+/**
+ * Kies de eerste titelvariant die past: eerst met "| Laadgids" binnen 60 tekens, anders zonder binnen 65.
+ * Past geen enkele, dan de kortste variant zonder sitenaam. Varianten komen uit de copy, de functie verzint niets.
+ */
+export function pickTitle(variants: string[], siteName: string): string {
+  const suffix = ` | ${siteName}`;
+  const bare = variants.map((t) => (t.endsWith(suffix) ? t.slice(0, -suffix.length) : t));
+  for (const b of bare) if (b.length + suffix.length <= 60) return b + suffix;
+  for (const b of bare) if (b.length <= 65) return b;
+  return bare.reduce((a, b) => (b.length < a.length ? b : a));
+}
+
+/**
+ * Beschrijving binnen `max` tekens: hele zinnen behouden zolang ze passen. Is de eerste zin alleen al te lang,
+ * dan afkappen op een woordgrens met een beletselteken. Er komt geen nieuwe tekst bij.
+ */
+export function fitDescription(text: string, max = 160): string {
+  const t = text.replace(/\s+/g, " ").trim();
+  if (t.length <= max) return t;
+  const sentences = t.match(/[^.!?]+[.!?]+(\s|$)/g)?.map((s) => s.trim()) ?? [t];
+  let out = "";
+  for (const s of sentences) {
+    const next = out ? `${out} ${s}` : s;
+    if (next.length > max) break;
+    out = next;
+  }
+  if (out) return out;
+  const cut = t.slice(0, max - 1);
+  return `${cut.slice(0, cut.lastIndexOf(" ")).replace(/[,;:]$/, "")}…`;
+}
+
 /** Deelafbeelding van de site (app/opengraph-image.tsx) voor pagina's zonder eigen afbeelding. */
 export function defaultOgImages(): { url: string; width: number; height: number; alt: string }[] {
   return [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Laadgids" }];

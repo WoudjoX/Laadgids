@@ -1,6 +1,6 @@
 import { afterEach, describe, expect, it } from "vitest";
 import type { PageRow } from "@/lib/db/types";
-import { alternatesFor, assertValidHreflangKeys, fitTitle, sectionAlternates, siteUrl } from "./alternates";
+import { alternatesFor, assertValidHreflangKeys, fitDescription, fitTitle, pickTitle, sectionAlternates, siteUrl } from "./alternates";
 
 const base = "https://laadgids.test";
 
@@ -126,3 +126,35 @@ describe("siteUrl", () => {
     expect(siteUrl()).toBe("http://localhost:3000");
   });
 });
+
+describe("pickTitle", () => {
+  it("neemt de volledige titel met sitenaam als die past", () => {
+    expect(pickTitle(["Laadkosten Kia EV3 58,3 kWh: € 6,10 per 100 km | Laadgids", "Laadkosten Kia EV3 58,3 kWh"], "Laadgids")).toBe("Laadkosten Kia EV3 58,3 kWh: € 6,10 per 100 km | Laadgids");
+  });
+  it("valt terug op de korte variant bij een lange uitvoeringsnaam", () => {
+    const t = pickTitle(["Laadpaal voor Ford Mustang Mach-E Premium Extended Range AWD: 11 kW of niet? | Laadgids", "Laadpaal voor Ford Mustang Mach-E Premium Extended Range AWD"], "Laadgids");
+    expect(t).toBe("Laadpaal voor Ford Mustang Mach-E Premium Extended Range AWD");
+    expect(t.length).toBeLessThanOrEqual(65);
+  });
+  it("geeft de kortste variant als niets binnen 65 past (randgeval)", () => {
+    expect(pickTitle(["x".repeat(90), "y".repeat(70)], "Laadgids")).toBe("y".repeat(70));
+  });
+});
+
+describe("fitDescription", () => {
+  it("laat korte beschrijvingen ongemoeid", () => {
+    expect(fitDescription("Kort en goed.")).toBe("Kort en goed.");
+  });
+  it("houdt hele zinnen zolang ze binnen 160 tekens passen", () => {
+    const d = fitDescription("Volvo EX30 laadt thuis op maximaal 11 kW. Laadtijd per aansluiting, kosten per tarief en impact op het capaciteitstarief, met bronnen en datum erbij. Bijgewerkt voor Vlaanderen in oktober 2026.");
+    expect(d.length).toBeLessThanOrEqual(160);
+    expect(d.endsWith(".")).toBe(true);
+    expect(d.startsWith("Volvo EX30 laadt thuis op maximaal 11 kW.")).toBe(true);
+  });
+  it("kapt een te lange eerste zin af op een woordgrens", () => {
+    const d = fitDescription("woord ".repeat(60).trim() + ".");
+    expect(d.length).toBeLessThanOrEqual(160);
+    expect(d.endsWith("…")).toBe(true);
+  });
+});
+

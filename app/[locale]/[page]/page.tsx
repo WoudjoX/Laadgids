@@ -6,7 +6,7 @@ import { Shell } from "@/components/Shell";
 import { LOCALES, LOCALE_CONFIG, getCopy, localeFromSegment } from "@/lib/copy";
 import { STATIC_PAGES, staticPageBySlug, type StaticKey } from "@/lib/content/static";
 import type { Locale } from "@/lib/db/types";
-import { defaultOgImages, fitTitle, sectionAlternates } from "@/lib/seo/alternates";
+import { defaultOgImages, fitDescription, fitTitle, sectionAlternates } from "@/lib/seo/alternates";
 import { indexableLocales } from "@/lib/seo/locales";
 
 interface Params {
@@ -44,10 +44,10 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
   const title = fitTitle(r.page.title, getCopy(r.locale).site.name);
   return {
     title,
-    description: r.page.paragraphs[0],
+    description: fitDescription(r.page.paragraphs[0] ?? ""),
     robots: r.page.noindex || !indexable.includes(r.locale) ? { index: false, follow: true } : { index: true, follow: true },
     alternates: { canonical: alt.canonical, languages: alt.languages },
-    openGraph: { title, description: r.page.paragraphs[0], url: alt.canonical, locale: alt.ogLocale, alternateLocale: alt.ogAlternateLocales, type: "website", siteName: getCopy(r.locale).site.name, images: defaultOgImages() },
+    openGraph: { title, description: fitDescription(r.page.paragraphs[0] ?? ""), url: alt.canonical, locale: alt.ogLocale, alternateLocale: alt.ogAlternateLocales, type: "website", siteName: getCopy(r.locale).site.name, images: defaultOgImages() },
     twitter: { card: "summary_large_image" },
   };
 }

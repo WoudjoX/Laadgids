@@ -20,7 +20,7 @@ export interface CostPageData {
   updatedAt: string;
 }
 
-function centsPerKwh(price: number, locale: Locale): string {
+export function centsPerKwh(price: number, locale: Locale): string {
   const n = new Intl.NumberFormat(locale === "fr-BE" ? "fr-BE" : "nl-BE", { minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(price);
   return locale === "fr-BE" ? `${n} centimes` : `${n} cent`;
 }

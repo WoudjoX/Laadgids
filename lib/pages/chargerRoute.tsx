@@ -7,7 +7,7 @@ import { LOCALE_CONFIG, LOCALES, getCopy, localeFromSegment } from "@/lib/copy";
 import { loadAllVersions, loadPages, loadRules, loadTariffs, loadVersion } from "@/lib/db/cached";
 import type { Locale } from "@/lib/db/types";
 import { buildChargerPage } from "@/lib/pages/charger";
-import { alternatesFor, assertValidHreflangKeys, fitTitle } from "@/lib/seo/alternates";
+import { alternatesFor, assertValidHreflangKeys, fitDescription, pickTitle } from "@/lib/seo/alternates";
 import { relatedFor } from "@/lib/seo/related";
 
 export interface ChargerParams {
@@ -57,13 +57,13 @@ export async function chargerMetadata(section: string, params: ChargerParams): P
   const alt = alternatesFor(r.page, r.pages);
   assertValidHreflangKeys(alt.languages as Record<string, string>);
   return {
-    title: fitTitle(data.copy.charger.metaTitle(data.vars), data.copy.site.name),
-    description: data.copy.charger.metaDescription(data.vars),
+    title: pickTitle([data.copy.charger.metaTitle(data.vars), data.copy.charger.metaTitleShort(data.vars)], data.copy.site.name),
+    description: fitDescription(data.copy.charger.metaDescription(data.vars)),
     alternates: { canonical: alt.canonical, languages: alt.languages },
     robots: r.page.status === "index" ? { index: true, follow: true } : { index: false, follow: true },
     openGraph: {
-      title: fitTitle(data.copy.charger.metaTitle(data.vars), data.copy.site.name),
-      description: data.copy.charger.metaDescription(data.vars),
+      title: pickTitle([data.copy.charger.metaTitle(data.vars), data.copy.charger.metaTitleShort(data.vars)], data.copy.site.name),
+      description: fitDescription(data.copy.charger.metaDescription(data.vars)),
       url: alt.canonical,
       locale: alt.ogLocale,
       alternateLocale: alt.ogAlternateLocales,

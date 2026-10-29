@@ -8,7 +8,7 @@ import { loadPages } from "@/lib/db/cached";
 import type { Locale } from "@/lib/db/types";
 import { makeHubVars } from "@/lib/pages/makeHub";
 import { modelIndex } from "@/lib/pages/modelIndex";
-import { alternatesFor, assertValidHreflangKeys, defaultOgImages, fitTitle } from "@/lib/seo/alternates";
+import { alternatesFor, assertValidHreflangKeys, defaultOgImages, fitDescription, fitTitle } from "@/lib/seo/alternates";
 
 export interface MakeParams {
   locale: string;
@@ -52,10 +52,10 @@ export async function makeMetadata(section: string, params: MakeParams): Promise
   assertValidHreflangKeys(alt.languages as Record<string, string>);
   return {
     title: fitTitle(copy.makeHub.metaTitle(vars.make, vars.count), copy.site.name),
-    description: copy.makeHub.metaDescription(vars.make, vars.count, vars.powers),
+    description: fitDescription(copy.makeHub.metaDescription(vars.make, vars.count, vars.powers)),
     alternates: { canonical: alt.canonical, languages: alt.languages },
     robots: r.page.status === "index" ? { index: true, follow: true } : { index: false, follow: true },
-    openGraph: { title: copy.makeHub.h1(vars.make), description: copy.makeHub.metaDescription(vars.make, vars.count, vars.powers), url: alt.canonical, locale: alt.ogLocale, alternateLocale: alt.ogAlternateLocales, type: "website", siteName: copy.site.name, images: defaultOgImages() },
+    openGraph: { title: copy.makeHub.h1(vars.make), description: fitDescription(copy.makeHub.metaDescription(vars.make, vars.count, vars.powers)), url: alt.canonical, locale: alt.ogLocale, alternateLocale: alt.ogAlternateLocales, type: "website", siteName: copy.site.name, images: defaultOgImages() },
     twitter: { card: "summary_large_image" },
   };
 }

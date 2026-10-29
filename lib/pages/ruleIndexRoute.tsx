@@ -8,7 +8,7 @@ import { LOCALES, LOCALE_CONFIG, RULES_SECTION, getCopy, localeFromSegment, rule
 import { RULES } from "@/lib/content/rules";
 import type { Locale, Region } from "@/lib/db/types";
 import { dateLong } from "@/lib/format";
-import { siteUrl } from "@/lib/seo/alternates";
+import { fitDescription, siteUrl } from "@/lib/seo/alternates";
 
 function resolve(section: string, seg: string, region: string): { locale: Locale; rules: typeof RULES } | null {
   const locale = localeFromSegment(seg);
@@ -35,7 +35,7 @@ export function ruleIndexMetadata(section: string, seg: string, region: string):
   if (!r) return {};
   const copy = getCopy(r.locale);
   const path = `/${LOCALE_CONFIG[r.locale].segment}/${RULES_SECTION[r.locale]}/${region}`;
-  return { title: `${copy.charger.related.rules} | ${copy.site.name}`, description: r.rules.map((x) => x.linkText).join(" · "), alternates: { canonical: siteUrl() + path } };
+  return { title: `${copy.charger.related.rules} | ${copy.site.name}`, description: fitDescription(r.rules.map((x) => x.linkText).join(" · ")), alternates: { canonical: siteUrl() + path } };
 }
 
 export function renderRuleIndex(section: string, seg: string, region: string) {

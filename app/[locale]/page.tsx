@@ -14,6 +14,8 @@ import { makeTiles, modelExceptions } from "@/lib/pages/homeOverview";
 import { modelIndex } from "@/lib/pages/modelIndex";
 import { defaultOgImages, fitTitle, sectionAlternates } from "@/lib/seo/alternates";
 import { indexableLocales } from "@/lib/seo/locales";
+import { JsonLd } from "@/components/JsonLd";
+import { siteUrl } from "@/lib/seo/alternates";
 
 export const revalidate = 86400;
 
@@ -51,6 +53,29 @@ export default async function LocaleHome({ params }: { params: Promise<{ locale:
   return (
     <Shell copy={copy} locale={locale} alternates={alternates}>
       <div className="mx-auto max-w-content px-4 pb-16 pt-8">
+        <JsonLd
+          data={{
+            "@context": "https://schema.org",
+            "@graph": [
+              {
+                "@type": "Organization",
+                "@id": `${siteUrl()}/#organization`,
+                name: copy.site.name,
+                url: siteUrl(),
+                logo: { "@type": "ImageObject", url: `${siteUrl()}/apple-icon.png`, width: 180, height: 180 },
+              },
+              {
+                "@type": "WebSite",
+                "@id": `${siteUrl()}/#website`,
+                name: copy.site.name,
+                url: `${siteUrl()}/${LOCALE_CONFIG[locale].segment}`,
+                inLanguage: LOCALE_CONFIG[locale].htmlLang,
+                description: copy.site.tagline,
+                publisher: { "@id": `${siteUrl()}/#organization` },
+              },
+            ],
+          }}
+        />
         <h1 className="max-w-prose">{copy.home.h1}</h1>
         <p className="mt-3 max-w-prose text-[18px] text-ink2">{copy.site.tagline}</p>
         {data.checkedAt && <p className="mt-2 max-w-prose text-[13px] text-ink3">{copy.home.trust(dateLong(data.checkedAt, locale))}</p>}

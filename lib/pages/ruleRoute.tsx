@@ -7,7 +7,7 @@ import { LOCALE_CONFIG, LOCALES, RULES_SECTION, getCopy, localeFromSegment, rule
 import { RULES, ruleContent } from "@/lib/content/rules";
 import { loadAllVersions, loadPages } from "@/lib/db/cached";
 import type { Locale } from "@/lib/db/types";
-import { alternatesFor, assertValidHreflangKeys, defaultOgImages } from "@/lib/seo/alternates";
+import { alternatesFor, assertValidHreflangKeys, defaultOgImages, fitDescription, fitTitle } from "@/lib/seo/alternates";
 
 export interface RuleParams {
   locale: string;
@@ -44,11 +44,11 @@ export async function ruleMetadata(section: string, params: RuleParams): Promise
   const alt = alternatesFor(r.page, r.pages);
   assertValidHreflangKeys(alt.languages as Record<string, string>);
   return {
-    title: `${r.rule.title} | ${getCopy(r.locale).site.name}`,
-    description: r.rule.metaDescription,
+    title: fitTitle(r.rule.title, getCopy(r.locale).site.name),
+    description: fitDescription(r.rule.metaDescription),
     alternates: { canonical: alt.canonical, languages: alt.languages },
     robots: r.page.status === "index" ? { index: true, follow: true } : { index: false, follow: true },
-    openGraph: { title: r.rule.title, description: r.rule.metaDescription, url: alt.canonical, locale: alt.ogLocale, alternateLocale: alt.ogAlternateLocales, type: "article", images: defaultOgImages() },
+    openGraph: { title: r.rule.title, description: fitDescription(r.rule.metaDescription), url: alt.canonical, locale: alt.ogLocale, alternateLocale: alt.ogAlternateLocales, type: "article", images: defaultOgImages() },
     twitter: { card: "summary_large_image" },
   };
 }

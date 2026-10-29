@@ -75,6 +75,7 @@ export const frBE: Copy = {
     breadcrumbSection: "Borne par modèle",
     h1: (v) => `Quelle borne pour une ${v.make} ${v.model} ${v.trim} ?`,
     metaTitle: (v) => `Borne pour ${v.make} ${v.model} ${v.trim} : ${v.recommendedKw} ou pas ? | Laadgids`,
+    metaTitleShort: (v) => `Borne pour ${v.make} ${v.model} ${v.trim}`,
     metaDescription: (v) =>
       `La ${v.make} ${v.model} ${v.trim} recharge à domicile à ${v.acMax} maximum. Temps de charge par raccordement et coût par tarif. Mis à jour pour ${v.region ? frBE.site.regionLabel[v.region] : "la Belgique"}.`,
     shortAnswerLabel: "Réponse courte",
@@ -219,7 +220,7 @@ export const frBE: Copy = {
         }
         items.push({
           q: `Combien de temps dure une nuit de charge pour la ${v.model} ?`,
-          a: `De ${v.fromPct} à ${v.toPct} %, comptez ${v.recommendedTime} sur ${v.recommendedKw}.` + (v.batteryNominal || !v.cheapestFull ? "" : ` Une batterie complète de ${v.batteryNet}, pertes comprises, coûte environ ${v.cheapestFull} au tarif le plus bas.`),
+          a: `De ${v.fromPct} à ${v.toPct} %, comptez ${v.recommendedTime} sur ${v.recommendedKw}.` + (v.batteryNominal || !v.cheapestFull ? "" : ` Une batterie complète de ${v.batteryNet}, pertes comprises, coûte environ ${v.cheapestFull} avec le ${v.cheapestLabel}.`),
         });
         items.push({
           q: "Dois-je déclarer ma borne au gestionnaire de réseau ?",
@@ -249,6 +250,14 @@ export const frBE: Copy = {
     breadcrumbSection: "Coût de recharge par modèle",
     h1: (v) => `Combien coûte la recharge à domicile d'une ${v.make} ${v.model} ${v.trim} ?`,
     metaTitle: (v) => `Coût de recharge ${v.make} ${v.model} ${v.trim} : ${v.per100km} par 100 km | Laadgids`,
+    metaTitleShort: (v) => `Coût de recharge ${v.make} ${v.model} ${v.trim}`,
+    index: {
+      intro: (tariff, price, loss, km) => `Le coût de la recharge à domicile par 100 km et par an, pour chaque version présente sur le site. Calculé avec le ${tariff} à ${price} par kWh, ${loss} de pertes de charge et ${km} km par an. Cliquez sur un modèle pour le calcul et les sources.`,
+      colModel: "Version",
+      colPer100: "Par 100 km",
+      colYear: (km) => `Par an (${km} km)`,
+      makeLink: (make) => `Borne de recharge pour une ${make}`,
+    },
     metaDescription: (v) => `Recharger une ${v.make} ${v.model} ${v.trim} à domicile coûte ${v.per100km} par 100 km${v.perFull ? ` et ${v.perFull} par charge complète` : ""} avec le ${v.tariffLabel} (${v.pricePerKwh} par kWh).`,
     shortAnswer: (v) => `${v.per100km} par 100 km${v.perFull ? `, ${v.perFull} par charge complète` : ""} et ${v.perYear} par an pour ${v.kmPerYear} km. Calculé avec le ${v.tariffLabel} à ${v.pricePerKwh} par kWh, ${v.lossPct} de pertes de charge et ${v.realWorldPct} en plus de la consommation WLTP de ${v.consumptionWltp}.`,
     metrics: { per100km: "Par 100 km", perFull: "Par charge complète", perYear: (v) => `Par an (${v.kmPerYear} km)` },
