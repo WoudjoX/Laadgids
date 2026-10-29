@@ -37,11 +37,11 @@ export function CostPage({ data, locale, page, canonical, energyCta }: Props) {
   return (
     <article className="mx-auto max-w-content px-4 pb-16 pt-6">
       <JsonLd data={{ "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: crumbs.map((cr, i) => ({ "@type": "ListItem", position: i + 1, name: cr.label, item: cr.href ? new URL(cr.href, canonical).toString() : canonical })) }} />
-      <JsonLd data={{ "@context": "https://schema.org", "@type": "FAQPage", mainEntity: faq.map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })) }} />
+      <JsonLd data={{ "@context": "https://schema.org", "@type": "FAQPage", url: canonical, inLanguage: LOCALE_CONFIG[locale].htmlLang, dateModified: data.updatedAt, mainEntity: faq.map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })) }} />
       <Breadcrumb items={crumbs} />
       <h1 className="mt-4 max-w-prose">{c.h1(vars)}</h1>
       <p className="mt-2 text-[14px] text-ink2">
-        {copy.site.updated} {dateLong(data.updatedAt, locale)} · {regionLabel} · {vars.tariffLabel}
+        {copy.site.updated} <time dateTime={data.updatedAt}>{dateLong(data.updatedAt, locale)}</time> · {regionLabel} · {vars.tariffLabel}
       </p>
       <div className="mt-6">
         <AnswerBox label={copy.charger.shortAnswerLabel} text={c.shortAnswer(vars)} />

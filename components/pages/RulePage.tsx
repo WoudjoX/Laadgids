@@ -41,10 +41,11 @@ export function RulePage({ rule, copy, locale, canonical, modelLinks }: Props) {
           itemListElement: crumbs.map((c, i) => ({ "@type": "ListItem", position: i + 1, name: c.label, item: c.href ? new URL(c.href, canonical).toString() : canonical })),
         }}
       />
+      <JsonLd data={{ "@context": "https://schema.org", "@type": "WebPage", name: rule.h1, url: canonical, inLanguage: LOCALE_CONFIG[locale].htmlLang, dateModified: rule.updated }} />
       <Breadcrumb items={crumbs} />
       <h1 className="mt-4 max-w-prose">{rule.h1}</h1>
       <p className="mt-2 text-[14px] text-ink2">
-        {copy.site.updated} {dateLong(rule.updated, locale)} · {regionLabel}
+        {copy.site.updated} <time dateTime={rule.updated}>{dateLong(rule.updated, locale)}</time> · {regionLabel}
       </p>
       <div className="mt-6 rounded-card bg-accentSoft px-5 py-5 md:px-6">
         <p className="mb-2 text-[13px] font-semibold text-accent">{copy.charger.shortAnswerLabel}</p>

@@ -67,6 +67,9 @@ export function ChargerPage({ data, locale, page, related, canonical, cregPath }
         data={{
           "@context": "https://schema.org",
           "@type": "FAQPage",
+          url: canonical,
+          inLanguage: LOCALE_CONFIG[locale].htmlLang,
+          dateModified: data.updatedAt,
           mainEntity: faq.map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })),
         }}
       />
@@ -77,7 +80,7 @@ export function ChargerPage({ data, locale, page, related, canonical, cregPath }
       <h1 className="mt-4 max-w-prose">{c.h1(vars)}</h1>
       {/* 3 */}
       <p className="mt-2 text-[14px] text-ink2">
-        {copy.site.updated} {dateLong(data.updatedAt, locale)} · {regionLabel}
+        {copy.site.updated} <time dateTime={data.updatedAt}>{dateLong(data.updatedAt, locale)}</time> · {regionLabel}
       </p>
       {/* 4 */}
       <div className="mt-6">

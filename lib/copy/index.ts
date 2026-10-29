@@ -3,8 +3,9 @@ import { frBE } from "./fr-BE";
 import { nlBE } from "./nl-BE";
 import { nlNL } from "./nl-NL";
 import type { Copy } from "./types";
+import { TARIFF_PATH_SLUG } from "./tariffSlugs";
 
-export type { Copy, ChargerPageVars, CostPageVars, MakeHubVars, FaqItem } from "./types";
+export type { Copy, ChargerPageVars, CostPageVars, MakeHubVars, MakeFaqVars, FaqItem } from "./types";
 
 export const LOCALES: readonly Locale[] = ["nl-BE", "fr-BE", "nl-NL"];
 
@@ -46,9 +47,14 @@ export function chargerPath(locale: Locale, versionSlug: string): string {
   return `/${LOCALE_CONFIG[locale].segment}/${getCopy(locale).charger.sectionSlug}/${versionSlug}`;
 }
 
-/** Pad van een laadkosten-pagina: /nl-be/laadkosten/{versie}/{tarief}. */
+/** Tariefslug in het adres (lib/copy/tariffSlugs.ts). Oude Franse adressen sturen permanent door (next.config.ts). */
+export function tariffPathSlug(locale: Locale, tariffSlug: string): string {
+  return TARIFF_PATH_SLUG[locale]?.[tariffSlug] ?? tariffSlug;
+}
+
+/** Pad van een laadkosten-pagina: /nl-be/laadkosten/{versie}/{tarief}, /fr-be/cout-recharge/{versie}/fixe-jour. */
 export function costPath(locale: Locale, versionSlug: string, tariffSlug: string): string {
-  return `/${LOCALE_CONFIG[locale].segment}/${COST_SECTION[locale]}/${versionSlug}/${tariffSlug}`;
+  return `/${LOCALE_CONFIG[locale].segment}/${COST_SECTION[locale]}/${versionSlug}/${tariffPathSlug(locale, tariffSlug)}`;
 }
 
 /** Pad van een merkpagina: /nl-be/merk/tesla. */

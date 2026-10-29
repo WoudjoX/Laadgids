@@ -42,7 +42,8 @@ async function resolve(section: string, params: CostParams) {
   if (!page || page.status === "draft") return null;
   const cfg = LOCALE_CONFIG[locale];
   const [version, tariffs] = await Promise.all([loadVersion(params.slug), loadTariffs(cfg.country, cfg.region)]);
-  const tariff = tariffs.find((t) => t.slug === params.tariff);
+  // Het adres kan een vertaalde tariefslug dragen; de pagina kent haar tarief via secondary_id.
+  const tariff = tariffs.find((t) => t.id === page.secondary_id);
   if (!version || !tariff) return null;
   return { locale, page, pages, version, tariff, tariffs };
 }

@@ -59,6 +59,45 @@ export const nlNL: Copy = {
       ` Van 20 naar 80 % duurt tussen ${v.minTime} en ${v.maxTime} op de aanbevolen aansluiting.`,
     modelsHeading: (make) => `Modellen van ${make}`,
     otherMakes: "Andere merken",
+    costHeading: "Laadkosten per uitvoering",
+    costIntro: (tariff, price, loss, km) => `Gerekend met ${tariff} van ${price} per kWh, ${loss} laadverlies en ${km} km per jaar. Klik op een uitvoering voor de berekening en de bronnen.`,
+    allCostsLink: "Laadkosten van alle merken",
+    faq: (v) => {
+      const out: FaqItem[] = [];
+      const g0 = v.groups[0]!;
+      out.push({
+        q: `Welke laadpaal heb ik nodig voor een ${v.make}?`,
+        a:
+          v.groups.length === 1
+            ? `${v.count === 1 ? `Een ${g0.power}-laadpaal (${g0.connection}) volstaat.` : `Voor alle ${v.count} uitvoeringen volstaat een ${g0.power}-laadpaal (${g0.connection}).`} Meer vermogen levert geen tijdwinst op.`
+            : `Dat hangt af van de uitvoering. ${v.groups.map((g) => `${g.power} (${g.connection}): ${g.names}.`).join(" ")} Meer vermogen dan aanbevolen levert geen tijdwinst op.`,
+      });
+      const sp = v.singlePhase;
+      out.push({
+        q: `Laadt een ${v.make} 3-fase?`,
+        a: !sp
+          ? v.count === 1 ? "Ja, deze uitvoering laadt 3-fase." : `Ja, alle ${v.count} uitvoeringen laden 3-fase.`
+          : sp.count === v.count
+            ? `Nee, ${v.count === 1 ? "deze uitvoering laadt" : "alle uitvoeringen laden"} 1-fase, tot ${sp.power}. Een 3-fasee paal laadt niet sneller, maar is wel klaar voor een volgende auto.`
+            : `Niet allemaal. ${sp.names} ${sp.count === 1 ? "laadt" : "laden"} 1-fase, tot ${sp.power}; daar geeft een 3-fasee paal geen tijdwinst. De andere uitvoeringen laden 3-fase.`,
+      });
+      if (v.cost) {
+        const c = v.cost;
+        out.push({
+          q: `Wat kost thuisladen van een ${v.make}?`,
+          a:
+            v.count === 1
+              ? `Met ${c.tariff} van ${c.price} per kWh kost 100 km ${c.min}, of ${c.yearMin} per jaar bij ${c.km} km.`
+              : `Met ${c.tariff} van ${c.price} per kWh kost 100 km tussen ${c.min} (${c.minName}) en ${c.max} (${c.maxName}). Bij ${c.km} km per jaar is dat tussen ${c.yearMin} en ${c.yearMax}.`,
+        });
+      }
+      const t = v.time;
+      out.push({
+        q: `Hoe lang duurt thuisladen van een ${v.make}?`,
+        a: v.count === 1 ? `Van 20 naar 80 % duurt ${t.min} op de aanbevolen aansluiting.` : `Van 20 naar 80 % op de aanbevolen aansluiting duurt het van ${t.min} (${t.minName}) tot ${t.max} (${t.maxName}).`,
+      });
+      return out;
+    },
   },
   connections: {
     socket_2300: "Stopcontact (1-fase 10 A)",

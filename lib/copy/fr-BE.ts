@@ -62,6 +62,45 @@ export const frBE: Copy = {
       ` De 20 à 80 %, comptez entre ${v.minTime} et ${v.maxTime} sur le raccordement recommandé.`,
     modelsHeading: (make) => `Modèles ${make}`,
     otherMakes: "Autres marques",
+    costHeading: "Coût de recharge par version",
+    costIntro: (tariff, price, loss, km) => `Calculé avec le ${tariff} à ${price} par kWh, ${loss} de pertes de charge et ${km} km par an. Cliquez sur une version pour le calcul et les sources.`,
+    allCostsLink: "Coût de recharge de toutes les marques",
+    faq: (v) => {
+      const out: FaqItem[] = [];
+      const g0 = v.groups[0]!;
+      out.push({
+        q: `Quelle borne pour une ${v.make} ?`,
+        a:
+          v.groups.length === 1
+            ? `Une borne de ${g0.power} (${g0.connection}) suffit pour ${v.count === 1 ? "cette version" : `les ${v.count} versions`}. Plus de puissance n'apporte aucun gain de temps.`
+            : `Cela dépend de la version. ${v.groups.map((g) => `${g.power} (${g.connection}) : ${g.names}.`).join(" ")} Plus de puissance que recommandé n'apporte aucun gain de temps.`,
+      });
+      const sp = v.singlePhase;
+      out.push({
+        q: `Une ${v.make} charge-t-elle en triphasé ?`,
+        a: !sp
+          ? v.count === 1 ? "Oui, cette version charge en triphasé." : `Oui, les ${v.count} versions chargent en triphasé.`
+          : sp.count === v.count
+            ? `Non, ${v.count === 1 ? "cette version charge" : "toutes les versions chargent"} en monophasé, jusqu'à ${sp.power}. Une borne triphasée ne charge pas plus vite, mais elle est prête pour une prochaine voiture.`
+            : `Pas toutes. ${sp.names} ${sp.count === 1 ? "charge" : "chargent"} en monophasé, jusqu'à ${sp.power} ; une borne triphasée n'y apporte aucun gain de temps. Les autres versions chargent en triphasé.`,
+      });
+      if (v.cost) {
+        const c = v.cost;
+        out.push({
+          q: `Combien coûte la recharge à domicile d'une ${v.make} ?`,
+          a:
+            v.count === 1
+              ? `Avec le ${c.tariff} à ${c.price} par kWh, 100 km coûtent ${c.min}, soit ${c.yearMin} par an pour ${c.km} km.`
+              : `Avec le ${c.tariff} à ${c.price} par kWh, 100 km coûtent entre ${c.min} (${c.minName}) et ${c.max} (${c.maxName}). Pour ${c.km} km par an, cela fait entre ${c.yearMin} et ${c.yearMax}.`,
+        });
+      }
+      const t = v.time;
+      out.push({
+        q: `Combien de temps dure la recharge d'une ${v.make} ?`,
+        a: v.count === 1 ? `De 20 à 80 %, comptez ${t.min} sur le raccordement recommandé.` : `De 20 à 80 % sur le raccordement recommandé, comptez de ${t.min} (${t.minName}) à ${t.max} (${t.maxName}).`,
+      });
+      return out;
+    },
   },
   connections: {
     socket_2300: "Prise domestique (monophasé 10 A)",

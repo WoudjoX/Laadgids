@@ -4,14 +4,15 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Breadcrumb } from "@/components/Breadcrumb";
+import { CostTable } from "@/components/CostTable";
 import { JsonLd } from "@/components/JsonLd";
 import { Shell } from "@/components/Shell";
-import { chargingCost } from "@/lib/calc";
 import { COST_SECTION, LOCALES, LOCALE_CONFIG, getCopy, localeFromSegment, makePath } from "@/lib/copy";
-import { loadAllVersions, loadPages, loadTariffs } from "@/lib/db/cached";
-import type { Locale, TariffRow, VersionFull } from "@/lib/db/types";
-import { euro, euroPer100Km, int } from "@/lib/format";
+import { loadPages } from "@/lib/db/cached";
+import type { Locale } from "@/lib/db/types";
+import { int } from "@/lib/format";
 import { COST_DEFAULT_KM, centsPerKwh } from "@/lib/pages/cost";
+import { costRows, type CostRow } from "@/lib/pages/costRows";
 import { defaultOgImages, fitDescription, fitTitle, sectionAlternates, siteUrl } from "@/lib/seo/alternates";
 import { indexableLocales } from "@/lib/seo/locales";
 
@@ -28,33 +29,6 @@ export function costIndexStaticParams(section: string): { locale: string }[] {
   return LOCALES.filter((l) => COST_SECTION[l] === section).map((l) => ({ locale: LOCALE_CONFIG[l].segment }));
 }
 
-interface Row {
-  path: string;
-  v: VersionFull;
-  tariff: TariffRow;
-  per100: number;
-  perYear: number;
-}
-
-/** Laadkostenpagina's van deze locale die bestaan (index of noindex), met de berekening erbij. Leeg = geen overzicht. */
-async function rows(locale: Locale): Promise<Row[]> {
-  const cfg = LOCALE_CONFIG[locale];
-  const [pages, versions, tariffs] = await Promise.all([loadPages(locale, "charging_cost"), loadAllVersions(), loadTariffs(cfg.country, cfg.region)]);
-  const bySlug = new Map(versions.map((v) => [v.slug, v]));
-  const out: Row[] = [];
-  for (const p of pages) {
-    if (p.status === "draft") continue;
-    const parts = p.path.split("/");
-    const tariffSlug = parts.pop()!;
-    const v = bySlug.get(parts.pop()!);
-    const tariff = tariffs.find((t) => t.slug === tariffSlug);
-    if (!v || !tariff) continue;
-    const r = chargingCost(v, tariff, { km_per_year: COST_DEFAULT_KM });
-    out.push({ path: p.path, v, tariff, per100: r.cents_per_100km, perYear: r.cents_per_year });
-  }
-  return out;
-}
-
 /** Locales waarvoor een overzicht bestaat: alleen waar laadkostenpagina's zijn (nl-NL heeft nog geen tarieven). */
 async function localesWithCost(): Promise<Locale[]> {
   const out: Locale[] = [];
@@ -65,7 +39,7 @@ async function localesWithCost(): Promise<Locale[]> {
 export async function costIndexMetadata(section: string, seg: string): Promise<Metadata> {
   const locale = resolve(section, seg);
   if (!locale) return {};
-  const list = await rows(locale);
+  const list = await costRows(locale);
   if (list.length === 0) return {};
   const copy = getCopy(locale);
   const lang = locale.startsWith("fr") ? "fr" : "nl";
@@ -87,7 +61,7 @@ export async function costIndexMetadata(section: string, seg: string): Promise<M
 export async function renderCostIndex(section: string, seg: string) {
   const locale = resolve(section, seg);
   if (!locale) notFound();
-  const list = await rows(locale);
+  const list = await costRows(locale);
   if (list.length === 0) notFound();
   const copy = getCopy(locale);
   const cfg = LOCALE_CONFIG[locale];
@@ -96,7 +70,7 @@ export async function renderCostIndex(section: string, seg: string) {
   const km = int(COST_DEFAULT_KM, locale);
   const withCost = await localesWithCost();
   const switcher = Object.fromEntries(withCost.map((l) => [l, sectionPath(l)]));
-  const groups = new Map<string, Row[]>();
+  const groups = new Map<string, CostRow[]>();
   for (const r of list) groups.set(r.v.make.slug, [...(groups.get(r.v.make.slug) ?? []), r]);
   const sorted = [...groups.values()]
     .map((g) => g.sort((a, b) => `${a.v.vehicle.model} ${a.v.trim}`.localeCompare(`${b.v.vehicle.model} ${b.v.trim}`, undefined, { numeric: true })))
@@ -127,29 +101,8 @@ export async function renderCostIndex(section: string, seg: string) {
                     {copy.cost.index.makeLink(make.name)} →
                   </Link>
                 </div>
-                <div className="mt-2 overflow-x-auto rounded-card border-hair border-line bg-card">
-                  <table className="tnum w-full border-collapse text-[15px]">
-                    <thead>
-                      <tr className="bg-paper text-left text-[13px] text-ink2">
-                        <th className="px-4 py-2 font-normal">{copy.cost.index.colModel}</th>
-                        <th className="px-4 py-2 text-right font-normal">{copy.cost.index.colPer100}</th>
-                        <th className="px-4 py-2 text-right font-normal">{copy.cost.index.colYear(km)}</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {g.map((r) => (
-                        <tr key={r.path} className="border-t-hair border-line">
-                          <td className="px-4 py-2.5">
-                            <Link href={r.path}>
-                              {r.v.vehicle.model} {r.v.trim}
-                            </Link>
-                          </td>
-                          <td className="whitespace-nowrap px-4 py-2.5 text-right">{euroPer100Km(r.per100, locale)}</td>
-                          <td className="whitespace-nowrap px-4 py-2.5 text-right text-ink2">{euro(r.perYear, locale, { decimals: 0 })}</td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
+                <div className="mt-2">
+                  <CostTable rows={g} copy={copy} locale={locale} km={km} />
                 </div>
               </section>
             );

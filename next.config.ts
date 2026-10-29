@@ -1,4 +1,5 @@
 import type { NextConfig } from "next";
+import { TARIFF_PATH_SLUG } from "./lib/copy/tariffSlugs";
 
 const nextConfig: NextConfig = {
   reactStrictMode: true,
@@ -8,6 +9,10 @@ const nextConfig: NextConfig = {
   experimental: { globalNotFound: true },
   // Beveiligingsheaders. Geen Content-Security-Policy: Next zet inline scripts en Plausible laadt extern; een CSP vraagt
   // nonces en is een aparte taak.
+  // Franse laadkostenadressen droegen tot 29 oktober 2026 de Nederlandse tariefslug (lib/copy/index.ts, tariffPathSlug).
+  async redirects() {
+    return Object.entries(TARIFF_PATH_SLUG["fr-BE"] ?? {}).map(([from, to]) => ({ source: `/fr-be/cout-recharge/:slug/${from}`, destination: `/fr-be/cout-recharge/:slug/${to}`, permanent: true }));
+  },
   async headers() {
     return [
       {

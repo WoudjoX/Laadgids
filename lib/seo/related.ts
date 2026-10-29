@@ -1,6 +1,6 @@
 // Interne links (CLAUDE.md §7): deterministisch 4 tot 8 links. Geen random.
 import type { Locale, PageRow, VersionFull } from "@/lib/db/types";
-import { chargerPath, COST_SECTION, LOCALE_CONFIG, RULES_SECTION } from "@/lib/copy";
+import { chargerPath, COST_SECTION, LOCALE_CONFIG, RULES_SECTION, tariffPathSlug } from "@/lib/copy";
 
 export interface RelatedLink {
   kind: "sister" | "same_make" | "cost" | "rule";
@@ -48,7 +48,8 @@ export function relatedFor(version: VersionFull, all: VersionFull[], locale: Loc
 
   // Laadkosten-tegenhanger: de eerste levende kostenpagina van dit model (baseline-tarief eerst).
   const costPrefix = `/${cfg.segment}/${COST_SECTION[locale]}/${version.slug}/`;
-  const costLive = [...live].filter((p) => p.startsWith(costPrefix)).sort((a, b) => (a.endsWith("/vast-dag") ? -1 : b.endsWith("/vast-dag") ? 1 : a.localeCompare(b)));
+  const baseSlug = tariffPathSlug(locale, "vast-dag");
+  const costLive = [...live].filter((p) => p.startsWith(costPrefix)).sort((a, b) => (a.endsWith(`/${baseSlug}`) ? -1 : b.endsWith(`/${baseSlug}`) ? 1 : a.localeCompare(b)));
   if (costLive[0]) out.push({ kind: "cost", path: costLive[0], label: fullName(version) });
 
   // Regelpagina's staan op gewestniveau (vla/wal/bru) of op landniveau (be/nl); het gewest wint.

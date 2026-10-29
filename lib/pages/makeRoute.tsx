@@ -6,7 +6,8 @@ import { MakePage } from "@/components/pages/MakePage";
 import { LOCALES, LOCALE_CONFIG, getCopy, localeFromSegment, makePath } from "@/lib/copy";
 import { loadPages } from "@/lib/db/cached";
 import type { Locale } from "@/lib/db/types";
-import { makeHubVars } from "@/lib/pages/makeHub";
+import { makeFaqVars, makeHubVars } from "@/lib/pages/makeHub";
+import { costRows } from "@/lib/pages/costRows";
 import { modelIndex } from "@/lib/pages/modelIndex";
 import { alternatesFor, assertValidHreflangKeys, defaultOgImages, fitDescription, fitTitle } from "@/lib/seo/alternates";
 
@@ -40,7 +41,8 @@ async function resolve(section: string, params: MakeParams) {
   const all = await modelIndex(locale);
   const items = all.filter((i) => i.v.make.slug === params.make);
   if (!items.length) return null;
-  return { locale, page, pages, all, items };
+  const costs = (await costRows(locale)).filter((c) => c.v.make.slug === params.make);
+  return { locale, page, pages, all, items, costs };
 }
 
 export async function makeMetadata(section: string, params: MakeParams): Promise<Metadata> {
@@ -71,7 +73,7 @@ export async function renderMake(section: string, params: MakeParams) {
   const otherMakes = r.all.map((i) => i.v.make).filter((m) => m.id !== make.id && !seen.has(m.id) && seen.add(m.id)).sort((a, b) => a.name.localeCompare(b.name));
   return (
     <Shell copy={copy} locale={r.locale} alternates={alt.switcher}>
-      <MakePage copy={copy} locale={r.locale} make={make} items={r.items} all={r.all} otherMakes={otherMakes} vars={vars} canonical={alt.canonical} />
+      <MakePage copy={copy} locale={r.locale} make={make} items={r.items} all={r.all} otherMakes={otherMakes} vars={vars} costs={r.costs} faq={makeFaqVars(r.items, r.costs, r.locale, copy)} canonical={alt.canonical} />
     </Shell>
   );
 }

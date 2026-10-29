@@ -77,6 +77,19 @@ export interface MakeHubVars {
   maxTime: string; // "5 u 10 min"
 }
 
+/** FAQ-variabelen van een merkpagina. Alles al opgemaakt; namen zijn "Model Uitvoering", lijsten al samengevoegd. */
+export interface MakeFaqVars {
+  make: string;
+  count: number;
+  /** Aanbevolen aansluiting per groep, hoogste vermogen eerst. */
+  groups: { power: string; connection: string; names: string }[];
+  /** Uitvoeringen die 1-fasig laden; null als er geen zijn. `power` is het hoogste AC-vermogen onder hen. */
+  singlePhase: { count: number; names: string; power: string } | null;
+  time: { min: string; minName: string; max: string; maxName: string };
+  /** Null zolang de locale geen tarief heeft. */
+  cost: { tariff: string; price: string; km: string; min: string; minName: string; max: string; maxName: string; yearMin: string; yearMax: string } | null;
+}
+
 export interface FaqItem {
   q: string;
   a: string;
@@ -133,6 +146,10 @@ export interface Copy {
     intro: (v: MakeHubVars) => string; // sjabloonzin uit de data
     modelsHeading: (make: string) => string; // "Modellen van Tesla"
     otherMakes: string; // "Andere merken"
+    costHeading: string; // "Laadkosten per uitvoering"
+    costIntro: (tariff: string, price: string, loss: string, km: string) => string;
+    allCostsLink: string; // "Laadkosten van alle merken"
+    faq: (v: MakeFaqVars) => FaqItem[];
   };
   connections: Record<ConnectionKey, string>;
   charger: {

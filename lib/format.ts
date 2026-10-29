@@ -59,6 +59,12 @@ export function euroPer100Km(cents_per_100km: number, locale: Locale): string {
   return euro(cents_per_100km, locale, { decimals: 2 });
 }
 
+/** "A, B en C" / "A, B et C". */
+export function joinList(items: string[], locale: Locale): string {
+  if (items.length <= 1) return items[0] ?? "";
+  return `${items.slice(0, -1).join(", ")} ${locale === "fr-BE" ? "et" : "en"} ${items.at(-1)}`;
+}
+
 export function int(n: number, locale: Locale): string {
   return new Intl.NumberFormat(intlLocale[locale], { maximumFractionDigits: 0 }).format(n);
 }
