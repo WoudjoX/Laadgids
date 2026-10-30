@@ -92,6 +92,9 @@ export function buildChargerPage(version: VersionFull, locale: Locale, rules: Ru
     // Specificatienotities zijn in het Nederlands geschreven; op fr-BE pas tonen met een handgeschreven vertaling.
     specNotes: locale.startsWith("nl") ? (version.spec_notes ?? null) : null,
     kmPerHour: int(kmPerHour, locale),
+    acOptional: version.ac_max_w_optional ? kw(version.ac_max_w_optional, locale) : null,
+    capacityBaselineKw: a.capacity ? kw(a.capacity.household_baseline_w, locale) : null,
+    capacityMinKw: a.capacity ? kw(a.capacity.min_kw * 1000, locale) : null,
     creg: creg?.vars ?? null,
     batteryEstimated: Boolean(version.battery_estimated),
     batteryNominal: battery.basis === "nominal",

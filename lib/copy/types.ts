@@ -37,6 +37,11 @@ export interface ChargerPageVars {
   capacityVatPct: string | null; // "6 %"
   capacityIsAverage: boolean;
   specNotes: string | null;
+  /** Optionele sterkere boordlader, geformatteerd ("22 kW"); null als die er niet is. */
+  acOptional: string | null;
+  /** Huishoudelijke piek zonder lader en minimum uit de capaciteitstariefregel ("4 kW", "2,5 kW"). */
+  capacityBaselineKw: string | null;
+  capacityMinKw: string | null;
   /** Kilometers bereik per laaduur op de aanbevolen aansluiting, met realiteitsfactor en laadverlies. */
   kmPerHour: string; // "58"
   creg: CregVars | null;

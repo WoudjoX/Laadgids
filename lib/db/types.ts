@@ -53,6 +53,8 @@ export interface VersionRow {
   wltp_range_km: number | null;
   consumption_wh_per_km: number;
   ac_max_w: number;
+  /** Hoger AC-vermogen met een optionele of uitvoeringsafhankelijke boordlader (bv. 22 kW); alleen voor een waarschuwing. */
+  ac_max_w_optional?: number | null;
   ac_phases: 1 | 3;
   dc_max_w: number | null;
   towing_kg: number | null;

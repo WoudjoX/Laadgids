@@ -85,7 +85,7 @@ export const frBE: Copy = {
               heading: "Tarif capacitaire en Flandre",
               paragraphs: [
                 `En Flandre, une partie des coûts de réseau dépend de votre pic quart-horaire le plus élevé du mois, avec un minimum de ${v.capacity.minKw}. Nous comptons ${v.capacity.incl} par kW et par an${v.capacity.vatPct ? `, TVA de ${v.capacity.vatPct} comprise` : ""}${v.capacity.isAverage ? ", soit la moyenne des gestionnaires de réseau" : ""} (vérifié le ${v.capacity.checked}).`,
-                `Nous partons d'un pic du ménage de ${v.capacity.baselineKw} sans borne. Sans délestage dynamique, la puissance de charge s'y ajoute. Avec délestage, la borne réduit sa puissance quand la maison consomme beaucoup ; le pic est alors le plus élevé des deux, la maison ou la borne.`,
+                `Nous partons d'un ménage type sans voiture électrique, avec un pic de ${v.capacity.baselineKw}. Sans délestage dynamique, la puissance de charge s'y ajoute. Avec délestage, la borne réduit sa puissance quand la maison consomme beaucoup ; le pic est alors le plus élevé des deux, la maison ou la borne.`,
               ],
             },
           ]
@@ -187,6 +187,8 @@ export const frBE: Copy = {
       s.push(`La ${v.make} ${v.model} charge à ${v.acMax} maximum ; passer de ${v.fromPct} à ${v.toPct} % prend ${v.recommendedTime}.`);
       if (v.advice.warnings.includes("single_phase_car_no_gain_3f")) {
         s.push("Une borne triphasée ne charge pas cette voiture plus vite, mais elle est prête pour la suivante.");
+      } else if (v.advice.warnings.includes("optional_onboard_charger") && v.acOptional) {
+        s.push(`Avec le chargeur embarqué de ${v.acOptional} de certaines versions, elle charge plus vite, mais uniquement sur un raccordement triphasé 3N400V de 32 A.`);
       } else if (v.advice.warnings.includes("no_gain_above_recommended")) {
         s.push(`Au-delà de ${v.recommendedKw}, vous ne gagnez rien.`);
       }
@@ -233,6 +235,8 @@ export const frBE: Copy = {
       peak_capacity_tariff: () =>
         "En Flandre, le tarif capacitaire se base sur votre pic quart-horaire mensuel. Une borne de 11 kW qui charge en même temps que la plaque de cuisson ou la pompe à chaleur augmente ce pic. Le délestage dynamique limite ce pic.",
       no_gain_above_recommended: (v) => `Les raccordements au-delà de ${v.recommendedKw} ne chargent pas cette voiture plus vite.`,
+      optional_onboard_charger: (v) =>
+        `Certaines versions disposent d'un chargeur embarqué de ${v.acOptional ?? ""}, de série ou en option. Vérifiez sur votre bon de commande quel chargeur équipe votre voiture. ${v.acOptional ?? ""} n'est possible que sur un raccordement triphasé 3N400V de 32 A, pas sur du 3×230 V.`,
     },
     cost: {
       heading: (v) => `Combien coûte la recharge à domicile de la ${v.model} ?`,
@@ -248,7 +252,7 @@ export const frBE: Copy = {
     },
     peak: {
       heading: "Impact sur le tarif capacitaire (Flandre)",
-      intro: () => "Hypothèse : un pic domestique de 3,5 kW sans borne. Le tarif compte par kW au-delà de 2,5 kW.",
+      intro: (v) => `Hypothèse : un ménage type sans voiture électrique, avec un pic de ${v.capacityBaselineKw ?? ""}. Le tarif compte par kW au-delà de ${v.capacityMinKw ?? ""}.`,
       without: "sans délestage",
       with: "avec délestage",
       perYear: "par an en plus",
@@ -314,7 +318,9 @@ export const frBE: Copy = {
           a:
             v.advice.recommended_connection === "3f_32a_22000"
               ? `Oui. Cette version charge en AC à ${v.acMax}, un raccordement triphasé 32 A l'exploite entièrement.`
-              : `Non. Le chargeur embarqué limite la charge AC à ${v.acMax}. Sur 22 kW, la voiture charge aussi vite que sur ${v.recommendedKw}.`,
+              : v.acOptional
+                ? `Seulement avec le chargeur embarqué de ${v.acOptional} de certaines versions. Avec le chargeur de série, la voiture charge en AC à ${v.acMax}, même sur une borne de 22 kW.`
+                : `Non. Le chargeur embarqué limite la charge AC à ${v.acMax}. Sur 22 kW, la voiture charge aussi vite que sur ${v.recommendedKw}.`,
         });
         if (v.acPhases === 1) {
           items.push({

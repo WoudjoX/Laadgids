@@ -14,7 +14,8 @@ export type ReasonCode =
 export type WarningCode =
   | "single_phase_car_no_gain_3f" // 1F-auto: 3F-paal geeft geen tijdwinst, wel toekomstvast
   | "peak_capacity_tariff" // 11 kW of meer in Vlaanderen: capaciteitstarief
-  | "no_gain_above_recommended"; // duurdere aansluitingen leveren niets op
+  | "no_gain_above_recommended" // duurdere aansluitingen leveren niets op
+  | "optional_onboard_charger"; // sommige uitvoeringen hebben een sterkere boordlader (ac_max_w_optional)
 
 export interface AdviceResult {
   recommended_connection: ConnectionKey;
@@ -60,7 +61,9 @@ export function advice(version: VersionInput, ctx: AdviceContext): AdviceResult 
   if (battery && battery.wh < SMALL_BATTERY_WH) reasons.push("small_battery_74_enough");
 
   if (rec.seconds <= OVERNIGHT_SECONDS) reasons.push("full_overnight_on_recommended");
-  if (table.some((r) => r.no_gain && r.max_w > rec.max_w)) warnings.push("no_gain_above_recommended");
+  // 5. Sterkere boordlader op sommige uitvoeringen: dan is "meer vermogen levert niets op" niet waar voor elke koper.
+  if (version.ac_max_w_optional && version.ac_max_w_optional > version.ac_max_w) warnings.push("optional_onboard_charger");
+  else if (table.some((r) => r.no_gain && r.max_w > rec.max_w)) warnings.push("no_gain_above_recommended");
 
   return {
     recommended_connection: rec.connection,

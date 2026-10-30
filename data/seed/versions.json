@@ -294,7 +294,8 @@
     "spec_source_date": "2026-09-22",
     "verified_at": "2026-09-22",
     "spec_notes": "WLTP 15,4 tot 17,2 kWh/100 km afhankelijk van uitrusting; gerekend met het midden. 11 kW AC is in Europa 3-fasig 16 A; 22 kW is een optie. Modeljaar 2026 heeft 65,2 kWh en 14,3 tot 16,1 kWh/100 km (bmw.be).",
-    "battery_estimated": false
+    "battery_estimated": false,
+    "ac_max_w_optional": 22000
   },
   {
     "slug": "volvo-ex30-single-motor-extended-range-2025",
@@ -321,7 +322,8 @@
     "catalog_price_nl_cents": null,
     "towing_kg": null,
     "verified_at": "2026-10-02",
-    "battery_estimated": false
+    "battery_estimated": false,
+    "ac_max_w_optional": 22000
   },
   {
     "slug": "volvo-ex40-single-motor-extended-range-2025",
@@ -483,7 +485,8 @@
     "catalog_price_nl_cents": null,
     "towing_kg": null,
     "verified_at": "2026-09-25",
-    "battery_estimated": false
+    "battery_estimated": false,
+    "ac_max_w_optional": 22000
   },
   {
     "slug": "ford-mustang-mach-e-extended-range-rwd-2025",
@@ -591,7 +594,8 @@
     "catalog_price_be_cents": null,
     "catalog_price_nl_cents": null,
     "towing_kg": null,
-    "verified_at": "2026-09-25"
+    "verified_at": "2026-09-25",
+    "ac_max_w_optional": 22000
   },
   {
     "slug": "volkswagen-id7-pro-2025",
@@ -672,7 +676,8 @@
     "catalog_price_be_cents": null,
     "catalog_price_nl_cents": null,
     "towing_kg": null,
-    "verified_at": "2026-09-25"
+    "verified_at": "2026-09-25",
+    "ac_max_w_optional": 22000
   },
   {
     "slug": "mercedes-benz-eqa-250-plus-2025",
@@ -969,7 +974,8 @@
     "catalog_price_be_cents": null,
     "catalog_price_nl_cents": null,
     "towing_kg": null,
-    "verified_at": "2026-10-02"
+    "verified_at": "2026-10-02",
+    "ac_max_w_optional": 22000
   },
   {
     "slug": "volvo-ex90-twin-motor-2026",
@@ -1509,7 +1515,8 @@
     "spec_source_date": "2026-10-06",
     "verified_at": "2026-10-08",
     "spec_notes": "Technische gegevens op bmw.be, huidig modeljaar: xDrive30 met 230 kW (313 pk), accucapaciteit 65 kWh (enig gepubliceerd cijfer), WLTP 15,3 tot 16,6 kWh/100 km (gerekend met het midden), 11 kW AC standaard en 22 kW als optie. De pagina toont ook een blok van het vorige modeljaar met 64,8 kWh.",
-    "battery_estimated": false
+    "battery_estimated": false,
+    "ac_max_w_optional": 22000
   },
   {
     "id": 58,

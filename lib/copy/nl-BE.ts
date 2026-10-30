@@ -85,7 +85,7 @@ export const nlBE: Copy = {
               heading: "Capaciteitstarief in Vlaanderen",
               paragraphs: [
                 `In Vlaanderen betaal je een deel van de netkosten per kW van je hoogste kwartierpiek per maand, met een minimum van ${v.capacity.minKw}. We rekenen met ${v.capacity.incl} per kW per jaar${v.capacity.vatPct ? ` inclusief ${v.capacity.vatPct} btw` : ""}${v.capacity.isAverage ? ", het gemiddelde van de netbeheerders" : ""} (gecontroleerd op ${v.capacity.checked}).`,
-                `Uitgangspunt is een huishoudelijke piek van ${v.capacity.baselineKw} zonder lader. Zonder load balancing tellen we het laadvermogen daarbovenop. Met load balancing regelt de lader terug als het huis veel verbruikt; de piek is dan het hoogste van de twee, het huis of de lader.`,
+                `Uitgangspunt is een typisch gezin zonder EV, met een piek van ${v.capacity.baselineKw}. Zonder load balancing tellen we het laadvermogen daarbovenop. Met load balancing regelt de lader terug als het huis veel verbruikt; de piek is dan het hoogste van de twee, het huis of de lader.`,
               ],
             },
           ]
@@ -187,6 +187,8 @@ export const nlBE: Copy = {
       s.push(`De ${v.make} ${v.model} laadt op maximaal ${v.acMax}; van ${v.fromPct} naar ${v.toPct} % duurt dan ${v.recommendedTime}.`);
       if (v.advice.warnings.includes("single_phase_car_no_gain_3f")) {
         s.push("Een 3-fasige paal laadt deze auto niet sneller, maar is wel klaar voor een volgende auto.");
+      } else if (v.advice.warnings.includes("optional_onboard_charger") && v.acOptional) {
+        s.push(`Met de ${v.acOptional}-boordlader die sommige uitvoeringen hebben, laadt hij sneller, maar alleen op een 3-fasige 3N400V-aansluiting van 32 A.`);
       } else if (v.advice.warnings.includes("no_gain_above_recommended")) {
         s.push(`Meer vermogen dan ${v.recommendedKw} levert niets op.`);
       }
@@ -236,6 +238,8 @@ export const nlBE: Copy = {
       peak_capacity_tariff: () =>
         "In Vlaanderen telt je hoogste kwartierpiek per maand mee in het capaciteitstarief. Een 11 kW-lader die samenvalt met kookplaat of warmtepomp verhoogt die piek. Load balancing beperkt die piek.",
       no_gain_above_recommended: (v) => `Aansluitingen boven ${v.recommendedKw} laden deze auto niet sneller.`,
+      optional_onboard_charger: (v) =>
+        `Sommige uitvoeringen hebben een ${v.acOptional ?? ""}-boordlader, standaard of als optie. Kijk op je bestelbon welke lader je auto heeft. ${v.acOptional ?? ""} haal je alleen op een 3-fasige 3N400V-aansluiting van 32 A, niet op 3×230 V.`,
     },
     cost: {
       heading: (v) => `Wat kost thuisladen voor de ${v.model}?`,
@@ -252,7 +256,7 @@ export const nlBE: Copy = {
     peak: {
       heading: "Impact op het capaciteitstarief (Vlaanderen)",
       intro: (v) =>
-        `Uitgangspunt: een huishoudelijke piek van ${v.capacity11 || v.capacity74 ? "3,5 kW" : ""} zonder lader. Het tarief rekent per kW boven 2,5 kW.`,
+        `Uitgangspunt: een typisch gezin zonder EV, met een piek van ${v.capacityBaselineKw ?? ""}. Het tarief rekent per kW boven ${v.capacityMinKw ?? ""}.`,
       without: "zonder load balancing",
       with: "met load balancing",
       perYear: "per jaar extra",
@@ -318,7 +322,9 @@ export const nlBE: Copy = {
           a:
             v.advice.recommended_connection === "3f_32a_22000"
               ? `Ja. Deze versie laadt AC op ${v.acMax}, dus een 3-fasige 32 A-aansluiting benut dat volledig.`
-              : `Nee. De onboard-lader beperkt AC-laden tot ${v.acMax}. Op 22 kW laadt de auto even snel als op ${v.recommendedKw}.`,
+              : v.acOptional
+                ? `Alleen met de ${v.acOptional}-boordlader die sommige uitvoeringen hebben. Met de standaardlader laadt de auto AC op ${v.acMax}, ook aan een 22 kW-paal.`
+                : `Nee. De onboard-lader beperkt AC-laden tot ${v.acMax}. Op 22 kW laadt de auto even snel als op ${v.recommendedKw}.`,
         });
         if (v.acPhases === 1) {
           items.push({

@@ -87,6 +87,16 @@ describe("advice", () => {
     expect(a.capacity).toBeNull();
     expect(a.warnings).not.toContain("peak_capacity_tariff");
   });
+  it("11 kW-auto met optionele 22 kW-boordlader: rekent met 11 kW, waarschuwt in plaats van 'geen winst'", () => {
+    const a = advice({ ...car11, ac_max_w_optional: 22000 }, { region: "VLA", capacity_rule: capRule });
+    expect(a.recommended_connection).toBe("3f_16a_11000");
+    expect(a.warnings).toContain("optional_onboard_charger");
+    expect(a.warnings).not.toContain("no_gain_above_recommended");
+  });
+  it("optioneel vermogen gelijk aan of lager dan het standaardvermogen telt niet (randgeval)", () => {
+    expect(advice({ ...car11, ac_max_w_optional: 11000 }, { region: "VLA", capacity_rule: capRule }).warnings).not.toContain("optional_onboard_charger");
+    expect(advice({ ...car11, ac_max_w_optional: null }, { region: "VLA", capacity_rule: capRule }).warnings).toContain("no_gain_above_recommended");
+  });
   it("22 kW-auto: aanbevolen 3F 32 A, geen no_gain-waarschuwing", () => {
     const a = advice(car22, { region: "VLA", capacity_rule: capRule });
     expect(a.recommended_connection).toBe("3f_32a_22000");

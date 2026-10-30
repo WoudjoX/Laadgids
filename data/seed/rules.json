@@ -12,11 +12,11 @@
       "vat_pct": 6,
       "is_regional_average": true,
       "min_kw": 2.5,
-      "household_baseline_w": 3500
+      "household_baseline_w": 4000
     },
     "source_url": "https://www.vlaamsenutsregulator.be/elektriciteit-en-aardgas/nettarieven/capaciteitstarief",
     "source_checked_at": "2026-09-22",
-    "notes": "VREG: gemiddeld 53,39 EUR/kW/jaar excl. btw voor 2026; verschilt per netgebied (Fluvius West 57,10 excl.). Incl. 6 % btw = 56,59 (eigen berekening, zo gelabeld op de pagina). Minimum 2,5 kW."
+    "notes": "VREG: gemiddeld 53,39 EUR/kW/jaar excl. btw voor 2026; verschilt per netgebied (Fluvius West 57,10 excl.). Incl. 6 % btw = 56,59 (eigen berekening, zo gelabeld op de pagina). Minimum 2,5 kW. Huishoudpiek 4 kW ('typisch gezin zonder EV'), beslissing Erwin 30 oktober 2026 (was 3,5 kW uit een VREG-rekenvoorbeeld uit 2021): VREG gemiddelde maandpiek Vlaanderen 4,37 kW (cijfers 2023), Luminus 4,16 kW, ander bericht 3,99 kW; kennisbankpagina capaciteitstarief rekent met 4 kW."
   },
   {
     "id": 2,

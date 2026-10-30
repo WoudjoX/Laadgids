@@ -167,6 +167,7 @@ export const nlNL: Copy = {
         "Deze auto laadt 1-fase. Een 3-fase laadpaal geeft geen tijdwinst, wel toekomstvastheid als je later een 11 kW-auto koopt.",
       peak_capacity_tariff: () => "",
       no_gain_above_recommended: (v) => `Aansluitingen boven ${v.recommendedKw} laden deze auto niet sneller.`,
+      optional_onboard_charger: (v) => `Sommige uitvoeringen hebben een ${v.acOptional ?? ""}-boordlader, standaard of als optie. Kijk op je bestelbon welke lader je auto heeft.`,
     },
     cost: {
       heading: (v) => `Wat kost thuisladen voor de ${v.model}?`,
