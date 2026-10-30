@@ -2,9 +2,11 @@
 import { batteryForCalc } from "@/lib/calc/battery";
 import { advice, chargingCost, DEFAULT_REAL_WORLD_FACTOR, type ChargingCostResult } from "@/lib/calc";
 import { LOCALE_CONFIG, chargerPath, costPath, getCopy, type Copy, type CostPageVars } from "@/lib/copy";
-import type { Locale, TariffRow, VersionFull } from "@/lib/db/types";
-import { euro, euroPer100Km, int, kw, kwh } from "@/lib/format";
+import type { TariffRow, VersionFull } from "@/lib/db/types";
+import type { Locale, RuleRow } from "@/lib/db/types";
+import { centsPerKwh, euro, euroPer100Km, int, kw, kwh } from "@/lib/format";
 import type { SourceItem } from "./charger";
+import { cregReimbursement } from "./creg";
 
 export const COST_KM_SCENARIOS = [8_000, 12_000, 16_000, 20_000, 25_000] as const;
 export const COST_DEFAULT_KM = 12_000;
@@ -20,12 +22,9 @@ export interface CostPageData {
   updatedAt: string;
 }
 
-export function centsPerKwh(price: number, locale: Locale): string {
-  const n = new Intl.NumberFormat(locale === "fr-BE" ? "fr-BE" : "nl-BE", { minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(price);
-  return locale === "fr-BE" ? `${n} centimes` : `${n} cent`;
-}
+export { centsPerKwh } from "@/lib/format";
 
-export function buildCostPage(version: VersionFull, locale: Locale, tariff: TariffRow, allTariffs: TariffRow[], today: string): CostPageData {
+export function buildCostPage(version: VersionFull, locale: Locale, tariff: TariffRow, allTariffs: TariffRow[], today: string, rules: RuleRow[] = []): CostPageData {
   const copy = getCopy(locale);
   const cfg = LOCALE_CONFIG[locale];
   const lang = locale.startsWith("fr") ? "fr" : "nl";
@@ -35,6 +34,7 @@ export function buildCostPage(version: VersionFull, locale: Locale, tariff: Tari
   const cons = new Intl.NumberFormat(lang === "fr" ? "fr-BE" : "nl-BE", { minimumFractionDigits: 1, maximumFractionDigits: 1 }).format(version.consumption_wh_per_km / 10);
 
   const battery = batteryForCalc(version) ?? { wh: 0, basis: "net" as const };
+  const creg = cregReimbursement(version, rules, locale, result.wh_charged_per_year, COST_DEFAULT_KM, today);
 
   const vars: CostPageVars = {
     locale,
@@ -63,12 +63,14 @@ export function buildCostPage(version: VersionFull, locale: Locale, tariff: Tari
     })),
     chargerPath: chargerPath(locale, version.slug),
     recommendedKw: kw(advice(version, { region: null, capacity_rule: null }).recommended_w, locale),
+    creg: creg?.vars ?? null,
   };
 
   const sources: SourceItem[] = [
     { title: copy.charger.sources.specTitle(version.make.name, version.vehicle.model), url: version.spec_source_url, checked: version.spec_source_date },
     { title: `${vars.tariffLabel}: ${vars.pricePerKwh}/kWh`, url: tariff.source_url, checked: tariff.source_checked_at },
   ];
-  const updatedAt = [version.spec_source_date, tariff.source_checked_at].sort().at(-1) ?? today;
+  if (creg && creg.source.url !== tariff.source_url) sources.push(creg.source);
+  const updatedAt = [version.spec_source_date, tariff.source_checked_at, creg?.source.checked].filter((d): d is string => Boolean(d)).sort().at(-1) ?? today;
   return { copy, vars, tariff, result, byKm, others, sources, updatedAt };
 }

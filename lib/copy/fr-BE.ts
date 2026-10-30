@@ -50,6 +50,69 @@ export const frBE: Copy = {
       below_11: (kw) => `recharge jusqu'à ${kw} : une borne de 11 kW suffit largement`,
     },
   },
+  method: {
+    slug: "notre-methode",
+    title: "Notre méthode de calcul",
+    metaDescription: "Les hypothèses et formules derrière chaque calcul de Laadgids : puissance et temps de charge, consommation, prix de l'électricité, tarif capacitaire et remboursement CREG.",
+    intro: "Chaque page de Laadgids est un calcul. Voici les hypothèses et les formules que nous utilisons, avec les valeurs en vigueur aujourd'hui. Quand un tarif ou une règle change, nous recalculons toutes les pages.",
+    sections: (v) => [
+      {
+        heading: "Puissance et temps de charge",
+        paragraphs: [
+          "À domicile, votre voiture charge à la plus basse de deux puissances : la puissance de charge AC maximale de la voiture et ce que fournit le raccordement. Une voiture qui charge en monophasé atteint au plus 7,4 kW sur une borne triphasée. Une voiture triphasée sur un raccordement monophasé aussi.",
+          `Nous calculons le temps de charge de ${v.fromPct} à ${v.toPct} % de la batterie, avec ${v.lossPct} de pertes de charge : le réseau fournit plus d'énergie que ce qui arrive dans la batterie.`,
+          "La puissance recommandée est le plus petit raccordement sur lequel la voiture atteint sa puissance AC maximale. Un raccordement plus puissant ne la charge pas plus vite.",
+        ],
+      },
+      {
+        heading: "Batterie",
+        paragraphs: [
+          "Nous utilisons la capacité utile (nette) quand le constructeur la publie. S'il ne publie que la capacité nominale, nous calculons le temps de charge avec celle-ci. C'est une limite haute, et nous n'affichons alors pas de coût par charge complète.",
+          "La mention « (estimation) » signifie que le constructeur n'a pas publié cette valeur lui-même. Une note sur la page le signale ; le temps de charge et le coût par charge peuvent alors différer de quelques pour cent.",
+        ],
+      },
+      {
+        heading: "Consommation et coût",
+        paragraphs: [
+          `Nous partons de la consommation WLTP combinée du constructeur et ajoutons ${v.realWorldPct}, car la consommation sur la route dépasse la valeur d'homologation. S'y ajoutent ${v.lossPct} de pertes de charge.`,
+          `Le coût correspond aux kWh prélevés sur le réseau multipliés par le prix par kWh. Par an, nous comptons ${v.km} km.`,
+          `Comme prix, nous utilisons le tarif CREG de la région comme référence, tous frais par kWh compris : ${v.tariffs.map((t) => `${t.region} ${t.price} par kWh (vérifié le ${t.checked})`).join(", ")}. Votre propre contrat peut être plus cher ou moins cher.`,
+        ],
+      },
+      ...(v.capacity
+        ? [
+            {
+              heading: "Tarif capacitaire en Flandre",
+              paragraphs: [
+                `En Flandre, une partie des coûts de réseau dépend de votre pic quart-horaire le plus élevé du mois, avec un minimum de ${v.capacity.minKw}. Nous comptons ${v.capacity.incl} par kW et par an${v.capacity.vatPct ? `, TVA de ${v.capacity.vatPct} comprise` : ""}${v.capacity.isAverage ? ", soit la moyenne des gestionnaires de réseau" : ""} (vérifié le ${v.capacity.checked}).`,
+                `Nous partons d'un pic du ménage de ${v.capacity.baselineKw} sans borne. Sans délestage dynamique, la puissance de charge s'y ajoute. Avec délestage, la borne réduit sa puissance quand la maison consomme beaucoup ; le pic est alors le plus élevé des deux, la maison ou la borne.`,
+              ],
+            },
+          ]
+        : []),
+      ...(v.creg
+        ? [
+            {
+              heading: "Remboursement pour une voiture de société",
+              paragraphs: [
+                `Votre employeur peut rembourser la recharge à domicile au tarif CREG, par région et par trimestre. Nous multiplions les kWh par an (calculés comme ci-dessus) par le tarif CREG du ${v.creg.quarter} (vérifié le ${v.creg.checked}).`,
+              ],
+            },
+          ]
+        : []),
+      {
+        heading: "Sources et contrôle",
+        paragraphs: [
+          "Les caractéristiques proviennent des listes de prix et fiches techniques des constructeurs, avec leur date. Un contrôle hebdomadaire compare nos chiffres à ces documents ; une personne décide de chaque modification. Les règles et tarifs sont saisis à la main, toujours avec source et date.",
+          "S'il manque une donnée nécessaire au calcul, nous demandons à Google de ne pas reprendre la page.",
+        ],
+      },
+      {
+        heading: "Ce que nous ne calculons pas",
+        paragraphs: ["L'effet de la température et du préchauffage, la recharge rapide en route, les frais fixes de votre facture qui ne dépendent pas des kWh, et les panneaux solaires. Les tarifs dynamiques suivront."],
+      },
+    ],
+  },
   makeHub: {
     sectionSlug: "marque",
     breadcrumb: "Marques",
@@ -201,6 +264,7 @@ export const frBE: Copy = {
       chartRows: { without: "sans borne", with: "borne en plus", withLb: "avec délestage" },
     },
     lead: {
+      jump: "Demander un devis pour une borne",
       heading: "Devis pour une borne à domicile",
       intro: (v) => `Demandez un devis pour une installation de ${v.recommendedKw}. Nous transmettons votre demande à trois installateurs de votre région au maximum, au plus tard dans les quatre semaines.`,
       postal: "Code postal",
@@ -239,6 +303,7 @@ export const frBE: Copy = {
       heading: "Voiture de société ?",
       text: "Votre employeur rembourse la recharge à domicile au tarif CREG trimestriel. Il vous faut une borne avec compteur MID qui enregistre la consommation séparément.",
       link: "Lire les règles du tarif CREG",
+      reimburse: (v) => `Avec la ${v.make} ${v.model}, vous chargez environ ${v.kwh} kWh pour ${v.km} km par an. Remboursé au tarif CREG en ${v.region} au ${v.quarter} (${v.rate} par kWh), cela représente ${v.perYear} par an.`,
     },
     faq: {
       heading: "Questions fréquentes",
@@ -262,8 +327,8 @@ export const frBE: Copy = {
           a: `De ${v.fromPct} à ${v.toPct} %, comptez ${v.recommendedTime} sur ${v.recommendedKw}.` + (v.batteryNominal || !v.cheapestFull ? "" : ` Une batterie complète de ${v.batteryNet}, pertes comprises, coûte environ ${v.cheapestFull} avec le ${v.cheapestLabel}.`),
         });
         items.push({
-          q: "Dois-je déclarer ma borne au gestionnaire de réseau ?",
-          a: "Oui. En Wallonie auprès d'ORES ou de RESA, à Bruxelles auprès de Sibelga, en Flandre auprès de Fluvius. Votre installateur s'en charge généralement.",
+          q: `Combien de kilomètres récupère-t-on par heure de charge avec la ${v.make} ${v.model} ?`,
+          a: `Environ ${v.kmPerHour} km d'autonomie par heure sur ${v.recommendedKw}, calculé avec la consommation WLTP majorée de 15 % et 10 % de pertes de charge.`,
         });
         return items.slice(0, 5);
       },
@@ -274,7 +339,7 @@ export const frBE: Copy = {
       cost: "Coût de recharge par tarif",
       rules: "Règles dans votre région",
     },
-    sources: { heading: "Sources", checked: "vérifié le", specNotes: "Remarque sur les caractéristiques", specTitle: (make, model) => `${make} ${model} : caractéristiques`, capacityTitle: "VREG / Fluvius : tarif capacitaire", tariffTitle: "CREG : tarif de recharge à domicile par région" },
+    sources: { heading: "Sources", checked: "vérifié le", specNotes: "Remarque sur les caractéristiques", specTitle: (make, model) => `${make} ${model} : caractéristiques`, cregTitle: "CREG : tarif de remboursement de la recharge à domicile des voitures de société", capacityTitle: "VREG / Fluvius : tarif capacitaire", tariffTitle: "CREG : tarif de recharge à domicile par région" },
   },
   rulesPages: {
     "monophase-vs-triphase": "Monophasé ou triphasé ?",

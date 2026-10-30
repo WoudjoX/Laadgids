@@ -63,7 +63,7 @@ async function lastModifiedFor(locale: Locale): Promise<(p: PageRow) => string |
         return (v && charger.get(v.id)) ?? null;
       case "charging_cost": {
         const t = tariffs.find((x) => x.id === p.secondary_id);
-        return v && t ? buildCostPage(v, locale, t, tariffs, today).updatedAt : null;
+        return v && t ? buildCostPage(v, locale, t, tariffs, today, rules).updatedAt : null;
       }
       case "make_hub":
         return max(versions.filter((x) => x.make.id === p.entity_id).map((x) => charger.get(x.id)));

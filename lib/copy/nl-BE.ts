@@ -50,6 +50,69 @@ export const nlBE: Copy = {
       below_11: (kw) => `laadt tot ${kw}: een gewone 11 kW-paal volstaat ruim`,
     },
   },
+  method: {
+    slug: "hoe-we-rekenen",
+    title: "Hoe we rekenen",
+    metaDescription: "De aannames en formules achter elke berekening op Laadgids: laadvermogen, laadtijd, verbruik, stroomprijs, capaciteitstarief en CREG-terugbetaling.",
+    intro: "Elke pagina op Laadgids is een berekening. Hier staan de aannames en formules die we gebruiken, met de waarden die vandaag gelden. Wijzigt een tarief of regel, dan rekenen we alle pagina's opnieuw door.",
+    sections: (v) => [
+      {
+        heading: "Laadvermogen en laadtijd",
+        paragraphs: [
+          "Je auto laadt thuis op het laagste van twee vermogens: het maximale AC-laadvermogen van de auto en wat de aansluiting levert. Een auto die 1-fasig laadt, haalt op een 3-fasige paal hoogstens 7,4 kW. Een 3-fasige auto op een 1-fasige aansluiting ook.",
+          `De laadtijd rekenen we van ${v.fromPct} naar ${v.toPct} % van de batterij, met ${v.lossPct} laadverlies: uit het net komt meer energie dan er in de batterij terechtkomt.`,
+          "Het aanbevolen vermogen is de kleinste aansluiting waarop de auto zijn maximale AC-vermogen haalt. Een grotere aansluiting laadt die auto niet sneller.",
+        ],
+      },
+      {
+        heading: "Batterij",
+        paragraphs: [
+          "We rekenen met de bruikbare (netto) capaciteit als de fabrikant die publiceert. Publiceert hij alleen de nominale capaciteit, dan rekenen we de laadtijd daarmee. Dat is een bovengrens, en dan tonen we geen kost per volle lading.",
+          "Staat er '(schatting)' bij de batterij, dan heeft de fabrikant die waarde niet zelf gepubliceerd. Een noot op die pagina vermeldt dat; laadtijd en kost per lading kunnen dan enkele procenten afwijken.",
+        ],
+      },
+      {
+        heading: "Verbruik en kosten",
+        paragraphs: [
+          `We vertrekken van het gecombineerde WLTP-verbruik van de fabrikant en tellen er ${v.realWorldPct} bij, omdat het verbruik op de weg hoger ligt dan de testwaarde. Daarbovenop komt ${v.lossPct} laadverlies.`,
+          `De kost is het aantal kWh uit het net maal de prijs per kWh. Per jaar rekenen we met ${v.km} km.`,
+          `Als prijs gebruiken we het CREG-tarief van het gewest als referentie, inclusief alle kosten per kWh: ${v.tariffs.map((t) => `${t.region} ${t.price} per kWh (gecontroleerd op ${t.checked})`).join(", ")}. Je eigen contract kan hoger of lager liggen.`,
+        ],
+      },
+      ...(v.capacity
+        ? [
+            {
+              heading: "Capaciteitstarief in Vlaanderen",
+              paragraphs: [
+                `In Vlaanderen betaal je een deel van de netkosten per kW van je hoogste kwartierpiek per maand, met een minimum van ${v.capacity.minKw}. We rekenen met ${v.capacity.incl} per kW per jaar${v.capacity.vatPct ? ` inclusief ${v.capacity.vatPct} btw` : ""}${v.capacity.isAverage ? ", het gemiddelde van de netbeheerders" : ""} (gecontroleerd op ${v.capacity.checked}).`,
+                `Uitgangspunt is een huishoudelijke piek van ${v.capacity.baselineKw} zonder lader. Zonder load balancing tellen we het laadvermogen daarbovenop. Met load balancing regelt de lader terug als het huis veel verbruikt; de piek is dan het hoogste van de twee, het huis of de lader.`,
+              ],
+            },
+          ]
+        : []),
+      ...(v.creg
+        ? [
+            {
+              heading: "Terugbetaling voor een bedrijfswagen",
+              paragraphs: [
+                `Je werkgever kan thuisladen terugbetalen tegen het CREG-tarief, per gewest en per kwartaal. We rekenen het aantal kWh per jaar (zoals hierboven) maal het CREG-tarief van ${v.creg.quarter} (gecontroleerd op ${v.creg.checked}).`,
+              ],
+            },
+          ]
+        : []),
+      {
+        heading: "Bronnen en controle",
+        paragraphs: [
+          "Specificaties komen uit prijslijsten en technische fiches van de fabrikant, met datum. Een wekelijkse controle legt onze cijfers naast die documenten; een mens beslist over elke wijziging. Regels en tarieven voeren we met de hand in, telkens met bron en datum.",
+          "Ontbreekt een gegeven dat een berekening nodig heeft, dan vragen we Google die pagina niet op te nemen.",
+        ],
+      },
+      {
+        heading: "Wat we niet meerekenen",
+        paragraphs: ["De invloed van temperatuur en voorverwarmen, snelladen onderweg, vaste kosten op je factuur die niet per kWh gaan, en zonnepanelen. Dynamische tarieven volgen later."],
+      },
+    ],
+  },
   makeHub: {
     sectionSlug: "merk",
     breadcrumb: "Merken",
@@ -205,6 +268,7 @@ export const nlBE: Copy = {
       chartRows: { without: "zonder lader", with: "lader erbij", withLb: "met load balancing" },
     },
     lead: {
+      jump: "Offerte aanvragen voor een laadpaal",
       heading: "Offerte voor een laadpaal thuis",
       intro: (v) => `Vraag een offerte aan voor een ${v.recommendedKw}-installatie. We bezorgen je aanvraag aan maximaal drie installateurs in je regio, uiterlijk binnen vier weken.`,
       postal: "Postcode",
@@ -243,6 +307,7 @@ export const nlBE: Copy = {
       heading: "Bedrijfswagen?",
       text: "Je werkgever betaalt thuisladen terug tegen het CREG-tarief per kwartaal. Daarvoor heb je een laadpaal met MID-meter nodig die het verbruik apart registreert.",
       link: "Lees de regels voor het CREG-tarief",
+      reimburse: (v) => `Met de ${v.make} ${v.model} laad je bij ${v.km} km per jaar ongeveer ${v.kwh} kWh. Terugbetaald tegen het CREG-tarief voor ${v.region} in ${v.quarter} (${v.rate} per kWh) is dat ${v.perYear} per jaar.`,
     },
     faq: {
       heading: "Veelgestelde vragen",
@@ -272,8 +337,8 @@ export const nlBE: Copy = {
           });
         }
         items.push({
-          q: "Moet ik mijn laadpaal melden bij de netbeheerder?",
-          a: "Ja. In Vlaanderen meld je een thuislader bij Fluvius, in Wallonië bij ORES of RESA, in Brussel bij Sibelga. Je installateur doet dat meestal voor je.",
+          q: `Hoeveel kilometer laad je per uur met de ${v.make} ${v.model}?`,
+          a: `Ongeveer ${v.kmPerHour} km bereik per uur op ${v.recommendedKw}, gerekend met het WLTP-verbruik plus 15 % en 10 % laadverlies.`,
         });
         return items.slice(0, 5);
       },
@@ -284,7 +349,7 @@ export const nlBE: Copy = {
       cost: "Laadkosten per tarief",
       rules: "Regels in je gewest",
     },
-    sources: { heading: "Bronnen", checked: "gecontroleerd op", specNotes: "Opmerking bij de specificaties", specTitle: (make, model) => `${make} ${model}: specificaties`, capacityTitle: "VREG / Fluvius: capaciteitstarief", tariffTitle: "CREG: tarief voor thuisladen per gewest" },
+    sources: { heading: "Bronnen", checked: "gecontroleerd op", specNotes: "Opmerking bij de specificaties", specTitle: (make, model) => `${make} ${model}: specificaties`, cregTitle: "CREG: tarief voor terugbetaling thuisladen bedrijfswagens", capacityTitle: "VREG / Fluvius: capaciteitstarief", tariffTitle: "CREG: tarief voor thuisladen per gewest" },
   },
   rulesPages: {
     "eenfasig-vs-driefasig-laden": "Eenfasig of driefasig laden?",

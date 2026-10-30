@@ -37,9 +37,36 @@ export interface ChargerPageVars {
   capacityVatPct: string | null; // "6 %"
   capacityIsAverage: boolean;
   specNotes: string | null;
+  /** Kilometers bereik per laaduur op de aanbevolen aansluiting, met realiteitsfactor en laadverlies. */
+  kmPerHour: string; // "58"
+  creg: CregVars | null;
   batteryEstimated: boolean;
   /** true: alleen de nominale capaciteit is gepubliceerd; batteryNet bevat dan die nominale waarde. */
   batteryNominal: boolean;
+}
+
+/** Variabelen voor de pagina "Hoe we rekenen", allemaal uit `rules`, `tariffs` en de calc-parameters, al geformatteerd. */
+export interface MethodVars {
+  fromPct: number;
+  toPct: number;
+  lossPct: string; // "10 %"
+  realWorldPct: string; // "15 %"
+  km: string; // "12.000"
+  tariffs: { region: string; price: string; checked: string }[];
+  capacity: { incl: string; excl: string | null; vatPct: string | null; isAverage: boolean; minKw: string; baselineKw: string; checked: string } | null;
+  creg: { quarter: string; checked: string } | null;
+}
+
+/** Terugbetaling tegen het CREG-tarief (BE, bedrijfswagen), al geformatteerd. */
+export interface CregVars {
+  make: string;
+  model: string;
+  km: string; // "12.000"
+  kwh: string; // "2.290"
+  rate: string; // "32,25 cent"
+  quarter: string; // "Q4 2026"
+  region: string; // "Vlaanderen"
+  perYear: string; // "€ 739"
 }
 
 /** Variabelen voor de laadkosten-pagina, al geformatteerd. */
@@ -65,6 +92,7 @@ export interface CostPageVars {
   otherTariffs: { label: string; per100km: string; perYear: string; path: string }[];
   chargerPath: string;
   recommendedKw: string; // voor de intro van het leadformulier
+  creg: CregVars | null;
 }
 
 /** Variabelen voor de merkpagina, uit de data afgeleid. */
@@ -136,6 +164,14 @@ export interface Copy {
     exceptionsHeading: string; // "Let op bij deze modellen"
     exceptionsIntro: string;
     exceptionReason: { one_phase: (kw: string) => string; above_11: (kw: string) => string; below_11: (kw: string) => string };
+  };
+  /** Pagina "Hoe we rekenen". Lege slug = niet beschikbaar in die locale. */
+  method: {
+    slug: string;
+    title: string;
+    metaDescription: string;
+    intro: string;
+    sections: (v: MethodVars) => { heading: string; paragraphs: string[] }[];
   };
   makeHub: {
     sectionSlug: string; // "merk" / "marque"
@@ -210,6 +246,7 @@ export interface Copy {
       chartRows: { without: string; with: string; withLb: string }; // "zonder lader", ...
     };
     lead: {
+      jump: string; // link van het korte antwoord naar het leadformulier
       heading: string;
       intro: (v: ChargerPageVars) => string;
       postal: string;
@@ -230,7 +267,7 @@ export interface Copy {
       success: string;
       errors: { postal: string; email: string; consent: string; generic: string; rate: string };
     };
-    companyCar: { heading: string; text: string; link: string };
+    companyCar: { heading: string; text: string; link: string; reimburse: (v: CregVars) => string };
     faq: { heading: string; items: (v: ChargerPageVars) => FaqItem[] };
     related: { heading: string; sisters: string; cost: string; rules: string };
     sources: {
@@ -238,6 +275,7 @@ export interface Copy {
       checked: string;
       specNotes: string;
       specTitle: (make: string, model: string) => string; // "Tesla Model 3: specificaties"
+      cregTitle: string;
       capacityTitle: string;
       tariffTitle: string;
     };

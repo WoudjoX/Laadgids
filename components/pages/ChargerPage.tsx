@@ -85,6 +85,9 @@ export function ChargerPage({ data, locale, page, related, canonical, cregPath }
       {/* 4 */}
       <div className="mt-6">
         <AnswerBox label={c.shortAnswerLabel} text={c.shortAnswer(vars)} />
+        <p className="mt-3 text-[15px]">
+          <a href="#offerte">{c.lead.jump} ↓</a>
+        </p>
       </div>
       {/* 5 */}
       <div className="mt-6">
@@ -160,7 +163,7 @@ export function ChargerPage({ data, locale, page, related, canonical, cregPath }
       {/* 10 */}
       {cfg.country === "BE" && (
         <div className="mt-10">
-          <CompanyCarBlock copy={copy} href={cregPath} />
+          <CompanyCarBlock copy={copy} href={cregPath} detail={vars.creg ? c.companyCar.reimburse(vars.creg) : null} />
         </div>
       )}
       {/* 11 */}

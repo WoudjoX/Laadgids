@@ -1,6 +1,7 @@
 // Template charging_cost: kort antwoord, drie cijfers, jaarkost per kilometrage, factoren, andere tarieven, lead, FAQ, bronnen.
 import Link from "next/link";
 import { AnswerBox } from "@/components/AnswerBox";
+import { CompanyCarBlock } from "@/components/CompanyCarBlock";
 import { Breadcrumb } from "@/components/Breadcrumb";
 import { Faq } from "@/components/Faq";
 import { JsonLd } from "@/components/JsonLd";
@@ -19,9 +20,10 @@ interface Props {
   page: PageRow;
   canonical: string;
   energyCta: string | null;
+  cregPath: string | null;
 }
 
-export function CostPage({ data, locale, page, canonical, energyCta }: Props) {
+export function CostPage({ data, locale, page, canonical, energyCta, cregPath }: Props) {
   const { copy, vars } = data;
   const cfg = LOCALE_CONFIG[locale];
   const c = copy.cost;
@@ -126,6 +128,11 @@ export function CostPage({ data, locale, page, canonical, energyCta }: Props) {
         </div>
       </section>
 
+      {cfg.country === "BE" && (
+        <div className="mt-10">
+          <CompanyCarBlock copy={copy} href={cregPath} detail={vars.creg ? copy.charger.companyCar.reimburse(vars.creg) : null} />
+        </div>
+      )}
       <div className="mt-10">
         <Faq heading={copy.charger.faq.heading} items={faq} />
       </div>

@@ -59,6 +59,12 @@ export function euroPer100Km(cents_per_100km: number, locale: Locale): string {
   return euro(cents_per_100km, locale, { decimals: 2 });
 }
 
+/** Prijs per kWh in cent: "32,25 cent" / "32,25 centimes". */
+export function centsPerKwh(price: number, locale: Locale): string {
+  const n = new Intl.NumberFormat(locale === "fr-BE" ? "fr-BE" : "nl-BE", { minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(price);
+  return locale === "fr-BE" ? `${n} centimes` : `${n} cent`;
+}
+
 /** "A, B en C" / "A, B et C". */
 export function joinList(items: string[], locale: Locale): string {
   if (items.length <= 1) return items[0] ?? "";

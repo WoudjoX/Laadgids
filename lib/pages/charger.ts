@@ -1,6 +1,7 @@
 // Assemblage van een charger_for_model-pagina: data + calc + copy-variabelen. Geen I/O.
 import { batteryForCalc } from "@/lib/calc/battery";
-import { advice, compareTariffs, connection, type AdviceResult, type TariffComparison } from "@/lib/calc";
+import { advice, chargingCost, compareTariffs, connection, DEFAULT_CHARGING_LOSS, DEFAULT_REAL_WORLD_FACTOR, type AdviceResult, type TariffComparison } from "@/lib/calc";
+import { cregReimbursement } from "./creg";
 import { LOCALE_CONFIG, getCopy, type ChargerPageVars, type Copy } from "@/lib/copy";
 import type { Locale, RuleRow, TariffRow, VersionFull } from "@/lib/db/types";
 import { duration, euro, int, kw, kwh } from "@/lib/format";
@@ -48,6 +49,12 @@ export function buildChargerPage(version: VersionFull, locale: Locale, rules: Ru
   const cap74 = a.capacity?.scenarios.find((s) => s.charger_w === 7400) ?? null;
   const capMain = cap11 ?? cap74;
 
+  // Bereik per laaduur: zelfde realiteitsfactor en laadverlies als de kostberekening.
+  const kmPerHour = (rec.effective_w * (1 - DEFAULT_CHARGING_LOSS)) / (version.consumption_wh_per_km * DEFAULT_REAL_WORLD_FACTOR);
+  // kWh per jaar hangt niet van de prijs af; zonder tarief toch berekenen voor de CREG-terugbetaling.
+  const whPerYear = cost?.baseline.wh_charged_per_year ?? chargingCost(version, { slug: "-", price_cents_per_kwh: 0, charging_loss_pct: DEFAULT_CHARGING_LOSS * 100 }, { km_per_year: KM_PER_YEAR }).wh_charged_per_year;
+  const creg = cregReimbursement(version, rules, locale, whPerYear, KM_PER_YEAR, today);
+
   // Pagina's zonder capaciteit bestaan niet (status draft), dus dit is altijd gevuld.
   const battery = batteryForCalc(version) ?? { wh: 0, basis: "net" as const };
 
@@ -84,6 +91,8 @@ export function buildChargerPage(version: VersionFull, locale: Locale, rules: Ru
     capacityIsAverage: Boolean(capRule?.params.is_regional_average),
     // Specificatienotities zijn in het Nederlands geschreven; op fr-BE pas tonen met een handgeschreven vertaling.
     specNotes: locale.startsWith("nl") ? (version.spec_notes ?? null) : null,
+    kmPerHour: int(kmPerHour, locale),
+    creg: creg?.vars ?? null,
     batteryEstimated: Boolean(version.battery_estimated),
     batteryNominal: battery.basis === "nominal",
   };
@@ -97,8 +106,9 @@ export function buildChargerPage(version: VersionFull, locale: Locale, rules: Ru
     seenTariffSources.add(t.source_url);
     sources.push({ title: src.tariffTitle, url: t.source_url, checked: t.source_checked_at });
   }
+  if (creg && !seenTariffSources.has(creg.source.url)) sources.push(creg.source);
 
-  const updatedAt = [version.spec_source_date, capRule?.source_checked_at, ...tariffs.map((t) => t.source_checked_at)].filter(Boolean).sort().at(-1) ?? today;
+  const updatedAt = [version.spec_source_date, capRule?.source_checked_at, creg?.source.checked, ...tariffs.map((t) => t.source_checked_at)].filter(Boolean).sort().at(-1) ?? today;
 
   return { copy, vars, advice: a, cost, tariffs, sources, updatedAt, capacityRuleNotes: capRule?.notes ?? null };
 }

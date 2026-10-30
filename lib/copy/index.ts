@@ -5,7 +5,7 @@ import { nlNL } from "./nl-NL";
 import type { Copy } from "./types";
 import { TARIFF_PATH_SLUG } from "./tariffSlugs";
 
-export type { Copy, ChargerPageVars, CostPageVars, MakeHubVars, MakeFaqVars, FaqItem } from "./types";
+export type { Copy, ChargerPageVars, CostPageVars, CregVars, MethodVars, MakeHubVars, MakeFaqVars, FaqItem } from "./types";
 
 export const LOCALES: readonly Locale[] = ["nl-BE", "fr-BE", "nl-NL"];
 

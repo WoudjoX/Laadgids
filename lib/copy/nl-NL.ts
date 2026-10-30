@@ -47,6 +47,7 @@ export const nlNL: Copy = {
       below_11: (kw) => `laadt tot ${kw}: een gewone 11 kW-laadpaal volstaat ruim`,
     },
   },
+  method: { slug: "", title: "", metaDescription: "", intro: "", sections: () => [] }, // nl-NL: nog geen tarieven
   makeHub: {
     sectionSlug: "merk",
     breadcrumb: "Merken",
@@ -194,6 +195,7 @@ export const nlNL: Copy = {
       chartRows: { without: "", with: "", withLb: "" },
     },
     lead: {
+      jump: "Offerte aanvragen voor een laadpaal",
       heading: "Offerte voor een laadpaal thuis",
       intro: (v) => `Vraag een offerte aan voor een ${v.recommendedKw}-installatie. We bezorgen je aanvraag aan maximaal drie installateurs in je regio, uiterlijk binnen vier weken.`,
       postal: "Postcode",
@@ -228,7 +230,7 @@ export const nlNL: Copy = {
         rate: "Te veel aanvragen vanaf dit adres. Probeer later opnieuw.",
       },
     },
-    companyCar: { heading: "", text: "", link: "" },
+    companyCar: { heading: "", text: "", link: "", reimburse: () => "" }, // geen CREG in NL
     faq: {
       heading: "Veelgestelde vragen",
       items: (v): FaqItem[] => {
@@ -254,6 +256,10 @@ export const nlNL: Copy = {
           q: "Heb ik een 3-fase aansluiting nodig voor 11 kW?",
           a: "Ja. 11 kW vraagt 3 × 16 A. Met een 1-fase 25 A-aansluiting haal je maximaal 5,75 kW; verzwaren regel je via je netbeheerder.",
         });
+        items.push({
+          q: `Hoeveel kilometer laad je per uur met de ${v.make} ${v.model}?`,
+          a: `Ongeveer ${v.kmPerHour} km bereik per uur op ${v.recommendedKw}, gerekend met het WLTP-verbruik plus 15 % en 10 % laadverlies.`,
+        });
         return items.slice(0, 5);
       },
     },
@@ -263,7 +269,7 @@ export const nlNL: Copy = {
       cost: "Laadkosten per tarief",
       rules: "Regels en subsidies",
     },
-    sources: { heading: "Bronnen", checked: "gecontroleerd op", specNotes: "Opmerking bij de specificaties", specTitle: (make, model) => `${make} ${model}: specificaties`, capacityTitle: "Capaciteitstarief", tariffTitle: "Stroomprijs thuisladen" },
+    sources: { heading: "Bronnen", checked: "gecontroleerd op", specNotes: "Opmerking bij de specificaties", specTitle: (make, model) => `${make} ${model}: specificaties`, cregTitle: "CREG-tarief", capacityTitle: "Capaciteitstarief", tariffTitle: "Stroomprijs thuisladen" },
   },
   rulesPages: {
     isde: "ISDE-subsidie voor een laadpaal",
