@@ -27,11 +27,11 @@ export function Header({ copy, locale, alternates = {} }: Props) {
                 <span key={l.locale} className="flex gap-3">
                   {i > 0 && <span aria-hidden="true">·</span>}
                   {active ? (
-                    <span className="text-ink" aria-current="true">
+                    <span className="inline-flex min-h-6 min-w-6 items-center justify-center text-ink" aria-current="true">
                       {l.label}
                     </span>
                   ) : (
-                    <Link href={href} hrefLang={l.locale} className="no-underline hover:underline">
+                    <Link href={href} hrefLang={l.locale} className="inline-flex min-h-6 min-w-6 items-center justify-center no-underline hover:underline">
                       {l.label}
                     </Link>
                   )}

@@ -59,7 +59,7 @@ export const frBE: Copy = {
     intro: (v) =>
       `${v.count === 1 ? "Une version" : `${v.count} versions`} de ${v.make}, avec une puissance de charge AC jusqu'à ${v.powers}.` +
       (v.singlePhaseCount > 0 ? ` ${v.singlePhaseCount === 1 ? "L'une d'elles charge" : `${v.singlePhaseCount} d'entre elles chargent`} en monophasé ; une borne triphasée n'y apporte aucun gain de temps.` : " Toutes les versions chargent en triphasé.") +
-      ` De 20 à 80 %, comptez entre ${v.minTime} et ${v.maxTime} sur le raccordement recommandé.`,
+      (v.minTime === v.maxTime ? ` De 20 à 80 %, comptez ${v.minTime} sur le raccordement recommandé.` : ` De 20 à 80 %, comptez entre ${v.minTime} et ${v.maxTime} sur le raccordement recommandé.`),
     modelsHeading: (make) => `Modèles ${make}`,
     otherMakes: "Autres marques",
     costHeading: "Coût de recharge par version",
@@ -121,7 +121,7 @@ export const frBE: Copy = {
     shortAnswer: (v) => {
       const s: string[] = [];
       s.push(`Prenez une borne de ${v.recommendedKw} (${v.recommendedLabel}).`);
-      s.push(`La ${v.model} charge à ${v.acMax} maximum ; passer de ${v.fromPct} à ${v.toPct} % prend ${v.recommendedTime}.`);
+      s.push(`La ${v.make} ${v.model} charge à ${v.acMax} maximum ; passer de ${v.fromPct} à ${v.toPct} % prend ${v.recommendedTime}.`);
       if (v.advice.warnings.includes("single_phase_car_no_gain_3f")) {
         s.push("Une borne triphasée ne charge pas cette voiture plus vite, mais elle est prête pour la suivante.");
       } else if (v.advice.warnings.includes("no_gain_above_recommended")) {
@@ -168,7 +168,7 @@ export const frBE: Copy = {
       single_phase_car_no_gain_3f: () =>
         "Cette voiture charge en monophasé. Une borne triphasée n'apporte aucun gain de temps, mais elle est prête si vous passez plus tard à une voiture 11 kW.",
       peak_capacity_tariff: () =>
-        "En Flandre, le tarif capacitaire se base sur votre pic quart-horaire mensuel. Une borne de 11 kW qui charge en même temps que la plaque de cuisson ou la pompe à chaleur augmente ce pic. Le délestage dynamique règle cela.",
+        "En Flandre, le tarif capacitaire se base sur votre pic quart-horaire mensuel. Une borne de 11 kW qui charge en même temps que la plaque de cuisson ou la pompe à chaleur augmente ce pic. Le délestage dynamique limite ce pic.",
       no_gain_above_recommended: (v) => `Les raccordements au-delà de ${v.recommendedKw} ne chargent pas cette voiture plus vite.`,
     },
     cost: {
@@ -202,7 +202,7 @@ export const frBE: Copy = {
     },
     lead: {
       heading: "Devis pour une borne à domicile",
-      intro: (v) => `Deux à trois installateurs agréés de votre région vous envoient un devis pour une installation de ${v.recommendedKw}.`,
+      intro: (v) => `Demandez un devis pour une installation de ${v.recommendedKw}. Nous transmettons votre demande à trois installateurs de votre région au maximum, au plus tard dans les quatre semaines.`,
       postal: "Code postal",
       postalPlaceholder: "5000",
       step1Button: "Demander des devis",
@@ -223,9 +223,9 @@ export const frBE: Copy = {
       companyCar: "C'est une voiture de société",
       email: "E-mail",
       phone: "Téléphone (facultatif)",
-      consent: "J'accepte que mes données soient transmises à trois installateurs agréés au maximum, même si cela se fait plus tard (au plus tard dans les quatre semaines).",
+      consent: "J'accepte que mes données soient transmises à trois installateurs au maximum, même si cela se fait plus tard (au plus tard dans les quatre semaines).",
       submit: "Envoyer la demande",
-      footnote: "Gratuit, sans engagement, installateurs agréés",
+      footnote: "Gratuit et sans engagement",
       success: "Votre demande est bien reçue. Vous recevez tout de suite une confirmation par e-mail qui précise quand un installateur vous contacte.",
       errors: {
         postal: "Indiquez un code postal belge à quatre chiffres.",
@@ -274,7 +274,7 @@ export const frBE: Copy = {
       cost: "Coût de recharge par tarif",
       rules: "Règles dans votre région",
     },
-    sources: { heading: "Sources", checked: "vérifié le", specNotes: "Remarque sur les caractéristiques" },
+    sources: { heading: "Sources", checked: "vérifié le", specNotes: "Remarque sur les caractéristiques", specTitle: (make, model) => `${make} ${model} : caractéristiques`, capacityTitle: "VREG / Fluvius : tarif capacitaire", tariffTitle: "CREG : tarif de recharge à domicile par région" },
   },
   rulesPages: {
     "monophase-vs-triphase": "Monophasé ou triphasé ?",
@@ -298,7 +298,7 @@ export const frBE: Copy = {
       makeLink: (make) => `Borne de recharge pour une ${make}`,
     },
     metaDescription: (v) => `Recharger une ${v.make} ${v.model} ${v.trim} à domicile coûte ${v.per100km} par 100 km${v.perFull ? ` et ${v.perFull} par charge complète` : ""} avec le ${v.tariffLabel} (${v.pricePerKwh} par kWh).`,
-    shortAnswer: (v) => `${v.per100km} par 100 km${v.perFull ? `, ${v.perFull} par charge complète` : ""} et ${v.perYear} par an pour ${v.kmPerYear} km. Calculé avec le ${v.tariffLabel} à ${v.pricePerKwh} par kWh, ${v.lossPct} de pertes de charge et ${v.realWorldPct} en plus de la consommation WLTP de ${v.consumptionWltp}.`,
+    shortAnswer: (v) => `Recharger une ${v.make} ${v.model} ${v.trim} à domicile coûte ${v.per100km} par 100 km${v.perFull ? `, ${v.perFull} par charge complète` : ""} et ${v.perYear} par an pour ${v.kmPerYear} km. Calculé avec le ${v.tariffLabel} à ${v.pricePerKwh} par kWh, ${v.lossPct} de pertes de charge et ${v.realWorldPct} en plus de la consommation WLTP de ${v.consumptionWltp}.`,
     metrics: { per100km: "Par 100 km", perFull: "Par charge complète", perYear: (v) => `Par an (${v.kmPerYear} km)` },
     kmTable: { heading: "Coût annuel selon le kilométrage", colKm: "Km par an", colYear: "Par an", colMonth: "Par mois" },
     factors: {
@@ -315,8 +315,7 @@ export const frBE: Copy = {
     otherTariffs: { heading: "Même voiture, autre tarif", colTariff: "Tarif", colPer100: "Par 100 km", colYear: "Par an" },
     faq: (v) => [
       ...(v.perFull ? [{ q: `Combien coûte une charge complète de la ${v.model} à domicile ?`, a: `${v.perFull} avec le ${v.tariffLabel} à ${v.pricePerKwh} par kWh, pertes de charge de ${v.lossPct} comprises. C'est pour la batterie complète de ${v.batteryNet} ; de 20 à 80 %, vous rechargez rarement plus de soixante pour cent de cela.` }] : []),
-      { q: `Combien coûtent 100 km avec la ${v.model} ?`, a: `${v.per100km} d'électricité en rechargeant à domicile. Une voiture essence comparable se situe largement au-dessus du double aux prix actuels du carburant.` },
-      { q: "Est-ce aussi ce que je paie à une borne publique ?", a: "Non. Les bornes AC publiques facturent généralement 40 à 60 centimes par kWh et les chargeurs rapides 60 à 80 centimes. Cette page concerne la recharge à domicile sur votre propre compteur." },
+      { q: `Combien coûtent 100 km avec la ${v.model} ?`, a: `${v.per100km} d'électricité en rechargeant à domicile.` },
     ],
     backToCharger: (v) => `Quelle borne pour la ${v.make} ${v.model} ?`,
   },

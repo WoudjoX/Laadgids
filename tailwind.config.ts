@@ -10,7 +10,7 @@ const config: Config = {
         card: "#FFFFFF",
         ink: "#14213D",
         ink2: "#4A5568",
-        ink3: "#8A94A6",
+        ink3: "#667085",
         line: "#E6E3DC",
         line2: "#CFCBC2",
         accent: "#C2410C",

@@ -45,10 +45,7 @@ export function LeadForm({ lead, locale, pagePath, defaultPowerW, intro, showCom
       <input type="hidden" name="page_path" value={pagePath} />
       {/* honeypot */}
       <div className="hidden" aria-hidden="true">
-        <label>
-          website
-          <input type="text" name="website" tabIndex={-1} autoComplete="off" />
-        </label>
+        <input type="text" name="website" aria-label="website" tabIndex={-1} autoComplete="off" />
       </div>
 
       <div className="mt-4">

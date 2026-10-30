@@ -2,7 +2,7 @@
 // Regels: nooit kale "nl"; hreflang alleen naar tegenhangers op index (Google negeert verwijzingen naar noindex-pagina's
 // en meldt ze als fout). De taalwissel in de header mag wel naar elke bestaande tegenhanger (index of noindex).
 import type { Locale, PageRow } from "@/lib/db/types";
-import { LOCALES, LOCALE_CONFIG } from "@/lib/copy";
+import { LOCALES, LOCALE_CONFIG, tariffSlugFromPath } from "@/lib/copy";
 
 export type HreflangKey = Locale | "x-default";
 
@@ -35,13 +35,18 @@ export function siteUrl(): string {
   return "http://localhost:3000";
 }
 
-/** Vind de tegenhangers van een pagina: zelfde template + entity_id + secondary_id, andere locale. */
+/**
+ * Vind de tegenhangers van een pagina: zelfde template + entity_id + secondary_id, andere locale.
+ * Laadkostenpagina's koppelen op het soort tarief ('vast-dag'), niet op het tarief-id: elk gewest heeft een eigen
+ * tariefrij (Vlaanderen voor nl-BE, Wallonië voor fr-BE) met dezelfde slug.
+ */
 export function findCounterparts(page: PageRow, pages: PageRow[]): PageRow[] {
+  const second = (p: PageRow) => (p.template === "charging_cost" ? tariffSlugFromPath(p.locale, p.path) : p.secondary_id);
   return pages.filter(
     (p) =>
       p.template === page.template &&
       p.entity_id === page.entity_id &&
-      p.secondary_id === page.secondary_id &&
+      second(p) === second(page) &&
       p.status !== "draft" &&
       LOCALES.includes(p.locale),
   );
@@ -112,7 +117,8 @@ export function pickTitle(variants: string[], siteName: string): string {
 export function fitDescription(text: string, max = 160): string {
   const t = text.replace(/\s+/g, " ").trim();
   if (t.length <= max) return t;
-  const sentences = t.match(/[^.!?]+[.!?]+(\s|$)/g)?.map((s) => s.trim()) ?? [t];
+  // Zinsgrens = . ! ? gevolgd door een spatie; een punt in een getal of naam (12.000, ID.4) is geen zinsgrens.
+  const sentences = t.split(/(?<=[.!?])\s+/);
   let out = "";
   for (const s of sentences) {
     const next = out ? `${out} ${s}` : s;

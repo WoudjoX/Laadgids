@@ -6,14 +6,21 @@ import { RULES, ruleEntityId } from "@/lib/content/rules";
 import { getRepo, type PageUpsert } from "@/lib/db";
 import { decidePageStatus } from "@/lib/pages/status";
 
+// Alle tarieven van een land, ook die per gewest; per locale wordt verderop gefilterd op het gewest van die locale.
+async function allTariffs(repo: Awaited<ReturnType<typeof getRepo>>, country: "BE" | "NL") {
+  const regions = [...new Set(LOCALES.map((l) => LOCALE_CONFIG[l]).filter((c) => c.country === country).map((c) => c.region))];
+  const lists = await Promise.all(regions.map((r) => repo.listTariffs(country, r)));
+  return [...new Map(lists.flat().map((t) => [t.id, t])).values()];
+}
+
 async function main() {
   const dry = process.argv.includes("--dry");
   const repo = await getRepo();
   const [versions, rules, tariffsBE, tariffsNL, existing] = await Promise.all([
     repo.listVersions(),
     repo.listRules(),
-    repo.listTariffs("BE", null),
-    repo.listTariffs("NL", null),
+    allTariffs(repo, "BE"),
+    allTariffs(repo, "NL"),
     repo.listPages(),
   ]);
   const unverified = (country: "BE" | "NL") =>

@@ -27,6 +27,14 @@ const draft = page({ id: 4, locale: "nl-NL", entity_id: 2, path: "/nl-nl/laadpaa
 const other = page({ id: 5, locale: "fr-BE", entity_id: 2, path: "/fr-be/borne-pour/other" });
 
 describe("alternatesFor", () => {
+  it("koppelt laadkostenpagina's op het soort tarief, ook met een eigen tariefrij per gewest", () => {
+    const cnl = page({ id: 10, template: "charging_cost", entity_id: 7, secondary_id: 1, path: "/nl-be/laadkosten/tesla-model-3-rwd-2025/vast-dag" });
+    const cfr = page({ id: 11, locale: "fr-BE", template: "charging_cost", entity_id: 7, secondary_id: 2, path: "/fr-be/cout-recharge/tesla-model-3-rwd-2025/fixe-jour" });
+    const night = page({ id: 12, locale: "fr-BE", template: "charging_cost", entity_id: 7, secondary_id: 3, path: "/fr-be/cout-recharge/tesla-model-3-rwd-2025/fixe-nuit" });
+    const a = alternatesFor(cnl, [cnl, cfr, night], base);
+    expect(a.languages["fr-BE"]).toBe(base + cfr.path);
+    expect(alternatesFor(cfr, [cnl, cfr, night], base).languages["nl-BE"]).toBe(base + cnl.path);
+  });
   it("verwijst alleen naar tegenhangers op index, met regio-codes", () => {
     const a = alternatesFor(nl, [nl, fr, nlnl, draft, other], base);
     expect(a.languages["nl-BE"]).toBe(base + nl.path);
@@ -155,6 +163,12 @@ describe("fitDescription", () => {
     const d = fitDescription("woord ".repeat(60).trim() + ".");
     expect(d.length).toBeLessThanOrEqual(160);
     expect(d.endsWith("…")).toBe(true);
+  });
+  it("knipt niet op een punt in een getal of naam (12.000, ID.4)", () => {
+    const text = "Wat thuisladen kost per 100 km en per jaar, voor elke uitvoering op de site. Gerekend met vast tarief van 32,25 cent per kWh, 10 % laadverlies en 12.000 km per jaar. Klik op een model.";
+    expect(fitDescription(text)).toBe("Wat thuisladen kost per 100 km en per jaar, voor elke uitvoering op de site.");
+    const id4 = "Le coût de recharge d'une Volkswagen ID.4 Pro 4MOTION est de 5,90 € par 100 km avec le tarif fixe, tout compris (32,25 centimes par kWh). Une phrase de plus pour dépasser la limite.";
+    expect(fitDescription(id4).startsWith("Le coût de recharge d'une Volkswagen ID.4 Pro")).toBe(true);
   });
 });
 

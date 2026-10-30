@@ -233,7 +233,14 @@ export interface Copy {
     companyCar: { heading: string; text: string; link: string };
     faq: { heading: string; items: (v: ChargerPageVars) => FaqItem[] };
     related: { heading: string; sisters: string; cost: string; rules: string };
-    sources: { heading: string; checked: string; specNotes: string };
+    sources: {
+      heading: string;
+      checked: string;
+      specNotes: string;
+      specTitle: (make: string, model: string) => string; // "Tesla Model 3: specificaties"
+      capacityTitle: string;
+      tariffTitle: string;
+    };
   };
   rulesPages: Record<string, string>; // topic-slug → titel, voor related links
   cost: {

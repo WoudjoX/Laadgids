@@ -27,7 +27,7 @@ colors: {
   card:   '#FFFFFF',   // kaarten en tabellen
   ink:    '#14213D',   // primaire tekst, koppen — diep navy, geen zwart
   ink2:   '#4A5568',   // secundaire tekst
-  ink3:   '#8A94A6',   // hints, metadata, gedempte rijen
+  ink3:   '#667085',   // hints, metadata, gedempte rijen (≥ 4,5:1 op card en paper, WCAG AA)
   line:   '#E6E3DC',   // 0.5px hairlines
   line2:  '#CFCBC2',   // sterkere lijn (hover, focus)
   accent: '#C2410C',   // één accent: gebrand oranje. Alleen voor de aanbevolen keuze en de primaire CTA
@@ -58,7 +58,7 @@ fontFamily: {
 - Alle getallen in tabellen en metric cards: `font-variant-numeric: tabular-nums`. Dit is de goedkoopste kwaliteitswinst op de hele site.
 - Grote cijfers in metric cards: 28px gewicht 500, geen bold.
 - Zinsstijl overal ("Kort antwoord", niet "Kort Antwoord"). Geen hoofdletters als stijlmiddel.
-- Inter laden via `next/font` met `display: swap`, subset latin, twee gewichten (400, 600). Meer niet.
+- Inter laden via `next/font` met `display: optional` (sinds 30 oktober 2026; `swap` gaf een late LCP door de fontwissel), subset latin, twee gewichten (400, 600). Meer niet.
 
 Ruimte en vorm:
 - Spacing op een 4px-raster. Verticale ritmes: 16 / 24 / 40 / 64.
@@ -103,7 +103,7 @@ Het belangrijkste element van de site.
 - Mobiel eerst: postcode-veld met `inputmode="numeric"` en `autocomplete="postal-code"`, 48px hoog, daarna pas de rest via een tweede stap (progressive disclosure). Stap 1 = postcode + knop. Stap 2 = aansluiting, vermogen, woningleeftijd, bedrijfswagen, e-mail, telefoon.
 - Elke stap past op één mobiel scherm zonder scrollen.
 - Foutmeldingen inline, 13px `bad`, onder het veld. Geen toasts, geen modals.
-- Onder de knop één regel 13px `ink3`: "Gratis, vrijblijvend, erkende installateurs". Geen logo's van keurmerken tenzij we ze echt hebben.
+- Onder de knop één regel 13px `ink3`: "Gratis en vrijblijvend". Geen "erkende installateurs" en geen logo's van keurmerken tenzij we ze echt hebben.
 
 ### FAQ
 - Geen accordeon. Vragen als H3, antwoorden eronder, volledig zichtbaar. Google en gebruikers lezen liever alles dan klikken.

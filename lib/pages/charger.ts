@@ -82,18 +82,20 @@ export function buildChargerPage(version: VersionFull, locale: Locale, rules: Ru
     capacityTariffIncl: capRule ? euro(capRule.params.cents_per_kw_year, locale, { decimals: 2 }) : null,
     capacityVatPct: capRule?.params.vat_pct != null ? `${int(capRule.params.vat_pct, locale)} %` : null,
     capacityIsAverage: Boolean(capRule?.params.is_regional_average),
-    specNotes: version.spec_notes ?? null,
+    // Specificatienotities zijn in het Nederlands geschreven; op fr-BE pas tonen met een handgeschreven vertaling.
+    specNotes: locale.startsWith("nl") ? (version.spec_notes ?? null) : null,
     batteryEstimated: Boolean(version.battery_estimated),
     batteryNominal: battery.basis === "nominal",
   };
 
-  const sources: SourceItem[] = [{ title: `${version.make.name} ${version.vehicle.model}: specificaties`, url: version.spec_source_url, checked: version.spec_source_date }];
-  if (capRule) sources.push({ title: "VREG / Fluvius: capaciteitstarief", url: capRule.source_url, checked: capRule.source_checked_at });
+  const src = copy.charger.sources;
+  const sources: SourceItem[] = [{ title: src.specTitle(version.make.name, version.vehicle.model), url: version.spec_source_url, checked: version.spec_source_date }];
+  if (capRule) sources.push({ title: src.capacityTitle, url: capRule.source_url, checked: capRule.source_checked_at });
   const seenTariffSources = new Set<string>();
   for (const t of tariffs) {
     if (seenTariffSources.has(t.source_url)) continue;
     seenTariffSources.add(t.source_url);
-    sources.push({ title: "CREG boordtabel: elektriciteitsprijzen", url: t.source_url, checked: t.source_checked_at });
+    sources.push({ title: src.tariffTitle, url: t.source_url, checked: t.source_checked_at });
   }
 
   const updatedAt = [version.spec_source_date, capRule?.source_checked_at, ...tariffs.map((t) => t.source_checked_at)].filter(Boolean).sort().at(-1) ?? today;

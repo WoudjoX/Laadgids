@@ -59,7 +59,7 @@ export const nlBE: Copy = {
     intro: (v) =>
       `${v.count === 1 ? "Eén uitvoering" : `${v.count} uitvoeringen`} van ${v.make}, met AC-laadvermogen tot ${v.powers}.` +
       (v.singlePhaseCount > 0 ? ` ${v.singlePhaseCount === 1 ? "Eén ervan laadt" : `${v.singlePhaseCount} ervan laden`} 1-fasig; een 3-fasige paal geeft daar geen tijdwinst.` : " Alle uitvoeringen laden 3-fasig.") +
-      ` Van 20 naar 80 % duurt tussen ${v.minTime} en ${v.maxTime} op de aanbevolen aansluiting.`,
+      (v.minTime === v.maxTime ? ` Van 20 naar 80 % duurt ${v.minTime} op de aanbevolen aansluiting.` : ` Van 20 naar 80 % duurt tussen ${v.minTime} en ${v.maxTime} op de aanbevolen aansluiting.`),
     modelsHeading: (make) => `Modellen van ${make}`,
     otherMakes: "Andere merken",
     costHeading: "Laadkosten per uitvoering",
@@ -121,7 +121,7 @@ export const nlBE: Copy = {
     shortAnswer: (v) => {
       const s: string[] = [];
       s.push(`Neem een ${v.recommendedKw}-paal (${v.recommendedLabel}).`);
-      s.push(`De ${v.model} laadt op maximaal ${v.acMax}; van ${v.fromPct} naar ${v.toPct} % duurt dan ${v.recommendedTime}.`);
+      s.push(`De ${v.make} ${v.model} laadt op maximaal ${v.acMax}; van ${v.fromPct} naar ${v.toPct} % duurt dan ${v.recommendedTime}.`);
       if (v.advice.warnings.includes("single_phase_car_no_gain_3f")) {
         s.push("Een 3-fasige paal laadt deze auto niet sneller, maar is wel klaar voor een volgende auto.");
       } else if (v.advice.warnings.includes("no_gain_above_recommended")) {
@@ -171,7 +171,7 @@ export const nlBE: Copy = {
       single_phase_car_no_gain_3f: () =>
         "Deze auto laadt 1-fasig. Een 3-fasige paal geeft geen tijdwinst, wel toekomstvastheid als je later een 11 kW-auto koopt.",
       peak_capacity_tariff: () =>
-        "In Vlaanderen telt je hoogste kwartierpiek per maand mee in het capaciteitstarief. Een 11 kW-lader die samenvalt met kookplaat of warmtepomp verhoogt die piek. Load balancing lost dat op.",
+        "In Vlaanderen telt je hoogste kwartierpiek per maand mee in het capaciteitstarief. Een 11 kW-lader die samenvalt met kookplaat of warmtepomp verhoogt die piek. Load balancing beperkt die piek.",
       no_gain_above_recommended: (v) => `Aansluitingen boven ${v.recommendedKw} laden deze auto niet sneller.`,
     },
     cost: {
@@ -206,7 +206,7 @@ export const nlBE: Copy = {
     },
     lead: {
       heading: "Offerte voor een laadpaal thuis",
-      intro: (v) => `Twee tot drie erkende installateurs in je buurt sturen een offerte voor een ${v.recommendedKw}-installatie.`,
+      intro: (v) => `Vraag een offerte aan voor een ${v.recommendedKw}-installatie. We bezorgen je aanvraag aan maximaal drie installateurs in je regio, uiterlijk binnen vier weken.`,
       postal: "Postcode",
       postalPlaceholder: "9000",
       step1Button: "Vraag offertes aan",
@@ -227,9 +227,9 @@ export const nlBE: Copy = {
       companyCar: "Het is een bedrijfswagen",
       email: "E-mail",
       phone: "Telefoon (optioneel)",
-      consent: "Ik ga akkoord dat mijn gegevens naar maximaal drie erkende installateurs gaan, ook als dat pas later gebeurt (uiterlijk binnen vier weken).",
+      consent: "Ik ga akkoord dat mijn gegevens naar maximaal drie installateurs gaan, ook als dat pas later gebeurt (uiterlijk binnen vier weken).",
       submit: "Verstuur aanvraag",
-      footnote: "Gratis, vrijblijvend, erkende installateurs",
+      footnote: "Gratis en vrijblijvend",
       success: "Je aanvraag is ontvangen. Je krijgt meteen een bevestiging per e-mail; daarin staat wanneer een installateur contact opneemt.",
       errors: {
         postal: "Vul een Belgische postcode van vier cijfers in.",
@@ -284,7 +284,7 @@ export const nlBE: Copy = {
       cost: "Laadkosten per tarief",
       rules: "Regels in je gewest",
     },
-    sources: { heading: "Bronnen", checked: "gecontroleerd op", specNotes: "Opmerking bij de specificaties" },
+    sources: { heading: "Bronnen", checked: "gecontroleerd op", specNotes: "Opmerking bij de specificaties", specTitle: (make, model) => `${make} ${model}: specificaties`, capacityTitle: "VREG / Fluvius: capaciteitstarief", tariffTitle: "CREG: tarief voor thuisladen per gewest" },
   },
   rulesPages: {
     "eenfasig-vs-driefasig-laden": "Eenfasig of driefasig laden?",
@@ -308,7 +308,7 @@ export const nlBE: Copy = {
       makeLink: (make) => `Laadpaal voor een ${make}`,
     },
     metaDescription: (v) => `Thuisladen van een ${v.make} ${v.model} ${v.trim} kost ${v.per100km} per 100 km${v.perFull ? ` en ${v.perFull} per volle lading` : ""} met ${v.tariffLabel} (${v.pricePerKwh} per kWh).`,
-    shortAnswer: (v) => `${v.per100km} per 100 km${v.perFull ? `, ${v.perFull} per volle lading` : ""} en ${v.perYear} per jaar bij ${v.kmPerYear} km. Gerekend met ${v.tariffLabel} van ${v.pricePerKwh} per kWh, ${v.lossPct} laadverlies en ${v.realWorldPct} bovenop het WLTP-verbruik van ${v.consumptionWltp}.`,
+    shortAnswer: (v) => `Thuisladen van een ${v.make} ${v.model} ${v.trim} kost ${v.per100km} per 100 km${v.perFull ? `, ${v.perFull} per volle lading` : ""} en ${v.perYear} per jaar bij ${v.kmPerYear} km. Gerekend met ${v.tariffLabel} van ${v.pricePerKwh} per kWh, ${v.lossPct} laadverlies en ${v.realWorldPct} bovenop het WLTP-verbruik van ${v.consumptionWltp}.`,
     metrics: { per100km: "Per 100 km", perFull: "Per volle lading", perYear: (v) => `Per jaar (${v.kmPerYear} km)` },
     kmTable: { heading: "Jaarkost per kilometrage", colKm: "Km per jaar", colYear: "Per jaar", colMonth: "Per maand" },
     factors: {
@@ -325,8 +325,7 @@ export const nlBE: Copy = {
     otherTariffs: { heading: "Zelfde auto, ander tarief", colTariff: "Tarief", colPer100: "Per 100 km", colYear: "Per jaar" },
     faq: (v) => [
       ...(v.perFull ? [{ q: `Wat kost een volle lading van de ${v.model} thuis?`, a: `${v.perFull} met ${v.tariffLabel} van ${v.pricePerKwh} per kWh, inclusief ${v.lossPct} laadverlies. Dat is voor de volledige batterij van ${v.batteryNet}; van 20 naar 80 % laad je zelden meer dan zestig procent daarvan.`  }] : []),
-      { q: `Hoeveel kost 100 km rijden met de ${v.model}?`, a: `${v.per100km} aan stroom bij thuisladen. Een vergelijkbare benzinewagen zit bij de huidige brandstofprijzen ruim boven het dubbele.` },
-      { q: "Is dit ook wat ik betaal aan een publieke laadpaal?", a: "Nee. Publieke AC-laadpalen rekenen doorgaans 40 tot 60 cent per kWh en snelladers 60 tot 80 cent. Deze pagina gaat over thuisladen op je eigen meter." },
+      { q: `Hoeveel kost 100 km rijden met de ${v.model}?`, a: `${v.per100km} aan stroom bij thuisladen.` },
     ],
     backToCharger: (v) => `Welke laadpaal voor de ${v.make} ${v.model}?`,
   },

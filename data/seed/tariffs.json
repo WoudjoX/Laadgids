@@ -2,7 +2,7 @@
   {
     "id": 1,
     "country": "BE",
-    "region": null,
+    "region": "VLA",
     "slug": "vast-dag",
     "label": {
       "nl": "vast tarief, all-in",
@@ -12,6 +12,21 @@
     "charging_loss_pct": 10,
     "source_url": "https://www.creg.be/nl/consumenten/prijzen-en-tarieven/creg-tarief-voor-terugbetaling-thuisladen-bedrijfswagens",
     "source_checked_at": "2026-09-22",
-    "notes": "CREG-laadtarief Vlaanderen Q4 2026 als all-in referentie (32,25 c/kWh). Marktgemiddelden september 2026: enkelvoudig 30,35, piek 31,28, dal 29,38. Bevestigd via CREG-webpagina; PDF-check door Erwin."
+    "notes": "CREG-tarief Vlaanderen Q4 2026 (32,25 c/kWh) als all-in referentie; geldt voor nl-BE (gewest VLA). Marktgemiddelden september 2026: enkelvoudig 30,35, piek 31,28, dal 29,38. Bevestigd via CREG-webpagina; PDF-check door Erwin. Op 30 oktober 2026 beperkt tot Vlaanderen: voordien gold deze rij ook voor fr-BE (Wallonië)."
+  },
+  {
+    "id": 2,
+    "country": "BE",
+    "region": "WAL",
+    "slug": "vast-dag",
+    "label": {
+      "nl": "vast tarief, all-in",
+      "fr": "tarif fixe, tout compris"
+    },
+    "price_cents_per_kwh": 37.79,
+    "charging_loss_pct": 10,
+    "source_url": "https://www.creg.be/nl/consumenten/prijzen-en-tarieven/creg-tarief-voor-terugbetaling-thuisladen-bedrijfswagens",
+    "source_checked_at": "2026-10-30",
+    "notes": "CREG-tarief Wallonië Q4 2026 (37,79 c/kWh) als all-in referentie, zelfde tabel en bron als de Vlaamse rij (32,25). Overgenomen van de CREG-webpagina op 30 oktober 2026; staat ook in de kennisbank (CREG-tarieven 2026). Geldt voor fr-BE (gewest WAL)."
   }
 ]

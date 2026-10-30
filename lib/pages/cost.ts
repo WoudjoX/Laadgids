@@ -66,7 +66,7 @@ export function buildCostPage(version: VersionFull, locale: Locale, tariff: Tari
   };
 
   const sources: SourceItem[] = [
-    { title: `${version.make.name} ${version.vehicle.model}: specificaties`, url: version.spec_source_url, checked: version.spec_source_date },
+    { title: copy.charger.sources.specTitle(version.make.name, version.vehicle.model), url: version.spec_source_url, checked: version.spec_source_date },
     { title: `${vars.tariffLabel}: ${vars.pricePerKwh}/kWh`, url: tariff.source_url, checked: tariff.source_checked_at },
   ];
   const updatedAt = [version.spec_source_date, tariff.source_checked_at].sort().at(-1) ?? today;

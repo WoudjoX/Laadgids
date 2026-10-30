@@ -52,6 +52,13 @@ export function tariffPathSlug(locale: Locale, tariffSlug: string): string {
   return TARIFF_PATH_SLUG[locale]?.[tariffSlug] ?? tariffSlug;
 }
 
+/** Omgekeerd: de dataslug ('vast-dag') uit de laatste padcomponent van een laadkostenpagina. */
+export function tariffSlugFromPath(locale: Locale, path: string): string {
+  const last = path.split("/").pop() ?? "";
+  const hit = Object.entries(TARIFF_PATH_SLUG[locale] ?? {}).find(([, v]) => v === last);
+  return hit ? hit[0] : last;
+}
+
 /** Pad van een laadkosten-pagina: /nl-be/laadkosten/{versie}/{tarief}, /fr-be/cout-recharge/{versie}/fixe-jour. */
 export function costPath(locale: Locale, versionSlug: string, tariffSlug: string): string {
   return `/${LOCALE_CONFIG[locale].segment}/${COST_SECTION[locale]}/${versionSlug}/${tariffPathSlug(locale, tariffSlug)}`;

@@ -8,6 +8,7 @@ import { loadRules, loadTariffs } from "@/lib/db/cached";
 import type { Locale } from "@/lib/db/types";
 import { compareVersions } from "./compare";
 import { modelIndex } from "./modelIndex";
+import { defaultOgImages } from "@/lib/seo/alternates";
 
 export interface CompareSearch {
   a?: string;
@@ -27,7 +28,13 @@ export function compareMetadata(section: string, seg: string): Metadata {
   const locale = resolve(section, seg);
   if (!locale) return {};
   const copy = getCopy(locale);
-  return { title: `${copy.compare.title} | ${copy.site.name}`, description: copy.compare.metaDescription, robots: { index: false, follow: true } };
+  const title = `${copy.compare.title} | ${copy.site.name}`;
+  return {
+    title,
+    description: copy.compare.metaDescription,
+    robots: { index: false, follow: true },
+    openGraph: { title, description: copy.compare.metaDescription, locale: LOCALE_CONFIG[locale].ogLocale, type: "website", siteName: copy.site.name, images: defaultOgImages() },
+  };
 }
 
 export async function renderCompare(section: string, seg: string, search: CompareSearch) {

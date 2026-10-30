@@ -81,7 +81,9 @@ export function MakePage({ copy, locale, make, items, all, otherMakes, vars, cos
           <ul className="mt-3 flex flex-wrap gap-x-5 gap-y-2 text-[15px]">
             {otherMakes.map((m) => (
               <li key={m.id}>
-                <Link href={makePath(locale, m.slug)}>{m.name}</Link>
+                <Link href={makePath(locale, m.slug)} className="inline-block py-1">
+                  {m.name}
+                </Link>
               </li>
             ))}
           </ul>
